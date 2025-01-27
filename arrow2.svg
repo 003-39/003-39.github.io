@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="131.742" height="15.25" viewBox="0 0 131.742 15.25">
+  <g id="그룹_160" data-name="그룹 160" transform="translate(-640.24 -2328.219)">
+    <g id="icon_double_caret" data-name="icon/double caret" transform="translate(756.732 2343.469) rotate(-90)">
+      <rect id="base" width="15.25" height="15.25" transform="translate(0 0)" fill="none"/>
+      <path id="select" d="M0,0,4.462,4.444,8.756,0" transform="translate(3.05 5.083)" fill="none" stroke="#707070" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/>
+    </g>
+    <line id="선_56" data-name="선 56" x2="124.289" transform="translate(641.74 2335.817)" fill="none" stroke="#707070" stroke-linecap="round" stroke-width="3"/>
+  </g>
+</svg>
