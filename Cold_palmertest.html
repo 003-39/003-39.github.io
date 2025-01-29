@@ -1,0 +1,1346 @@
+<!DOCTYPE html>
+<html>   
+<head>
+<meta charset="utf-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cold palmer</title>
+<link rel="stylesheet" type="text/css" id="applicationStylesheet" href="style.css"/>
+<style>
+    html {
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        height: 100vh;
+        overflow: auto;
+        overflow-x: hidden;
+    }
+</style>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+    const scaleViewToFit = () => {
+        const view = document.querySelector("#Cold_palmer");
+        if (!view) return;
+
+        const viewportWidth = window.innerWidth;
+        const viewportHeight = window.innerHeight;
+
+        const elementWidth = view.offsetWidth;
+        const elementHeight = view.offsetHeight;
+
+        // Calculate scale ratio
+        const scaleX = viewportWidth / elementWidth;
+        const scaleY = viewportHeight / elementHeight;
+
+        // Use the smaller scale to maintain aspect ratio
+        const scale = Math.min(scaleX, scaleY);
+
+        // Apply the scaling to the view
+        view.style.transform = `scale(${scale})`;
+        view.style.transformOrigin = "top left";
+
+        // Center the content horizontally only
+        const translateX = (viewportWidth - elementWidth * scale) / 2;
+        view.style.marginLeft = `${translateX}px`;
+    };
+
+    // Initial scaling
+    scaleViewToFit();
+
+    // Reapply scaling on window resize
+    window.addEventListener("resize", scaleViewToFit);
+});
+document.querySelectorAll(".panel__label").forEach((label) => {
+    label.addEventListener("click", () => {
+        const expanded = label.getAttribute("aria-expanded") === "true";
+        label.setAttribute("aria-expanded", !expanded);
+
+        const panelInnerId = label.getAttribute("aria-controls");
+        const panelInner = document.getElementById(panelInnerId);
+
+        if (panelInner) {
+            panelInner.style.height = !expanded ? `${panelInner.scrollHeight}px` : "0";
+            panelInner.style.visibility = !expanded ? "visible" : "hidden";
+            panelInner.style.opacity = !expanded ? "1" : "0";
+        }
+    });
+});
+document.addEventListener("DOMContentLoaded", () => {
+    const panelLabels = document.querySelectorAll(".panel__label");
+
+    // 초기화: 모든 패널을 닫힌 상태로 설정
+    panelLabels.forEach((label) => {
+        const panelInnerId = label.getAttribute("aria-controls");
+        const panelInner = document.getElementById(panelInnerId);
+
+        if (panelInner) {
+            // 초기 스타일 설정
+            label.setAttribute("aria-expanded", "false");
+            panelInner.style.height = "0";
+            panelInner.style.visibility = "hidden";
+            panelInner.style.opacity = "0";
+        }
+    });
+
+    // 브라우저가 초기 상태를 렌더링한 후 transition 활성화
+    setTimeout(() => {
+        const panelInners = document.querySelectorAll(".panel__inner");
+        panelInners.forEach((panelInner) => {
+            panelInner.style.transition = "height 0.4s ease, opacity 0.4s ease, visibility 0.4s ease";
+        });
+    }, 100); // 브라우저 렌더링 완료 후 transition 활성화
+
+    panelLabels.forEach((label) => {
+        label.addEventListener("click", () => {
+            const expanded = label.getAttribute("aria-expanded") === "true";
+            label.setAttribute("aria-expanded", !expanded);
+
+            const panelInnerId = label.getAttribute("aria-controls");
+            const panelInner = document.getElementById(panelInnerId);
+
+            if (panelInner) {
+                if (!expanded) {
+                    panelInner.style.height = `${panelInner.scrollHeight}px`; // 콘텐츠 높이 계산
+                    panelInner.style.visibility = "visible";
+                    panelInner.style.opacity = "1";
+                } else {
+                    panelInner.style.height = "0";
+                    panelInner.style.visibility = "hidden";
+                    panelInner.style.opacity = "0";
+                }
+            }
+        });
+    });
+});
+</script>
+</head>
+<body>
+	<div id="Cold_palmer" class="Cold_palmer_Class">
+		<div class="tap-1">
+			<div class="tapbox">
+				<div class="tapbox-menu">
+					<div class="tapbox-1">
+						<div class="tap-text">
+							<span>PLAYER</span>
+						</div>
+					</div>
+					<div class="tapbox-1">
+						<div class="tap-text">
+							<span>TEAM NEWS</span>
+						</div>
+					</div>
+					<div class="tapbox-1">	
+						<div class="tap-text">
+							<span>WATCH</span>
+						</div>
+					</div>
+					<div class="tapbox-1">
+						<div class="tap-text">
+							<span>STADIUM</span>
+						</div>	
+					</div>
+					<div class="tapbox-1">	
+						<div class="tap-text">
+							<span>SHOP</span>
+						</div>					
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="main">
+			<svg class="main-color" viewBox="0 -3.849 1280 722.808">
+				<path class="main-color" d="M 0 -1.70428466796875 C 0 -1.70428466796875 83.95674133300781 -3.1976318359375 319.114990234375 -1.70428466796875 C 647.2640380859375 -5.6517333984375 816.938720703125 1.136501312255859 1046.48974609375 -2.60009765625 C 1219.118896484375 -5.410129547119141 1280 -2.60009765625 1280 -2.60009765625 L 1279.630981445312 718.958740234375 C 1279.630981445312 718.958740234375 961.685546875 685.5894165039062 641.77783203125 691.5791015625 C 321.8700561523438 697.5687866210938 0 718.958740234375 0 718.958740234375 L 0 -1.70428466796875 Z">
+				</path>
+			</svg>
+			<img class="main-img" src="adi.png">
+			<div class="main-tit">
+				<div class="player-name">
+					<div class="main-text">
+						<span>COLE </span><br/><span style="font-size:140px;">PALMER  20</span>
+					</div>
+				</div>
+				<svg class="main-line">
+					<rect class="main-line">
+					</rect>
+				</svg>
+			</div>
+		</div>
+		<div class="player-info">
+			<div class="infobox">
+				<div class="info-tit">
+					<span>Cole Palmer joined from Manchester City on transfer deadline day in September 2023</span>
+				</div>
+			<div class="info-text">
+				<span>A young attacking player of outstanding all-round quality who can create and score  goals, his first year at Stamford Bridge could hardly have gone better as he was awarded Player of the Season and became a full England international. In July 2024, he scored for his nation in the European Championship final versus Spain.<br/>Ahead of the start of the 2024/25 campaign, there was good news for Chelsea fans when Palmer signed a two-year contract extension, committing him to the club until 2033. Very soon after he was one of the nominees for the prestigious Ballon d’Or and he was ranked 25th for that award when the vote result was announced.</span>
+			</div>
+			</div>
+			<div class="profile">
+				<img class="info-img" src="acy.png" srcset="acy.png 1x">
+				<svg class="pro-line">
+					<rect class="pro-line" rx="0" ry="0" x="0" y="0" width="892" height="3">
+					</rect>
+				</svg>
+			</div>
+		</div>
+        <div class="panel-container">
+            <div class="panel" aria-controls="panel-inner-1">
+                    <button type="button" class="panel__label" aria-expanded="false" aria-controls="panel-inner-1">
+                        2023/24
+                        <div class="panel-buttonbox">
+                            <svg class="panel-button">
+                                <rect class="panel-button">
+                                </rect>
+                            </svg>
+                            <svg class="panel-button-2">
+                                <rect class="panel-button-2">
+                                </rect>
+                            </svg>
+                        </div>
+                    </button>
+                    <div id="panel-inner-1" class="panel__inner" aria-expanded="false">
+                        <div class="rich-text">
+                            <div class="rich-text__content">
+                                    <p>
+                                        Palmer made his Chelsea debut coming on as a substitute at home to Nottingham Forest, one day after his signing. His first start came in his fourth appearance, a Carabao Cup win over Brighton in which he provided the assist for the only goal, with his own first Chelsea goal coming two games later when he converted a penalty. That was in a 4-1 win at Burnley in October 2023.
+                                    </p>
+                                    <p>
+                                        Having quickly become a surefire name on the team sheet and the first-choice penalty taker, Palmer's first four goals came from the spot, including a stoppage-time equaliser against his former club Man City, the day before he received his first call-up into the England senior squad. He registered four assists over the same period.
+                                    </p>
+                                    <div class="imgbox">
+                                        <div class="img-1">
+                                            <img data-type="Rectangle" class="img-1" src="acd.png" srcset="acd.png 1x">
+                                        </div>
+                                        <div class="descriptionbox">
+                                            <div class="img-description">
+                                                <span> At Tottenham Palmer nets his third Chelsea Penalty</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <p>
+                                        Open-play goals followed during his outstanding start at his new club, and his second in a win at Luton, a marvellously adept skip past the goalkeeper and finish, was voted Chelsea's Goal of the Month for December and was nominated for the equivalent Premier League award. Palmer was also on the shortlist for the Premier League’s Player of the Month.
+                                    </p>
+                                    <p>
+                                        Two goals in a big win against Middlesbrough in the semi-final second leg earned him the Carabao Cup's Player of the Round.                                "
+                                    </p>
+                                    <p>
+                                        Palmer's remarkable first Chelsea campaign accelerated still further when in March and April he scored 11 goals in just six games, including a hat-trick with two at the death against Man United to turn looming defeat into victory, and four past Everton including a first-half hat-trick. The first goal that day won a Premier League Goal of the Month award, and he was also named Premier League Player of the Season for April, the first Chelsea recipient since Eden Hazard in 2018, and the second youngest after Arjen Robben.
+                                    </p>
+                                    <div class="imgbox">
+                                        <div class="img-1">
+                                            <img data-type="Rectangle" class="img-1" src="acl.png" srcset="acl.png 1x">
+                                        </div>
+                                        <div class="descriptionbox">
+                                            <div class="img-description">
+                                                <span> Palmer wins Premier League Goal of the Month! </span>
+                                            </div>
+                                            <div class="img-description-2">
+                                                <span>Cole Palmer's strike against Everton has won the Premier League Goal of the Month award for April</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <p>
+                                        Then following month Palmer became the first Chelsea player to reach 30 Premier League goal involvements in a season while aged 21 or younger.
+                                    </p>
+                                    <p>
+                                        Honour followed honour followed honour - as at the Chelsea Annual Awards night Palmer picked up the Chelsea Player of the Year voted for by the fans, as well as the Players' Player of the Year Award. He was named the Premier League’s Young Player of the Season and the PFA Premier League Fans’ Player of the Year. He later collected the PFA Young Player of the Year for the season.
+                                    </p>
+                                    <p>
+                                        By the season’s end, his 45 Chelsea games had served up 25 goals, 22 of them in the Premier League which was bettered only by Man City’s Erling Haaland with 27. His 11 assists was the second-highest tally too, behind Villa’s Ollie Watkins on 13.
+                                    </p>
+                                    <div class="imgbox">
+                                        <div class="img-1">
+                                            <img data-type="Rectangle" class="img-1" src="acs.png" srcset="acs.png 1x">
+                                        </div>
+                                        <div class="descriptionbox">
+                                            <div class="img-description">
+                                                <span> Palmer’s first season in blue 🚀 2023/24 </span>
+                                            </div>
+                                            <div class="img-description-2">
+                                                <span>46 appearances, 25 goals, 15 assists and six end-of-season awards, including Chelsea's Player of the Season. What a year, Cole!</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <p>
+                                        Palmer joined Didier Drogba and Frank Lampard to become the third Chelsea player to score 20 or more goals and provide at least 10 assists in a Premier League season, and his 25 goals across all competitions in a single season was the most by a Chelsea player since those two in the double-winning campaign of 2009/10.
+                                    </p>
+                            </div>
+                        </div>
+                    </div>
+            </div>
+            <div class="panel" aria-controls="panel-inner-2">
+                    <button type="button" class="panel__label" aria-expanded="false" aria-controls="panel-inner-2">
+                        2024/25
+                        <div class="panel-buttonbox">
+                            <svg class="panel-button">
+                                <rect class="panel-button">
+                                </rect>
+                            </svg>
+                            <svg class="panel-button-2">
+                                <rect class="panel-button-2">
+                                </rect>
+                            </svg>
+                        </div>
+                    </button>
+                    <div id="panel-inner-2" class="panel__inner" aria-expanded="false">
+                        <div class="rich-text">
+                            <div class="rich-text__content">
+                                <p>
+                                    Palmer began the new season with a two-year extension to his contract under his belt, taking him up to 2033. Meanwhile, his preceding year continued to be recognised with a ranking of 25th for Ballon d'Or and the winning of the PFA Young Player of the Year award.
+                                </p>
+                                <p>
+                                    Typically, his first goal of the season, a precise lob in a 6-2 win at Wolverhampton Wanderers, won both the Premier League and the Chelsea goal of the month for August.
+                                </p>
+                                <div class="imgbox">
+                                    <img data-type="Rectangle" class="img-1" src="amb.png" srcset="amb.png 1x">
+                                    <div class="descriptionbox">
+                                        <div class="img-description">
+                                            <span> Palmer’s genius lob vs Wolves!
+                                            </span>
+                                        </div>
+                                        <div class="img-description-2">
+                                            <span>Re-live Cole Palmer’s exquisite lob against Wolverhampton Wanderers at Molineux…
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <p>
+                                    The next month, in the next game after netting away in a win at West Ham, Palmer became the first player in Premier League history to score four times in the first half of a match. Only Jimmy Greaves had done so in a Chelsea game before and Palmer joined four other Blues in scoring at least four goals twice in a top-flight league game.
+                                </p>
+                                <p>
+                                    Among his quadruple of strikes at home to Brighton was a stunning free-kick which was voted Chelsea goal of the month.
+                                </p>
+                                <p>
+                                    With five goals and an assist in September, he was unsurprisingly named Premier League Player of the Month, a month that had begun with his 50th Chelsea appearance in a home meeting with Crystal Palace.
+                                </p>
+                                <div class="imgbox">
+                                    <img data-type="Rectangle" class="img-1" src="ami.png" srcset="ami.png 1x">
+                                    <div class="descriptionbox">
+                                        <div class="img-description">
+                                            <span> 
+                                                Cole's super September! 🤩
+                                            </span>
+                                        </div>
+                                        <div class="img-description-2">
+                                            <span>
+                                                Re-live Cole Palmer's award-winning Player of the Month performances during September, including five Premier League goals and an assist...
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <p>
+                                    Another goal and another assist followed in October, as did another nomination for Player of the Month. A winner at home against Newcastle at the end of that month was voted Chelsea's best goal in October.
+                                </p>
+                                <div class="imgbox">
+                                    <img data-type="Rectangle" class="img-1" src="amn.png" srcset="amn.png 1x">
+                                    <div class="descriptionbox">
+                                        <div class="img-description">
+                                            <span> 
+                                                Palmer wins October GOTM! 💥
+                                            </span>
+                                        </div>
+                                        <div class="img-description-2">
+                                            <span>
+                                                Re-live Cole Palmer's piledriver during Chelsea's 2-1 Premier League win against Newcastle United at Stamford Bridge...
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <p>
+                                    By scoring our third goal in a 3-0 win over Aston Villa at the start of December, Palmer became the second-quickest Chelsea player to score 30 Premier League goals. It had taken him 46 games with only Jimmy Floyd Hasselbaink's 41 games proving faster. The following day he was named on the FIFPRO Men's World XI shortlist having the previous week been nominated for The Best FIFA Men's XI.
+                                </p>
+                                <p>
+                                    That same month, in a remarkable game at Tottenham when the Blues recovered from 2-0 down to win 4-3, Palmer scored two penalties and played a major part in an Enzo Fernandez goal.
+                                </p>
+                                <p>
+                                    The first of his penalties made it 37 Premier League goal contributions (goals or assists) in 2024, beating Hasselbaink’s club record set in 2001. The second, a coolly taken panenka perfect for his 'Cold Palmer' nickname, took him level with Hasselbaink's 12 out of 12 perfect spot-kick record for Chelsea. With Palmer's penalties having come in the league, it also set a new Premier League best, surpassing Yaya Toure's 11 out of 11.
+                                </p>
+                                <div class="imgbox">
+                                    <img data-type="Rectangle" class="img-1" src="amu.png" srcset="amu.png 1x">
+                                    <div class="descriptionbox">
+                                        <div class="img-description">
+                                            <span> 
+                                                Palmer scored from the spot at Spurs for the second season in a row
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+            </div>
+            <div class="panel" aria-controls="panel-inner-3">
+                    <button type="button" class="panel__label" aria-expanded="false" aria-controls="panel-inner-3">
+                        Pre-Chelsea
+                        <div class="panel-buttonbox">
+                            <svg class="panel-button">
+                                <rect class="panel-button">
+                                </rect>
+                            </svg>
+                            <svg class="panel-button-2">
+                                <rect class="panel-button-2">
+                                </rect>
+                            </svg>
+                        </div>
+                    </button>
+                    <div id="panel-inner-3" class="panel__inner" aria-expanded="false">
+                        <div class="rich-text">
+                            <div class="rich-text__content">
+                                <p>
+                                    Palmer joined Manchester City’s academy at Under-8 level and moved through the youth ranks at the club. He captained City’s Under-18s during the 2019/20 season and helped the side win the FA Youth Cup, scoring in the final against Chelsea. 
+                                </p>
+                                <p>
+                                    He was also named among the substitutes for the senior team on four occasions, including for a Premier League fixture against Chelsea at Stamford Bridge.
+                                </p>
+                                <p>
+                                    Palmer's men's first-team debut arrived the following season when he started in the Carabao Cup fourth round against Burnley. His first senior goal arrived a year later when he struck against Wycombe Wanderers in the same competition. 
+                                </p>
+                                <p>
+                                    In 2022/23, the 21-year-old established himself as a regular in the City squad. He made 25 appearances across all competitions and ended the campaign as a Premier League, Champions League and FA Cup winner. 
+                                </p>
+                                <p>
+                                    At the start of the next season, immediately prior to his move to Chelsea, he scored in both the Community Shield and UEFA Super Cup.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+            </div>
+            <div class="panel" aria-controls="panel-inner-4">
+                    <button type="button" class="panel__label" aria-expanded="false" aria-controls="panel-inner-4">
+                        Internatinal Career
+                        <div class="panel-buttonbox">
+                            <svg class="panel-button">
+                                <rect class="panel-button">
+                                </rect>
+                            </svg>
+                            <svg class="panel-button-2">
+                                <rect class="panel-button-2">
+                                </rect>
+                            </svg>
+                        </div>
+                    </button>
+                    <div id="panel-inner-4" class="panel__inner" aria-expanded="false">
+                        <div class="rich-text">
+                            <div class="rich-text__content">
+                                <p>
+                                    Having represented England through the junior age groups and played at the European Under-17 Championships, Palmer was part of the side (along with Levi Colwill and Noni Madueke) that won the European Under-21 Championship in the summer of 2023.
+                                </p>
+                                <p>
+                                    He scored in a 3-0 semi-final win over Israel and was in the side that beat Spain in the final.
+                                </p>
+                                <p>
+                                    In September 2023, he scored a fine goal in England Under-21s win against Luxembourg and then the next month, wore the captain's armband in a 9-1 win over Serbia.
+                                </p>
+                                <p>
+                                    In November of the same season, Palmer was a late call-up to the England senior squad for European Championship qualifiers against Malta and North Macedonia, reward for a fine start to his Chelsea career.
+                                </p>
+                                <p>
+                                    He came on in the second half of the Malta match at Wembley to earn his first cap. England won 2-0.
+                                </p>
+                                <p>
+                                    On his third appearance, against Bosnia in June 2024, he slotted his first senior international goal. Following a season in which he scored nine out of nine penalties for Chelsea, it came from the spot. That was in a warm-up game for Euro 2024, with Palmer named in the squad for the tournament in Germany.
+                                </p>
+                                <div class="imgbox">
+                                    <img data-type="Rectangle" class="img-1" src="axp.png" srcset="axp.png 1x">
+                                    <div class="descriptionbox">
+                                        <div class="img-description">
+                                            <span> Cole made his England senior team debut against Malta in November 2023
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <p>
+                                    Having remained on the bench for the first two group-stage games, Palmer came on in all the matches that followed as England made the final and he had a big impact late in the tournament.
+                                </p>
+                                <p>
+                                    He converted a penalty when the quarter-final against Switzerland went to a shoot-out and he provided an incisive pass for Ollie Watkins to score a late winner against the Netherlands in the next match.
+                                </p>
+                                <p>
+                                    With England 1-0 down versus Spain in Berlin, Palmer supplied the type of goal Chelsea fans had enjoyed all season to level the scores in the final, although he would ultimately be on the losing side.
+                                </p>
+                                <div class="imgbox">
+                                    <img data-type="Rectangle" class="img-1" src="axw.png" srcset="axw.png 1x">
+                                    <div class="descriptionbox">
+                                        <div class="img-description">
+                                            <span> Cole Palmer's goal in the Euro 2024 final
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <p>
+                                    In October 2024, Palmer was announced as the winner of a supporters' vote for the 2023/24 England Men’s Player of the Year award. He finished ahead of Real Madrid's Jude Bellingham and Arsenal's Bukayo Saka in the poll.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+            </div>
+        </div>
+        <div class="statbox">
+            <svg class="statline">
+                <rect class="statline" rx="0" ry="0" x="0" y="0" width="892" height="3">
+                </rect>
+            </svg>
+            <div class="statistics">
+                <div class="stat-tit-text">
+                    <span>STATISTICS</span>
+                </div>
+                <div class="league">
+                    <div class="leaguebox">
+                        <svg class="leaguebox">
+                            <rect class="leaguebox" rx="0" ry="0" x="0" y="0" width="320" height="38">
+                            </rect>
+                        </svg>
+                    </div>
+                    <div class="league-s">
+                        <svg class="league-s">
+                            <rect class="league-s" rx="0" ry="0" x="0" y="0" width="15" height="15">
+                            </rect>
+                        </svg>
+                        <svg class="league-v" viewBox="3886.877 524.493 8.612 4.371">
+                            <path class="league-v" d="M 3886.877197265625 524.4929809570312 L 3891.265869140625 528.8643188476562 L 3895.4892578125 524.4929809570312">
+                            </path>
+                        </svg>
+                    </div>
+                    <div class="league-text">
+                        <span>Premier League</span>
+                    </div>
+                    <div class="league-menu">
+                        <div class="leaguemenu">
+                            <div class="lgmenu-text">
+                                Premier League
+                            </div>
+                            <svg class="leaguemenu-1">
+                                <rect class="leaguemenu-1" rx="0" ry="0" x="0" y="0" width="322" height="35">
+                                </rect>
+                            </svg>
+                        </div>
+                        <div class="leaguemenu">
+                            <div class="lgmenu-text">
+                                FA cup
+                            </div>
+                            <svg class="leaguemenu-1">
+                                <rect class="leaguemenu-1" rx="0" ry="0" x="0" y="0" width="322" height="35">
+                                </rect>
+                            </svg>
+                        </div>
+                        <div class="leaguemenu">
+                            <div class="lgmenu-text">
+                                <span>Freindly</span>
+                            </div>
+                            <svg class="leaguemenu-1">
+                                <rect class="leaguemenu-1" rx="0" ry="0" x="0" y="0" width="322" height="35">
+                                </rect>
+                            </svg>
+                        </div>
+                        <div class="leaguemenu">
+                            <div class="lgmenu-text">
+                                <span>Carabao Cup</span>
+                            </div>
+                            <svg class="leaguemenu-1">
+                                <rect class="leaguemenu-1" rx="0" ry="0" x="0" y="0" width="322" height="35">
+                                </rect>
+                            </svg>
+                        </div>
+                        <div class="leaguemenu">
+                            <div class="lgmenu-text">
+                                <span>UEFA Conference League Qualifer</span>
+                            </div>
+                            <svg class="leaguemenu-1">
+                                <rect class="leaguemenu-1" rx="0" ry="0" x="0" y="0" width="322" height="35">
+                                </rect>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+                <div class="seoson">
+                    <svg class="seosonbox">
+                        <rect class="seosonbox" rx="0" ry="0" x="0" y="0" width="138" height="38">
+                        </rect>
+                    </svg>
+                    <div class="seoson-text">
+                        <span>2024/25</span>
+                    </div>
+                    <div class="seoson-v">
+                        <rect class="seoson-v" rx="0" ry="0" x="0" y="0" width="15" height="15">
+                        </rect>
+                        <svg class="league-v" viewBox="3886.877 524.493 8.612 4.371">
+                            <path class="league-v" d="M 3886.877197265625 524.4929809570312 L 3891.265869140625 528.8643188476562 L 3895.4892578125 524.4929809570312">
+                            </path>
+                        </svg>
+                    </div>
+                    <svg class="seoson-line" viewBox="0 0 131 2">
+                        <path class="seoson-line" d="M 0 0 L 131 0">
+                        </path>
+                    </svg>
+                    <div class="seosonmenu">
+                        <div class="ssmenu">
+                            <div class="ssmenu-text">
+                                2024/25
+                            </div>
+                            <svg class="ssmenu-1">
+                                <rect class="ssmenu-1" rx="0" ry="0" x="0" y="0" width="131" height="32">
+                                </rect>
+                            </svg>
+                        </div>
+                        <div class="ssmenu">
+                            <div class="ssmenu-text">
+                                2023/24
+                            </div>
+                            <svg class="ssmenu-1">
+                                <rect class="ssmenu-1" rx="0" ry="0" x="0" y="0" width="131" height="32">
+                                </rect>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+                <div class="stat-tap">
+                    <div onclick="application.goToTargetView(event)" class="appearances-box">
+                        <div class="stat-tap-text">
+                            <span>APPEARANCES</span>
+                        </div>
+                    </div>
+                    <div onclick="application.goToTargetView(event)" class="touches-box">
+                        <div class="stat-tap-text">
+                            <span>TOUCHES</span>
+                        </div>
+                    </div>
+                    <div onclick="application.goToTargetView(event)" class="pass-box">
+                        <div class="stat-tap-text">
+                            <span>PASSES</span>
+                        </div>
+                    </div>
+                    <div onclick="application.goToTargetView(event)" class="shot-box">
+                        <div class="stat-tap-text">
+                            <span>SHOTS</span>
+                        </div>
+                    </div>
+                    <div onclick="application.goToTargetView(event)" class="dici-box">
+                        <div class="stat-tap-text">
+                            <span>DISCIPLINE</span>
+                        </div>
+                    </div>
+                            <svg class="abh" viewBox="0 0 228 3">
+                                <path class="abh_Class" d="M 0 0 L 228 0">
+                                </path>
+                            </svg>
+                </div>
+                <div class="appbox">
+                    <div class="app-gameplay">
+                        <div class="apptext-2" data-name="appearances">
+                            <span data-description="Game played">22</span>
+                        </div>
+                        <div class="apptext-1">
+                            <span>Game Played</span>
+                        </div>
+                    </div>
+                    <div class="app-start">
+                        <div class="apptext-2" data-name="game_started">
+                            <span data-description="start">22</span>
+                        </div>
+                        <div class="apptext-1">
+                            <span>Starts</span>
+                        </div>
+                        <svg class="appline" viewBox="0 0 1 94">
+                            <path class="appline" d="M 0 94 L 0 0">
+                            </path>
+                        </svg>
+                    </div>
+                    <div class="app-minutes">
+                        <div class="apptext-2" data-name="mins_played">
+                            <span data-description="minutes">1231</span>
+                        </div>
+                        <div class="apptext-1">
+                            <span>Minutes Played</span>
+                        </div>    
+                        <svg class="appline" viewBox="0 0 1 94">
+                            <path class="appline" d="M 0 94 L 0 0">
+                            </path>
+                        </svg>
+                    </div>
+                    <div class="app-sub">
+                        <div class="apptext-2" data-name="total_sub_off">
+                            <span data-description="subbed">0/5</span>
+                        </div>
+                        <div class="apptext-1">
+                            <span>Subbed off</span>
+                        </div>
+                        <svg class="appline" viewBox="0 0 1 94">
+                            <path class="appline" d="M 0 94 L 0 0">
+                            </path>
+                        </svg>
+                    </div>
+                </div>
+                <div class="passbox">
+                    <div class="pass-1">
+                            <div class="pass-text">
+                                <span>Pass Direction </span>
+                            </div>
+                    </div>
+                    <div class="pass-1">
+                            <div class="pass-text">
+                                <span>Pass Completion %</span>
+                            </div>
+                    </div>
+                    <div class="pass-1">
+                            <div class="pass-text">
+                                <span>Pass Success Rate</span>
+                            </div>
+                    </div>
+                    <div class="direction-1">
+                        <svg data-type="Line" class="directline" viewBox="0 0 142 187">
+                            <path class="directline" d="M 0 0 L 142 187">
+                            </path>
+                        </svg>
+                        <svg data-type="Line" class="directline" viewBox="0 0 142 187">
+                            <path class="directline" d="M 0 187 L 142 0">
+                            </path>
+                        </svg>
+                        <svg data-type="Ellipse" class="directcurcle">
+                            <ellipse class="directcurcle" rx="6.5" ry="6.5" cx="6.5" cy="6.5">
+                            </ellipse>
+                        </svg>
+                    </div>
+                    <div class="pass-2">
+                        <div class="direction">
+                            <div class="direct-1">
+                                <div class="directiontext" data-name="fwd_pass">
+                                    <span>156</span>
+                                </div>
+                                <div class="directiontext-1">
+                                    <span>Forward</span>
+                                </div>
+                            </div>
+                            <div class="direct-2">
+                                <div class="directiontext" data-name="leftside_pass">
+                                    <span>184</span>
+                                </div>
+                                <div class="directiontext-1">
+                                    <span>Left</span>
+                                </div>
+                            </div>
+                            <div class="direct-3">
+                                <div class="directiontext" data-name="rightside_pass">
+                                    <span>110</span>
+                                </div>
+                                <div class="directiontext-1">
+                                    <span>Right</span>
+                                </div>
+                            </div>
+                            <div class="direct-4">
+                                <div class="directiontext" data-name="backward_pass">
+                                    <span>131</span>
+                                </div>
+                                <div class="directiontext-1">
+                                    <span>Backward</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="pass-2">
+                        <div class="completionbox-1">
+                            <div class="completion-text" data-name="pass_complecation">
+                                <span>82%</span>
+                            </div>
+                            <div class="completion-text-1">
+                                <span>Pass</span>
+                            </div>
+                            <svg data-type="Line" class="completionline" viewBox="0 0 236 1">
+                                <path class="completionline" d="M 0 0 L 236 0">
+                                </path>
+                            </svg>
+                        </div>
+                        <div class="completionbox-2">
+                            <div class="completion-text" data-name="success-long">
+                                <span>70%</span>
+                            </div>
+                            <div class="completion-text-1">
+                                <span>Long Balls</span>
+                            </div>
+                            <svg data-type="Line" class="completionline" viewBox="0 0 236 1">
+                                <path class="completionline" d="M 0 0 L 236 0">
+                                </path>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="pass-3">
+                        <div class="successbox">
+                            <div class="success-text">
+                                <span>Total Passes</span>
+                            </div>
+                            <div class="success-text-2"  data-name="total_pass">
+                                581
+                            </div>
+                            <svg data-type="Line" class="successline" viewBox="0 0 271.906 1">
+                                <path class="successline" d="M 0 0 L 271.90625 0">
+                                </path>
+                            </svg>
+                        </div>
+                        <div class="successbox">
+                            <div class="success-text">
+                                <span>Big Chances Created</span>
+                            </div>
+                            <div class="success-text-2" data-name="big_chance_created">
+                                41
+                            </div>
+                            <svg data-type="Line" class="successline" viewBox="0 0 271.906 1">
+                                <path class="successline" d="M 0 0 L 271.90625 0">
+                                </path>
+                            </svg>
+                        </div>
+                        <div class="successbox">
+                            <div class="success-text">
+                                <span>Successful Crosses</span>
+                            </div>
+                            <div class="success-text-2" data-name="accurate_cross">
+                                18
+                            </div>
+                            <svg data-type="Line" class="successline" viewBox="0 0 271.906 1">
+                                <path class="successline" d="M 0 0 L 271.90625 0">
+                                </path>
+                            </svg>
+                        </div>
+                        <div class="successbox">
+                            <div class="success-text">
+                                <span>Assists</span>
+                            </div>
+                            <div class="success-text-2" data-name="goal_assist">
+                                6
+                            </div>
+                            <svg data-type="Line" class="successline" viewBox="0 0 271.906 1">
+                                <path class="successline" d="M 0 0 L 271.90625 0">
+                                </path>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+                <div class="dicibox">
+                    <div class="yellow">
+                        <div class="card-text" data-name="yellow_card">
+                            <span>4</span>
+                        </div>
+                        <div class="card-text-1">
+                            <span>Yellow Cards</span>
+                        </div>
+                        <svg data-type="Rectangle" class="yellowcard">
+                            <rect class="yellowcard" rx="0" ry="0" x="0" y="0" width="26" height="34">
+                            </rect>
+                        </svg>
+                    </div>
+                    <div class="red">
+                        <div class="card-text" data-name="red_card">
+                            <span>0</span>
+                        </div>
+                        <div class="card-text-1">
+                            <span>Red Cards</span>
+                        </div>
+                        <svg data-type="Rectangle" class="redcard">
+                            <rect class="redcard" rx="0" ry="0" x="0" y="0" width="26" height="34">
+                            </rect>
+                        </svg>
+                    </div>
+                    <div class="foul">
+                        <div class="drawn">
+                            <div class="foul-text">
+                                <span>Foul Drawn</span>
+                            </div>
+                            <div class="foul-text-1" data-name="was_fouled">
+                                <span>38</span>
+                            </div>
+                            <svg data-type="Line" class="foulline" viewBox="0 0 440.858 1">
+                                <path class="foulline" d="M 0 0 L 440.8583984375 0">
+                                </path>
+                            </svg>
+                        </div>
+                        <div class="drawn">
+                            <div class="foul-text">
+                                <span>Foul Committed</span>
+                            </div>
+                            <div class="foul-text-1" data-name="fouls">
+                                <span>8</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="touchbox">
+                    <div class="touchbox-2">
+                        <div class="touchbox-1">
+                            <div class="touchtext-1-and-2">
+                                <div class="touchtext-1">
+                                    <span>Total Touches</span>
+                                </div>
+                                <div class="touchtext-2">
+                                    <span>Team Ranking/ 4th</span>
+                                </div>
+                            </div>
+                            <div class="touchtext-3" data-name="touches">
+                                <span>923</span>
+                            </div>
+                        </div>
+                        <div class="touchbox-1">
+                            <div class="touchtext-1-and-2">
+                                <div class="touchtext-1">
+                                    <span>Clearances</span>
+                                </div>
+                                <div class="touchtext-2">
+                                    <span>Team Ranking/ 11th</span>
+                                </div>
+                            </div>
+                            <div class="touchtext-3" data-name="total_clearance">
+                                <span>6</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="touchbox-2">
+                        <div class="touchbox-1">
+                            <div class="touchtext-1-and-2">
+                                <div class="touchtext-1">
+                                    <span>Tackles Won</span>
+                                </div>
+                                <div class="touchtext-2">
+                                    <span>Team Ranking/ 7th</span>
+                                </div>
+                            </div>
+                            <div class="touchtext-3" data-name="tackles_won_total">
+                                <span>7 / 5</span>
+                            </div>
+                        </div>
+                        <div class="touchbox-1">
+                            <div class="touchtext-1-and-2">
+                                <div class="touchtext-1">
+                                    <span>Interceptions</span>
+                                </div>
+                                <div class="touchtext-2">
+                                    <span>Team Ranking/ 6th</span>
+                                </div>
+                            </div>
+                            <div class="touchtext-3" data-name="interception_won">
+                                <span>6</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="touchbox-2">
+                        <div class="touchbox-1">
+                            <div class="touchtext-1-and-2">
+                                <div class="touchtext-1">
+                                    <span>Blocks</span>
+                                </div>
+                                <div class="touchtext-2">
+                                    <span>Team Ranking/ 3rd</span>
+                                </div>
+                            </div>
+                            <div class="touchtext-3">
+                                <span>1</span>
+                            </div>
+                        </div>
+                        <div class="touchbox-1">
+                            <div class="touchtext-1-and-2">
+                                <div class="touchtext-1">
+                                    <span>Duels Won / Lost</span>
+                                </div>
+                                <div class="touchtext-2">
+                                    <span>Team Ranking/ 11th</span>
+                                </div>
+                            </div>
+                            <div class="touchtext-3" data-name="duel_won_lost">
+                                <span>73/59</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="shotbox">
+                    <div class="goalbox">
+                        <div class="goal-text">
+                            <span>GOALS</span>
+                        </div>
+                        <div class="goal-text-1">
+                            <span>Overall Team Ranking</span>
+                        </div>
+                        <div class="goal-text-4">
+                            <span>#1</span>
+                        </div>
+                        <div class="goalbox-2">
+                            <div class="goalbox-3">
+                                <div class="goal-text-2">
+                                    <span>Total Goals</span>
+                                </div>
+                                <div class="goal-text-3" data-name="goals">
+                                    <span>11</span>
+                                </div>
+                            </div>
+                            <svg data-type="Line" class="goalline" viewBox="0 0 271 1">
+                                <path class="goalline" d="M 0 0 L 271 0">
+                                </path>
+                            </svg>
+                            <div class="goalbox-3">
+                                <div class="goal-text-2">
+                                    <span>Goals per Match</span>
+                                </div>
+                                <div class="goal-text-3" data-name="goal-per-match">
+                                    <span>0.65</span>
+                                </div>
+                            </div>
+                            <svg data-type="Line" class="goalline" viewBox="0 0 271.906 1">
+                                <path class="goalline" d="M 0 0 L 271.90625 0">
+                                </path>
+                            </svg>
+                            <div class="goalbox-3">
+                                <div class="goal-text-2">
+                                    <span>Minutes per Goal</span>
+                                </div>
+                                <div class="goal-text-3" data-name="minutes_per_goal"> 
+                                    <span>135</span>
+                                </div>
+                            </div>
+                            <svg data-type="Line" class="goalline" viewBox="0 0 271.906 1">
+                                <path class="goalline" d="M 0 0 L 271.90625 0">
+                                </path>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="shotting-box">
+                        <div class="box_inner">
+                            <svg data-type="Rectangle" class="bigbox">
+                                <rect class="bigbox_class" rx="0" ry="0" x="0" y="0" width="209.523" height="114.454" >
+                                </rect>
+                            </svg>
+                            <svg data-type="Rectangle" class="smallbox">
+                                <rect class="smallbox_class" rx="0" ry="0" x="0" y="0" width="126.439" height="52.484" >
+                                </rect>
+                            </svg>
+                            <div data-type="Group" class="vectorbox">
+                                <svg data-type="Ellipse" class="curcle">
+                                    <ellipse class="curcle_class" rx="60" ry="60" cx="60" cy="60">
+                                    </ellipse>
+                                </svg>
+                                <div class="arrow-1">
+                                    <img class="arrow-1_class" src="arrow1.svg">
+                                </div>
+                                <div class="arrow-2">
+                                    <img class="arrow-2_class" src="arrow2.svg">
+                                </div>
+                                <div class="arrow-3">
+                                    <img class="arrow-3_class" src="arrow3.svg">
+                                </div>
+                            </div>
+                            <div class="outsidebox">
+                                <div class="spot-text" data-name="obox-rate">
+                                    <span>27%</span>
+                                </div>
+                                <div class="spot-text-1">
+                                    <span>Goal Outside Box</span>
+                                </div>
+                            </div>
+                            <div class="penalty">
+                                <div class="spot-text" data-name="att_pen_goal">
+                                    <span>3</span>
+                                </div>
+                                <div class="spot-text-1">
+                                    <span>Penalties</span>
+                                </div>
+                            </div>
+                            <div class="insidebox">
+                                <div class="spot-text" data-name="inbox-rate">
+                                    <span>72%</span>
+                                </div>
+                                <div class="spot-text-1">
+                                    <span>Goal Inside Box</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="back">
+                            <svg data-type="Rectangle" class="back">
+                                <rect class="back_class" rx="0" ry="0" x="0" y="0" width="406" height="279">
+                                </rect>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="freekickbox">
+                        <div class="freetext">
+                            <span>Free Kicks</span>
+                        </div>
+                        <div class="freetext-1" data-name="att_freekick_goal">
+                            <span>1</span>
+                        </div>
+                    </div>
+                    <div class="scorewith">
+                        <div class="scorewith-text">
+                            <span>Scored with</span>
+                        </div>
+                        <div class="scorewhere">
+                            <div class="scorewhere-1">
+                                <div class="score-text" data-name="att_head_goal">
+                                    0
+                                </div>
+                                <div class="score-text-1">
+                                    <span>HEAD</span>
+                                </div>
+                            </div>
+                            <div class="scorewhere-1">
+                                <div class="score-text" data-name="att_rt_goal">
+                                    0
+                                </div>
+                                <div class="score-text-1">
+                                    <span>RIGHT FOOT</span>
+                                </div>
+                            </div>
+                            <div class="scorewhere-1">
+                                <div class="score-text" data-name="att_lf_goal">
+                                    11
+                                </div>
+                                <div class="score-text-1">
+                                    <span>LEFT FOOT</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="stat-padding"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+document.addEventListener("DOMContentLoaded", async () => {
+    try {
+        // API에서 데이터 가져오기
+        const response = await fetch("https://zero03-39-github-io.onrender.com/api/player-stats");
+        const data = await response.json(); // API 응답 데이터
+
+        // stats 배열 추출
+        const stats = data.stats;
+        
+        const targetElements = document.querySelectorAll(
+            ".apptext-2, .directiontext, .success-text-2, .touchtext-3, .card-text, .completion-text, .foul-text-1, .goal-text-3, .spot-text, .freetext-1, .score-text"
+        );
+
+        const statsMap = Object.fromEntries(stats.map(stat => [stat.name, stat.value]));
+
+                targetElements.forEach((element) => {
+            const name = element.getAttribute("data-name"); // data-name 속성 값 가져오기
+
+            if (name && statsMap[name] !== undefined) {
+                // 데이터가 존재하면 값을 업데이트
+                element.textContent = statsMap[name];
+            } else if (name === "goal-per-match") {
+                // 두 값 계산: accurate_pass / total_pass (백분율)
+                const goals = statsMap["goals"] || 0;
+                const appearances = statsMap["appearances"] || 1; // 0으로 나누는 것 방지
+                element.textContent = (goals / appearances).toFixed(2);  
+            } else if (name === "minutes_per_goal") {
+                // 두 값 계산: accurate_pass / total_pass (백분율)
+                const minsPlayed = statsMap["mins_played"] || 0;
+                const goals = statsMap["goals"] || 1; // 0으로 나누는 것 방지
+                element.textContent = (minsPlayed / goals).toFixed(0);      
+            } else if (name === "tackles_won_total") {
+                // 두 값 계산: accurate_pass / total_pass (백분율)
+                const wontackle = statsMap["won_tackle"] || 0;
+                const totaltackle = statsMap["total_tackle"] || 1; // 0으로 나누는 것 방지
+                element.textContent = `${wontackle}/${totaltackle}`;  
+            } else if (name === "duel_won_lost") {
+                // 두 값 계산: accurate_pass / total_pass (백분율)
+                const wonduel = statsMap["duel_won"] || 0;
+                const lostduel = statsMap["duel_lost"] || 1; // 0으로 나누는 것 방지
+                element.textContent = `${wonduel}/${lostduel}`;  
+            } else if (name === "obox-rate") {
+                // 두 값 계산: accurate_pass / total_pass (백분율)
+                const oboxgoal = statsMap["att_obox_goal"] || 0;
+                const goals = statsMap["goals"] || 1; // 0으로 나누는 것 방지
+                element.textContent = ((oboxgoal / goals)*100).toFixed(0) + '%';   
+            } else if (name === "inbox-rate") {
+                // 두 값 계산: accurate_pass / total_pass (백분율)
+                const iboxgoal = statsMap["att_ibox_goal"] || 0;
+                const goals = statsMap["goals"] || 1; // 0으로 나누는 것 방지
+                element.textContent = ((iboxgoal / goals)*100).toFixed(0) + '%';  
+            } else if (name === "success-long") {
+                // 두 값 계산: accurate_pass / total_pass (백분율)
+                const suclong = statsMap["accurate_long_balls"] || 0;
+                const totallong = statsMap["total_long_balls"] || 1; // 0으로 나누는 것 방지
+                element.textContent = ((suclong / totallong)*100).toFixed(0) + '%'; 
+            } else if (name === "pass_complecation") {
+                // 두 값 계산: accurate_pass / total_pass (백분율)
+                const sucpass = statsMap["accurate_pass"] || 0;
+                const totalpass = statsMap["total_pass"] || 1; // 0으로 나누는 것 방지
+                element.textContent = ((sucpass / totalpass)*100).toFixed(0) + '%'; 
+            } else {
+                // 데이터가 없을 경우 기본 메시지 표시
+                element.textContent = "0";
+            }
+        });
+
+    } catch (error) {
+        console.error("API 요청 중 오류 발생:", error.message);
+    }
+});
+document.addEventListener("DOMContentLoaded", () => {
+    // 모든 tapbox-1 요소 선택
+    const tapboxes = document.querySelectorAll(".tapbox-1");
+
+    tapboxes.forEach((tapbox) => {
+        const tapText = tapbox.querySelector(".tap-text"); // .tapbox-1 내부의 .tap-text 요소 선택
+
+        // hover 시 배경색 및 텍스트 색상 변경
+        tapbox.addEventListener("mouseenter", () => {
+            tapbox.style.backgroundColor = "rgba(24, 61, 213, 0.8)"; // hover 시 배경색
+            if (tapText && !tapbox.classList.contains("active")) {
+                tapText.style.color = "rgba(255, 255, 255, 1)"; // hover 시 텍스트 색상
+            }
+        });
+
+        // hover 해제 시 배경색 및 텍스트 색상 복원
+        tapbox.addEventListener("mouseleave", () => {
+            if (!tapbox.classList.contains("active")) {
+                tapbox.style.backgroundColor = "white"; // 기본 배경색 복원
+                if (tapText) {
+                    tapText.style.color = "rgba(0, 0, 0, 1)"; // 기본 텍스트 색상 복원
+                }
+            }
+        });
+
+        // 클릭 시 active 상태로 변경
+        tapbox.addEventListener("click", () => {
+            // 다른 모든 tapbox-1에서 active 클래스 제거 및 기본 스타일 복원
+            tapboxes.forEach((box) => {
+                box.classList.remove("active");
+                box.style.backgroundColor = "white"; // 기본 배경색 복원
+                const text = box.querySelector(".tap-text");
+                if (text) text.style.color = "rgba(0, 0, 0, 1)"; // 기본 텍스트 색상 복원
+            });
+
+            // 클릭된 요소에 active 클래스 추가 및 스타일 업데이트
+            tapbox.classList.add("active");
+            tapbox.style.backgroundColor = "rgba(24, 61, 213, 1)"; // active 상태 배경색
+            if (tapText) {
+                tapText.style.color = "rgba(255, 255, 255, 1)"; // active 상태 텍스트 색상
+            }
+        });
+    });
+});
+document.querySelectorAll('.appearances-box, .touches-box, .pass-box, .shot-box, .dici-box').forEach(box => {
+    box.addEventListener('click', function() {
+        // 모든 박스에서 active 클래스를 제거
+        document.querySelectorAll('.appearances-box, .touches-box, .pass-box, .shot-box, .dici-box')
+            .forEach(item => item.classList.remove('active'));
+
+        // 클릭한 박스에만 active 클래스 추가
+        this.classList.add('active');
+    });
+});
+document.addEventListener("DOMContentLoaded", function () {
+    // 박스 선택
+    const appBox = document.querySelector('.appbox');
+    const passBox = document.querySelector('.passbox');
+    const diciBox = document.querySelector('.dicibox');
+    const touchBox = document.querySelector('.touchbox');
+    const shotBox = document.querySelector('.shotbox');
+
+    // 초기 상태: appbox만 보이기
+    appBox.style.display = 'block';
+    passBox.style.display = 'none';
+    diciBox.style.display = 'none';
+    touchBox.style.display = 'none';
+    shotBox.style.display = 'none';
+
+    // appearances-box 클릭
+    document.querySelector('.appearances-box').addEventListener('click', function () {
+        appBox.style.display = 'block'; // appbox 보이기
+        passBox.style.display = 'none'; // 다른 박스 숨기기
+        diciBox.style.display = 'none';
+        touchBox.style.display = 'none';
+        shotBox.style.display = 'none';
+    });
+
+    // pass-box 클릭
+    document.querySelector('.pass-box').addEventListener('click', function () {
+        appBox.style.display = 'none';
+        passBox.style.display = 'flex'; // passbox 보이기
+        diciBox.style.display = 'none';
+        touchBox.style.display = 'none';
+        shotBox.style.display = 'none';
+    });
+
+    // dici-box 클릭
+    document.querySelector('.dici-box').addEventListener('click', function () {
+        appBox.style.display = 'none';
+        passBox.style.display = 'none';
+        diciBox.style.display = 'block'; // dicibox 보이기
+        touchBox.style.display = 'none';
+        shotBox.style.display = 'none';
+    });
+
+    document.querySelector('.touches-box').addEventListener('click', function () {
+        appBox.style.display = 'none';
+        passBox.style.display = 'none';
+        diciBox.style.display = 'none'; 
+        touchBox.style.display = 'flex';
+        shotBox.style.display = 'none';
+    });
+
+    document.querySelector('.shot-box').addEventListener('click', function () {
+        appBox.style.display = 'none';
+        passBox.style.display = 'none';
+        diciBox.style.display = 'none'; 
+        touchBox.style.display = 'none';
+        shotBox.style.display = 'block';
+    });
+});
+document.addEventListener("DOMContentLoaded", function () {
+    const menus = [
+        { box: ".league", menu: ".league-menu" },
+        { box: ".seoson", menu: ".seosonmenu" }
+    ];
+
+    menus.forEach(({ box, menu }) => {
+        const menuBox = document.querySelector(box);
+        const menuElement = document.querySelector(menu);
+
+        if (menuElement && menuBox) {
+            menuElement.style.height = '0';
+
+            menuBox.addEventListener('click', function () {
+                // 해당 .league 또는 .seoson 내부에서 .league-v 선택
+                const menuIcon = menuBox.querySelector(".league-v");
+
+                // 다른 메뉴 닫기
+                menus.forEach(({ menu: otherMenu, box: otherBox }) => {
+                    if (otherMenu !== menu) {
+                        document.querySelector(otherMenu).style.height = '0';
+                        document.querySelector(otherMenu).classList.remove('active');
+                        const otherBoxElement = document.querySelector(otherBox);
+                        if (otherBoxElement) {
+                            const otherIcon = otherBoxElement.querySelector(".league-v");
+                            if (otherIcon) {
+                                otherIcon.style.transform = 'rotate(0deg)';
+                            }
+                        }
+                    }
+                });
+
+                if (menuElement.classList.contains('active')) {
+                    menuElement.style.height = '0';
+                    menuElement.classList.remove('active');
+                    if (menuIcon) menuIcon.style.transform = 'rotate(0deg)';
+                } else {
+                    menuElement.style.height = menuElement.scrollHeight + 'px';
+                    menuElement.classList.add('active');
+                    if (menuIcon) menuIcon.style.transform = 'rotate(180deg)';
+                }
+            });
+        }
+    });
+});
+
+document.addEventListener("click", function (event) {
+    const leagueBox = document.querySelector('.league');
+    const leagueMenu = document.querySelector('.league-menu');
+    const seosonBox = document.querySelector('.seoson');
+    const seosonMenu = document.querySelector('.seosonmenu');
+
+    if (leagueMenu && !leagueBox.contains(event.target) && !leagueMenu.contains(event.target)) {
+        leagueMenu.classList.remove('active'); // 메뉴 닫기
+    }
+    if (seosonMenu && !seosonBox.contains(event.target) && !seosonMenu.contains(event.target)) {
+        seosonMenu.classList.remove('active'); // 메뉴 닫기
+    }
+});
+</script>
+</body>
+</html>
