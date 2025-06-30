@@ -1,0 +1,297 @@
+
+	.mediaViewInfo {
+		--web-view-name: 웹 1280 – 5;
+		--web-view-id: n_1280__5;
+		--web-scale-on-resize: true;
+		--web-enable-deep-linking: true;
+	}
+	:root {
+		--web-view-ids: n_1280__5;
+	}
+	* {
+		margin: 0;
+		padding: 0;
+		box-sizing: border-box;
+		border: none;
+	}
+	#n_1280__5 {
+		position: absolute;
+		width: 1280px;
+		height: 6252px;
+		background-color: rgba(0,30,70,1);
+		overflow: hidden;
+		--web-view-name: 웹 1280 – 5;
+		--web-view-id: n_1280__5;
+		--web-scale-on-resize: true;
+		--web-enable-deep-linking: true;
+	}
+	.header{
+		position: absolute;
+		width: 100%;
+		height: 82px;
+		background-color: white;
+	}
+	.tap-1 {
+		position: absolute;
+		width: 1280px;
+		height: 73px;
+		left: 0px;
+		top: 0px;
+		overflow: visible;
+		background-color: white;
+	}
+	.tapbox {
+		position: relative;
+		overflow: hidden;
+		width: 100%;
+		height: 73px;
+		left: 0px;
+		top: 0px;
+	}
+	.tapbox-menu {
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+		position: relative;
+		width: 750px;
+		height: 61px;
+		left: 540px;
+		top: 10px;
+		overflow: visible;
+	}
+	.tapbox-1 {
+		position: relative;
+		flex: 1 0 auto;
+		width: 151px;
+		height: 61px;
+		left: 0px;
+		top: 0px;
+		overflow: hidden;
+		background-color: white; /* 기본 배경색 */
+		transition: background-color 0.2s ease;
+	}
+	.tapbox-1:hover {
+		background-color: rgba(24, 61, 213, 1); 
+	}
+	.tapbox-1.active {
+		background-color: rgba(24, 61, 213, 1); 
+	}
+	.tapbox-1::after {
+		content: "";
+		position: absolute;
+		bottom: -4px;
+		left: 0;
+		height: 4px;
+		width: 0; /* 초기 상태에서는 보이지 않음 */
+		background-color: rgba(24,61,213,1); /* 라인 색상 */
+	}
+	.tapbox-1:hover::after {
+		width: 100%; /* 라인이 박스의 전체 너비만큼 확장 */
+	}
+	.tapbox-1.active::after {
+		width: 100%; /* 라인이 유지됨 */
+	}
+	.tap-text {
+		position: relative;
+		left: 50%;
+		top: 28px;
+		transform: translate(-50%, -50%); 
+		white-space: nowrap;
+		text-align: center;
+		font-family: SF Pro;
+		font-style: normal;
+		font-weight: bold;
+		font-size: 15px;
+		color: rgba(0,0,0,1);
+	}
+	.tapbox-1:hover .tap-text {
+		color: rgba(255, 255, 255, 1); /* hover 시 텍스트 색상 */
+	}
+	
+	.tapbox-1.active .tap-text {
+		color: rgba(255, 255, 255, 1); /* active 시 텍스트 색상 */
+	}
+	.title-container {
+		width: 100%;
+		display: flex;
+		justify-content: flex-start; 
+		padding-top: 70px;
+		padding-bottom: 40px;
+	  }
+	.title-text {
+		margin: 0 0 0 60px;
+		max-width: 90%;
+		text-align: left;
+		font-family: 'Oswald', sans-serif;
+		font-size: clamp(32px, 6vw, 80px);
+		font-weight: 300;
+		color: rgba(105,197,255,1);
+	}
+	#aav {
+		display: flex;
+		justify-content: center;        /* 가운데 정렬 */
+		gap: 27px;                      /* 카드 간 간격 */
+		flex-wrap: nowrap;              /* 넘치면 줄바꿈 안 함 (필요 시 auto) */
+		padding: 0;
+		margin: 20px 0 0 0;
+	}
+	#aaw {
+		position: absolute;
+		width: 374px;
+		height: 499px;
+		left: 401px;
+		top: 0px;
+		overflow: visible;
+	}
+	#aax {
+		position: absolute;
+		width: 374px;
+		height: 499px;
+		left: 0px;
+		top: 0px;
+		overflow: visible;
+	}
+	#accent-line {
+		fill: rgba(0,0,0,0);
+		stroke: rgba(255,255,255,1);
+		stroke-width: 3px;
+		stroke-linejoin: miter;
+		stroke-linecap: butt;
+		stroke-miterlimit: 100;
+		shape-rendering: auto;
+	}
+	.accent-line {
+		position: absolute;
+		bottom: 160px;      
+		left: 50%;                 
+		transform: translateX(-50%); 
+		width: 315px;
+		height: 3.5px;
+		overflow: visible;
+	}
+	.player-image-container {
+		position: absolute;
+		top: 35px; /* 얼굴 안 잘리게 위에서부터 시작 */
+		left: 0;
+		width: 100%;
+		height: 500px; /* 카드에 맞춘 고정 높이 */
+		display: flex;
+		justify-content: center;
+		overflow: visible;
+		z-index: 2;
+	}
+
+	.player-image {
+		width: 90%;
+		height: auto;
+		object-fit: cover;
+		object-position: top center;
+		z-index: 2;
+		transition: transform 0.4s ease, filter 0.4s ease;
+	}
+	.card:hover .player-image {
+		transform: scale(1.03); /* 살짝 확대 */
+		filter: drop-shadow(0 0 6px rgba(94, 234, 255, 0.441)); /* 은은한 glow */
+	}
+	.number {
+		position: absolute;
+		opacity: 0.6;
+		border: 0;
+		right: 35px;
+		top: 5px;
+		overflow: visible;
+		width: auto ;
+		white-space: nowrap;
+		text-align: right;
+		font-family: 'Anton', sans-serif;
+		border: none;
+		font-style: normal;
+		font-weight: normal;
+		font-size: 130px;
+		color: rgba(8,64,255,1);
+		z-index: 1;
+	}
+	.name {
+		left: 33px;
+		bottom: 31px;
+		position: absolute;
+		overflow: visible;
+		width: 305px;
+		white-space: nowrap;
+		line-height: 51px;
+		margin-top: -11px;
+		text-align: left;
+		font-family: SFProDisplay-Bold;
+		font-style: normal;
+		font-weight: normal;
+		font-size: 29px;
+		color: rgba(254,254,254,1);
+		transition: bottom 0.3s ease-in-out;
+		letter-spacing: 0.1px;
+		z-index: 5;
+	}
+	.flag-icon {
+		margin-top: 40px;
+		margin-left: 30px;
+		width: 65px;
+		height: auto;
+		object-fit: contain;
+		display: block;
+	}
+	.card {
+		position: relative;
+		width: 374px;
+		height: 505px;
+		background-image: url("image/background.png");
+		background-size: cover;
+		background-repeat: no-repeat;
+		background-position: center;
+		overflow: hidden;
+		border: 1px solid rgba(105,197,255,0.8);
+		box-sizing: border-box;
+		z-index: 0;
+	}
+
+	.card:hover {
+		background-color: rgba(105,197,255,1); /* 마우스 올렸을 때 반투명 효과 */ 
+	}
+	.card:hover .name {
+		bottom: 180px; /* 마우스 올렸을 때 위치 */
+	}
+
+	.player-stats {
+		position: absolute;
+		bottom: -150px; /* 처음에 완전 아래로 숨김 */
+		left: 32px;
+		width: calc(100% - 64px); /* 좌우 패딩 고려 */
+		display: flex;
+		flex-direction: column;
+		gap: 14px;
+		z-index: 3;
+		transition: all 0.4s ease-in-out;
+	  }
+	  
+	  .stat {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+	  }
+	  
+	  .label {
+		font-family: 'SF Pro', sans-serif;
+		font-size: 22px;
+		font-weight: 400;
+		color: white;
+	  }
+	  
+	  .value {
+		font-family: 'SF Pro', sans-serif;
+		font-size: 22px;
+		font-weight: 700;
+		color: #FFC608;
+	  }
+	  
+	  .card:hover .player-stats {
+		bottom: 24px; /* 위로 올라와서 보이는 위치 */
+	  }
+	
