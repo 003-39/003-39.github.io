@@ -1,0 +1,1672 @@
+/* #region html 섹션 */
+.mediaViewInfo {
+	--web-view-name: template;
+	--web-view-id: template;
+	--web-scale-on-resize: true;
+	--web-enable-deep-linking: true;
+}
+:root {
+	--web-view-ids: template;
+}
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	border: none;
+}
+html, body {
+	height: auto;
+	min-height: 100vh;
+  }
+#template {
+	width: 1280px;
+	height: auto;
+	background-color: rgb(255, 255, 255);
+	overflow: visible;
+	--web-view-name: template;
+	--web-view-id: template;
+	--web-scale-on-resize: true;
+	--web-enable-deep-linking: true;
+}
+/* #endregion */
+/* #region tap 섹션 */
+.tapbox {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    height: 73px;
+    left: 0px;
+    top: 0px;
+}
+.tapbox-menu {
+	position: absolute;
+	right: 0;
+	display: flex;
+	justify-content: space-evenly;
+	align-items: center;
+	height: 100%;
+	height: 82px;
+	max-width: 900px;
+	margin: 0 auto;
+  }
+  .tapbox-item {
+	flex: 1;
+	width: 151px;
+	height: 82px;
+	line-height: 68px;
+	text-align: center;
+    font-family: SF Pro;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 15px;
+	cursor: pointer;
+	position: relative;
+	transition: background-color 0.2s ease, color 0.2s ease;
+  }
+  .tapbox-item span {
+	font-family: 'SF Pro', sans-serif;
+	font-weight: bold;
+  }
+
+  .tapbox-item:hover {
+	background-color: rgba(24, 61, 213, 1);
+	color: white;
+  }
+  .tapbox-item::after {
+	content: '';
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 0;
+	height: 4px;
+	background-color: rgba(24, 61, 213, 1);
+	transition: width 0.3s ease;
+  }
+  
+  .tapbox-item:hover::after,
+  .tapbox-item.active::after {
+	width: 100%;
+  }
+  
+  .tapbox-item.active {
+	background-color: rgba(24, 61, 213, 1);
+	color: white;
+  }
+/* #endregion */
+/* #region main 섹션 */
+  .main {
+    position: relative;
+    width: 100%;
+    height: 723px;
+    overflow: hidden;
+  }
+  .main-color {
+	position: relative;
+	width: 100%;
+	height: 723px;
+	fill: rgba(5, 20, 131, 1);
+	display: block;
+  }
+  .main-img {
+	position: absolute;
+	width: 100%;
+	height: 723px;
+	object-fit: cover;
+	top: 0;
+	left: 0;
+	z-index: 0;
+  }
+  .main-title {
+	position: absolute;
+	left: 105px;
+	top: 340px;
+	z-index: 1;
+	color: white;
+	font-family: 'Graphik Compact Trial', sans-serif;
+  }
+  .main-title h1 {
+	font-size: 60px;
+	font-weight: bold;
+	margin: 0;
+	letter-spacing: 0.8px;
+	line-height: 1.2;
+  }
+  
+  .main-title .number {
+	font-size: 140px;
+	font-weight: bold;
+	display: block;
+	line-height: 1;
+  }
+
+  .main-line rect {
+	width: 1026px;
+	height: 3px;
+	fill: rgba(255, 255, 255, 1);
+  }
+  .profile {
+    position: relative;
+    width: 100%;
+    height: 461px;
+	margin-top: 70px;
+    overflow: visible;
+  }
+  .infobox {
+	margin-left: 487px; /* 이미지 너비 + 여백 */
+	width: 680px;
+  }
+  .info-tit {
+	font-family: 'SF Pro', sans-serif;
+	font-weight: bold;
+	font-size: 28px;
+	color: rgba(0, 51, 160, 1);
+	line-height: 40px;
+  }
+  .info-text {
+	margin-top: 30px;
+	font-family: 'SF Pro', sans-serif;
+	font-size: 16px;
+	font-weight: normal;
+	color: rgba(105, 105, 105, 1);
+	line-height: 35px;
+  }
+  .info-img {
+	position: absolute;
+	width: 305px;
+	height: 458px;
+	left: 67px;
+	top: 0px;
+    object-fit: cover;
+  }
+  .pro-line {
+    position: absolute;
+    overflow: visible;
+    width: 892px;
+    height: 3px;
+    left: 0px;
+    top: 458px;
+    fill: rgba(24,61,213,1);
+  }
+/* #endregion */
+ /* #region panel 섹션 */
+.ac-wrap {
+    position: relative;
+    display: flex;
+    flex-direction: column; 
+    width: 100%;
+	max-width: 1108px;
+    align-items: flex-start;
+    flex-wrap: nowrap;
+    left: 85.84px;
+	margin-top: 67px;
+    transition: height 0.4s ease; 
+}
+.ac-panel {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    overflow: visible;
+    position: relative;
+    transition: height 0.4s ease;
+}
+.ac-header {
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid rgba(0, 0, 0, .2);
+    color: rgba(0,51,160,1);
+    cursor: pointer;
+    display: block;
+    font-family: SF Pro;
+    font-weight: bold;
+    font-size: 36px;
+    line-height: 1;
+    padding: 25px 95px 25px 10px;
+    position: relative;
+    width: 100%; 
+    text-align: left;
+    transition: color 0.2s linear;
+}
+.ac-header[aria-expanded="true"] .ac-bar-2 {
+    transform: rotate(45deg);
+}
+.ac-header[aria-expanded="true"] .ac-bar-1 {
+    transform: rotate(180deg);
+}
+.ac-bar-1,
+.ac-bar-2 {
+    transform: rotate(0deg); /* 초기 상태 */
+    transform-origin: center; /* 중심 기준 회전 */
+    transition: transform 0.3s ease;
+}
+.ac-toggle-box {
+    position: absolute;
+    overflow: visible;
+    right: 15px;
+    top: 35px;
+    width: 20px;
+    height: 20px;
+}
+.ac-bar-1 {
+    position: absolute;
+	overflow: visible;
+    top: 37.5%;
+    width: 20px;
+    height: 5px;
+    background-color: rgba(1, 51, 160, 1);
+}
+.ac-bar-2 {
+    position: absolute;
+	overflow: visible;
+    left: 37.5%;
+    width: 5px;
+    height: 20px;
+    background-color: rgba(1, 51, 160, 1);
+}
+.ac-body {
+    margin-left: 40px;
+    height: 0; 
+    overflow: hidden;
+    visibility: hidden;
+    flex: 0 0 auto;
+    opacity: 0;
+    transition: none;
+}
+.ac-header[aria-expanded="true"] + .ac-body {
+    height: auto;
+    visibility: visible;
+    opacity: 1;
+    transition: height .4s cubic-bezier(.65,.05,.36,1);
+}
+.ac-header[aria-expanded="false"] + .ac-body {
+    height: 0;
+    visibility: hidden;
+    opacity: 0;
+    transition: none;
+}
+.ac-content {
+    color: inherit;
+    margin: 65px 0 0;
+    padding-bottom: 80px;
+    width: 100%;
+	max-width: 1050px;
+}
+.ac-content p {
+    text-align: left;
+    font-family: SF Pro;
+    font-size: 18px;
+    font-weight: normal;
+    margin: 25px 0 0;
+    color: rgba(105, 105, 105, 1);
+}
+.ac-img-title {
+    margin-top: 13px;
+    font-family: SF Pro;
+    font-weight: bold;
+    font-size: 18px;
+    color: rgba(0, 0, 0, 1);
+    text-align: left;
+}
+.ac-img-desc {
+    margin-top: 7px;
+    font-family: SF Pro;
+    font-weight: normal;
+    font-size: 18px;
+    color: rgba(105, 105, 105, 1);
+    text-align: left;
+}
+.ac-title {
+    font-family: SF Pro;
+    font-weight: bold;
+    font-size: 36px;
+    line-height: 63px;
+    margin-top: -13.5px;
+    text-align: left;
+    color: rgba(0, 51, 160, 1);
+    white-space: nowrap;
+    border: 0;
+}
+.ac-line {
+    position: absolute;
+    top: 90px;
+    width: 100%;
+    height: 1px;
+    stroke: rgba(112, 112, 112, 1);
+    stroke-width: 1px;
+    fill: transparent;
+    shape-rendering: auto;
+    overflow: visible;
+}
+.ac-click {
+    position: relative;
+    width: 100%;
+    height: 92px;
+    cursor: pointer;
+    overflow: visible;
+}
+/* #endregion */
+ /* #region stat-tap 섹션 */
+.statline {
+	position: relative;
+	overflow: visible;
+	width: 892px;
+	height: 3px;
+	left: 388px;
+    fill: rgba(24,61,213,1);
+}
+.statbox {
+	width: 100%;
+    margin-top: 92px;
+}
+.statistics {
+	position: relative;
+	width: 1075px;
+	height: 400px;
+    left: 105px;
+	margin-top: 92px;
+	overflow: visible;
+}
+.stat-tit {
+	position: relative;
+	width: 1067px;
+	height: auto;
+	left: 0px;
+	top: 0px;
+	overflow: visible;
+}
+.stat-tit-text {
+	left: 0px;
+	top: 0px;
+	position: absolute;
+	overflow: visible;
+	width: 432px;
+	white-space: nowrap;
+	text-align: left;
+	font-family: Graphik Compact Trial;
+	font-style: normal;
+	font-weight: bold;
+	font-size: 80px;
+	color: rgba(0,51,160,1);
+	letter-spacing: 0.5px;
+}
+.league {
+	position: relative;
+	width: 320px;
+	height: auto;
+	left: 557px;
+	top: 33.294px;
+	overflow: visible;
+    cursor: pointer;
+	z-index: 10;
+}
+.leaguebox {
+	fill: rgba(255,255,255,1);
+	stroke: rgba(168,168,168,1);
+	cursor: pointer;
+	stroke-width: 1px;
+	stroke-linejoin: miter;
+	stroke-linecap: butt;
+	stroke-miterlimit: 4;
+	shape-rendering: auto;
+	cursor: pointer;
+	position: relative;
+	overflow: visible;
+	width: 322px;
+	height: 40px;
+	left: 0px;
+	top: 0px;
+}
+.league-s {
+	fill: transparent;
+	position: absolute;
+	overflow: visible;
+	width: 15px;
+	height: 15px;
+    left: 295px;
+	top: 12px;
+}
+.league-v {
+	fill: transparent;
+	stroke: rgba(52,58,64,1);
+	stroke-width: 1px;
+	stroke-linejoin: round;
+	stroke-linecap: round;
+	stroke-miterlimit: 4;
+	shape-rendering: auto;
+	overflow: visible;
+	position: absolute;
+	width: 10.026px;
+	height: 5.578px;
+	left: 3px;
+	top: 5px;
+	transform: matrix(1,0,0,1,0,0);
+	transform: rotate(0deg);
+    transition: transform 0.3s ease;
+}
+.league-text {
+	border: 0;
+	left: 14px;
+	top: 11px;
+	position: absolute;
+	overflow: visible;
+	width: 101px;
+	white-space: nowrap;
+	line-height: 24px;
+	margin-top: -4px;
+	text-align: left;
+	font-family: Graphik Compact Trial;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 16px;
+	color: rgba(134,142,150,1);
+}
+.seoson {
+	position: absolute;
+	width: 138px;
+	height: 38px;
+	left: 929px;
+	top: 33.294px;
+	overflow: visible;
+	z-index: 10;
+	cursor: pointer;
+}
+.seosonbox {
+	fill: rgba(255,255,255,1);
+	position: absolute;
+	overflow: visible;
+	width: 138px;
+	height: 38px;
+	left: 0px;
+	top: 0px;
+}
+.seoson-v {
+	fill: transparent;
+	position: absolute;
+	overflow: visible;
+	width: 15px;
+	height: 15px;
+	left: 115px;
+	top: 12px;
+}
+.seoson-text {
+	border: 0;
+	left: 10px;
+	top: 10px;
+	position: absolute;
+	overflow: visible;
+	width: 47px;
+	white-space: nowrap;
+	text-align: left;
+	font-family: Graphik Compact Trial;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 14px;
+	color: rgba(100,100,100,1);
+}
+.seoson-line {
+	fill: transparent;
+	stroke: rgba(0,51,160,1);
+	stroke-width: 2px;
+	stroke-linejoin: miter;
+	stroke-linecap: butt;
+	stroke-miterlimit: 4;
+	shape-rendering: auto;
+	overflow: visible;
+	position: absolute;
+	width: 131px;
+	height: 2px;
+	left: 0px;
+	top: 36px;
+	transform: matrix(1,0,0,1,0,0);
+}
+.stat-tap-line {
+	fill: transparent;
+	stroke: rgba(24,61,213,1);
+	stroke-width: 3px;
+	stroke-linejoin: miter;
+	stroke-linecap: butt;
+	stroke-miterlimit: 4;
+	shape-rendering: auto;
+}
+.stat-tap {
+	display: flex;
+	gap: 40px;
+	justify-content: center;
+	align-items: center;
+	margin-top: 90px;
+	height: 57.5px; 
+	position: relative;
+  }
+  .stat-item {
+	position: relative;
+	min-width: 160px;
+	height: 100%; 
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	cursor: pointer;
+  }
+  .stat-item span {
+	font-family: "SF Pro";
+	font-style: normal;
+	font-weight: normal;
+	font-size: 23px;
+	color: rgba(62, 62, 62, 1);
+  }
+  
+  .stat-item::after {
+	content: "";
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 0;
+	height: 3px;
+	background-color: rgba(24, 61, 213, 1);
+	transition: width 0.2s ease;
+  }
+  
+  .stat-item:hover::after,
+  .stat-item.active::after {
+	width: 100%;
+  }
+/* #endregion */
+/* style.css 내 추가 */
+.hidden {
+	display: none !important;
+  }
+.visible {
+    opacity: 1; /* 보임 상태 */
+    visibility: visible;
+}
+.stat-contents-wrapper {
+    position: relative;
+    overflow: visible;
+  }
+
+ /* #region app 섹션 */
+.appbox {
+	display: flex;
+	align-items: center;
+	padding: 0 20px;
+	position: relative;
+	top: 40px;
+	left: 43px;
+	height: 114px;
+	gap: 24px;
+  }
+  .appitem {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	width: 200px;
+	height: 100%;
+	text-align: center;
+  }
+.apptext-1 {
+	font-family: "SF Pro", sans-serif;
+	text-align: center;
+	font-size: 20px;
+	color: rgba(0, 51, 160, 1);
+}
+.apptext-2 {
+	font-family: "SF Pro", sans-serif;
+	font-size: 35px;
+	text-align: center;
+	font-weight: bold;
+	color: rgba(0, 0, 0, 1);
+	margin-bottom: 10px;
+}
+.appline {
+	width: 1px;
+	height: 94px;
+  }
+  
+  .appline path {
+	stroke: rgba(112,112,112,1);
+	stroke-width: 1px;
+	fill: transparent;
+  }
+/* #endregion */
+ /* #region touch 섹션 */ 
+.touchbox {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3열 */
+    grid-template-rows: repeat(2, auto);   /* 2행 */
+    gap: 40px 30px; /* 세로 40px, 가로 30px */
+    width: 969.5px;
+    height: 250px; /* 높이 자동 계산되도록 */
+    left: 50px;
+    top: 20px;
+    overflow: visible;
+}
+.touchtext-1 {
+	text-align: left;
+	font-family: SF Pro;
+	font-style: normal;
+	font-weight: bold;
+	font-size: 24px;
+	color: rgba(0,51,160,1);
+}
+.touchtext-2 {
+	text-align: left;
+    flex: 1 0 auto;
+	font-family: SF Pro;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 15px;
+	color: rgba(82,82,82,1);
+}
+.touchtext-3 {
+    flex-shrink: 0;
+    text-align: right; 
+	font-family: SF Pro;
+	font-style: normal;
+	font-weight: bold;
+	font-size: 25px;
+	color: rgba(255,167,78,1);
+}
+.touchtext-1-and-2 {
+    display: flex;
+    flex-direction: column; /* 세로 정렬 */
+    flex: 1; /* 남은 공간 차지 */
+    gap: 5px; /* touchtext-1과 touchtext-2 간격 */
+}
+.touchbox-1 {
+	position: relative;
+    display: flex;
+    flex-direction: row; /* 가로 정렬 */
+    align-items: center;
+    justify-content: space-between;
+    flex: 1 0 auto;
+    width: 100%;
+	height: auto;
+	left: 0px;
+	top: 0px;
+	overflow: visible;
+    margin-top: 40px;
+}
+.touchbox-2 {
+	position: relative;
+	width: 300px;
+	height: 56.118px;
+	left: 0px;
+	top: 0px;
+	overflow: visible;
+}
+/* #endregion */
+ /* #region pass 섹션 */
+.passbox-text {
+    display: flex;
+    display: none;
+    justify-content: center;
+    flex-direction: row; 
+	position: absolute;
+	width: 902.047px;
+	height: 29px;
+	left: 21.797px;
+	top: 0px;
+	overflow: visible;
+}
+.passbox {
+    display: flex;
+    justify-content: center;
+    align-content: flex-start;
+    flex-direction: row; 
+    flex-wrap: wrap;
+	position: relative;
+	width: 955.297px;
+	height: 500px;
+	left: 62.406px;
+	top: 60px;
+    overflow: hidden; 
+    padding-bottom: 50px;
+}
+.pass-text {
+	text-align: center;
+	font-family: SF Pro;
+	font-style: normal;
+	font-weight: bold;
+	font-size: 24px;
+	color: rgba(0,51,160,1);
+}
+.pass-1 {
+	position: relative;
+    justify-content: center; /* 자식 텍스트의 수평 정렬 */
+    display: flex;
+    flex: 1 0 30%;
+	width: 186px;
+	height: 29px;
+	overflow: visible;
+}
+.pass-2 {
+	position: relative;
+    margin-top: 60px;
+    display: flex;
+    justify-content: center; /* 수평 중앙 정렬 */
+    align-items: center; /* 수직 중앙 정렬 */
+    flex-direction: column; 
+	width: 229px;
+	height: 262px;
+    flex: 1 0 30%;
+	overflow: visible;
+}
+.pass-3 {
+	position: relative;
+    margin-top: 40px;
+    display: flex;
+    justify-content: center; /* 수평 중앙 정렬 */
+    align-items: center; /* 수직 중앙 정렬 */
+    flex-direction: column; 
+	width: 229px;
+	height: 262px;
+    flex: 1 0 30%;
+	overflow: visible;
+}
+.direct-1 {
+    grid-column: 2; /* 2번째 열 */
+    grid-row: 1;
+}
+.direct-2 {
+    grid-column: 1; /* 1번째 열 */
+    grid-row: 2;
+}
+.direct-3 {
+    grid-column: 3; /* 3번째 열 */
+    grid-row: 2;
+}
+.direct-4 {
+    grid-column: 2; /* 2번째 열 */
+    grid-row: 3;
+}
+.direct-1,
+.direct-2,
+.direct-3,
+.direct-4 {
+    display: flex; /* Flexbox로 내부 콘텐츠 정렬 */
+    flex-direction: column; /* 수직 정렬 */
+    justify-content: center; /* 수직 중앙 정렬 */
+    align-items: center; /* 수평 중앙 정렬 */
+    box-sizing: border-box;
+}
+.directiontext {
+	text-align: left;
+	font-family: SF Pro;
+	font-style: normal;
+	font-weight: bold;
+	font-size: 20px;
+	color: rgba(103,103,103,1);
+}
+.directiontext-1 {
+    margin-top: 10px;
+	text-align: left;
+	font-family: SF Pro;
+	font-style: normal;
+	font-weight: bold;
+	font-size: 12px;
+	color: rgba(103,103,103,1);
+}
+.completionbox-1 {
+	position: relative;
+    margin-top: 20px;
+	margin-bottom: 40px;
+    flex: 1 0 30%;
+	width: 236px;
+	height: 139.206px;
+	overflow: visible;
+}
+.completionbox-2 {
+	position: relative;
+    margin-top: 20px;
+	margin-bottom: 10px;
+    flex: 1 0 30%;
+	width: 236px;
+	height: 139.206px;
+	overflow: visible;
+}
+.completion-text {
+	white-space: nowrap;
+	text-align: left;
+	font-family: SF Pro;
+	font-style: normal;
+	font-weight: bold;
+	font-size: 50px;
+	color: rgba(255,167,78,1);
+}
+.completion-text-1 {
+    margin-top: 16px;
+	text-align: left;
+	font-family: SF Pro;
+	font-style: normal;
+	font-weight: bold;
+	font-size: 24px;
+	color: rgba(74,74,74,1);
+}
+.completion-text-2 {
+    margin-top: 17px;
+	text-align: left;
+	font-family: SF Pro;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 15px;
+	color: rgba(82,82,82,1);
+}
+.completionline {
+	fill: transparent;
+	stroke: rgba(199,199,199,1);
+	stroke-width: 1px;
+	stroke-linejoin: miter;
+	stroke-linecap: butt;
+	stroke-miterlimit: 4;
+	shape-rendering: auto;
+	overflow: visible;
+	position: absolute;
+	width: 236px;
+	height: 1px;
+    margin-top: 10px;
+	transform: matrix(1,0,0,1,0,0);
+}
+.successbox {
+	position: relative;
+    display: flex;
+    justify-content: space-between;
+    flex: 1 0 auto;
+	width: 271.906px;
+	height: 60px;
+	overflow: visible;
+}
+.success-text {
+	margin-top: 30px;
+    margin-bottom: 40px;
+    flex: 3;
+	text-align: left;
+	font-family: SF Pro;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 20px;
+	color: rgba(103,103,103,1);
+}
+.success-text-2 {
+	margin-top: 30px;
+    margin-bottom: 40px;
+    text-align: right;
+    flex: 1;
+	font-family: SF Pro;
+	font-style: normal;
+	font-weight: bold;
+	font-size: 20px;
+	color: rgba(255,167,78,1);
+}
+.successline {
+	fill: transparent;
+	stroke: rgba(199,199,199,1);
+	stroke-width: 1px;
+	stroke-linejoin: miter;
+	stroke-linecap: butt;
+	stroke-miterlimit: 4;
+	shape-rendering: auto;
+	overflow: visible;
+	position: absolute;
+	width: 271.906px;
+	height: 1px;
+	margin-top: 75px;
+	transform: matrix(1,0,0,1,0,0);
+}
+.directline {
+	fill: transparent;
+    position: absolute;
+	stroke: rgba(172,172,172,1);
+	stroke-width: 1px;
+	stroke-linejoin: miter;
+	stroke-linecap: butt;
+	stroke-miterlimit: 4;
+	shape-rendering: auto;
+}
+.direction {
+    display: grid; /* Grid 레이아웃 활성화 */
+    grid-template-columns: repeat(3, 1fr); /* 3열 균등 분배 */
+    grid-template-rows: repeat(3, 1fr);
+	width: 260px;
+	height: 302px;
+	left: 0px;
+	top: 81.206px;
+	overflow: visible;
+    margin-right: 20px;
+}
+.direction-1 {
+    position: absolute;
+    width: 142px;
+    height: 190px;
+    left: 78px;
+    top: 130px;
+    overflow: visible;
+}
+.directcurcle {
+	fill: rgba(0,51,160,1);
+	position: absolute;
+	overflow: visible;
+	width: 13px;
+	height: 13px;
+	left: 64.193px;
+	top: 87.613px;
+}
+/* #endregion */
+.panel-inner-1 {
+    color: inherit;
+    margin: 40px 0 0;
+    padding-bottom: 80px;
+    width: 100%;
+}
+.panel-inner-2 {
+    color: inherit;
+    margin: 40px 0 0;
+    padding-bottom: 80px;
+    width: 100%;
+}
+.panel-inner-3 {
+    color: inherit;
+    margin: 40px 0 0;
+    padding-bottom: 80px;
+    width: 100%;
+}
+.panel-inner-4 {
+    color: inherit;
+    margin: 40px 0 0;
+    padding-bottom: 80px;
+    width: 100%;
+}
+.stat-padding {
+    position: relative;
+	width: 100%;
+	height: 100px;
+	left: 0px;
+	bottom: 0px;
+	overflow: visible;
+}
+ /* #region dici 섹션 */
+.dicibox {
+    display: flex;
+	position: relative;
+	width: 874.358px;
+	height: 180.906px;
+	left: 123.641px;
+	top: 40px;
+	overflow: visible;
+}
+.yellow {
+    position: absolute;
+    width: 110.434px;
+    height: 115px;
+    overflow: visible;
+}
+.red {
+    position: absolute;
+    width: 109px;
+    height: 114px;
+    left: 180px;
+    overflow: visible;
+}
+.card-text {
+    position: relative; /* 상대적 위치 설정 */
+    z-index: 2;
+    text-align: left;
+    font-family: SF Pro;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 97px;
+    color: rgba(0,0,0,1);
+}
+.card-text-1 {
+    position: absolute;
+	width: 51px;
+	height: 37px;
+	left: 59.434px;
+	top: 53.593px;
+    overflow: visible;
+    text-align: left;
+    font-family: SF Pro;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 15px;
+    color: rgba(92,92,92,1);
+}
+.yellowcard {
+	fill: rgba(255,181,43,1);
+    position: absolute; /* 위치를 명시적으로 설정 */
+    z-index: 1;
+	overflow: visible;
+	width: 26px;
+	height: 34px;
+    top: 15px;
+    left: 53px;
+}
+.redcard {
+	fill: rgb(231, 31, 31, 1);
+    position: absolute; /* 위치를 명시적으로 설정 */
+    z-index: 1;
+	overflow: visible;
+	width: 26px;
+	height: 34px;
+    top: 15px;
+    left: 53px;
+}
+.foul {
+    display: flex;
+    flex-direction: column; 
+	position: absolute;
+	width: 440.858px;
+	height: 50.044px;
+    left: 433px;
+    top: -20px;
+	overflow: visible;
+}
+.foulline {
+	fill: transparent;
+	stroke: rgba(172,172,172,1);
+	stroke-width: 1px;
+	stroke-linejoin: miter;
+	stroke-linecap: butt;
+	stroke-miterlimit: 4;
+	shape-rendering: auto;
+	overflow: visible;
+	position: absolute;
+	width: 440.858px;
+	height: 1px;
+	left: 0.141px;
+	top: 50.489px;
+	transform: matrix(1,0,0,1,0,0);
+}
+.drawn {
+	position: relative;
+    margin-top: 25px;
+    display: flex;
+    flex-direction: row;
+	width: 440.999px;
+	height: 50.489px;
+    flex: 1 0 auto;
+	overflow: visible;
+}
+.foul-text {
+    flex: 1 0 auto;
+	text-align: left;
+	font-family: SF Pro;
+	font-style: normal;
+	font-weight: bold;
+	font-size: 24px;
+	color: rgba(62,62,62,1);
+}
+.foul-text-1 {
+    flex: 1 0 auto;
+	text-align: right;
+	font-family: SF Pro;
+	font-style: normal;
+	font-weight: bold;
+	font-size: 24px;
+	color: rgba(0,51,160,1);
+}
+/* #endregion */
+ /* #region shot 섹션 */
+.shotbox {
+	position: relative;
+	width: 964.25px;
+	height: 410px;
+	left: 60px;
+    top: 20px;
+	overflow: visible;
+}
+.goalbox {
+	position: absolute;
+	width: 280px;
+	height: 36px;
+	left: 0px;
+	top: 41px;
+	overflow: visible;
+}
+.goal-text {
+	border: 0;
+	left: 0px;
+	top: 0px;
+	position: absolute;
+	overflow: visible;
+	width: 119px;
+	line-height: 50px;
+	text-align: left;
+	font-family: SF Pro;
+	font-style: normal;
+	font-weight: bold;
+	font-size: 35px;
+	color: rgba(0,51,160,1);
+}
+.goal-text-1 {
+	border: 0;
+	left: 0px;
+	top: 53px;
+	position: absolute;
+	overflow: visible;
+	width: 208px;
+	white-space: nowrap;
+	line-height: 50px;
+	margin-top: -15px;
+	text-align: left;
+	font-family: SF Pro;
+	font-style: normal;
+	font-weight: bold;
+	font-size: 20px;
+	color: rgba(62,62,62,1);
+}
+.goal-text-4 {
+	border: 0;
+	left: 246.5px;
+	top: 41px;
+	position: absolute;
+	overflow: visible;
+	width: 35px;
+	white-space: nowrap;
+	line-height: 50px;
+	margin-top: -10px;
+	text-align: left;
+	font-family: SF Pro;
+	font-style: normal;
+	font-weight: bold;
+	font-size: 30px;
+	color: rgba(0,51,160,1);
+}
+.goalbox-2 {
+	position: absolute;
+    display: flex;
+    flex-direction: column;
+	width: 271.906px;
+	height: 190.972px;
+	left: 3.047px;
+	top: 142.5px;
+	overflow: visible;
+}
+.goal-text-2 {
+	text-align: left;
+	font-family: SF Pro;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 20px;
+	color: rgba(103,103,103,1);
+}
+.goal-text-3 {
+	text-align: right;
+	font-family: SF Pro;
+	font-style: normal;
+	font-weight: bold;
+	font-size: 20px;
+	color: rgba(255,167,78,1);
+}
+.goalbox-3 {
+	position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex: 1 0 auto;
+	width: 100%;
+	height: 43.794px;
+	overflow: visible;
+}
+.goalline {
+	fill: transparent;
+	stroke: rgba(199,199,199,1);
+	stroke-width: 1px;
+	stroke-linejoin: miter;
+	stroke-linecap: butt;
+	stroke-miterlimit: 4;
+	shape-rendering: auto;
+	overflow: visible;
+	position: relative;
+	width: 271.906px;
+	height: 1px;
+	transform: matrix(1,0,0,1,0,0);
+    margin-bottom: 20px;
+}
+.back_class {
+	fill: rgba(242,242,242,1);
+}
+.back {
+	position: absolute;
+    display: none;
+    z-index: 1;
+	overflow: visible;
+	width: 406px;
+	height: 279px;
+}
+.shotting-box {
+	position: relative;
+	width: 406px;
+	height: 279px;
+	left: 300px;
+	top: 50px;
+}
+.box_inner {
+	position: absolute;
+    z-index: 2;
+	width: 314.984px;
+	height: 233.261px;
+    left: 45.008px;
+	top: 41px;
+	overflow: visible;
+}
+.bigbox_class {
+	fill: transparent;
+	stroke: rgba(160,160,160,1);
+	stroke-width: 5px;
+	stroke-linejoin: miter;
+	stroke-linecap: butt;
+	stroke-miterlimit: 4;
+	shape-rendering: auto;
+}
+.bigbox {
+	overflow: visible;
+    z-index: 2;
+	position: absolute;
+	width: 209.523px;
+	height: 114.454px;
+	top: 70.539px;
+	transform: matrix(1,0,0,1,0,0);
+}
+.smallbox_class {
+	fill: transparent;
+	stroke: rgba(160,160,160,1);
+	stroke-width: 5px;
+	stroke-linejoin: miter;
+	stroke-linecap: butt;
+	stroke-miterlimit: 4;
+	shape-rendering: auto;
+}
+.smallbox {
+	overflow: visible;
+	position: absolute;
+	width: 126.439px;
+	height: 52.484px;
+	left: 41.543px;
+	top: 132.509px;
+	transform: matrix(1,0,0,1,0,0);
+}
+.curcle_class {
+	opacity: 0.787;
+	fill: rgba(255,171,38,1);
+}
+.curcle {
+	position: absolute;
+    z-index: 1;
+	overflow: visible;
+	width: 121.354px;
+	height: 121.353px;
+	left: 43px;
+	top: 0px;
+}
+.arrow-1_class {
+    fill: rgba(160,160,160,1);
+}
+.arrow-1 {
+	position: absolute;
+    z-index: 3;
+	width: 81.229px;
+	height: 41.957px;
+    left: 105px;
+	top: 18px;
+	overflow: visible;
+}
+.arrow-2_class {
+    fill: rgba(160,160,160,1);
+}
+.arrow-2 {
+	position: absolute;
+    z-index: 4;
+	width: 130.242px;
+	height: 15.25px;
+	left: 105.74px;
+	top: 95.65px;
+	overflow: visible;
+}
+.arrow-3_class {
+    fill: rgba(160,160,160,1);
+}
+.arrow-3 {
+	position: absolute;
+	width: 89.652px;
+	height: 44.893px;
+	left: 105.25px;
+	top: 158.751px;
+	overflow: visible;
+}
+.outsidebox {
+	position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+	width: 118px;
+	height: 55px;
+	left: 196px;
+	top: -10px;
+	overflow: visible;
+}
+.penalty {
+	position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+	width: 60px;
+	height: 54.146px;
+	left: 255px;
+	top: 80px;
+	overflow: visible;
+}
+.insidebox {
+	position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+	width: 110px;
+	height: 55.146px;
+	left: 210px;
+	top: 165px;
+	overflow: visible;
+}
+.spot-text {
+    flex: 1 0 auto;
+	text-align: center;
+	font-family: SF Pro;
+	font-style: normal;
+	font-weight: bold;
+	font-size: 28px;
+	color: rgba(24,61,213,1);
+}
+.spot-text-1 {
+    flex: 1 0 auto;
+	text-align: center;
+	font-family: SF Pro;
+	font-style: normal;
+	font-weight: bold;
+	font-size: 14px;
+	color: rgba(62,62,62,1);
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.freekickbox {
+	position: absolute;
+    display: flex;
+    flex-direction: row;
+	width: 150.762px;
+	height: 24px;
+	left: 310px;
+	top: 335px;
+	overflow: visible;
+}
+.freetext {
+    flex: 1 0 auto;
+	text-align: right;
+	font-family: SF Pro;
+	font-style: normal;
+	font-weight: bold;
+	font-size: 20px;
+	color: rgba(62,62,62,1);
+}
+.freetext-1 {
+    flex: 1 0 auto;
+	text-align: right;
+	font-family: SF Pro;
+	font-style: normal;
+	font-weight: bold;
+	font-size: 20px;
+    color: rgba(24,61,213,1);
+}
+.scorewith {
+	position: absolute;
+	width: 166px;
+	height: 340.37px;
+	left: 740px;
+	top: 50px;
+	overflow: visible;
+}
+.scorewith-text {
+	text-align: center;
+	font-family: SF Pro;
+	font-style: normal;
+	font-weight: bold;
+	font-size: 20px;
+	color: rgba(0,51,160,1);
+}
+.scorewhere {
+    display: flex;
+    flex-direction: column;
+	width: 166px;
+	height: 299.37px;
+	top: 41px;
+	overflow: visible;
+}
+.scorewhere-1 {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between; 
+    flex: 1 0 auto;
+	width: 166px;
+	height: 84px;
+	overflow: visible;
+}
+.score-text {
+    position: absolute; /* 부모 기준 절대 위치 */
+    bottom: 0;
+    flex: 1 0 auto;
+	text-align: left;
+	font-family: SF Pro;
+	font-style: normal;
+	font-weight: bold;
+	font-size: 65px;
+	color: rgba(255,118,0,1);
+}
+.score-text-1 {
+    position: absolute; /* 부모 기준 절대 위치 */
+    bottom: 10px;
+    right: 0; 
+    flex: 1 0 auto;
+	text-align: right;
+	font-family: SF Pro;
+	font-style: normal;
+	font-weight: bold;
+	font-size: 13px;
+	color: rgba(92,92,92,1);
+}
+/* #endregion */
+
+.rich-text__content p {
+	color: rgba(105,105,105,1);
+	text-align: left;
+	font-family: SF Pro;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 18px;
+    margin: 26px 0 0;
+}
+.rich-text {
+    position: relative;
+    width: 1029px;
+    height: auto;
+    overflow: visible;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+.imgbox {
+    display: flex;
+    margin-bottom: 20px;
+    margin-left: 25px;
+	width: 1081px;
+	height: auto;
+    flex-direction: column;
+	left: 0px;
+	overflow: visible;
+    padding-top: 50px;
+}
+.img-1 {
+	width: 962px;
+	height: auto;
+    padding-top: 50px 0 0;
+	overflow: visible;
+    left: 15px;
+}
+.descriptionbox {
+    position: relative;
+	width: 1081px;
+	height: auto;
+	left: 0px;
+	overflow: visible;
+    padding-top: 20px;
+    margin-bottom: 20px;
+}
+.img-description {
+    text-align: left;
+    font-family: SF Pro;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 18px;
+    color: rgba(0,0,0,1);
+}
+.img-description-2 {
+    left: 75px;
+    text-align: left;
+    font-family: SF Pro;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    color: rgba(105,105,105,1);
+}
+.league-menu {
+	position: absolute;
+	display: flex;
+	flex-direction: column;
+	width: 322px;
+    height: 0; 
+	top: 40px;
+    overflow: hidden; /* 초기 높이를 0으로 설정 */
+    transition: height 0.3s ease, opacity 0.3s ease;
+	opacity: 0; 
+}
+.league-menu.active {
+    height: auto;
+	opacity: 1;  /* 메뉴가 열릴 때 최대 높이 설정 (필요에 따라 조정) */
+}
+.leaguemenu {
+	position: relative;
+	flex: 1 0 auto;
+	width: 322px;
+	height: 35px;
+	fill: rgba(5,20,131,1);
+	border-bottom: 1px solid rgba(138, 146, 228, 0.2);
+	line-height: 1;
+}
+.leaguemenu-1 {
+	z-index: 1;
+	position: absolute;
+	top: 0;
+	width: 322px;
+	height: 35px;
+	fill: rgba(5,20,131,1);
+}
+.lgmenu-text {
+	position: relative;
+	z-index: 2;
+	left: 20px;
+	top: 10px;
+	text-align: left;
+	font-family: SF Pro;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 14px;
+	color: rgba(255,255,255,1);
+}
+.leaguemenu:hover {
+	height: 40px;
+	background-color: rgba(0,51,160,1);
+	fill: rgba(0,51,160,1);
+}
+.leaguemenu:active {
+	height: 40px;
+	background-color: rgba(0,51,160,1);
+	color: rgba(0,51,160,1);
+}
+.leaguemenu:hover .leaguemenu-1 {
+	fill: rgba(0,51,160,1);
+}
+.leaguemenu:active .leaguemenu-1 {
+	color: rgba(0,51,160,1);
+}
+.leaguemenu:hover::after {
+    width: 100%; /* 라인이 박스의 전체 너비만큼 확장 */
+}
+.leaguemenu-1:active::after {
+    width: 100%; /* 라인이 유지됨 */
+}
+.leaguemenu:hover .lgmenu-text {
+	font-style: italic;
+	font-size: 15px;
+}
+.leaguemenu:active .lgmenu-text {
+	font-style: italic;
+	font-size: 15px;
+}
+.seosonmenu {
+	position: absolute;
+	display: flex;
+	flex-direction: column;
+	width: 131px;
+    height: 0; 
+	top: 36px;
+    overflow: hidden; /* 초기 높이를 0으로 설정 */
+    transition: height 0.3s ease, opacity 0.3s ease;
+	opacity: 0; 
+}
+.seosonmenu.active {
+    height: auto;
+	opacity: 1;  /* 메뉴가 열릴 때 최대 높이 설정 (필요에 따라 조정) */
+}
+.ssmenu {
+	position: relative;
+	overflow: visible;
+	width: 131px;
+	height: 32px;
+	flex: 1 0 auto;
+}
+.ssmenu-1 {
+	z-index: 1;
+	position: absolute;
+	top: 0;
+	width: 131px;
+	height: 32px;
+	fill: rgba(255,255,255,1);
+	border-bottom: 1px solid rgba(0, 0, 0, .2);
+	line-height: 1;
+}
+.ssmenu-text {
+	position: relative;
+	z-index: 2;
+	text-align: left;
+	font-family: SF Pro;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 13px;
+	left: 11px;
+	top: 9px;
+	color: rgba(100,100,100,1);
+}
+.ssmenu:active .ssmenu-text {
+	color: rgba(255,255,255,1);
+}
+.ssmenu:hover .ssmenu-text {
+	color: rgba(255,255,255,1);
+}
+.ssmenu:hover .ssmenu-1 {
+	fill: #183DD5
+}
+.ssmenu:active .ssmenu-1 {
+	fill: #183DD5
+}
+.ssmenu:hover::after {
+    width: 100%; /* 라인이 박스의 전체 너비만큼 확장 */
+}
+.ssmenu:active::after {
+    width: 100%; /* 라인이 유지됨 */
+}
