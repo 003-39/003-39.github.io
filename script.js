@@ -1,3 +1,5 @@
+const params = new URLSearchParams(window.location.search);
+const playerId = params.get("id") || "cole_palmer";
 document.addEventListener("DOMContentLoaded", async () => {
   try {
     const params = new URLSearchParams(window.location.search);
@@ -134,17 +136,6 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 });
 
-document.addEventListener("DOMContentLoaded", function () {
-  fetch("json/player_info.json")
-    .then(res => res.json())
-    .then(data => {
-      const palmerData = data.cole_palmer;
-      renderAccordion(palmerData.accordion);
-    })
-    .catch(err => {
-      console.error("JSON 로딩 실패:", err);
-    });
-});
 
 function renderAccordion(sections) {
   const container = document.getElementById("ac-wrap");
