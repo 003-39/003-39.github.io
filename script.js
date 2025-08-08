@@ -1,19 +1,33 @@
-// ✅ 올바른 방식
+let playerId = null;
+
 document.addEventListener("DOMContentLoaded", async () => {
   try {
+    // 1. 쿼리에서 player=pedro_neto 파싱
     const urlParams = new URLSearchParams(window.location.search);
-    const playerName = urlParams.get("player"); // 예: ?player=cole_palmer
-
-    const matchedPlayer = playerList.find(p => {
-      const jsonName = p.name.toLowerCase().replace(/ /g, "_"); // JSON의 "Pedro Neto" → "pedro_neto"
-      return jsonName === normalizedName;
-    });
-    if (!matchedPlayer) {
-      console.error("해당 선수 ID를 찾을 수 없습니다."); 
+    const playerName = urlParams.get("player"); // 예: "pedro_neto"
+    if (!playerName) {
+      console.error("❌ player 쿼리 없음");
       return;
     }
 
-const playerId = matchedPlayer.id;
+    const normalizedName = playerName.toLowerCase(); // 예: "pedro_neto"
+
+    // 2. player_id.json에서 이름으로 ID 매핑
+    const idRes = await fetch("json/player_id.json");
+    const playerList = await idRes.json();
+
+    const matchedPlayer = playerList.find(p => 
+      p.name.toLowerCase().replace(/ /g, "_") === normalizedName
+    );
+
+    if (!matchedPlayer) {
+      console.error("❌ 해당 선수 ID를 찾을 수 없습니다.");
+      return;
+    }
+
+    playerId = matchedPlayer.id;
+
+    // 3. API 요청
     const response = await fetch(`https://zero03-39-github-io.onrender.com/api/player/${playerId}`);
     const data = await response.json();
     const stats = data.stats;
@@ -21,47 +35,39 @@ const playerId = matchedPlayer.id;
 
     const statsMap = Object.fromEntries(stats.map(stat => [stat.name, stat.value]));
 
+    // 4. player_info.json에서 추가 정보 매핑
+    const infoRes = await fetch("json/player_info.json");
+    const infoData = await infoRes.json();
+    const info = infoData[playerId];
+
+    if (!info) {
+      console.error("❌ player_info.json에 해당 ID 정보 없음");
+      return;
+    }
+
+
     // ▶ 이름, 등번호, 이미지
     document.querySelector(".first-name").textContent = player.name.first;
     document.querySelector(".number").textContent = `${player.name.last} ${player.info.shirtNum}`;
-    document.getElementById("main-image").src = "image/cole_main.png"; // 수동 관리
-    
-    console.log("▶ player_info.json 로드 시작");
-    
-    try {
-      // 이미지
-      const imgEl = document.getElementById("info-img");
-      console.log("🖼️ info-img 엘리먼트:", imgEl);
-      if (imgEl && info.image) {
-        imgEl.src = info.image;
-        console.log("✅ 이미지 삽입 완료");
-      }
-    
-      // joined
-      const joinedEl = document.getElementById("player-joined");
-      console.log("📅 player-joined 엘리먼트:", joinedEl);
-      if (joinedEl) {
-        joinedEl.innerHTML = `<span>${info.joined}</span>`;
-        console.log("✅ joined 텍스트 삽입 완료");
-      }
-    
-      // paragraphs
-      const descEl = document.getElementById("player-description");
-      console.log("📄 player-description 엘리먼트:", descEl);
-      if (descEl) {
-        descEl.innerHTML = "";
-        info.paragraphs.forEach((p, i) => {
-          const para = document.createElement("p");
-          para.textContent = p;
-          descEl.appendChild(para);
-          console.log(`✅ 문단 ${i + 1} 삽입:`, p);
-        });
-      }
-    
-    } catch (err) {
-      console.error("❌ JSON 로딩 실패:", err);
+    document.getElementById("main-image").src = info.image || "image/placeholder.png";
+
+    // joined
+    const joinedEl = document.getElementById("player-joined");
+    if (joinedEl) {
+      joinedEl.innerHTML = `<span>${info.joined}</span>`;
     }
-    
+
+    // description
+    const descEl = document.getElementById("player-description");
+    if (descEl) {
+      descEl.innerHTML = "";
+      info.paragraphs.forEach(p => {
+        const para = document.createElement("p");
+        para.textContent = p;
+        descEl.appendChild(para);
+      });
+    }
+
 
     // ▶ 공통 적용 함수
     const setValue = (element, value) => {
