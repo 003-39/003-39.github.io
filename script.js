@@ -126,14 +126,12 @@ document.addEventListener("DOMContentLoaded", async () => {
 
 document.addEventListener("DOMContentLoaded", function () {
   fetch("json/player_info.json")
-    .then(res => res.json())
-    .then(data => {
-      const palmerData = data.cole_palmer;
-      renderAccordion(palmerData.accordion); // 아코디언 데이터 렌더링
-    })
-    .catch(err => {
-      console.error("❌ JSON 로딩 실패:", err);
-    });
+  .then(res => res.json())
+  .then(data => {
+    const playerData = data[playerId];
+    if (!playerData) return console.error("❌ 아코디언 데이터 없음");
+    renderAccordion(playerData.accordion);
+  });
 });
 
 document.addEventListener("DOMContentLoaded", function () {
