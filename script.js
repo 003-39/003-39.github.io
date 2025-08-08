@@ -4,12 +4,12 @@ document.addEventListener("DOMContentLoaded", async () => {
     const urlParams = new URLSearchParams(window.location.search);
     const playerName = urlParams.get("player"); // 예: ?player=cole_palmer
 
-    // player_id.json에서 매칭되는 ID 찾기
-    const playerList = await fetch("/json/playerID.json").then(res => res.json());
-    const matchedPlayer = playerList.find(p => p.name.toLowerCase().replace(/ /g, "_") === playerName);
-
+    const matchedPlayer = playerList.find(p => {
+      const jsonName = p.name.toLowerCase().replace(/ /g, "_"); // JSON의 "Pedro Neto" → "pedro_neto"
+      return jsonName === normalizedName;
+    });
     if (!matchedPlayer) {
-      console.error("해당 선수 ID를 찾을 수 없습니다.");
+      console.error("해당 선수 ID를 찾을 수 없습니다."); 
       return;
     }
 
