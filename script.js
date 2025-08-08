@@ -29,17 +29,6 @@ document.addEventListener("DOMContentLoaded", async () => {
     console.log("▶ player_info.json 로드 시작");
     
     try {
-      const response = await fetch("json/player_info.json");
-      const playerData = await response.json();
-      console.log("✅ JSON 데이터:", playerData);
-    
-      const info = playerData[playerId];
-    
-      if (!info) {
-        console.error(`❌ '${playerId}'에 해당하는 정보가 없습니다.`);
-        return;
-      }
-    
       // 이미지
       const imgEl = document.getElementById("info-img");
       console.log("🖼️ info-img 엘리먼트:", imgEl);
