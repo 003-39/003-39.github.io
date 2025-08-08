@@ -244,5 +244,127 @@
         ]
       }
     ]
+  },
+  "pedro_neto": {
+    "joined": "Portugal international Pedro Neto moved from Wolverhampton Wanderers to Chelsea on 11 August 2024. He signed a seven-year contract.",
+    "paragraphs": [
+      "A swift winger with dribbling ability and a sharp change of direction, though predominately left-footed, he can operate on either flank."
+    ],
+    "image": "image/neto_info.png",
+
+    "accordion": [
+      {
+        "title": "2024/25",
+        "content": [
+          {
+            "type": "p",
+            "text": "A week after signing, Neto played in his first Chelsea game when he came on during the second half of a home match against Manchester City."
+          },
+          {
+            "type": "p",
+            "text": "His first start was the following game, against Servette in the UEFA Conference League with his full Premier League debut four matches into the season at home to Crystal Palace."
+          },
+          {
+            "type": "p",
+            "text": "Against Barrow at Stamford Bridge in the first Carabao Cup game of the season, Neto scored his first Chelsea goal, the team's fourth in a 5-0 win. That was soon followed by a powerful finish for a goal against Gent in the UEFA Conference League."
+          },
+          {
+            "type": "p",
+            "text": "One of very few players to feature significantly in the Premier League and Conference League campaign in the first half of the season, a highlight of his early months at Chelsea was his equaliser at home to Arsenal. Coming in on a run from the right and outside the penalty area, he unleashed a rocket into the bottom corner of the Gunners’ net."
+          },
+          {
+            "type": "img",
+            "src": "image/neto_2425_1.png",
+            "title": "Neto celebrates his equaliser against Arsenal, his first Premier League goal for the Blues",
+            "desc": ""
+          },
+          {
+            "type": "p",
+            "text": "In February 2025 came another goal in a London derby, this time the opener in a home win over West Ham. That was again when deployed as a winger, however, his next goal came during a spell as the most central striker while Nicolas Jackson was out injured."
+          },
+          {
+            "type": "p",
+            "text": "This strike, which won Chelsea Goal of the Month for February, was against Southampton and a Neto free-kick in the same match was headed in by Levi Colwill."
+          },
+          {
+            "type": "img",
+            "src": "image/neto_2425_2.png",
+            "title": "NETO WINS FEBRUARY GOTM! 💥",
+            "desc": "Re-watch Pedro Neto's power shot during Chelsea's 4-0 Premier League win against Southampton at Stamford Bridge..."
+          },
+          {
+            "type": "p",
+            "text": "His next goal was even better. Chelsea had been losing late on in a west London derby at Fulham but Neto completed a turnaround with an explosive shot on the turn for a 2-1 win. It was a first away win for four months and a big boost to the Champions League qualification quest. The goal was voted Chelsea's best men's goal of the season."
+          },
+          {
+            "type": "img",
+            "src": "image/neto_2425_3.png",
+            "title": "Palmer’s first season in blue 🚀 2023/24",
+            "desc": "46 appearances, 25 goals, 15 assists and six end-of-season awards, including Chelsea's Player of the Season. What a year, Cole!"
+          },
+          {
+            "type": "p",
+            "text": "Before the end of the campaign came assists against Liverpool and Nottingham Forest, the latter for the goal that sealed our Champions League spot."
+          },
+          {
+            "type": "p",
+            "text": "Neto was handed a start in the UEFA Conference League final and ended his first Chelsea season prior to the Club World Cup with six goals and six assists from his 45 games."
+          },
+          {
+            "type": "p",
+            "text": "He then scored in both of the team's opening two games at the Club World Cup."
+          }
+        ]
+      },
+      {
+        "title": "Pre-Chelsea",
+        "content": [
+          {
+            "type": "p",
+            "text": "Neto started his career in the youth system of Braga in his homeland. His talent began to shine when he made his men's first-team debut in May 2017 and scored in a 4-0 victory over Nacional. At 17 years, two months and five days, he became the third-youngest scorer in the club’s history."
+          },
+          {
+            "type": "p",
+            "text": "A two-year loan move to Italy with Lazio followed, during which he time he won the Coppa Italia. That switch was made permanent ahead of the 2018/19 campaign."
+          },
+          {
+            "type": "p",
+            "text": "Neto then moved to the Premier League when he transferred to Wolves in August 2019. He scored and created a goal on his debut – a 4–0 win over Pyunik in the third qualifying round of the UEFA Europa League – and quickly established himself as a regular in the Wolves attack."
+          },
+          {
+            "type": "p",
+            "text": "He went on to make 135 appearances for the club and in his last season there before his move to Chelsea he contributed to 11 goals in 20 Premier League appearances."
+          }
+        ]
+      },
+      {
+        "title": "International Career",
+        "content": [
+          {
+            "type": "p",
+            "text": "Neto played through the age groups for Portugal and made his senior debut in November 2020 and scored, in a 7-0 friendly win against Andorra."
+          },
+          {
+            "type": "p",
+            "text": "Though injury kept him out of Euro 2020 the following summer and the 2022 World Cup, immediately prior to his move to Chelsea he featured in all of Portugal’s Euro 2024 group games, two of them from the bench. He set up a late winning goal for Francisco Conceicao in the opener but remained an unused substitute for the two knockout matches."
+          },
+          {
+            "type": "p",
+            "text": "Having become a Blue, Neto’s second international goal came in November 2024 in a Nations League win over Poland."
+          },
+          {
+            "type": "img",
+            "src": "image/neto_inter_1.png",
+            "title": "Neto nets for Portugal",
+            "desc": ""
+          },
+          {
+            "type": "p",
+            "text": "In June 2025, he played a part in Portugal winning that tournament. Having featured in a semi-final win over Germany, Neto provided an assist for one of the goals in the final against Spain. Having ended 2-2 in open play, a penalty shoot-out settled it in Portugal's favour."
+          }
+        ]
+      }
+    ]
   }
 }
+

@@ -14,12 +14,14 @@ document.addEventListener("DOMContentLoaded", async () => {
     
     console.log("▶ player_info.json 로드 시작");
 
+    const params = new URLSearchParams(window.location.search);
+    const playerId = params.get("id") || "cole_palmer"; // 기본값 설정
+    
     try {
       const response = await fetch("json/player_info.json");
       const playerData = await response.json();
       console.log("✅ JSON 데이터:", playerData);
     
-      const playerId = "cole_palmer";
       const info = playerData[playerId];
     
       if (!info) {
