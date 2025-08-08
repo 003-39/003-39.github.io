@@ -1,19 +1,19 @@
 // ✅ 올바른 방식
-const urlParams = new URLSearchParams(window.location.search);
-const playerName = urlParams.get("player"); // 예: ?player=cole_palmer
-
-// player_id.json에서 매칭되는 ID 찾기
-const playerList = await fetch("/json/player_id.json").then(res => res.json());
-const matchedPlayer = playerList.find(p => p.name.toLowerCase().replace(/ /g, "_") === playerName);
-
-if (!matchedPlayer) {
-  console.error("해당 선수 ID를 찾을 수 없습니다.");
-  return;
-}
-
-const playerId = matchedPlayer.id;
 document.addEventListener("DOMContentLoaded", async () => {
   try {
+    const urlParams = new URLSearchParams(window.location.search);
+    const playerName = urlParams.get("player"); // 예: ?player=cole_palmer
+
+    // player_id.json에서 매칭되는 ID 찾기
+    const playerList = await fetch("/json/player_id.json").then(res => res.json());
+    const matchedPlayer = playerList.find(p => p.name.toLowerCase().replace(/ /g, "_") === playerName);
+
+    if (!matchedPlayer) {
+      console.error("해당 선수 ID를 찾을 수 없습니다.");
+      return;
+    }
+
+const playerId = matchedPlayer.id;
     const response = await fetch(`https://zero03-39-github-io.onrender.com/api/player/${playerId}`);
     const data = await response.json();
     const stats = data.stats;
