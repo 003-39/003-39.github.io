@@ -1,6 +1,8 @@
 document.addEventListener("DOMContentLoaded", async () => {
   try {
-    const response = await fetch("https://zero03-39-github-io.onrender.com/api/player-stats");
+    const params = new URLSearchParams(window.location.search);
+    const playerId = params.get("id") || "cole_palmer";
+    const response = await fetch(`https://zero03-39-github-io.onrender.com/api/player/${playerId}`);
     const data = await response.json();
     const stats = data.stats;
     const player = data.entity;
@@ -13,9 +15,6 @@ document.addEventListener("DOMContentLoaded", async () => {
     document.getElementById("main-image").src = "image/cole_main.png"; // 수동 관리
     
     console.log("▶ player_info.json 로드 시작");
-
-    const params = new URLSearchParams(window.location.search);
-    const playerId = params.get("id") || "cole_palmer"; // 기본값 설정
     
     try {
       const response = await fetch("json/player_info.json");
