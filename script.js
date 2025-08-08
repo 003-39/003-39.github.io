@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     const playerName = urlParams.get("player"); // 예: ?player=cole_palmer
 
     // player_id.json에서 매칭되는 ID 찾기
-    const playerList = await fetch("/json/player_id.json").then(res => res.json());
+    const playerList = await fetch("/json/playerID.json").then(res => res.json());
     const matchedPlayer = playerList.find(p => p.name.toLowerCase().replace(/ /g, "_") === playerName);
 
     if (!matchedPlayer) {
