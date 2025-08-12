@@ -28,6 +28,11 @@ document.addEventListener("DOMContentLoaded", async () => {
     const stats = data.stats;
     const player = data.player;
 
+    // 디버깅: API 응답 구조 확인
+    console.log("API Response:", data);
+    console.log("Player data:", player);
+    console.log("Stats data:", stats);
+
     // 새로운 API는 stats를 객체로 반환하므로 직접 사용
     const statsMap = stats;
 
@@ -43,8 +48,12 @@ document.addEventListener("DOMContentLoaded", async () => {
 
 
     // ▶ 이름, 등번호, 이미지
-    document.querySelector(".first-name").textContent = player.name.first;
-    document.querySelector(".number").textContent = `${player.name.last} ${player.info.shirtNum}`;
+    document.querySelector(".first-name").textContent = player.firstName || player.name?.first || "Unknown";
+    
+    // shirtNum이 없으므로 임시로 빈 문자열 사용
+    const shirtNum = player.shirtNum || "";
+    document.querySelector(".number").textContent = `${player.lastName || player.name?.last || "Unknown"} ${shirtNum}`;
+    
     document.getElementById("main-image").src = info.image || "image/placeholder.png";
 
     // joined
