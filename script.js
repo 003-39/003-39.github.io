@@ -144,11 +144,12 @@ document.addEventListener("DOMContentLoaded", async () => {
         const goals = statsMap["goals"] || 1;
         setValue(element, ((ibox / goals) * 100).toFixed(0) + '%');
       } else if (name === "long_pass_sucsess") {
-        const suc = statsMap["accurate_long_balls"] || 0;
-        const total = statsMap["total_long_balls"] || 1;
+        const suc = statsMap["successfulLongPasses"] || 0;
+        const total = (statsMap["successfulLongPasses"] || 0) + (statsMap["unsuccessfulLongPasses"] || 0);
         setValue(element, ((suc / total) * 100).toFixed(0) + '%');
       } else if (name === "pass_complecation") {
-        const suc = statsMap["accurate_pass"] || 0;
+        // 새로운 API: successfulShortPasses + successfulLongPasses
+        const suc = (statsMap["successfulShortPasses"] || 0) + (statsMap["successfulLongPasses"] || 0);
         const total = statsMap["totalPasses"] || 1;
         setValue(element, ((suc / total) * 100).toFixed(0) + '%');
       } else {
