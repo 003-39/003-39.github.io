@@ -154,10 +154,16 @@ document.addEventListener("DOMContentLoaded", async () => {
 });
 
 document.addEventListener("DOMContentLoaded", function () {
+  // URL에서 player 파라미터 가져오기
+  const urlParams = new URLSearchParams(window.location.search);
+  const playerName = urlParams.get("player");
+  
+  if (!playerName) return;
+  
   fetch("json/player_info.json")
   .then(res => res.json())
   .then(data => {
-    const playerData = data[playerId];
+    const playerData = data[playerName];
     if (!playerData) return console.error("❌ 아코디언 데이터 없음");
     renderAccordion(playerData.accordion);
   });
