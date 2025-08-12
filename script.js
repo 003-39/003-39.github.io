@@ -128,20 +128,24 @@ document.addEventListener("DOMContentLoaded", async () => {
         const goals = statsMap["goals"] || 1;
         setValue(element, (mins / goals).toFixed(0));
       } else if (name === "tackles_won_total") {
-        const won = statsMap["won_tackle"] || 0;
+        const won = statsMap["tacklesWon"] || 0;
         const total = statsMap["totalTackles"] || 1;
         setValue(element, `${won}/${total}`);
       } else if (name === "duel_won_lost") {
-        const won = statsMap["duel_won"] || 0;
+        const won = statsMap["duelsWon"] || 0;
         const lost = statsMap["duelsLost"] || 1;
         setValue(element, `${won}/${lost}`);
       } else if (name === "obox-rate") {
-        const obox = statsMap["att_obox_goal"] || 0;
-        const goals = statsMap["goals"] || 1;
+        const obox = statsMap["shotsOnTargetOutsideBox"] || 0;
+        const goals = statsMap["totalShots"] || 1;
+        setValue(element, ((obox / goals) * 100).toFixed(0) + '%');
+      } else if (name === "shotsOnTargetRate") {
+        const obox = statsMap["shotsOnTargetIncGoals"] || 0;
+        const goals = statsMap["totalShots"] || 1;
         setValue(element, ((obox / goals) * 100).toFixed(0) + '%');
       } else if (name === "inbox-rate") {
-        const ibox = statsMap["att_ibox_goal"] || 0;
-        const goals = statsMap["goals"] || 1;
+        const ibox = statsMap["shotsOnTargetOutsideBox"] || 0;
+        const goals = statsMap["totalShots"] || 1;
         setValue(element, ((ibox / goals) * 100).toFixed(0) + '%');
       } else if (name === "long_pass_sucsess") {
         const suc = statsMap["successfulLongPasses"] || 0;
