@@ -50,6 +50,7 @@ app.get("/api/sofascore/:playerId", async (req, res) => {
     res.json(response.data);
   } catch (error) {
     console.error("Error fetching Sofascore stats:", error.message);
+    console.error("Error:", error.response?.status, error.message);
     res.status(500).json({ error: "Failed to fetch Sofascore stats" });
   }
 });
