@@ -48,11 +48,28 @@ document.addEventListener("DOMContentLoaded", async () => {
 
 
     // ▶ 이름, 등번호, 이미지
-    document.querySelector(".first-name").textContent = player.firstName || player.name?.first || "Unknown";
+    // knownName에서 이름 분리 (가장 깔끔한 방법)
+    let firstName = "Unknown";
+    let lastName = "Unknown";
+    
+    if (player.knownName) {
+      const nameParts = player.knownName.split(' ');
+      if (nameParts.length >= 2) {
+        firstName = nameParts[0];  // 첫 번째 부분 (FirstName)
+        lastName = nameParts[nameParts.length - 1];  // 마지막 부분 (LastName만)
+      } else {
+        firstName = player.knownName;
+      }
+    } else {
+      firstName = player.firstName || player.name?.first || "Unknown";
+      lastName = player.lastName || player.name?.last || "Unknown";
+    }
+    
+    document.querySelector(".first-name").textContent = firstName;
     
     // shirtNum이 없으므로 임시로 빈 문자열 사용
     const shirtNum = player.shirtNum || "";
-    document.querySelector(".number").textContent = `${player.lastName || player.name?.last || "Unknown"} ${shirtNum}`;
+    document.querySelector(".number").textContent = `${lastName} ${shirtNum}`;
     
     document.getElementById("main-image").src = info.image || "image/placeholder.png";
 
