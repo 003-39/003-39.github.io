@@ -1,0 +1,24 @@
+{
+  "name": "chelsea-player-api",
+  "version": "1.0.0",
+  "description": "Chelsea FC Player Statistics API",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "axios": "^1.6.0",
+    "cors": "^2.8.5"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "keywords": ["chelsea", "football", "api", "player-stats"],
+  "author": "003-39",
+  "license": "MIT"
+}
