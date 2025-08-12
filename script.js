@@ -33,7 +33,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     // 4. player_info.json에서 추가 정보 매핑
     const infoRes = await fetch("json/player_info.json");
     const infoData = await infoRes.json();
-    const info = infoData[playerId];
+    const info = infoData[playerName]; // playerId 대신 playerName 사용
 
     if (!info) {
       console.error("❌ player_info.json에 해당 ID 정보 없음");
