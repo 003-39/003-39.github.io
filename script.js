@@ -26,9 +26,10 @@ document.addEventListener("DOMContentLoaded", async () => {
     const response = await fetch(`https://zero03-39-github-io.onrender.com/api/player/${playerId}`);
     const data = await response.json();
     const stats = data.stats;
-    const player = data.entity;
+    const player = data.player;
 
-    const statsMap = Object.fromEntries(stats.map(stat => [stat.name, stat.value]));
+    // 새로운 API는 stats를 객체로 반환하므로 직접 사용
+    const statsMap = stats;
 
     // 4. player_info.json에서 추가 정보 매핑
     const infoRes = await fetch("json/player_info.json");
