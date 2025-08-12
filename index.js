@@ -14,7 +14,7 @@ app.use(cors({
 // 선수 스탯 라우터
 app.get("/api/player/:id", async (req, res) => {
   const playerId = req.params.id;
-  const url = `https://footballapi.pulselive.com/football/stats/player/${playerId}?comps=1`;
+  const url = `https://sdp-prem-prod.premier-league-prod.pulselive.com/api/v1/competitions/8/players/${playerId}/stats`;
 
   try {
     const response = await axios.get(url, {
