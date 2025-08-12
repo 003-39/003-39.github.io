@@ -71,7 +71,14 @@ document.addEventListener("DOMContentLoaded", async () => {
     const shirtNum = player.shirtNum || "";
     document.querySelector(".number").textContent = `${lastName} ${shirtNum}`;
     
-    document.getElementById("main-image").src = info.image || "image/placeholder.png";
+    // main-image는 별도로 설정 (현재는 placeholder 유지)
+    // document.getElementById("main-image").src = "별도_이미지_경로";
+    
+    // info-img에 player_info.json의 이미지 설정
+    const infoImg = document.getElementById("info-img");
+    if (infoImg) {
+      infoImg.src = info.image || "image/placeholder.png";
+    }
 
     // joined
     const joinedEl = document.getElementById("player-joined");
