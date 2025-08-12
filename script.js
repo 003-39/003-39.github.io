@@ -9,14 +9,11 @@ document.addEventListener("DOMContentLoaded", async () => {
       console.error("❌ player 쿼리 없음");
       return;
     }
-
-    const normalizedName = playerName.toLowerCase(); // 예: "pedro_neto"
-
     // 2. player_id.json에서 이름으로 ID 매핑
     const idRes = await fetch("json/playerID.json");
     const playerList = await idRes.json();
 
-    const matchedPlayer = playerList.find
+    const matchedPlayer = playerList.find(player => player.name === playerName);
 
     if (!matchedPlayer) {
       console.error("❌ 해당 선수 ID를 찾을 수 없습니다.");
