@@ -22,19 +22,33 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     playerId = matchedPlayer.id;
 
-    // 3. API 요청
+    // 3. 프리미어리그 API 요청
     const response = await fetch(`https://zero03-39-github-io.onrender.com/api/player/${playerId}`);
     const data = await response.json();
     const stats = data.stats;
     const player = data.player;
 
+    // 4. Sofascore API 요청 (부족한 데이터 보완)
+    let sofascoreStats = {};
+    try {
+      const sofascoreResponse = await fetch(`https://zero03-39-github-io.onrender.com/api/sofascore/${matchedPlayer.sofascoreId}`);
+      const sofascoreData = await sofascoreResponse.json();
+      sofascoreStats = sofascoreData.statistics;
+    } catch (error) {
+      console.log("Sofascore API 호출 실패, 기본 통계만 사용");
+    }
+
     // 디버깅: API 응답 구조 확인
     console.log("API Response:", data);
     console.log("Player data:", player);
     console.log("Stats data:", stats);
+    console.log("Sofascore Stats:", sofascoreStats);
 
-    // 새로운 API는 stats를 객체로 반환하므로 직접 사용
-    const statsMap = stats;
+    // 프리미어리그 API + Sofascore API 데이터 통합
+    const statsMap = {
+      ...stats,  // 프리미어리그 기본 통계
+      ...sofascoreStats  // Sofascore 부족한 데이터 (덮어쓰기)
+    };
 
     // 4. player_info.json에서 추가 정보 매핑
     const infoRes = await fetch("json/player_info.json");
