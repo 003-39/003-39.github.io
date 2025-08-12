@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     const normalizedName = playerName.toLowerCase(); // 예: "pedro_neto"
 
     // 2. player_id.json에서 이름으로 ID 매핑
-    const idRes = await fetch("json/player_id.json");
+    const idRes = await fetch("json/playerID.json");
     const playerList = await idRes.json();
 
     const matchedPlayer = playerList.find
