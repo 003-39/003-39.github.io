@@ -204,12 +204,33 @@ function renderSeasonMenu(labels) {
         console.log(`🔍 ${y} 시즌 확인 중: ${url}`);
         
         let res;
-        try {
-          res = await fetch(url);
-          console.log(`📡 ${y} 시즌 응답 상태: ${res.status}`);
-        } catch (e) {
-          console.warn(`❌ ${y} 시즌 fetch error, stop:`, e.message);
-          break;
+        let retryCount = 0;
+        const maxRetries = 3;
+        
+        while (retryCount < maxRetries) {
+          try {
+            console.log(`🔄 ${y} 시즌 시도 ${retryCount + 1}/${maxRetries}`);
+            res = await fetch(url);
+            console.log(`📡 ${y} 시즌 응답 상태: ${res.status}`);
+            break; // 성공하면 while 루프 탈출
+          } catch (e) {
+            retryCount++;
+            console.warn(`❌ ${y} 시즌 fetch error (${retryCount}/${maxRetries}):`, e.message);
+            
+            if (retryCount >= maxRetries) {
+              console.error(`💥 ${y} 시즌 최대 재시도 횟수 초과, 다음 시즌으로`);
+              break; // 최대 재시도 횟수 초과 시 다음 시즌으로
+            }
+            
+            // 잠시 대기 후 재시도
+            console.log(`⏳ ${y} 시즌 재시도 전 1초 대기...`);
+            await new Promise(r => setTimeout(r, 1000));
+          }
+        }
+        
+        // 재시도 실패 시 다음 시즌으로
+        if (retryCount >= maxRetries) {
+          continue;
         }
 
         if (res.status === 200 || res.status === 304) {
@@ -226,11 +247,12 @@ function renderSeasonMenu(labels) {
           }
           
           const stats = json?.stats || {};
-          const hasData = requireNonEmptyStats ? Object.keys(stats).length > 0 : true;
-          console.log(`📊 ${y} 시즌 데이터 유무:`, hasData);
+          const keyCount = Object.keys(stats).length;
+          const hasData = requireNonEmptyStats ? keyCount > 5 : true;
+          console.log(`📊 ${y} 시즌 stats 키 개수: ${keyCount}, 충분한 데이터: ${hasData}`);
           
           if (!hasData) {
-            console.log(`⏹️ ${y} 시즌 stats 비어있음, 탐색 중단`);
+            console.log(`⏹️ ${y} 시즌 stats 키 개수 부족 (${keyCount}개), 탐색 중단`);
             break;
           }
 
@@ -257,6 +279,9 @@ function renderSeasonMenu(labels) {
 
     try {
       console.log("🚀 시즌 탐색 시작...");
+      console.log("🔍 API 서버:", API_BASE);
+      console.log("🔍 선수 ID:", playerId);
+      
       const seasonLabels = await discoverSeasonsByApi(playerId, { 
         startYear: 2024, 
         minYear: 2010, 
