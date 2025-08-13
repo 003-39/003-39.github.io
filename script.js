@@ -197,6 +197,8 @@ function renderSeasonMenu(labels) {
       requireNonEmptyStats = true // 200이어도 stats 비면 stop
     } = {}) {
       const labels = [];
+      let consecutive404Count = 0; // 연속 404 카운트
+      const maxConsecutive404 = 3; // 최대 연속 404 허용 횟수
       console.log(`🔍 시즌 탐색 시작: ${startYear} → ${minYear}`);
       
       for (let y = startYear; y >= minYear; y--) {
@@ -267,49 +269,32 @@ function renderSeasonMenu(labels) {
           // 키가 6개 이상이거나 5개 이하지만 한 시즌 더 확인해야 하는 경우
           if (keyCount > 5) {
             const label = `${y}/${String((y + 1) % 100).padStart(2, '0')}`;
-            labels.push(label);
-            console.log(`✅ ${y} 시즌 추가됨: ${label}`);
+            
+            // 중복 방지: 이미 추가된 시즌은 다시 추가하지 않음
+            if (!labels.includes(label)) {
+              labels.push(label);
+              console.log(`✅ ${y} 시즌 추가됨: ${label}`);
+            } else {
+              console.log(`⚠️ ${y} 시즌 이미 추가됨: ${label}`);
+            }
           }
 
           const label = `${y}/${String((y + 1) % 100).padStart(2, '0')}`;
           labels.push(label);
           console.log(`✅ ${y} 시즌 추가됨: ${label}`);
-        } else if (res.status === 404 || res.status === 204) {
-          console.log(`⚠️ ${y} 시즌 없음 (${res.status}), 한 시즌만 더 확인`);
-          
-          // 한 시즌만 더 확인하고, 연속 404면 중단
-          if (y > minYear) {
-            const nextYear = y - 1;
-            console.log(`🔍 ${nextYear} 시즌 한 번 더 확인 후 판단`);
-            try {
-              const nextUrl = `${API_BASE}/api/player/${playerId}?season=${nextYear}`;
-              const nextRes = await fetch(nextUrl);
-                             if (nextRes.status === 200 || nextRes.status === 304) {
-                 const nextJson = await nextRes.json();
-                 const nextKeyCount = Object.keys(nextJson?.stats || {}).length;
-                 if (nextKeyCount > 0) {
-                   const nextLabel = `${nextYear}/${String((nextYear + 1) % 100).padStart(2, '0')}`;
-                   labels.push(nextLabel);
-                   console.log(`✅ ${nextYear} 시즌 추가됨: ${nextLabel}`);
-                   console.log(`🎯 ${nextYear} 시즌에 데이터 발견, 계속 진행`);
-                   // break 제거! 데이터 발견 후에도 계속 진행
-                 }
-               } else if (nextRes.status === 404 || nextRes.status === 204) {
-                console.log(`⏹️ ${nextYear} 시즌도 없음 (${nextRes.status}), 계속 진행`);
-                // 404/204도 무시하고 계속 진행 (break 제거)
-              }
-            } catch (e) {
-              console.log(`⚠️ ${nextYear} 시즌 확인 실패:`, e.message);
-              break; // 에러 발생 시 중단
+                          } else if (res.status === 404 || res.status === 204) {
+            consecutive404Count++;
+            console.log(`⚠️ ${y} 시즌 없음 (${res.status}), 연속 404: ${consecutive404Count}/${maxConsecutive404}`);
+            
+            // 연속 404가 최대 허용 횟수를 초과하면 중단
+            if (consecutive404Count >= maxConsecutive404) {
+              console.log(`⏹️ 연속 404 최대 허용 횟수 초과 (${maxConsecutive404}), 탐색 중단`);
+              break;
             }
           } else {
-            console.log(`⏹️ ${y} 시즌이 최소 연도, 탐색 중단`);
-            break; // 최소 연도 도달 시 중단
+            // 200/304 등 정상 응답이면 404 카운트 리셋
+            consecutive404Count = 0;
           }
-        } else {
-          console.warn(`⚠️ ${y} 시즌 비정상 응답:`, res.status);
-          break;
-        }
 
         if (pauseMs) {
           console.log(`⏳ ${pauseMs}ms 대기 중...`);
