@@ -266,7 +266,7 @@ function renderSeasonMenu(labels) {
             // 키 개수 적은 시즌은 추가하지 않고, 한 시즌만 더 확인
           }
           
-          // 키가 6개 이상이거나 5개 이하지만 한 시즌 더 확인해야 하는 경우
+          // 키가 6개 이상인 경우에만 추가
           if (keyCount > 5) {
             const label = `${y}/${String((y + 1) % 100).padStart(2, '0')}`;
             
@@ -278,10 +278,6 @@ function renderSeasonMenu(labels) {
               console.log(`⚠️ ${y} 시즌 이미 추가됨: ${label}`);
             }
           }
-
-          const label = `${y}/${String((y + 1) % 100).padStart(2, '0')}`;
-          labels.push(label);
-          console.log(`✅ ${y} 시즌 추가됨: ${label}`);
                           } else if (res.status === 404 || res.status === 204) {
             consecutive404Count++;
             console.log(`⚠️ ${y} 시즌 없음 (${res.status}), 연속 404: ${consecutive404Count}/${maxConsecutive404}`);
