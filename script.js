@@ -1,4 +1,5 @@
 let playerId = null;
+let seasonYear = '2025';
 
 document.addEventListener("DOMContentLoaded", async () => {
   try {
@@ -28,23 +29,6 @@ document.addEventListener("DOMContentLoaded", async () => {
     }
 
     playerId = matchedPlayer.id;
-
-    // 3. 프리미어리그 API 요청
-    const response = await fetch(`https://zero03-39-github-io.onrender.com/api/player/${playerId}`);
-    const data = await response.json();
-    const stats = data.stats;
-    const player = data.player;
-
-
-    // 디버깅: API 응답 구조 확인
-    console.log("API Response:", data);
-    console.log("Player data:", player);
-    console.log("Stats data:", stats);
-
-
-    // 프리미어리그 API 데이터 사용
-    const statsMap = stats;
-
     // 4. player_info.json에서 추가 정보 매핑
     const infoRes = await fetch("json/player_info.json");
     const infoData = await infoRes.json();
@@ -55,6 +39,38 @@ document.addEventListener("DOMContentLoaded", async () => {
       return;
     }
 
+        // 시즌 연도 계산: 아코디언 라벨 중 YYYY/YY 형식만 추출 → 시작 연도 내림차순
+        const acc = Array.isArray(info?.accordion) ? info.accordion : [];
+        const seasonLabels = acc
+          .filter(sec => typeof sec.title === 'string' && /^\d{4}\/\d{2}$/.test(sec.title.trim()))
+          .map(sec => sec.title.trim())
+          .sort((a, b) => parseInt(b.slice(0,4), 10) - parseInt(a.slice(0,4), 10));
+
+    // 기본 2025/26을 우선, 없으면 가장 최근 라벨의 시작 연도 사용
+    if (seasonLabels.length) {
+      const has2025 = seasonLabels.some(l => l.startsWith('2025/'));
+      if (has2025) {
+        seasonYear = '2025';
+      } else {
+        seasonYear = String(parseInt(seasonLabels[0].slice(0,4), 10));
+      }
+    } else {
+      seasonYear = '2025';
+    }
+
+    // 3. 프리미어리그 API 요청 (시즌 반영)
+    const response = await fetch(`https://zero03-39-github-io.onrender.com/api/player/${playerId}?season=${seasonYear}`);
+    const data = await response.json();
+    const stats = data.stats || {};
+    const player = data.player || {};
+
+    // 디버깅: API 응답 구조 확인
+    console.log('API Response:', data);
+    console.log('Player data:', player);
+    console.log('Stats data:', stats);
+
+    // 프리미어리그 API 데이터 사용
+    const statsMap = stats;
 
     // ▶ 이름, 등번호, 이미지
     // knownName에서 이름 분리 (가장 깔끔한 방법)
