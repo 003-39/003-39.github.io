@@ -414,17 +414,6 @@
             { "type": "p", "text": ""},
             { "type": "p", "text": ""}
           ]
-        },
-        {
-          "title": "International Career",
-          "content": [
-            { "type": "p", "text": ""},
-            { "type": "p", "text": ""},
-            { "type": "img", "src": "image/.png", "title": "", "desc": ""},
-            { "type": "p", "text": ""},
-            { "type": "p", "text": ""},
-            { "type": "p", "text": ""}
-          ]
         }
       ]
     }
