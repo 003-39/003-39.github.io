@@ -127,10 +127,10 @@ renderSeasonMenu(seasonLabels);
 refreshStats(window.seasonYear || '2025');  // 초기 1회 호출
 
     // 3. 프리미어리그 API 요청 (시즌 반영)
-    //const response = await fetch(`https://zero03-39-github-io.onrender.com/api/player/${playerId}?season=${seasonYear}`);
-    //const data = await response.json();
-    //const stats = data.stats || {};
-    //const player = data.player || {};
+    const response = await fetch(`https://zero03-39-github-io.onrender.com/api/player/${playerId}?season=${seasonYear}`);
+    const data = await response.json();
+    const stats = data.stats || {};
+    const player = data.player || {};
 
     // 디버깅: API 응답 구조 확인
     //console.log('API Response:', data);
@@ -138,7 +138,7 @@ refreshStats(window.seasonYear || '2025');  // 초기 1회 호출
     //console.log('Stats data:', stats);
 
     // 프리미어리그 API 데이터 사용
-    //const statsMap = stats;
+    const statsMap = stats;
 
     // ▶ 이름, 등번호, 이미지
     // knownName에서 이름 분리 (가장 깔끔한 방법)
