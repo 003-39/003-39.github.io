@@ -248,12 +248,44 @@ function renderSeasonMenu(labels) {
           
           const stats = json?.stats || {};
           const keyCount = Object.keys(stats).length;
-          const hasData = requireNonEmptyStats ? keyCount > 5 : true;
-          console.log(`📊 ${y} 시즌 stats 키 개수: ${keyCount}, 충분한 데이터: ${hasData}`);
+          
+          // 완전히 빈 데이터만 제외
+          const hasData = keyCount > 0;
+          console.log(`📊 ${y} 시즌 stats 키 개수: ${keyCount}, 데이터 존재: ${hasData}`);
           
           if (!hasData) {
-            console.log(`⏹️ ${y} 시즌 stats 키 개수 부족 (${keyCount}개), 탐색 중단`);
+            console.log(`⏹️ ${y} 시즌 완전히 빈 데이터, 탐색 중단`);
             break;
+          }
+          
+          // 키가 5개 이하라면 한 시즌만 더 확인
+          if (keyCount <= 5) {
+            console.log(`⚠️ ${y} 시즌 키 개수 적음 (${keyCount}개), 한 시즌만 더 확인`);
+            const label = `${y}/${String((y + 1) % 100).padStart(2, '0')}`;
+            labels.push(label);
+            console.log(`✅ ${y} 시즌 추가됨: ${label}`);
+            
+            // 한 시즌만 더 확인하고 중단
+            if (y > minYear) {
+              const nextYear = y - 1;
+              console.log(`🔍 ${nextYear} 시즌 한 번 더 확인 후 중단`);
+              try {
+                const nextUrl = `${API_BASE}/api/player/${playerId}?season=${nextYear}`;
+                const nextRes = await fetch(nextUrl);
+                if (nextRes.status === 200 || nextRes.status === 304) {
+                  const nextJson = await nextRes.json();
+                  const nextKeyCount = Object.keys(nextJson?.stats || {}).length;
+                  if (nextKeyCount > 0) {
+                    const nextLabel = `${nextYear}/${String((nextYear + 1) % 100).padStart(2, '0')}`;
+                    labels.push(nextLabel);
+                    console.log(`✅ ${nextYear} 시즌 추가됨: ${nextLabel}`);
+                  }
+                }
+              } catch (e) {
+                console.log(`⚠️ ${nextYear} 시즌 확인 실패:`, e.message);
+              }
+            }
+            break; // 키가 5개 이하인 시즌 확인 후 중단
           }
 
           const label = `${y}/${String((y + 1) % 100).padStart(2, '0')}`;
