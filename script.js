@@ -175,6 +175,11 @@ refreshStats(window.seasonYear || '2024');  // 초기 1회 호출
       infoImg.src = info.image || "image/placeholder.png";
     }
 
+    const mainImg = document.getElementById("main-img");
+    if (mainImg) {
+      mainImg.src = info.mainImage || "image/placeholder.png";
+    }
+
     // joined
     const joinedEl = document.getElementById("player-joined");
     if (joinedEl) {
