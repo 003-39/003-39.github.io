@@ -284,17 +284,17 @@ function renderSeasonMenu(labels) {
             try {
               const nextUrl = `${API_BASE}/api/player/${playerId}?season=${nextYear}`;
               const nextRes = await fetch(nextUrl);
-              if (nextRes.status === 200 || nextRes.status === 304) {
-                const nextJson = await nextRes.json();
-                const nextKeyCount = Object.keys(nextJson?.stats || {}).length;
-                if (nextKeyCount > 0) {
-                  const nextLabel = `${nextYear}/${String((nextYear + 1) % 100).padStart(2, '0')}`;
-                  labels.push(nextLabel);
-                  console.log(`✅ ${nextYear} 시즌 추가됨: ${nextLabel}`);
-                  console.log(`🎯 ${nextYear} 시즌에 데이터 발견, 탐색 중단`);
-                  break; // 데이터가 있는 시즌 발견 후 중단
-                }
-              } else if (nextRes.status === 404 || nextRes.status === 204) {
+                             if (nextRes.status === 200 || nextRes.status === 304) {
+                 const nextJson = await nextRes.json();
+                 const nextKeyCount = Object.keys(nextJson?.stats || {}).length;
+                 if (nextKeyCount > 0) {
+                   const nextLabel = `${nextYear}/${String((nextYear + 1) % 100).padStart(2, '0')}`;
+                   labels.push(nextLabel);
+                   console.log(`✅ ${nextYear} 시즌 추가됨: ${nextLabel}`);
+                   console.log(`🎯 ${nextYear} 시즌에 데이터 발견, 계속 진행`);
+                   // break 제거! 데이터 발견 후에도 계속 진행
+                 }
+               } else if (nextRes.status === 404 || nextRes.status === 204) {
                 console.log(`⏹️ ${nextYear} 시즌도 없음 (${nextRes.status}), 연속 404로 탐색 중단`);
                 break; // 연속 404면 중단
               }
