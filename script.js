@@ -161,7 +161,9 @@ refreshStats(window.seasonYear || '2024');  // 초기 1회 호출
     document.querySelector(".first-name").textContent = firstName;
     
     // player_info.json에서 등번호 가져오기
+    console.log("🔍 등번호 정보:", { infoShirtNum: info.shirtNum, playerShirtNum: player.shirtNum });
     const shirtNum = info.shirtNum || player.shirtNum || "";
+    console.log("📝 최종 등번호:", shirtNum);
     document.querySelector(".number").textContent = `${lastName} ${shirtNum}`;
     
     // main-image는 별도로 설정 (현재는 placeholder 유지)
