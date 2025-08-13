@@ -198,7 +198,7 @@ function renderSeasonMenu(labels) {
     } = {}) {
       const labels = [];
       let consecutive404Count = 0; // 연속 404 카운트
-      const maxConsecutive404 = 3; // 최대 연속 404 허용 횟수
+      const maxConsecutive404 = 2; // 최대 연속 404 허용 횟수
       console.log(`🔍 시즌 탐색 시작: ${startYear} → ${minYear}`);
       
       for (let y = startYear; y >= minYear; y--) {
