@@ -12,9 +12,10 @@ app.use(cors({
 }));
 
 // 선수 스탯 라우터
-app.get("/api/player/:id", async (req, res) => {
+app.get("/api/player/:id/:season", async (req, res) => {
   const playerId = req.params.id;
-  const url = `https://sdp-prem-prod.premier-league-prod.pulselive.com/api/v2/competitions/8/seasons/2024/players/${playerId}/stats`;
+  const season = req.params.season; 
+  const url = `https://sdp-prem-prod.premier-league-prod.pulselive.com/api/v2/competitions/8/seasons/${season}/players/${playerId}/stats`;
 
   try {
     const response = await axios.get(url, {

@@ -2,16 +2,40 @@
 document.addEventListener("DOMContentLoaded", () => {
     // 1. 뷰 스케일링
     const scaleViewToFit = () => {
-        const view = document.querySelector("#template");
-        if (!view) return;
+        // #template을 먼저 찾고, 없으면 body 사용
+        let view = document.querySelector("#template");
+        if (!view) {
+            view = document.body;
+            console.log("⚠️ #template을 찾을 수 없어 body에 스케일링 적용");
+        }
+
+        console.log("🔍 스케일링 시작");
+        console.log("뷰포트 크기:", window.innerWidth, "x", window.innerHeight);
+        console.log("요소 크기:", view.offsetWidth, "x", view.offsetHeight);
+
+        // 요소가 로드되었는지 확인
+        if (view.offsetWidth === 0) {
+            console.log("⚠️ 요소 크기가 0입니다. 잠시 후 다시 시도합니다.");
+            setTimeout(scaleViewToFit, 100);
+            return;
+        }
 
         const scale = window.innerWidth / view.offsetWidth;
-        view.style.transform = `scale(${scale})`;
+        console.log("계산된 스케일:", scale);
+
+        // 스케일이 너무 작거나 크지 않도록 제한
+        const clampedScale = Math.min(Math.max(scale, 0.5), 2.0);
+        console.log("제한된 스케일:", clampedScale);
+
+        view.style.transform = `scale(${clampedScale})`;
         view.style.transformOrigin = "top left";
-        view.style.marginLeft = `${(window.innerWidth - view.offsetWidth * scale) / 2}px`;
+        view.style.marginLeft = `${(window.innerWidth - view.offsetWidth * clampedScale) / 2}px`;
+        
+        console.log("✅ 스케일링 완료:", clampedScale);
     };
 
-    scaleViewToFit();
+    // 초기 스케일링 (약간 지연)
+    setTimeout(scaleViewToFit, 100);
     window.addEventListener("resize", scaleViewToFit);
 
     // 2. 아코디언 기능
@@ -48,24 +72,37 @@ document.addEventListener("DOMContentLoaded", () => {
     const wrapper = document.querySelector('.stat-contents-wrapper');
     const tap = document.querySelector('.stat-tap');
 
-    const showBox = (targetKey) => {
-        Object.entries(boxMap).forEach(([key, box]) => {
-            box.style.display = key === targetKey ? 'flex' : 'none';
+    if (wrapper && tap) {
+        const showBox = (targetKey) => {
+            Object.entries(boxMap).forEach(([key, box]) => {
+                if (box) {
+                    box.style.display = key === targetKey ? 'flex' : 'none';
+                }
+            });
+
+            const targetBox = boxMap[targetKey];
+            if (targetBox) {
+                const newHeight = targetBox.scrollHeight;
+                wrapper.style.transition = 'none';
+                wrapper.style.height = newHeight + 'px';
+
+                const wrapperTop = wrapper.getBoundingClientRect().top + window.scrollY;
+                window.scrollTo({ top: wrapperTop - 30, behavior: 'auto' });
+            }
+        };
+
+        // 초기 상태 설정
+        if (boxMap.appbox) {
+            showBox('appbox');
+        }
+
+        tap.addEventListener('click', (e) => {
+            const targetKey = e.target.closest('.stat-item')?.dataset.target;
+            if (targetKey && boxMap[targetKey]) {
+                showBox(targetKey);
+            }
         });
-
-        const newHeight = boxMap[targetKey].scrollHeight;
-        wrapper.style.transition = 'none';
-        wrapper.style.height = newHeight + 'px';
-
-        const wrapperTop = wrapper.getBoundingClientRect().top + window.scrollY;
-        window.scrollTo({ top: wrapperTop - 30, behavior: 'auto' });
-    };
-
-    showBox('appbox');
-    tap.addEventListener('click', (e) => {
-        const targetKey = e.target.closest('.stat-item')?.dataset.target;
-        if (targetKey && boxMap[targetKey]) showBox(targetKey);
-    });
+    }
 
     // 4. 탭박스 스타일링
     const tapboxes = document.querySelectorAll(".tapbox-1");
@@ -78,7 +115,9 @@ document.addEventListener("DOMContentLoaded", () => {
             const textColor = (isActive || isHover) ? "rgba(255, 255, 255, 1)" : "rgba(0, 0, 0, 1)";
             
             tapbox.style.backgroundColor = bgColor;
-            if (tapText) tapText.style.color = textColor;
+            if (tapText) {
+                tapText.style.color = textColor;
+            }
         };
 
         tapbox.addEventListener("mouseenter", () => updateStyle(false, true));
@@ -102,9 +141,9 @@ document.addEventListener("DOMContentLoaded", () => {
     menus.forEach(({ box, menu }) => {
         const menuBox = document.querySelector(box);
         const menuElement = document.querySelector(menu);
-        const menuIcon = menuBox?.querySelector(".league-v");
-
+        
         if (menuElement && menuBox) {
+            const menuIcon = menuBox.querySelector(".league-v");
             menuElement.style.height = '0';
 
             menuBox.addEventListener('click', () => {
@@ -113,9 +152,14 @@ document.addEventListener("DOMContentLoaded", () => {
                     if (otherMenu !== menu) {
                         const otherMenuEl = document.querySelector(otherMenu);
                         const otherBoxEl = document.querySelector(otherBox);
-                        otherMenuEl.style.height = '0';
-                        otherMenuEl.classList.remove('active');
-                        otherBoxEl?.querySelector(".league-v").style.transform = 'rotate(0deg)';
+                        if (otherMenuEl && otherBoxEl) {
+                            otherMenuEl.style.height = '0';
+                            otherMenuEl.classList.remove('active');
+                            const otherIcon = otherBoxEl.querySelector(".league-v");
+                            if (otherIcon) {
+                                otherIcon.style.transform = 'rotate(0deg)';
+                            }
+                        }
                     }
                 });
 
@@ -123,11 +167,15 @@ document.addEventListener("DOMContentLoaded", () => {
                 if (isActive) {
                     menuElement.style.height = '0';
                     menuElement.classList.remove('active');
-                    if (menuIcon) menuIcon.style.transform = 'rotate(0deg)';
+                    if (menuIcon) {
+                        menuIcon.style.transform = 'rotate(0deg)';
+                    }
                 } else {
                     menuElement.style.height = menuElement.scrollHeight + 'px';
                     menuElement.classList.add('active');
-                    if (menuIcon) menuIcon.style.transform = 'rotate(180deg)';
+                    if (menuIcon) {
+                        menuIcon.style.transform = 'rotate(180deg)';
+                    }
                 }
             });
         }
@@ -141,11 +189,10 @@ document.addEventListener("click", (event) => {
     const seosonBox = document.querySelector('.seoson');
     const seosonMenu = document.querySelector('.seosonmenu');
 
-    if (leagueMenu && !leagueBox.contains(event.target) && !leagueMenu.contains(event.target)) {
+    if (leagueMenu && leagueBox && !leagueBox.contains(event.target) && !leagueMenu.contains(event.target)) {
         leagueMenu.classList.remove('active');
     }
-    if (seosonMenu && !seosonBox.contains(event.target) && !seosonMenu.contains(event.target)) {
+    if (seosonMenu && seosonBox && !seosonBox.contains(event.target) && !seosonMenu.contains(event.target)) {
         seosonMenu.classList.remove('active');
     }
 });
-

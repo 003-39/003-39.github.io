@@ -5,8 +5,15 @@ document.addEventListener("DOMContentLoaded", async () => {
     // 1. 쿼리에서 player=pedro_neto 파싱
     const urlParams = new URLSearchParams(window.location.search);
     const playerName = urlParams.get("player"); // 예: "pedro_neto"
+    
+    console.log("🔍 URL 파라미터 확인:");
+    console.log("전체 URL:", window.location.href);
+    console.log("검색 파라미터:", window.location.search);
+    console.log("player 값:", playerName);
+    
     if (!playerName) {
       console.error("❌ player 쿼리 없음");
+      console.log("💡 올바른 URL 예시: ?player=pedro_neto");
       return;
     }
     // 2. player_id.json에서 이름으로 ID 매핑
