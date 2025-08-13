@@ -53,14 +53,43 @@ document.addEventListener("DOMContentLoaded", async () => {
       console.error("❌ player_info.json에 해당 ID 정보 없음");
       return;
     }
-// ---- 시즌 라벨 추출 (아코디언 → "YYYY/YY"만) ----
-function extractSeasonLabelsFromAccordion(info) {
-  const acc = Array.isArray(info?.accordion) ? info.accordion : [];
-  const labels = acc
-    .filter(sec => typeof sec.title === 'string' && /^\d{4}\/\d{2}$/.test(sec.title.trim()))
-    .map(sec => sec.title.trim());
-  // 시작 연도 내림차순 (최근 시즌 먼저)
-  labels.sort((a, b) => parseInt(b.slice(0,4), 10) - parseInt(a.slice(0,4), 10));
+// ── 시즌 탐색 (아코디언 무시, API로 직접 확인) ──
+// startYear부터 내려가며 404/빈스탯 만나면 멈춤
+async function discoverSeasonsByApi(playerId, {
+  startYear = 2024,     // 기본 2025/26부터
+  minYear   = 2010,     // 너무 과거로 안내려가게 가드
+  pauseMs   = 120,      // 호출 간 간격 (레이트리밋 예방)
+  requireNonEmptyStats = true // 200이어도 stats 비면 stop
+} = {}) {
+  const labels = [];
+  for (let y = startYear; y >= minYear; y--) {
+    const url = `${API_BASE}/api/player/${playerId}?season=${y}`;
+    let res;
+    try {
+      res = await fetch(url);
+    } catch (e) {
+      console.warn('discoverSeasons fetch error, stop:', e.message);
+      break;
+    }
+
+    if (res.status === 200) {
+      let json = {};
+      try { json = await res.json(); } catch {}
+      const stats = json?.stats || {};
+      const hasData = requireNonEmptyStats ? Object.keys(stats).length > 0 : true;
+      if (!hasData) break;
+
+      const label = `${y}/${String((y + 1) % 100).padStart(2, '0')}`;
+      labels.push(label);
+    } else if (res.status === 404 || res.status === 204) {
+      break; // 없는 시즌 → 즉시 stop
+    } else {
+      console.warn('discoverSeasons non-OK:', res.status);
+      break;
+    }
+
+    if (pauseMs) await new Promise(r => setTimeout(r, pauseMs));
+  }
   return labels;
 }
 
@@ -122,8 +151,9 @@ function renderSeasonMenu(labels) {
 
 // ---- 실제 실행 (info 준비된 곳에서 호출) ----
 // const info = infoData[playerSlug];  // ← 네가 이미 갖고 있는 라인 바로 아래에:
-const seasonLabels = extractSeasonLabelsFromAccordion(info);
-renderSeasonMenu(seasonLabels);
+const seasonLabels = await discoverSeasonsByApi(playerId, { startYear: 2025, minYear: 2010, pauseMs: 120, requireNonEmptyStats: true });
+const finalLabels = seasonLabels.length ? seasonLabels : ['2024/25'];
+renderSeasonMenu(finalLabels);
 refreshStats(window.seasonYear || '2024');  // 초기 1회 호출
 
     // 3. 프리미어리그 API 요청 (시즌 반영)
