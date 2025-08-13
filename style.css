@@ -1338,7 +1338,7 @@ html, body {
     display: flex;
     flex-direction: column;
     justify-content: center;
-	width: 118px;
+	width: auto;
 	height: 55px;
 	left: 196px;
 	top: -10px;
@@ -1349,7 +1349,7 @@ html, body {
     display: flex;
     flex-direction: column;
     justify-content: center;
-	width: 60px;
+	width: auto;
 	height: 54.146px;
 	left: 255px;
 	top: 80px;
@@ -1360,7 +1360,7 @@ html, body {
     display: flex;
     flex-direction: column;
     justify-content: center;
-	width: 110px;
+	width: auto;
 	height: 55.146px;
 	left: 210px;
 	top: 165px;
