@@ -29,3 +29,7 @@ app.get("/api/player/:id", async (req, res) => {
     res.status(500).json({ error: "Failed to fetch player stats" });
   }
 });
+
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
+});
