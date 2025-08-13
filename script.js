@@ -149,13 +149,6 @@ function renderSeasonMenu(labels) {
   });
 }
 
-// ---- 실제 실행 (info 준비된 곳에서 호출) ----
-// const info = infoData[playerSlug];  // ← 네가 이미 갖고 있는 라인 바로 아래에:
-const seasonLabels = await discoverSeasonsByApi(playerId, { startYear: 2024, minYear: 2010, pauseMs: 120, requireNonEmptyStats: true });
-const finalLabels = seasonLabels.length ? seasonLabels : ['2024/25'];
-renderSeasonMenu(finalLabels);
-refreshStats(window.seasonYear || '2024');  // 초기 1회 호출
-
     // 3. 프리미어리그 API 요청 (시즌 반영)
     const response = await fetch(`https://zero03-39-github-io.onrender.com/api/player/${playerId}?season=${seasonYear}`);
     const data = await response.json();
@@ -230,6 +223,24 @@ refreshStats(window.seasonYear || '2024');  // 초기 1회 호출
         para.textContent = p;
         descEl.appendChild(para);
       });
+    }
+
+    // ---- 시즌 메뉴 생성 및 초기 스탯 로드 ----
+    try {
+      const seasonLabels = await discoverSeasonsByApi(playerId, { 
+        startYear: 2024, 
+        minYear: 2010, 
+        pauseMs: 120, 
+        requireNonEmptyStats: true 
+      });
+      const finalLabels = seasonLabels.length ? seasonLabels : ['2024/25'];
+      renderSeasonMenu(finalLabels);
+      refreshStats(window.seasonYear || '2024');  // 초기 1회 호출
+    } catch (error) {
+      console.error("시즌 메뉴 생성 실패:", error);
+      // 기본값으로 설정
+      renderSeasonMenu(['2024/25']);
+      refreshStats('2024');
     }
 
 
