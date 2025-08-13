@@ -295,8 +295,8 @@ function renderSeasonMenu(labels) {
                    // break 제거! 데이터 발견 후에도 계속 진행
                  }
                } else if (nextRes.status === 404 || nextRes.status === 204) {
-                console.log(`⏹️ ${nextYear} 시즌도 없음 (${nextRes.status}), 연속 404로 탐색 중단`);
-                break; // 연속 404면 중단
+                console.log(`⏹️ ${nextYear} 시즌도 없음 (${nextRes.status}), 계속 진행`);
+                // 404/204도 무시하고 계속 진행 (break 제거)
               }
             } catch (e) {
               console.log(`⚠️ ${nextYear} 시즌 확인 실패:`, e.message);
