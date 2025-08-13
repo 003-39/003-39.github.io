@@ -34,20 +34,10 @@ document.addEventListener("DOMContentLoaded", async () => {
     const idRes = await fetch("json/playerID.json");
     const playerList = await idRes.json();
 
-    console.log("🔍 playerID.json 전체 목록:", playerList);
-    console.log("🔍 찾고 있는 선수 이름:", playerName);
-    console.log("🔍 선수 이름 타입:", typeof playerName);
-
-    const matchedPlayer = playerList.find(player => {
-      console.log(`🔍 비교: "${player.name}" === "${playerName}" (${player.name === playerName})`);
-      return player.name === playerName;
-    });
-
-    console.log("🔍 매칭된 선수:", matchedPlayer);
+    const matchedPlayer = playerList.find(player => player.name === playerName);
 
     if (!matchedPlayer) {
       console.error("❌ 해당 선수 ID를 찾을 수 없습니다.");
-      console.log("💡 사용 가능한 선수들:", playerList.map(p => p.name));
       return;
     }
 
