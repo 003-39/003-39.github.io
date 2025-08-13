@@ -292,28 +292,40 @@ function renderSeasonMenu(labels) {
           labels.push(label);
           console.log(`✅ ${y} 시즌 추가됨: ${label}`);
         } else if (res.status === 404 || res.status === 204) {
-          console.log(`⚠️ ${y} 시즌 없음 (${res.status}), 한 시즌만 더 진행`);
+          console.log(`⚠️ ${y} 시즌 없음 (${res.status}), 더 많은 시즌 확인`);
           
-          // 한 시즌만 더 진행하고 중단
-          if (y > minYear) {
-            const nextYear = y - 1;
-            console.log(`🔍 ${nextYear} 시즌 한 번 더 확인 후 중단`);
+          // 더 많은 시즌을 확인 (최대 3개까지)
+          let checkCount = 0;
+          const maxCheckCount = 3;
+          
+          for (let checkYear = y - 1; checkYear >= minYear && checkCount < maxCheckCount; checkYear--) {
+            console.log(`🔍 ${checkYear} 시즌 확인 중 (${checkCount + 1}/${maxCheckCount})`);
             try {
-              const nextUrl = `${API_BASE}/api/player/${playerId}?season=${nextYear}`;
-              const nextRes = await fetch(nextUrl);
-              if (nextRes.status === 200 || nextRes.status === 304) {
-                const nextJson = await nextRes.json();
-                const nextKeyCount = Object.keys(nextJson?.stats || {}).length;
-                if (nextKeyCount > 0) {
-                  const nextLabel = `${nextYear}/${String((nextYear + 1) % 100).padStart(2, '0')}`;
-                  labels.push(nextLabel);
-                  console.log(`✅ ${nextYear} 시즌 추가됨: ${nextLabel}`);
+              const checkUrl = `${API_BASE}/api/player/${playerId}?season=${checkYear}`;
+              const checkRes = await fetch(checkUrl);
+              if (checkRes.status === 200 || checkRes.status === 304) {
+                const checkJson = await checkRes.json();
+                const checkKeyCount = Object.keys(checkJson?.stats || {}).length;
+                if (checkKeyCount > 0) {
+                  const checkLabel = `${checkYear}/${String((checkYear + 1) % 100).padStart(2, '0')}`;
+                  labels.push(checkLabel);
+                  console.log(`✅ ${checkYear} 시즌 추가됨: ${checkLabel}`);
+                  checkCount++;
                 }
+              } else if (checkRes.status === 404 || checkRes.status === 204) {
+                console.log(`⚠️ ${checkYear} 시즌도 없음 (${checkRes.status})`);
               }
             } catch (e) {
-              console.log(`⚠️ ${nextYear} 시즌 확인 실패:`, e.message);
+              console.log(`⚠️ ${checkYear} 시즌 확인 실패:`, e.message);
+            }
+            
+            // 잠시 대기
+            if (pauseMs) {
+              await new Promise(r => setTimeout(r, pauseMs));
             }
           }
+          
+          console.log(`🎯 총 ${checkCount}개 시즌 추가 후 중단`);
           break; // 404/204 시즌 확인 후 중단
         } else {
           console.warn(`⚠️ ${y} 시즌 비정상 응답:`, res.status);
