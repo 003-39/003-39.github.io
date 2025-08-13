@@ -7,11 +7,6 @@ document.addEventListener("DOMContentLoaded", async () => {
     const urlParams = new URLSearchParams(window.location.search);
     const playerName = urlParams.get("player"); // 예: "pedro_neto"
     
-    console.log("🔍 URL 파라미터 확인:");
-    console.log("전체 URL:", window.location.href);
-    console.log("검색 파라미터:", window.location.search);
-    console.log("player 값:", playerName);
-    
     if (!playerName) {
       console.error("❌ player 쿼리 없음");
       console.log("💡 올바른 URL 예시: ?player=pedro_neto");
@@ -50,24 +45,21 @@ function extractSeasonLabelsFromAccordion(info) {
   return labels;
 }
 
-// ---- 스탯 새로고침 (시즌 반영) ----
-if (typeof refreshStats !== 'function') {
-  async function refreshStats(y) {
-    if (!window.playerId) return;
-    try {
-      const res = await fetch(`/api/player/${window.playerId}?season=${y}`);
-      if (!res.ok) throw new Error(`HTTP ${res.status}`);
-      const json = await res.json();
-      const stats = json?.stats || {};
-      document.querySelectorAll('[data-name]').forEach(el => {
-        const key = el.getAttribute('data-name');
-        if (key in stats) el.textContent = String(stats[key]);
-      });
-    } catch (e) {
-      console.error('PL stats fetch failed:', e.message);
-    }
+window.refreshStats = async function(y) {
+  if (!playerId) return;
+  try {
+    const res = await fetch(`https://zero03-39-github-io.onrender.com/api/player/${playerId}?season=${y}`);
+    if (!res.ok) throw new Error(`HTTP ${res.status}`);
+    const json = await res.json();
+    const stats = json?.stats || {};
+    document.querySelectorAll('[data-name]').forEach(el => {
+      const key = el.getAttribute('data-name');
+      if (key in stats) el.textContent = String(stats[key]);
+    });
+  } catch (e) {
+    console.error('PL stats fetch failed:', e.message);
   }
-}
+};
 
 // ---- 시즌 메뉴 렌더 + 클릭 이벤트 바인딩 ----
 function renderSeasonMenu(labels) {
