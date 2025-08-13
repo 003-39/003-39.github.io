@@ -227,10 +227,10 @@ html, body {
     transition: color 0.2s linear;
 }
 .ac-header[aria-expanded="true"] .ac-bar-2 {
-    transform: rotate(45deg);
+    transform: rotate(90deg);
 }
 .ac-header[aria-expanded="true"] .ac-bar-1 {
-    transform: rotate(-135deg);
+    transform: rotate(0deg);
 }
 .ac-bar-1,
 .ac-bar-2 {
