@@ -292,8 +292,29 @@ function renderSeasonMenu(labels) {
           labels.push(label);
           console.log(`✅ ${y} 시즌 추가됨: ${label}`);
         } else if (res.status === 404 || res.status === 204) {
-          console.log(`⏹️ ${y} 시즌 없음 (${res.status}), 탐색 중단`);
-          break; // 없는 시즌 → 즉시 stop
+          console.log(`⚠️ ${y} 시즌 없음 (${res.status}), 한 시즌만 더 진행`);
+          
+          // 한 시즌만 더 진행하고 중단
+          if (y > minYear) {
+            const nextYear = y - 1;
+            console.log(`🔍 ${nextYear} 시즌 한 번 더 확인 후 중단`);
+            try {
+              const nextUrl = `${API_BASE}/api/player/${playerId}?season=${nextYear}`;
+              const nextRes = await fetch(nextUrl);
+              if (nextRes.status === 200 || nextRes.status === 304) {
+                const nextJson = await nextRes.json();
+                const nextKeyCount = Object.keys(nextJson?.stats || {}).length;
+                if (nextKeyCount > 0) {
+                  const nextLabel = `${nextYear}/${String((nextYear + 1) % 100).padStart(2, '0')}`;
+                  labels.push(nextLabel);
+                  console.log(`✅ ${nextYear} 시즌 추가됨: ${nextLabel}`);
+                }
+              }
+            } catch (e) {
+              console.log(`⚠️ ${nextYear} 시즌 확인 실패:`, e.message);
+            }
+          }
+          break; // 404/204 시즌 확인 후 중단
         } else {
           console.warn(`⚠️ ${y} 시즌 비정상 응답:`, res.status);
           break;
