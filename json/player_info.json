@@ -208,5 +208,74 @@
           ]
         }
       ]
+    },
+    "levi_colwill": {
+      "joined": "Levi Colwill has been registered with us since the Under-9 age group after signing through our development centre programme.",
+      "paragraphs": [
+        "An England international who plays mostly at centre-back, he can also slot in on the left as a full-back or wing-back, and enjoys stepping forward as a ball-playing defender."
+      ],
+      "mainImage": "image/levi_main.png",
+      "image": "image/levi_info.png",
+      "shirtNum" : "6",
+      "accordion": [
+        {
+          "title": "2023/24",
+          "content": [
+            { "type": "p", "text": "Having been part of the men's first team pre-season tour to the United States, it was announced at the start of August 2024 that Colwill had signed a new six-year contract, with an option for a further year, for a total of seven years."},
+            { "type": "p", "text": "He made his debut when he began the first game of the season, at home to Liverpool. At the start of December 2023, Colwill scored his first Chelsea goal, and his first in the Premier League, from a corner in a home win against the club where he had previously been on loan - Brighton."},
+            { "type": "img", "src": "image/levi_2324_1.png", "title": "Colwill scores his first goal for Chelsea against Brighton", "desc": ""},
+            { "type": "p", "text": "In the following game, away at Manchester United, with Reece James beginning the game on the bench and Conor Gallagher suspended, Colwill was named as the team's captain for the first time."},
+            { "type": "p", "text": "That was during a period playing at left-back. After a short spell out with injury early in 2024, he returned to centre-back, including for all 120 minutes of the Carabao Cup final against Liverpool."},
+            { "type": "p", "text": "Then a longer-term injury rendered Colwill unavailable for most of March and April, and when fit again in May he was an unused substitute. His breakthrough season at Chelsea had yielded 27 starts and five sub appearances."}
+          ]
+        },
+        {
+          "title": "2024/25",
+          "content": [
+            { "type": "p", "text": "New head coach Enzo Maresca selected Levi Colwill in central defence for every Premier League match in the early months of the season. By the halfway stage of the campaign he had played every minute of every league game bar a match at Southampton when he was one seven changes made as rests were given."},
+            { "type": "p", "text": "His centre-back partner had primarily been Wesley Fofana until the Frenchman suffered a mid-season injury. Then it was Tosin Adarabioyo."},
+            { "type": "p", "text": "In the final game of 2024, away at Ipswich, Colwill made his 50th appearance for Chelsea."},
+            { "type": "p", "text": "He continued to be a first choice at centre-back in the Premier League into 2025 and at the end of February he headed his first goal of the season, in a big home win over Southampton.l"},
+            { "type": "img", "src": "image/levi_2425_1.png", "title": "Levi Colwill scoring the second goal of his Chelsea career - against Southampton", "desc": ""},
+            { "type": "p", "text": "It was Colwill who, on the final day of the league season, scored the vital winner from close range against Nottingham Forest that secured a top-four finish."},
+            { "type": "p", "text": "He followed that up by coming on for Benoit Badiashile in the second half of the UEFA Conference League final victory in Poland, shortly before Enzo Fernandez's equaliser."}
+          ]
+        },
+        {
+          "title": "Academy",
+          "content": [
+            { "type": "p", "text": "Colwill featured mostly for the Under-18s during 2019/20 and made his Under-19s debut in a UEFA Youth League draw with Valencia, as well as appearing in the FA Youth Cup for the first time during a 5-0 win over Bradford City."},
+            { "type": "img", "src": "image/levi_aca_1.png", "title": "Colwill scores his first goal for Chelsea against Brighton", "desc": ""},
+            { "type": "p", "text": "Following impressive performances for those age groups, the defender began to make appearances for the development squad side in early 2020, the first coming in a 2-2 draw with Everton. Unfortunately his season ended early after picking up a knee injury in a Youth Cup win over Millwall at Stamford Bridge. In total he made 22 outings for our Academy teams in 2019/20."},
+            { "type": "p", "text": "A solid first season in full-time football meant Colwill signed his first professional contract at the club on his 17th birthday in February 2020."},
+            { "type": "p", "text": "After recovering from the injury at the end of the previous season, Colwill returned to the pitch at the start of the 2020/21 season with Andy Myers' development squad and by the end of the season, only two players had started more games in the PL2 competition than his 17, as Chelsea finished runners-up."}
+          ]
+        },
+        {
+          "title": "On loan",
+          "content": [
+            { "type": "p", "text": "In June 2021, Colwill signed a new four-year Chelsea contract and it was announced he would have his first taste of senior football on loan at Huddersfield Town. It was ultimately a successful year, as he made 29 league appearances, mostly at centre-back, despite his season being interrupted by injury and Covid, helping a side who had ended the previous campaign in 20th to a third-place finish in the Championship."},
+            { "type": "p", "text": "However, it finished in painful style, when he got the last touch on a cross destined for his own net as Huddersfield's promotion chances were ended by a 1-0 defeat in the play-off final."},
+            { "type": "p", "text": "Having spent the 2022 pre-season with Thomas Tuchel's squad (although injury did limit his playing time), he moved on loan to Brighton on the eve of the new Premier League season."},
+            { "type": "p", "text": "His time on the South Coast was considered a success as Brighton finished sixth in the Premier League and qualified for the Europa League. Colwill made 23 appearances in all competitions."}
+          ]
+        },
+        {
+          "title": "International Career",
+          "content": [
+            { "type": "p", "text": "Having represented England from schoolboy age group upwards, Colwill made his England senior debut in October 2023. Following his good start to the club season with Chelsea, when he was a regular in the side, he earned his first England cap in a friendly win over Australia at Wembley. He played the full game at left-back."},
+            { "type": "p", "text": "Previously, Colwill had made his England Under-21 debut in March 2022 in a win over Andorra."},
+            { "type": "p", "text": "In the summer of 2023, he was a mainstay of the Young Lions side that won the European Under-21 Championship for the first time in nearly 40 years. He played all but the last group game and in the final against Spain he put in an accomplished all-round display, including joining in with attacks. He headed against the post shortly before his team scored the only goal."},
+            { "type": "p", "text": "Colwill and the defence kept a clean sheet in every game."},
+            { "type": "img", "src": "image/levi_inter_1.png", "title": "Levi Colwill makes an important block in the Euro U21 final", "desc": ""},
+            { "type": "p", "text": "Just prior to that tournament, he travelled with the senior England squad to a Euro 2024 qualifier."},
+            { "type": "p", "text": "His first formal call-up to an England squad came at the end of August 2023, shortly after his Chelsea debut."},
+            { "type": "p", "text": "On 13 October 2023 Colwill made his Three Lions bow, playing 90 minutes at left-back in a win over Australia at Wembley."},
+            { "type": "img", "src": "image/levi_inter_2.png", "title": "Levi made his England debut in October 2023", "desc": ""},
+            { "type": "p", "text": "He was not selected for the squad for Euro 2024 but a year after his debut while winning his fourth cap, he made an amazing goal-line clearance at Wembley, albeit in an eventual loss to Greece."},
+            { "type": "img", "src": "image/levi_inter_3.png", "title": "Colwill spectacularly clears the ball", "desc": ""}
+          ]
+        }
+      ]
     }
   }
