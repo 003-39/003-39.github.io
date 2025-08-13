@@ -416,5 +416,63 @@
           ]
         }
       ]
+    },
+    "wesley_fofana": {
+    "joined": "Wesley Fofana moved to Chelsea from Leicester City in late August 2022, signing a seven-year contract with the Blues.",
+    "paragraphs": [
+      "One of the Premier League’s most highly rated young players, Fofana arrived to further bolster the defence for the 2022/23 season, following the arrivals of Kalidou Koulibaly and Marc Cucurella earlier that summer. After impressing in his homeland France with Saint-Etienne, Fofana further underlined his credentials as one of the game’s most promising all-round defenders with his performances during two seasons in England with Leicester. He was named as the Foxes’ Young Player of the Year in his debut campaign in the Premier League, 2020/21, with one of his best performances in England so far coming against Chelsea in that season’s FA Cup final, as Leicester won the trophy for the first time."
+    ],
+    "mainImage": "image/fofana_main.png",
+    "image": "image/fofana_info.png",
+    "shirtNum" : "29",
+    "accordion": [
+      {
+        "title": "2022/23",
+        "content": [
+          { "type": "p", "text": ""},
+          { "type": "img", "src": "image/fofana_2223_1.png", "title": "Fofana opened the scoring with a cool finish", "desc": ""},
+          { "type": "p", "text": ""},
+          { "type": "p", "text": ""},
+          { "type": "p", "text": ""}
+        ]
+      },
+      {
+        "title": "2023/24",
+        "content": [
+          { "type": "p", "text": "In July 2023, just before the pre-season tour to the United States, it was announced Fofana had undergone anterior cruciate ligament reconstruction surgery."},
+          { "type": "p", "text": "The injury prevented him playing a game in the 2023/24 season."}
+        ]
+      },
+      {
+        "title": "2024/25",
+        "content": [
+          { "type": "p", "text": "Following his injury problems over the previous year, Fofana was able to start the first seven league games of the season, playing at right-back on one occasion at West Ham. That was until the run of games was interrupted by suspension. He missed a defeat at Anfield."},
+          { "type": "img", "src": "image/fofana_2425_1.png", "title": "Fofana snuffs out a Leicester attack", "desc": ""},
+          { "type": "p", "text": "However, another run followed alongside regular central defensive partner Levi Colwill as Chelsea accumulated Premier League points before, at the start of December, Fofana suffered a hamstring injury."},
+          { "type": "p", "text": "He returned to play two games in March but then underwent successful hamstring surgery."}
+        ]
+      },
+      {
+        "title": "Pre Chelsea",
+        "content": [
+          { "type": "p", "text": "Wesley Fofana did not join a professional youth system until the age of 14, but made up for lost time by having an instant impact when given his first chance in senior football in his native France with Saint-Etienne. The 21-year-old then took to a new country just as easily when signing for Leicester City, quickly becoming one of the most exciting young defenders in the Premier League."},
+          { "type": "p", "text": "Born in the footballing hotbed of Marseille on the south coast of France, Fofana started his youth career at a series of small clubs around the country, taking in spells with Repos Vitrolles, Mining Basin, Des Pennes Mirabeau and Air Bel before joining the ranks of top-flight club Saint-Etienne in 2015, aged 14."},
+          { "type": "p", "text": "Initially playing for Saint-Etienne II in the fourth tier, the teenager’s breakthrough arrived in the 2018/19 season after signing his first professional contract that summer, making several appearances for the second string as well as starring for the club’s Under-19s as they won the Coupe Gambardella – France’s prestigious national youth cup."},
+          { "type": "img", "src": "image/fofana_pre_1.png", "title": "Fofana made his senior debut for Saint-Etienne in 2018/19", "desc": ""},
+          { "type": "p", "text": "He was rewarded with a debut for the first team in Ligue 1, although it arrived earlier than expected. Having been an unused substitute in Saint-Etienne’s previous two games, an injury to Pierre-Yves Polomat 20 minutes into their crucial penultimate fixture saw Fofana come on for his top-flight debut. He contributed to a clean sheet in a 3-0 victory over Nice, which sealed their fourth-place finish in the table and European qualification. He then made his first start in their last game of the season, a 1-1 draw at Angers."},
+          { "type": "p", "text": "Fofana was included in Saint-Etienne’s senior squad for 2019/20, but with many of their stars departing it turned out to be a much tougher season for the club. That was not helped by a badly timed knee injury which meant Fofana missed the opening two months of the campaign, but he was instantly propelled into the starting line-up on his return to help them retain their top-flight status. That included his first goal in Ligue 1, in a 4-1 win over Nice in December."},
+          { "type": "img", "src": "image/fofana_pre_2.png", "title": "In action against PSG in the Coupe de France final", "desc": ""},
+          { "type": "p", "text": "He scored again as Saint-Etienne opened their Coupe de France campaign with victory at Bastia-Borgo and started all but one of their games en route to the final. Despite a 1-0 defeat in the decider at the Stade de France, Fofana put in an impressive performance belying his years, up against a star-studded Paris Saint-Germain attack which included Kylian Mbappe and Neymar, despite his central defensive partner Loic Perrin being sent off after half-an-hour."},
+          { "type": "p", "text": "The centre-back started Saint-Etienne’s first three games of 2020/21, winning all three without conceding a goal, before moving to Leicester City. The speed with which he adapted to his new surroundings and the intensity of the Premier League was even more impressive, though, as he instantly became a key player at the King Power Stadium."},
+          { "type": "p", "text": "He made 38 appearances for the Foxes in his debut campaign on these shores, 28 of them in the Premier League, all but one of which came from the start, with the level of his performances seeing him named the club’s Young Player of the Season."},
+          { "type": "img", "src": "image/fofana_pre_3.png", "title": "Celebrating Leicester's FA Cup final win over Chelsea", "desc": ""},
+          { "type": "p", "text": "Arguably his best game of his first year in England is one Chelsea supporters will remember well, if not fondly, as he was part of the Leicester defence which managed to hold on and frustrate the Blues at Wembley when Leicester beat us 1-0 to win the FA Cup final, allowing the Foxes to lift the trophy for the first time in their history."},
+          { "type": "p", "text": "It appeared his progress would be halted by serious injury, though, when Fofana suffered a broken leg in Leicester’s pre-season friendly against Villarreal shortly before the start of 2021/22. However, following his recovery, he picked up right where he had left off, and even seemed to have stepped up to another level."},
+          { "type": "p", "text": "That was underlined in the first match following his return, in the second leg of their Europa Conference League last-16 tie against Rennes in France, when he headed in the decisive goal which secured the Foxes’ progress to the next round, his first for the club. It was also acknowledged as one of the best performances of his career, despite it being his first competitive match for 10 months."},
+          { "type": "img", "src": "image/fofana_pre_4.png", "title": "Scoring his first Leicester goal against Rennes in the Europa Conference League", "desc": ""},
+          { "type": "p", "text": "The level of Fofana’s recovery was further shown as he featured in every minute for Leicester in all competitions for the remainder of the season, being a vital part of the team again as they reached the semi-finals of the Europa Conference League – the Foxes’ first-ever appearance in the last four of a European competition – and sparking a return to form at domestic level which saw them finish eighth in the Premier League."}
+        ]
+      }
+    ]
     }
-  }
+}
