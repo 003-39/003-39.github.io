@@ -258,34 +258,17 @@ function renderSeasonMenu(labels) {
             break;
           }
           
-          // 키가 5개 이하라면 한 시즌만 더 확인
+          // 키가 5개 이하는 "없는 시즌"으로 간주
           if (keyCount <= 5) {
-            console.log(`⚠️ ${y} 시즌 키 개수 적음 (${keyCount}개), 한 시즌만 더 확인`);
+            console.log(`⚠️ ${y} 시즌 키 개수 부족 (${keyCount}개), 없는 시즌으로 간주`);
+            // 키 개수 적은 시즌은 추가하지 않고, 한 시즌만 더 확인
+          }
+          
+          // 키가 6개 이상이거나 5개 이하지만 한 시즌 더 확인해야 하는 경우
+          if (keyCount > 5) {
             const label = `${y}/${String((y + 1) % 100).padStart(2, '0')}`;
             labels.push(label);
             console.log(`✅ ${y} 시즌 추가됨: ${label}`);
-            
-            // 한 시즌만 더 확인하고 중단
-            if (y > minYear) {
-              const nextYear = y - 1;
-              console.log(`🔍 ${nextYear} 시즌 한 번 더 확인 후 중단`);
-              try {
-                const nextUrl = `${API_BASE}/api/player/${playerId}?season=${nextYear}`;
-                const nextRes = await fetch(nextUrl);
-                if (nextRes.status === 200 || nextRes.status === 304) {
-                  const nextJson = await nextRes.json();
-                  const nextKeyCount = Object.keys(nextJson?.stats || {}).length;
-                  if (nextKeyCount > 0) {
-                    const nextLabel = `${nextYear}/${String((nextYear + 1) % 100).padStart(2, '0')}`;
-                    labels.push(nextLabel);
-                    console.log(`✅ ${nextYear} 시즌 추가됨: ${nextLabel}`);
-                  }
-                }
-              } catch (e) {
-                console.log(`⚠️ ${nextYear} 시즌 확인 실패:`, e.message);
-              }
-            }
-            break; // 키가 5개 이하인 시즌 확인 후 중단
           }
 
           const label = `${y}/${String((y + 1) % 100).padStart(2, '0')}`;
