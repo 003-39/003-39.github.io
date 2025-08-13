@@ -160,8 +160,8 @@ refreshStats(window.seasonYear || '2024');  // 초기 1회 호출
     
     document.querySelector(".first-name").textContent = firstName;
     
-    // shirtNum이 없으므로 임시로 빈 문자열 사용
-    const shirtNum = player.shirtNum || "";
+    // player_info.json에서 등번호 가져오기
+    const shirtNum = info.shirtNumber || player.shirtNum || "";
     document.querySelector(".number").textContent = `${lastName} ${shirtNum}`;
     
     // main-image는 별도로 설정 (현재는 placeholder 유지)
