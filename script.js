@@ -212,13 +212,17 @@ function renderSeasonMenu(labels) {
           break;
         }
 
-        if (res.status === 200) {
+        if (res.status === 200 || res.status === 304) {
           let json = {};
           try { 
             json = await res.json(); 
             console.log(`📊 ${y} 시즌 stats 키 개수:`, Object.keys(json?.stats || {}).length);
           } catch (e) {
             console.warn(`❌ ${y} 시즌 JSON 파싱 실패:`, e.message);
+            // 304인 경우 빈 객체로 처리
+            if (res.status === 304) {
+              json = {};
+            }
           }
           
           const stats = json?.stats || {};
@@ -252,6 +256,7 @@ function renderSeasonMenu(labels) {
     }
 
     try {
+      console.log("🚀 시즌 탐색 시작...");
       const seasonLabels = await discoverSeasonsByApi(playerId, { 
         startYear: 2024, 
         minYear: 2010, 
@@ -259,8 +264,14 @@ function renderSeasonMenu(labels) {
         requireNonEmptyStats: true 
       });
       const finalLabels = seasonLabels.length ? seasonLabels : ['2024/25'];
+      console.log("📋 발견된 시즌들:", finalLabels);
+      
       renderSeasonMenu(finalLabels);
-      refreshStats(window.seasonYear || '2024');  // 초기 1회 호출
+      
+      // 초기 스탯 로드 (한 번만)
+      const initialSeason = window.seasonYear || '2024';
+      console.log("📊 초기 스탯 로드:", initialSeason);
+      refreshStats(initialSeason);
     } catch (error) {
       console.error("시즌 메뉴 생성 실패:", error);
       // 기본값으로 설정
