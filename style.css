@@ -230,7 +230,7 @@ html, body {
     transform: rotate(90deg);
 }
 .ac-header[aria-expanded="true"] .ac-bar-1 {
-    transform: rotate(0deg);
+    transform: rotate(180deg);
 }
 .ac-bar-1,
 .ac-bar-2 {
