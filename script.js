@@ -176,8 +176,13 @@ refreshStats(window.seasonYear || '2024');  // 초기 1회 호출
     }
 
     const mainImg = document.getElementById("main-image");
+    console.log("🔍 main-image 요소:", mainImg);
+    console.log("🔍 mainImage 경로:", info.mainImage);
     if (mainImg) {
       mainImg.src = info.mainImage || "image/placeholder.png";
+      console.log("✅ main-image src 설정 완료:", mainImg.src);
+    } else {
+      console.log("❌ main-image 요소를 찾을 수 없습니다");
     }
 
     // joined
