@@ -53,45 +53,7 @@ document.addEventListener("DOMContentLoaded", async () => {
       console.error("❌ player_info.json에 해당 ID 정보 없음");
       return;
     }
-// ── 시즌 탐색 (아코디언 무시, API로 직접 확인) ──
-// startYear부터 내려가며 404/빈스탯 만나면 멈춤
-async function discoverSeasonsByApi(playerId, {
-  startYear = 2024,     // 기본 2025/26부터
-  minYear   = 2010,     // 너무 과거로 안내려가게 가드
-  pauseMs   = 120,      // 호출 간 간격 (레이트리밋 예방)
-  requireNonEmptyStats = true // 200이어도 stats 비면 stop
-} = {}) {
-  const labels = [];
-  for (let y = startYear; y >= minYear; y--) {
-    const url = `${API_BASE}/api/player/${playerId}?season=${y}`;
-    let res;
-    try {
-      res = await fetch(url);
-    } catch (e) {
-      console.warn('discoverSeasons fetch error, stop:', e.message);
-      break;
-    }
 
-    if (res.status === 200) {
-      let json = {};
-      try { json = await res.json(); } catch {}
-      const stats = json?.stats || {};
-      const hasData = requireNonEmptyStats ? Object.keys(stats).length > 0 : true;
-      if (!hasData) break;
-
-      const label = `${y}/${String((y + 1) % 100).padStart(2, '0')}`;
-      labels.push(label);
-    } else if (res.status === 404 || res.status === 204) {
-      break; // 없는 시즌 → 즉시 stop
-    } else {
-      console.warn('discoverSeasons non-OK:', res.status);
-      break;
-    }
-
-    if (pauseMs) await new Promise(r => setTimeout(r, pauseMs));
-  }
-  return labels;
-}
 
 window.refreshStats = async function(y) {
   if (!playerId) return;
@@ -226,6 +188,69 @@ function renderSeasonMenu(labels) {
     }
 
     // ---- 시즌 메뉴 생성 및 초기 스탯 로드 ----
+    
+    // 시즌 탐색 함수 정의
+    async function discoverSeasonsByApi(playerId, {
+      startYear = 2024,     // 기본 2024부터
+      minYear   = 2010,     // 너무 과거로 안내려가게 가드
+      pauseMs   = 120,      // 호출 간 간격 (레이트리밋 예방)
+      requireNonEmptyStats = true // 200이어도 stats 비면 stop
+    } = {}) {
+      const labels = [];
+      console.log(`🔍 시즌 탐색 시작: ${startYear} → ${minYear}`);
+      
+      for (let y = startYear; y >= minYear; y--) {
+        const url = `${API_BASE}/api/player/${playerId}?season=${y}`;
+        console.log(`🔍 ${y} 시즌 확인 중: ${url}`);
+        
+        let res;
+        try {
+          res = await fetch(url);
+          console.log(`📡 ${y} 시즌 응답 상태: ${res.status}`);
+        } catch (e) {
+          console.warn(`❌ ${y} 시즌 fetch error, stop:`, e.message);
+          break;
+        }
+
+        if (res.status === 200) {
+          let json = {};
+          try { 
+            json = await res.json(); 
+            console.log(`📊 ${y} 시즌 stats 키 개수:`, Object.keys(json?.stats || {}).length);
+          } catch (e) {
+            console.warn(`❌ ${y} 시즌 JSON 파싱 실패:`, e.message);
+          }
+          
+          const stats = json?.stats || {};
+          const hasData = requireNonEmptyStats ? Object.keys(stats).length > 0 : true;
+          console.log(`📊 ${y} 시즌 데이터 유무:`, hasData);
+          
+          if (!hasData) {
+            console.log(`⏹️ ${y} 시즌 stats 비어있음, 탐색 중단`);
+            break;
+          }
+
+          const label = `${y}/${String((y + 1) % 100).padStart(2, '0')}`;
+          labels.push(label);
+          console.log(`✅ ${y} 시즌 추가됨: ${label}`);
+        } else if (res.status === 404 || res.status === 204) {
+          console.log(`⏹️ ${y} 시즌 없음 (${res.status}), 탐색 중단`);
+          break; // 없는 시즌 → 즉시 stop
+        } else {
+          console.warn(`⚠️ ${y} 시즌 비정상 응답:`, res.status);
+          break;
+        }
+
+        if (pauseMs) {
+          console.log(`⏳ ${pauseMs}ms 대기 중...`);
+          await new Promise(r => setTimeout(r, pauseMs));
+        }
+      }
+      
+      console.log(`🎯 최종 발견된 시즌들:`, labels);
+      return labels;
+    }
+
     try {
       const seasonLabels = await discoverSeasonsByApi(playerId, { 
         startYear: 2024, 
