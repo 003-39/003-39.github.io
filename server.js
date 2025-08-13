@@ -50,7 +50,7 @@ app.get("/api/player/:id", async (req, res) => {
 
 // ── 마지막: 확실히 포트 바인딩 + 바인드 로그 ─────────────────────────
 const HOST = '0.0.0.0';                   // 명시적으로 바인드
-const PORT = process.env.PORT || 3000;
+const port = process.env.PORT || 3000;
 app.listen(PORT, HOST, () => {
   console.log(`Listening on http://${HOST}:${PORT}`);
 });
