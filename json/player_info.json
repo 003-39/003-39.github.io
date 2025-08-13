@@ -474,5 +474,70 @@
         ]
       }
     ]
-    }
+    },
+    "marc_cucurella": {
+    "joined": "Marc Cucurella joined Chelsea on a six-year contract in August 2022.",
+    "paragraphs": [
+      "The versatile defender arrived just weeks after his 24th birthday following an impressive debut season in the Premier League with Brighton. A Spain international, he provided the pass for his nation's winning goal in the Euro 2024 final."
+    ],
+    "mainImage": "image/cucurella_main.png",
+    "image": "image/cucurella_info.png",
+    "shirtNum" : "3",
+    "accordion": [
+      {
+        "title": "2022/23",
+        "content": [
+          { "type": "p", "text": "Marc Cucurella made his Chelsea debut as a substitute in our opening-day win at Everton, immediately impressing his new supporters with his energy and passing range."},
+          { "type": "p", "text": "He started our next game, the 2-2 draw with Tottenham, delivering the corner from which fellow home debutant Kalidou Koulibaly volleyed us ahead, and it was the pull of his hair by Cristian Romero that sparked a dramatic finale to the derby."},
+          { "type": "img", "src": "image/cucurella_2223_1.png", "title": "Cucurella delivers the corner for Koulibaly's opening goal", "desc": ""},
+          { "type": "p", "text": "Flitting between left-back, left wing-back and the left centre-back role, Cucurella was a mainstay in our defence until the break for the World Cup. He did suffer a severe bout of tonsillitis in late September, and Graham Potter, his old boss at Brighton who by now was in charge of the Blues, explained that was one of the reasons why the Spaniard was withdrawn early in three consecutive league games in October."},
+          { "type": "p", "text": "Until a muscle injury cut short his campaign in mid-April, Cucurella was a fairly regular member of Potter's Chelsea team when the domestic action resumed after Christmas. His best individual performance came in the 2-0 home win over Borussia Dortmund when he was outstanding in defence and a threat going forward."}
+        ]
+      },
+      {
+        "title": "2023/24",
+        "content": [
+          { "type": "p", "text": "It was a stop-start second season at Chelsea for Cucurella but one that finished strongly."},
+          { "type": "p", "text": "Having been on the bench in the early weeks of Mauricio Pochettino’s time in charge, the Spaniard returned to the side at right-back initially in the absence of other options, before reverting to his more accustomed left."},
+          { "type": "img", "src": "image/cucurella_2324_1.png", "title": "Cucurella in action at Villa Park", "desc": ""},
+          { "type": "p", "text": "Ankle surgery wiped out the middle part of his season but he returned to score his first Chelsea goal with the opener in an FA Cup win over Leicester, and he supplied assists with crosses in Premier League victories over Everton and at his former club Brighton. He played the whole of the final 12 fixtures as the Blues secured sixth place."}
+        ]
+      },
+      {
+        "title": "2024/25",
+        "content": [
+          { "type": "p", "text": "Firmly established as Enzo Maresca's first choice at left-back in the Premier League, Cucurella played the first seven games of the season, often taking up an inverted role high up the pitch when the team attacked. That was until he had to serve a suspension for yellow card accumulation."},
+          { "type": "p", "text": "On his return he continued to perform strongly in the team's run of wins leading up to Christmas, missing out on the draw at Everton that brought it to an end due to a red card received after the final whistle of a win over Brentford."},
+          { "type": "p", "text": "Cucurella scored in consecutive games, with a close-range header in that match against Brentford and with a turn and shot against Shamrock Rovers in the Conference League. A very good save from Fulham's Bernd Leno prevented him making it three in three."},
+          { "type": "img", "src": "image/cucurella_2425_1.png", "title": "Marc Cucurella slotting his goal versus Shamrock Rovers", "desc": ""},
+          { "type": "p", "text": "The Spaniard continued to be the regular choice at left-back into the new year, bar one brief interruption due to suspension following a red card after the final whistle against Brentford, and the goals and assists kept coming with regularity - at home in wins against Wolves and Southampton - plus the only goal of the match in a win over Leicester at the Bridge. That low strike from the edge of the area was nominated for Premier League Goal of the Month for March."},
+          { "type": "img", "src": "image/cucurella_2425_2.png", "title": "Highlights: Chelsea 1-0 Leicester", "desc": "Highlights of Chelsea's 1-0 Premier League win against Leicester City at Stamford Bridge..."},
+          { "type": "p", "text": "His admirable season both defensively and contributing to the attack continued as Champions League qualification and the UEFA Conference League trophy were secured. Cucurella headed in a vital winner against Manchester United in front of joyous Matthew Harding Stand and played all 90 minutes of the European final win over Real Betis"},
+          { "type": "p", "text": "Prior to the FIFA Club World Cup he was 2024/25's top appearance maker with 48 and was sixth for goals scored with seven."}
+        ]
+      },
+      {
+        "title": "Pre Chelsea",
+        "content": [
+          { "type": "p", "text": "In his one season at Brighton, Cucurella made 38 appearances in all competitions and scored his only goal in their penultimate home game against Manchester United."},
+          { "type": "p", "text": "Such was the positive and swift nature of his adaptation to English football, playing in a variety of roles on the left-hand side including full-back, wing-back and centre-back, Cucurella was voted Player of the Season by both Brighton supporters and team-mates."},
+          { "type": "p", "text": "In particular, his high-energy performances, tough tackling and marauding down the wing caught the eye, while his two-footedness and assuredness on the ball were key traits in Brighton’s possession-based approach as they secured a best ever top-flight finish of ninth. Only three players registered more than his 93 tackles in the Premier League in 2021/22."},
+          { "type": "p", "text": "Prior to his switch to the South Coast, the Catalan’s footballing upbringing came in his native Spain, where he progressed through the ranks at Espanyol before joining Barcelona at the age of 14."},
+          { "type": "img", "src": "image/.png", "title": "Representing Spain in the Olympic football final in 2021", "desc": ""},
+          { "type": "p", "text": "He played three full seasons in La Liga, initially on loan at Eibar and Getafe, before joining the latter on a permanent basis in the summer of 2020. Much of his time in Spain was spent playing as a left midfielder before the defensive side of his game was developed under Graham Potter at the Amex Stadium."}
+        ]
+      },
+      {
+        "title": "International Career",
+        "content": [
+          { "type": "p", "text": "The Spaniard made his senior international debut as captain of a youthful side in the summer of 2021, in a pre-Euro 2020 friendly win over Lithuania, and picked up a silver medal at the Tokyo Olympics the following month with the Under-23 team."},
+          { "type": "p", "text": "After joining Chelsea, he returned to the international side for a friendly against Brazil in March 2024 and then featured in warm-up games for Euro 2024 having been named in the squad for the tournament."},
+          { "type": "p", "text": "In Germany that summer, Cucurella was one of the outstanding players as Spain progressed to lift the trophy. He started at left-back in all but the third group-stage game and was on the winning side on each occasion."},
+          { "type": "img", "src": "image/cucurella_inter_1.png", "title": "Cucurella in action during the final", "desc": ""},
+          { "type": "p", "text": "In the final against England, it was his low ball across that was converted in the 86th-minute by Mikel Oyarzabal to secure a 2-1 win. He was named in the team of the tournament."},
+          { "type": "p", "text": "His 2024/25 season also ended in an appearance in a final - this time in Munich in the UEFA Nations League, but on this occasion Cucurella ended on the losing side when Spain lost a penalty shoot-out to Portugal."}
+        ]
+      }
+    ]
+  }
 }
