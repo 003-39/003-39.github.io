@@ -29,6 +29,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     }
 
     playerId = matchedPlayer.id;
+
     // 4. player_info.json에서 추가 정보 매핑
     const infoRes = await fetch("json/player_info.json");
     const infoData = await infoRes.json();
@@ -38,25 +39,81 @@ document.addEventListener("DOMContentLoaded", async () => {
       console.error("❌ player_info.json에 해당 ID 정보 없음");
       return;
     }
+// ---- 시즌 라벨 추출 (아코디언 → "YYYY/YY"만) ----
+function extractSeasonLabelsFromAccordion(info) {
+  const acc = Array.isArray(info?.accordion) ? info.accordion : [];
+  const labels = acc
+    .filter(sec => typeof sec.title === 'string' && /^\d{4}\/\d{2}$/.test(sec.title.trim()))
+    .map(sec => sec.title.trim());
+  // 시작 연도 내림차순 (최근 시즌 먼저)
+  labels.sort((a, b) => parseInt(b.slice(0,4), 10) - parseInt(a.slice(0,4), 10));
+  return labels;
+}
 
-        // 시즌 연도 계산: 아코디언 라벨 중 YYYY/YY 형식만 추출 → 시작 연도 내림차순
-        const acc = Array.isArray(info?.accordion) ? info.accordion : [];
-        const seasonLabels = acc
-          .filter(sec => typeof sec.title === 'string' && /^\d{4}\/\d{2}$/.test(sec.title.trim()))
-          .map(sec => sec.title.trim())
-          .sort((a, b) => parseInt(b.slice(0,4), 10) - parseInt(a.slice(0,4), 10));
-
-    // 기본 2025/26을 우선, 없으면 가장 최근 라벨의 시작 연도 사용
-    if (seasonLabels.length) {
-      const has2025 = seasonLabels.some(l => l.startsWith('2025/'));
-      if (has2025) {
-        seasonYear = '2025';
-      } else {
-        seasonYear = String(parseInt(seasonLabels[0].slice(0,4), 10));
-      }
-    } else {
-      seasonYear = '2025';
+// ---- 스탯 새로고침 (시즌 반영) ----
+if (typeof refreshStats !== 'function') {
+  async function refreshStats(y) {
+    if (!window.playerId) return;
+    try {
+      const res = await fetch(`/api/player/${window.playerId}?season=${y}`);
+      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+      const json = await res.json();
+      const stats = json?.stats || {};
+      document.querySelectorAll('[data-name]').forEach(el => {
+        const key = el.getAttribute('data-name');
+        if (key in stats) el.textContent = String(stats[key]);
+      });
+    } catch (e) {
+      console.error('PL stats fetch failed:', e.message);
     }
+  }
+}
+
+// ---- 시즌 메뉴 렌더 + 클릭 이벤트 바인딩 ----
+function renderSeasonMenu(labels) {
+  const menu = document.getElementById('season-menu');
+  const labelEl = document.getElementById('season-label');
+  if (!menu || !labelEl) return;
+
+  // 선수별 시즌 개수/텍스트로 메뉴 생성
+  menu.innerHTML = labels.map(l => {
+    const y = l.slice(0,4);
+    return `
+      <div class="ssmenu" data-season="${y}">
+        <div class="ssmenu-text">${l}</div>
+        <svg class="ssmenu-1"><rect class="ssmenu-1" rx="0" ry="0" width="131" height="32" /></svg>
+      </div>
+    `;
+  }).join('');
+
+  // 기본 선택: 2025/26 있으면 그걸, 없으면 최신 라벨, 아무것도 없으면 2025/26
+  if (labels.length) {
+    const has2025 = labels.some(l => l.startsWith('2025/'));
+    const firstLabel = has2025 ? '2025/26' : labels[0];
+    labelEl.textContent = firstLabel;
+    window.seasonYear = firstLabel.slice(0,4);
+  } else {
+    labelEl.textContent = '2025/26';
+    window.seasonYear = '2025';
+  }
+
+  // 클릭 시: 라벨/연도 업데이트 → 스탯 다시 로드
+  menu.querySelectorAll('.ssmenu').forEach(item => {
+    item.addEventListener('click', () => {
+      const y = item.dataset.season; // "2025" 같은 4자리
+      const t = item.querySelector('.ssmenu-text')?.textContent?.trim();
+      if (y) window.seasonYear = y;
+      if (t) labelEl.textContent = t;
+      if (typeof refreshStats === 'function') refreshStats(window.seasonYear);
+    });
+  });
+}
+
+// ---- 실제 실행 (info 준비된 곳에서 호출) ----
+// const info = infoData[playerSlug];  // ← 네가 이미 갖고 있는 라인 바로 아래에:
+const seasonLabels = extractSeasonLabelsFromAccordion(info);
+renderSeasonMenu(seasonLabels);
+refreshStats(window.seasonYear || '2025');  // 초기 1회 호출
 
     // 3. 프리미어리그 API 요청 (시즌 반영)
     const response = await fetch(`https://zero03-39-github-io.onrender.com/api/player/${playerId}?season=${seasonYear}`);
