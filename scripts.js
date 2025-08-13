@@ -24,8 +24,6 @@ document.addEventListener("DOMContentLoaded", () => {
         view.style.transform = `scale(${clampedScale})`;
         view.style.transformOrigin = "top left";
         view.style.marginLeft = `${(window.innerWidth - view.offsetWidth * clampedScale) / 2}px`;
-        
-        console.log("✅ 스케일링 완료:", clampedScale);
     };
 
     // 초기 스케일링 (약간 지연)
