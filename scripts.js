@@ -9,10 +9,6 @@ document.addEventListener("DOMContentLoaded", () => {
             console.log("⚠️ #template을 찾을 수 없어 body에 스케일링 적용");
         }
 
-        console.log("🔍 스케일링 시작");
-        console.log("뷰포트 크기:", window.innerWidth, "x", window.innerHeight);
-        console.log("요소 크기:", view.offsetWidth, "x", view.offsetHeight);
-
         // 요소가 로드되었는지 확인
         if (view.offsetWidth === 0) {
             console.log("⚠️ 요소 크기가 0입니다. 잠시 후 다시 시도합니다.");
@@ -21,11 +17,9 @@ document.addEventListener("DOMContentLoaded", () => {
         }
 
         const scale = window.innerWidth / view.offsetWidth;
-        console.log("계산된 스케일:", scale);
 
         // 스케일이 너무 작거나 크지 않도록 제한
         const clampedScale = Math.min(Math.max(scale, 0.5), 2.0);
-        console.log("제한된 스케일:", clampedScale);
 
         view.style.transform = `scale(${clampedScale})`;
         view.style.transformOrigin = "top left";
