@@ -1,5 +1,5 @@
 let playerId = null;
-let seasonYear = '2025';
+let seasonYear = '2024';
 
 const API_BASE = 'https://zero03-39-github-io.onrender.com';
 window.refreshStats = async function(y) {
@@ -124,7 +124,7 @@ function renderSeasonMenu(labels) {
 // const info = infoData[playerSlug];  // ← 네가 이미 갖고 있는 라인 바로 아래에:
 const seasonLabels = extractSeasonLabelsFromAccordion(info);
 renderSeasonMenu(seasonLabels);
-refreshStats(window.seasonYear || '2025');  // 초기 1회 호출
+refreshStats(window.seasonYear || '2024');  // 초기 1회 호출
 
     // 3. 프리미어리그 API 요청 (시즌 반영)
     const response = await fetch(`https://zero03-39-github-io.onrender.com/api/player/${playerId}?season=${seasonYear}`);
