@@ -151,7 +151,7 @@ function renderSeasonMenu(labels) {
 
 // ---- 실제 실행 (info 준비된 곳에서 호출) ----
 // const info = infoData[playerSlug];  // ← 네가 이미 갖고 있는 라인 바로 아래에:
-const seasonLabels = await discoverSeasonsByApi(playerId, { startYear: 2025, minYear: 2010, pauseMs: 120, requireNonEmptyStats: true });
+const seasonLabels = await discoverSeasonsByApi(playerId, { startYear: 2024, minYear: 2010, pauseMs: 120, requireNonEmptyStats: true });
 const finalLabels = seasonLabels.length ? seasonLabels : ['2024/25'];
 renderSeasonMenu(finalLabels);
 refreshStats(window.seasonYear || '2024');  // 초기 1회 호출
