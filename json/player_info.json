@@ -395,5 +395,37 @@
         ]
       }
     ]
-  }
+    },
+    "joao_pedro": {
+      "joined": "Joao Pedro moved from Brighton and Hove Albion to Chelsea at the start of July 2025.",
+      "paragraphs": [
+        "A versatile forward, he arrived with top-flight experience and had also represented Brazil on the international stage with three caps at the time of his signing for the Blues."
+      ],
+      "mainImage": "image/joao_main.png",
+      "image": "image/joao_info.png",
+      "shirtNum" : "20",
+      "accordion": [
+        {
+          "title": "Pre-Chelsea",
+          "content": [
+            { "type": "p", "text": "A product of Brazilian giants Fluminense, Joao Pedro first emerged as a teenager with flair and a natural eye for goal. He netted 10 times in 36 games for the Rio club before making the leap to English football."},
+            { "type": "p", "text": "His journey continued at Watford, where he impressed across four seasons with 109 appearances, 24 goals, occasionally wearing the captain’s armband during the 2022/23 campaign - all before turning 22."},
+            { "type": "p", "text": "In 2023, Joao Pedro signed for Brighton and made an instant impact. He scored on his debut and went on to deliver a standout campaign with 19 goals in all competitions, finishing as the Seagulls’ joint-top scorer."},
+            { "type": "p", "text": ""},
+            { "type": "p", "text": ""}
+          ]
+        },
+        {
+          "title": "International Career",
+          "content": [
+            { "type": "p", "text": ""},
+            { "type": "p", "text": ""},
+            { "type": "img", "src": "image/.png", "title": "", "desc": ""},
+            { "type": "p", "text": ""},
+            { "type": "p", "text": ""},
+            { "type": "p", "text": ""}
+          ]
+        }
+      ]
+    }
   }
