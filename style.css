@@ -1674,17 +1674,31 @@ html, body {
 
 /* 반응형 스케일링 - index.html 메인 페이지 */
 @media (max-width: 1280px) {
-	.template {
-		width: 1280px;
+	html {
 		transform: scale(calc(100vw / 1280));
 		transform-origin: top left;
+	}
+	body {
+		width: 1280px;
+		margin: 0;
+		padding: 0;
+	}
+	.template {
+		width: 1280px;
 	}
 }
 
 @media (max-width: 768px) {
-	.template {
-		width: 1280px;
+	html {
 		transform: scale(calc(100vw / 1280));
 		transform-origin: top left;
+	}
+	body {
+		width: 1280px;
+		margin: 0;
+		padding: 0;
+	}
+	.template {
+		width: 1280px;
 	}
 }
