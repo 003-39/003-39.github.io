@@ -5,7 +5,7 @@ const cors = require("cors");
 const app = express();
 
 app.use(cors({
-  origin: ['https://003-39.github.io', 'http://localhost:3000'],
+  origin: ['https://003-39.github.io', 'http://localhost:3000', 'http://127.0.0.1:5500'],
   methods: ['GET', 'POST', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization']
 }));
