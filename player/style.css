@@ -68,7 +68,7 @@
 		top: 0px;
 		overflow: hidden;
 		background-color: white; /* 기본 배경색 */
-		transition: background-color 0.2s ease;
+		transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 	}
 	.tapbox-1:hover {
 		background-color: rgba(24, 61, 213, 1); 
@@ -128,13 +128,23 @@
 		color: rgba(105,197,255,1);
 	}
 	#aav {
-		display: flex;
-		justify-content: center;        /* 가운데 정렬 */
-		gap: 27px;                      /* 카드 간 간격 */
-		flex-wrap: nowrap;              /* 넘치면 줄바꿈 안 함 (필요 시 auto) */
-		padding: 0;
-		margin: 20px 0 0 0;
-	}
+	display: flex;
+	justify-content: center;        /* 가운데 정렬 */
+	gap: 27px;                      /* 카드 간 간격 */
+	flex-wrap: nowrap;              /* 넘치면 줄바꿈 안 함 (필요 시 auto) */
+	padding: 0;
+	margin: 20px 0 0 0;
+}
+
+/* 새로운 player-row 클래스 (기존 aav와 동일한 스타일) */
+.player-row {
+	display: flex;
+	justify-content: center;        /* 가운데 정렬 */
+	gap: 27px;                      /* 카드 간 간격 */
+	flex-wrap: nowrap;              /* 넘치면 줄바꿈 안 함 (필요 시 auto) */
+	padding: 0;
+	margin: 20px 0 0 0;
+}
 	#aaw {
 		position: absolute;
 		width: 374px;
@@ -247,13 +257,15 @@
 		background-repeat: no-repeat;
 		background-position: center;
 		overflow: hidden;
-		border: 1px solid rgba(105,197,255,0.8);
+		color: #60a5fa;
 		box-sizing: border-box;
 		z-index: 0;
 	}
 
 	.card:hover {
-		background-color: rgba(105,197,255,1); /* 마우스 올렸을 때 반투명 효과 */ 
+		transform: translateY(-4px);
+		box-shadow: 0 16px 48px rgba(59, 130, 246, 0.2);
+		border-color: rgba(59, 130, 246, 0.6);
 	}
 	.card:hover .name {
 		bottom: 180px; /* 마우스 올렸을 때 위치 */
