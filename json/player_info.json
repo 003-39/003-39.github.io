@@ -940,6 +940,463 @@
         ]
       }
     ]
-    }
-  
+    },
+    "malo_gusto": {
+    "joined": "Malo Gusto completed a permanent move from Lyon to Chelsea in January 2023, signing a contract to 2030.",
+    "paragraphs": [
+      "The exciting young right-back then returned to Lyon on loan to spend the remainder of the 2022/23 season continuing his development in Ligue 1, before switching to London and making his Chelsea debut as a substitute in the opening game of the 2023/24 campaign."
+    ],
+    "mainImage": "image/gusto_main.png",
+    "image": "image/gusto_info.png",
+    "shirtNum" : "27",
+    "accordion": [
+      {
+        "title": "2023/24",
+        "content": [
+          { "type": "p", "text": "By the end of his first season Gusto had made 37 appearances, 26 of them starts, and his six assists in the Premier League were only bettered as a total by two of his team-mates."},
+          { "type": "p", "text": "The first of those assists was in the third game of the season. In the side for the injured Reece James, his low cross against Luton was converted by Raheem Sterling. He had earlier played the pass to set Sterling away for a solo run and opening goal."},
+          { "type": "img", "src": "image/gusto_2324_1.png", "title": "Gusto on the attack against Luton", "desc": ""},
+          { "type": "p", "text": "A red card at home to Aston Villa in September was a hiccup but Gusto continued to be the most frequent selection at right-back for the rest of the season."},
+          { "type": "p", "text": "During the Christmas fixtures, his pass teed up a Mykhailo Mudryk goal in a win at home to Crystal Palace for which he was named Player of the Match, and shortly after, in an FA Cup tie against Preston, his pinpoint cross was headed home by Armando Broja. Crosses in two away London derbies led to goals for Conor Gallagher and Nicolas Jackson against Crystal Palace and Brentford respectively."},
+          { "type": "p", "text": "Jackson was also the beneficiary of a Gusto delivery as Villa were knocked out the FA Cup, as was Christopher Nkunku late in the season at Brighton."},
+          { "type": "img", "src": "image/.png", "title": "Malo returned to the starting XI against Brighton", "desc": ""},
+          { "type": "p", "text": "Gusto picked up another Player of the Match award from an FA Cup quarter-final against Leicester and he started in the semi-final versus Manchester City, having also played in the Carabao Cup final against Liverpool."},
+          { "type": "p", "text": "Although those games at Wembley were lost, Gusto earned plenty of praise for his first campaign in Chelsea blue."}
+        ]
+      },
+      {
+        "title": "2024/25",
+        "content": [
+          { "type": "p", "text": "With Reece James out of action at the start of the season, Malo Gusto was the choice at right-back when he was available."},
+          { "type": "p", "text": "Providing the attacking threat seen the previous season, he crossed low for a Christopher Nkunku goal in a cup win over Barrow. Another assist, this time for Jadon Sancho to complete the scoring in a big win against Southampton, came in Gusto's 50th game for the Blues."},
+          { "type": "p", "text": "In two games on Merseyside during the first half of the season, in the Premier League against Liverpool and Everton, Gusto was played at left-back."},
+          { "type": "p", "text": "It was a position repeated when the Conference League knockout stage commenced in Copenhagen but Gusto was forced off with an ankle injury. When he returned to fitness not long after it was at right-back, on occasions in the same team as James who played in midfield."},
+          { "type": "p", "text": "Though he was most often used as a substitute in the closing weeks of the Premier League season, Gusto started the second leg of the Conference League semi-final and final. He was withdrawn at half-time in the latter."},
+          { "type": "img", "src": "image/.png", "title": "Gusto helped us to a win and a clean sheet against Djurgarden at the Bridge", "desc": ""}
+        ]
+      },
+      {
+        "title": "On loan",
+        "content": [
+          { "type": "p", "text": "Upon the completion of his transfer to Chelsea in January 2023, it was announced that Malo Gusto would continue his impressive progress on loan with Lyon at the Groupama Stadium before joining up with the Blues in the summer, ahead of the 2023/24 campaign."},
+          { "type": "p", "text": "However the rest of his season was affected by injury, limiting him to seven appearances following his signing for Chelsea"}
+        ]
+      },
+      {
+        "title": "Pre Chelsea",
+        "content": [
+          { "type": "p", "text": "Malo Gusto progressed through the youth ranks at Lyon and made his senior debut in January 2021."},
+          { "type": "p", "text": "The following season was a breakthrough for the attack-minded full-back, becoming a regular for Lyon both domestically and in Europe. He registered four assists in 30 Ligue 1 appearances, while also helping his side reach the quarter-finals of the Europa League."},
+          { "type": "img", "src": "image/gusto_pre_1.png", "title": "In Ligue 1 action for Lyon", "desc": ""},
+          { "type": "p", "text": "That fine form has continued into the 2022/23 campaign under the stewardship of Laurent Blanc, with Gusto a key part of the OL backline and playing 15 times in the league prior to signing for Chelsea in January."}
+        ]
+      },
+      {
+        "title": "International Career",
+        "content": [
+          { "type": "p", "text": "Malo Gusto has been capped by France at every level and after becoming a regular starter for the Under-21 side during 2022, he was handed his first senior cap in October 2023."},
+          { "type": "p", "text": "Having been a late call-up to the France squad due to injuries to others, including club team-mate Axel Disasi, he came on as a substitute in a win away against the Netherlands that qualified France for Euro 2024.  However he did not make the squad for the tournament itself."},
+          { "type": "img", "src": "image/.png", "title": "Gusto made his senior France debut against the Netherlands in October 2023", "desc": ""},
+          { "type": "p", "text": "Gusto's second senior cap was in May 2025 when he came on in the second half of a UEFA Nations League semi-final against Spain which ended 5-4 in his opponents' favour. He played the whole of the third-place play off - a 2-0 win over Germany."}
+        ]
+      }
+    ]
+    },
+    "aaron_anselmino": {
+      "joined": "Chelsea announced the signing of Aaron Anselmino in August 2024 after the Argentinian defender signed a seven-year contract with the Blues.",
+      "paragraphs": [
+        "Anselmino spent time in the youth ranks of Juventud Unida and Sportivo Realico before joining Boca Juniors at the age of 12. He signed his first professional contract with the club on 10 June 2023, and was handed his first-team debut against Lanus on the same day."
+      ],
+      "mainImage": "image/anselmino_main.png",
+      "image": "image/anselmino_info.png",
+      "shirtNum" : "30",
+      "accordion": [
+        {
+          "title": "Pre Chelsea",
+          "content": [
+            { "type": "p", "text": "The centre-back went on to make nine further appearances for Boca and scored his first senior goal for the club in April 2024, a winner in the Copa Sudamericana group stage against Trinidense."},
+            { "type": "p", "text": "After signing for Chelsea, Anselmino initially returned to his native Argentina to continue his development on loan with Boca Juniors."},
+            { "type": "p", "text": "In a 3-2 win over San Lorenzo in August 2024, he assisted two of the goals. Having scored a winner in Copa Sudamericana match at the start of October, he scored an opener with his head in a Copa Argentina tie against Gimnasia, with Boca Juniors eventually winning on penalties."},
+            { "type": "p", "text": "At the start of 2025 and having made 18 appearances in his loan spell with his former club, he returned to Chelsea. He was named on the bench for consecutive games against Brighton in the FA Cup and Premier League, as well as playing for the Under-21s against Liverpool."},
+            { "type": "p", "text": "He was on the bench for Chelsea's opening games at the 2025 FIFA Club World Cup. He then made his club debut when he came on towards the end of extra-time in the Round of 16 win over Benfica."}
+          ]
+        }
+      ]
+    },
+    "josh_acheampong": {
+      "joined": "Josh Acheampong first joined us in our development centre programme as an Under-8 and has the capabilities to play in multiple positions across the back line.",
+      "paragraphs": [
+        "Having progressed through the Academy, he made his men’s first team debut three days before his 18th birthday. That was at the end of a strong 2023/24 season in which he operated as a centre-half or a right full-back, demonstrating his comfort in possession of the ball and his ability in one-v-one defensive situations, stepping in to create overloads and initiate attacks. Halfway through the following campaign he was confirmed as a full-time member of the senior squad."
+      ],
+      "mainImage": "image/acheampong_main.png",
+      "image": "image/acheampong_info.png",
+      "shirtNum" : "34",
+      "accordion": [
+        {
+          "title": "2023/24",
+          "content": [
+            { "type": "p", "text": "At the start of 2024 Acheampong signed his first professional contract. In the final month of that season he made his men's first team debut when brought on by Mauricio Pochettino for the closing minutes of a win at home to Tottenham."},
+            { "type": "img", "src": "image/acheampong_2324_1.png", "title": "Acheampong had a memorable senior Chelsea debut in our 2-0 win over Tottenham at the Bridge", "desc": ""}
+          ]
+        },
+        {
+          "title": "2024/25",
+          "content": [
+            { "type": "p", "text": "In the summer of 2024, Acheampong was part of the senior squad that went to the United States for pre-season and he came on in the second half of a Carabao Cup tie at home to Barrow, in September 2024."},
+            { "type": "p", "text": "His first start came in the UEFA Conference League in the December. He was selected at right-back in Kazakhstan when the Blues took on Astana."},
+            { "type": "img", "src": "image/acheampong_2425_1.png", "title": "Acheampong playing in the Carabao Cup against Barrow at Stamford Bridge", "desc": ""},
+            { "type": "p", "text": "Later that same month, Acheampong signed a new Chelsea contract committing himself to the club until 2029. He was confirmed as a full-time member of the men's first team squad."},
+            { "type": "p", "text": "In the first game of 2025, a draw away at Crystal Palace, Acheampong was given his first Premier League action when he played the whole game at centre-back alongside Levi Colwill. He was voted Player of the Match by fans on the Official Chelsea App."}
+          ]
+        },
+        {
+          "title": "Academy",
+          "content": [
+            { "type": "p", "text": "Gaining experience as a central defender, a full-back and at wing-back, Acheampong’s time in the Academy has been marked by a fantastic attitude towards developing further and a strong mentally."},
+            { "type": "p", "text": "These qualities were also identified internationally as he represented England at Under-16 level in the 2021/22 season, moving on to play at each level up to Under-20s whom he began to represent at the start of the 2024/25 season."},
+            { "type": "p", "text": "The youngster continued his growth at Chelsea in the 2022/23 season as he featured regularly under both Ed Brand and Hassan Sulaiman for the Under-18s."},
+            { "type": "p", "text": "His memorable moment of that season was a fantastic strike from distance against Tottenham in the Under-18s Premier League."},
+            { "type": "p", "text": "Acheampong also featured heavily for the England Under-17s side and was part of the squad which competed at the Under-17 European Championships in the summer of 2023 and the Under-17 World Cup the following November. He scored against New Caledonia."},
+            { "type": "img", "src": "image/acheampong_aca_1.png", "title": "AAcheampong put in an assured performance on his full Premier League 2 debut", "desc": ""},
+            { "type": "p", "text": "In 2023/24 he added Chelsea Under-21 appearances to his continuing games for the Under-18s. He played an important role in the winning of the U18 Premier League southern title and headed the Chelsea goal in a 2-1 defeat by Manchester United in the U18 Premier League national final at Stamford Bridge."}
+          ]
+        },
+        {
+          "title": "International Career",
+          "content": [
+            { "type": "p", "text": ""},
+            { "type": "p", "text": ""},
+            { "type": "img", "src": "image/.png", "title": "", "desc": ""},
+            { "type": "p", "text": ""},
+            { "type": "p", "text": ""},
+            { "type": "p", "text": ""}
+          ]
+        }
+      ]
+    },
+    "dario_essugo": {
+      "joined": "Dario Essugo signed for Chelsea from Sporting Lisbon at the start of June 2025.",
+      "paragraphs": [
+        "The midfielder signed a contract until 2033 having spent the previous season on loan in Spain’s La Liga with Las Palmas. Against Los Angeles in our opening group game in the 2025 FIFA Club World Cup, he came on late in the game to make his Chelsea debut."
+      ],
+      "mainImage": "image/essugo_main.png",
+      "image": "image/essugo_info.png",
+      "shirtNum" : "14",
+      "accordion": [
+        {
+          "title": "Pre Chelsea",
+          "content": [
+            { "type": "p", "text": "A graduate of Sporting's academy, Essugo made his senior debut for that club aged 16 years and six days. That appearance against Vitoria de Guimaraes in March 2021 made him Sporting’s youngest-ever player and later that year aged 16 years, 11 months and 17 days, he broke a record previously held by Luis Figo as their youngest starter."},
+            { "type": "p", "text": "Essugo also gained experience on loan at another Portuguese side, Chaves, in the second half of the 2023/24 campaign before further outings for Sporting and the loan to Las Palmas. There he established himself as a regular, making 27 appearances and scoring one goal in all competitions."},
+            { "type": "p", "text": "Essugo is a Portugal Under-21 international having played at the younger age groups from Under-15 upwards."}
+          ]
+        }
+      ]
+    },
+    "andrey_santos": {
+      "joined": "A teenage Andrey Santos completed his permanent transfer to Chelsea from Vasco da Gama in January 2023.",
+      "paragraphs": [
+        "He operated primarily in a box-to-box midfield role prior to joining the Blues, combining the defensive instincts he showed from a young age with an attacking threat in the opposition box. In March 2023 until the end of June, Santos returned to Vasco da Gama on loan before moving to England for the start of the 2023/24 season, initially on loan in the Premier League at Nottingham Forest and then a high-achieving spell at Strasbourg. On his return he was announced as a member of the Chelsea squad to compete for the 2025 FIFA Club World Cup. He made his debut as a substitute in the group stage against ES Tunis."
+      ],
+      "mainImage": "image/_main.png",
+      "image": "image/_info.png",
+      "shirtNum" : "",
+      "accordion": [
+        {
+          "title": "On loan",
+          "content": [
+            { "type": "p", "text": "Having helped Vasco da Gama earn promotion back to Serie A before joining Chelsea, Andrey Santos returned to the Rio de Janeiro club on loan in March 2023 to play a part in their return to the Brazilian top flight. He returned to Chelsea in July 2023."},
+            { "type": "img", "src": "image/santos_loan_1.png", "title": "", "desc": ""},
+            { "type": "p", "text": "In late August 2023, it was announced he would embark on a season-long loan at Premier League level, moving to Nottingham Forest. Having played a game in the Carabao Cup, he made his first Premier League appearance as a substitute in Anfield in late October."},
+            { "type": "p", "text": "Having played two games at Forest, Santos returned to Chelsea in January 2024 before moving on loan to Strasbourg on mid-season transfer deadline day."},
+            { "type": "p", "text": "He made his debut in mid-February when he came on during a defeat by Lorient. A month later he played his first 90 minutes in Strasbourg's first Ligue 1 win of 2024, a victory over Nantes."},
+            { "type": "p", "text": "Enjoying a good run of games towards the end of the season, he won the Ligue 1 Young Player of the Month award for March and Strasbourg’s Player of the Month for April."},
+            { "type": "p", "text": "He made nine starts and two substitute appearances in France, scoring with his head against Metz in the penultimate game of the season."},
+            { "type": "p", "text": "Back at Strasbourg for 2024/25, Santos scored the opening goal in an early season win over Rennes and followed that up with a headed goal in a defeat at Lyon. He won the Ligue 1 Young Player of the Month award for his performances in August."},
+            { "type": "p", "text": "His third goal of the season came in a 3-3 draw at Lille in September, with another two following a month later in a 3-1 home win over Nantes. Both were close-range finishes. In November he captained the side in a game against Nice."},
+            { "type": "p", "text": "In December, Santos scored in successive 3-0 wins, one in the league and one in the cup. That took his season's total to seven goals and he was named Strasbourg's player of the month."},
+            { "type": "p", "text": "The next month, he scored with a volley from outside the box to begin a fightback from being a goal down to beat Lille."},
+            { "type": "p", "text": "In March 2025, Santos was named Strasbourg captain for a win at Nantes and retained that duty against Toulouse, a game in which he scored the winning goal. His 10th goal of the season came when he headed in a corner in a victory over Lyon as his side continued to climb the table. He collected another of Strasbourg's Player of the Month awards."},
+            { "type": "p", "text": "Strasbourg's run of good form continued towards the end of the season and they recorded their longest unbeaten run in Ligue 1 since 1982."},
+            { "type": "p", "text": "Santos provided assists for both goals in a draw with Nice and he was nominated for Ligue 1's best young player of the season."},
+            { "type": "img", "src": "image/.png", "title": "Celebrating a goal against Le Havre in May 2025", "desc": ""},
+            { "type": "p", "text": "His loan club ended the Ligue 1 season in seventh place, qualifying for the UEFA Conference League play-off round. On a personal level Santos made 34 appearances in all competitions in 2024/25, scoring 11 goals and supplying five assists. He was the highest-scoring central midfielder in Ligue 1."},
+            { "type": "p", "text": "He came second in Strasbourg's Player of the Season voting, behind Djordje Petrovic."}
+          ]
+        },
+        {
+          "title": "Pre Chelsea",
+          "content": [
+            { "type": "p", "text": "Andrey Santos progressed through the ranks at Vasco da Gama, his boyhood club, and helped them to promotion to the top flight with a third-place finish in Serie B in 2022, during which he played 33 times and scored eight goals."},
+            { "type": "img", "src": "image/santos_pre_1.png", "title": "On the defensive with Vasco da Gama against Flamengo in the Campeonato Carioca", "desc": ""},
+            { "type": "p", "text": "Santos made his debut at just 17, as a late substitute in the Campeonato Carioca, a tournament for teams in the local area of Rio de Janeiro. He played most of that campaign for the club’s Under-20 side and impressed in a box-to-box midfield role in which he regularly contributed with goals and assists."},
+            { "type": "p", "text": "His league debut came on the final day of the 2021 season, before he became a more prominent figure in the 2022 campaign, earning himself a regular spot in the midfield trio. "}
+          ]
+        },
+        {
+          "title": "International Career",
+          "content": [
+            { "type": "p", "text": "Andrey Santos represented Brazil at youth level from Under-16s to Under-20s and captained his country to continental glory in the older age group, at the Under-20 CONMEBOL Championship in February 2023, shortly after joining Chelsea."},
+            { "type": "img", "src": "image/santos_inter_1.png", "title": "Santos celebrates his goal for Brazil against Uruguay at the 2023 CONMEBOL Under-20 Championships", "desc": ""},
+            { "type": "p", "text": "The midfielder was the competition's joint-top scorer, along with team-mate Vitor Roque, after netting an impressive six goals in his eight appearances. The most important of those came in their last game, as he opened the scoring in a 2-0 victory over Uruguay which saw them crowned South American champions, finishing one point above their opponents in the table."},
+            { "type": "p", "text": "He also played in the Under-20 World Cup in the summer of 2023 and went out at the quarter-final stage."},
+            { "type": "p", "text": "In March 2023, Santos made his senior Brazil debut in a friendly against Morocco."},
+            { "type": "p", "text": "In September 2023, he captained Brazil Under-23s in friendlies that served as preparation for the following summer’s Olympic Games. He then featured in a CONMEBOL pre-Olympic tournament at the start of 2024 but his nation failed to qualify for the Paris Olympics."},
+            { "type": "p", "text": "In early June 2025, he came on late in a senior Brazil game, a World Cup qualifier against Ecuador."}
+          ]
+        }
+      ]
+    },
+    "romeo_lavia": {
+    "joined": "Chelsea completed the signing of midfielder Romeo Lavia from Southampton in August 2023 on an initial seven-year contract.",
+    "paragraphs": [
+      "Upon arriving at Chelsea, the central midfielder had already demonstrated his quality in the Premier League during his season playing in that competition at Southampton, showing maturity despite his young age."
+    ],
+    "mainImage": "image/lavia_main.png",
+    "image": "image/lavia_info.png",
+    "shirtNum" : "45",
+    "accordion": [
+      {
+        "title": "2023/24",
+        "content": [
+          { "type": "p", "text": "The start to Lavia’s career at Stamford Bridge was delayed by an ankle injury. He missed the first half of the 2023/24 season before making his debut when he came on for the final half-hour of a home win over Crystal Palace in late December."},
+          { "type": "p", "text": "However he sustained a significant thigh injury in that same game and following a setback in his recovery, it was confirmed in late March 2024 that he would not feature again in the season."}
+        ]
+      },
+      {
+        "title": "2024/25",
+        "content": [
+          { "type": "p", "text": "Following his injury-stricken 2023/24 campaign, Lavia started the first game of the next season, at home to Manchester City. There was also a substitute appearance in the UEFA Conference League before suffering a hamstring injury."},
+          { "type": "p", "text": "He returned when he came on against Brighton in late September and he embarked on a run of good form partnering Moises Caicedo in central midfield, as the team put together an impressive run of results."},
+          { "type": "img", "src": "image/lavia_2425_1.png", "title": "", "desc": ""},
+          { "type": "p", "text": "However, following his half-time withdrawal in a victory at Tottenham in early December, injury kept him out for the rest of 2024. He returned to action when Morecambe were defeated at the Bridge in the third round of the FA Cup and followed that up with a Premier League game against Bournemouth."},
+          { "type": "p", "text": "There was then a two-month absence before coming on away against Arsenal in March 2025."},
+          { "type": "p", "text": "Although not part of the UEFA Conference League squad, Lavia was involved in the final five Premier League games of the season, three of them as a starter."}
+        ]
+      },
+      {
+        "title": "Pre Chelsea",
+        "content": [
+          { "type": "p", "text": "Lavia started his career with Anderlecht in his native Belgium and spent eight years with the club before joining Manchester City at the age of 16."},
+          { "type": "p", "text": "He impressed for the club’s Under-18s and Elite Development Squad and made his senior debut in September 2021. Lavia started in the EFL Cup against Wycombe Wanderers and helped his side to a 6-1 win."},
+          { "type": "p", "text": "Lavia made one further first-team appearance for City before completing a switch to Southampton in the summer of 2022."},
+          { "type": "p", "text": "In a campaign that ended in relegation for the Saints, Lavia made 34 appearances. He caught the eye with several impressive performances, including in a surprise Southampton victory at Stamford Bridge in February."}
+        ]
+      },
+      {
+        "title": "International Career",
+        "content": [
+          { "type": "p", "text": "After representing Belgium in several youth age groups, Lavia received his first call-up to the senior team in March 2023, aged 19. He was among the substitutes for a Euros qualifying win against Sweden that month before being handed his debut from the bench in a 3-2 friendly victory over Germany four days later."}
+        ]
+      }
+    ]
+  },
+  "liam_delap": {
+    "joined": "Liam Delap became a Chelsea player in early June 2025, joining from Ipswich Town and signing a contract until 2031.",
+    "paragraphs": [
+      "The striker’s previous season had also been spent in the top flight and he scored 12 goals in 37 league appearances for Ipswich and was named on the shortlist for Premier League Young Player of the Year award."
+    ],
+    "mainImage": "image/delap_main.png",
+    "image": "image/delap_info.png",
+    "shirtNum" : "9",
+    "accordion": [
+      {
+        "title": "Pre Chelsea",
+        "content": [
+          { "type": "p", "text": "The striker’s previous season had also been spent in the top flight and he scored 12 goals in 37 league appearances for Ipswich and was named on the shortlist for Premier League Young Player of the Year award."},
+          { "type": "p", "text": "He enjoyed a standout campaign. He netted 24 goals in 20 Premier League 2 matches, scored on his debut for Man City’s senior side in the League Cup, and was handed his first top-flight appearance against Leicester City."},
+          { "type": "p", "text": "Further appearances followed during the 2021/22 season before he embarked on loan spells at Stoke City and Preston North End."},
+          { "type": "p", "text": "Delap spent the 2023/24 season with Hull City and, after scoring eight goals, secured a move to newly-promoted Ipswich Town."},
+          { "type": "p", "text": "His Chelsea debut came soon after his transfer, in our opening match of the 2025 FIFA Club World Cup when he came on against Los Angeles. He crossed for Enzo Fernandez to score a goal. His own first goal came in the same group stage with a sharp turn and composed finish against ES Tunis."}
+        ]
+      },
+      {
+        "title": "International Career",
+        "content": [
+          { "type": "p", "text": "Delap has represented England throughout the youth age groups up to Under-21 level."}
+        ]
+      }
+    ]
+  },
+  "jamie_gittens": {
+    "joined": "Jamie Gittens joined from Borussia Dortmund on 5 July 2025, with the winger signing a contract until 2032.",
+    "paragraphs": [
+      "Though predominantly a left winger, Gittens is comfortable playing on either flank and also featured as a no. 10 for Borussia Dortmund as well as in a deeper role across the midfield."
+    ],
+    "mainImage": "image/gittens_main.png",
+    "image": "image/gittens_info.png",
+    "shirtNum" : "11",
+    "accordion": [
+      {
+        "title": "Pre Chelsea",
+        "content": [
+          { "type": "p", "text": "Gittens had played in the Reading and Chelsea youth systems before moving to Manchester City’s academy at the age of 14. He made the move to Germany from Man City in 2020 and quickly established himself as part of the men’s first-team squad at Signal Iduna Park. He made his debut late in the 2021/22 season before having a breakout campaign the following term, netting his first senior goal in August of that year."},
+          { "type": "p", "text": "The player featured heavily across the Bundesliga, the Champions League and the DFB-Pokal, making 20 appearances and scoring three goals. The following season, he registered 10 goal contributions in 34 appearances across all competitions, including appearing as a substitute in the 2024 Champions League final against Real Madrid."},
+          { "type": "p", "text": "Gittens continued to impress for Dortmund during the 2024/25 campaign with 17 goal contributions across all competitions, before featuring for the German side in the FIFA Club World Cup."}
+        ]
+      },
+      {
+        "title": "International Career",
+        "content": [
+          { "type": "p", "text": "He been capped at Under-21 level for England having previously started in the side that won the Under-19 European Championship in 2022."}
+        ]
+      }
+    ]
+  },
+  "nicolas_jackson": {
+    "joined": "Chelsea announced the signing of Nicolas Jackson from Spanish side Villarreal at the end of June 2023.",
+    "paragraphs": [
+      "The Senegal international signed an eight-year contract following a breakout 2022/23 campaign in La Liga in which he struck 12 goals. In 2024 he extended his Chelsea deal to 2033. He is a striker who poses a dual threat to opposition defenders, having both the pace to run in behind and the willingness to drop deep, hold the ball up and link play."
+    ],
+    "mainImage": "image/jackson_main.png",
+    "image": "image/jackson_info.png",
+    "shirtNum" : "15",
+    "accordion": [
+      {
+        "title": "2023/24",
+        "content": [
+          { "type": "p", "text": "Jackson made his Chelsea debut on the opening day of the 2023/24 season when we hosted Liverpool, and notched his maiden goal versus Luton Town at Stamford Bridge two appearances later."},
+          { "type": "p", "text": "Following further goals against Brighton in the Carabao Cup and away at Burnley, Jackson netted his first Chelsea hat-trick at the start of November 2023, in a dramatic 4-1 win at Tottenham when the hosts were reduced to nine players."},
+          { "type": "img", "src": "image/jackson_2324_1.png", "title": "Jackson completes his Tottenham hat-trick", "desc": ""},
+          { "type": "p", "text": "He also found the net in the next game against eventual champions Man City, before a first assist of the season in December when he headed the ball into the danger area for Levi Colwill to score against Brighton."},
+          { "type": "p", "text": "He found the target once more, against Sheffield United, before time away playing at the Africa Cup of Nations early in 2024. There was also a handful of appearances on the left wing with Cole Palmer in the centre in the middle of the season, including in an impressive FA Cup win at Aston Villa when Jackson headed one of the goals, as he did in a Premier League draw at Brentford."},
+          { "type": "img", "src": "image/jackson_2324_2.png", "title": "Against Leeds, Jackson nets Chelsea's 5,000th goal at Stamford Bridge", "desc": ""},
+          { "type": "p", "text": "By then he was back at centre-forward for the remainder of a season that ended with a flourish. An opener against Newcastle made it three goals in three games and in April, he netted arguably his best Chelsea goal yet, a sharp strike on the turn in a 6-0 win over Everton."},
+          { "type": "p", "text": "As Chelsea won our last five games of the campaign, Jackson scored against Tottenham (taking him past the league goals total in the first season from Didier Drogba, one of his heroes growing up), found the net twice and assisted for one versus West Ham, and headed in a memorable late winner in a turnaround at Nottingham Forest."},
+          { "type": "p", "text": "That gave him 17 goals in 44 appearances in 2023/24, second top scorer to Cole Palmer, whom he was also second to for shots on and off target in the league. The Senegalese was our fifth-highest appearance maker in a season in which he notably improved his ability to avoid bookings and settled into his role of spearhead after some earlier misses."}
+        ]
+      },
+      {
+        "title": "2024/25",
+        "content": [
+          { "type": "p", "text": "Jackson scored twice in the first three league games of the season, after only two minutes in a big win away at Wolves before finishing off a counter-attacking move at home to Crystal Palace."},
+          { "type": "img", "src": "image/jackson_2425_1.png", "title": "Jackson scores our first league goal of 2024/25", "desc": ""},
+          { "type": "p", "text": "He celebrated his good start to the campaign by, in mid-September, signing a contract extension to 2033."},
+          { "type": "p", "text": "Away at West Ham his pace and movement were too much for the Irons' defence as he scored twice early on in a 3-0 win that was his 50th Chelsea appearance. He also set up Cole Palmer for his goal in that game, one of three assists supplied before the October international break."},
+          { "type": "img", "src": "image/jackson_2425_2.png", "title": "Highlights: West Ham 0-3 Chelsea", "desc": "Highlights of Chelsea's 3-0 Premier League away win against West Ham United at the London Stadium..."},
+          { "type": "p", "text": "Following a goal in a narrow defeat at Anfield at the end of that month, Jackson's next goal, when he finished off a fine move involving a brilliant Palmer pass and a Pedro Neto cross, was named Premier League Goal of the Month. That was in a home win over Newcastle."},
+          { "type": "img", "src": "image/jackson_2425_3.png", "title": "Highlights: Chelsea 2-1 Newcastle", "desc": "Highlights of Chelsea's 2-1 Premier League win against Newcastle United at Stamford Bridge..."},
+          { "type": "p", "text": "Three more goals followed in 2024 as Jackson continued to be the team's predominant centre-forward in the Premier League."},
+          { "type": "p", "text": "He made the most of hesitant Leicester defending to put the Blues 1-0 up in a win there. In his next game, at home to Villa, he converted a Marc Cucurella cross for the opener again, and back at the Bridge, his run from halfway and near-post finish proved to be the winner against Brentford."},
+          { "type": "img", "src": "image/jackson_2425_4.png", "title": "Jackson opens the scoring at the King Power Stadium", "desc": ""},
+          { "type": "p", "text": "In early February, a hamstring injury suffered against West Ham kept Jackson out of the frontline for two months but he returned for a London derby win against Spurs at Stamford Bridge."},
+          { "type": "p", "text": "His first goal since his return was the only one in a win over Everton and having scored twice in the semi-final to help Chelsea to the UEFA Conference League final, it was Jackson who bundled Cole Palmer's cross into the net to give his team the lead in the eventual 4-1 triumph."},
+          { "type": "p", "text": "He finished the regular season with 13 goals from 34 games."},
+          { "type": "p", "text": "Having been shown a red card at Newcastle that brought an early end to his Premier League season due to suspension, Jackson was sent off in Chelsea's second game at the FIFA Club World Cup which led to a two-match ban."}
+        ]
+      },
+      {
+        "title": "Pre Chelsea",
+        "content": [
+          { "type": "p", "text": "The 22-year-old’s club career began at Senegal Premier League side Casa Sports before a move to Villarreal in September 2019."},
+          { "type": "p", "text": "Jackson’s first taste of senior European football came on loan at Spanish second-tier side Mirandes. A campaign in Villarreal’s B side followed and he helped the side seal promotion from the third tier with both goals in their play-off final victory."},
+          { "type": "p", "text": "The young forward established himself in the senior set-up in the summer of 2022 and went on to make 38 appearances across all competitions for Villarreal."},
+          { "type": "p", "text": "He ended the campaign as La Liga’s in-form player, scoring nine goals in the final eight matches of the season and winning the Player of the Month award for May. "}
+        ]
+      },
+      {
+        "title": "International Career",
+        "content": [
+          { "type": "p", "text": "Jackson's form for Villarreal earned a first call-up for Senegal squad for the 2022 World Cup. He made his international debut at the tournament in Qatar, as a substitute in their opening group game against the Netherlands."},
+          { "type": "p", "text": "He followed that up with two further caps in June 2023, getting an assist in each, including in a prestigious 4-2 friendly victory over Brazil."},
+          { "type": "p", "text": "Having been called up for the Africa Cup of Nations at the start of 2024, Jackson came on as a substitute in all three group games as Senegal qualified for the knockout phase with a 100 per cent record. He played a key role in his side's third and final goal in a win over Cameroon in the second of those outings that sealed their progress."},
+          { "type": "img", "src": "image/jackson_inter_1.png", "title": "Jackson played in all four of Senegal's matches at the Africa Cup of Nations", "desc": ""},
+          { "type": "p", "text": "However in the last-16 stage, the reigning champions went out on penalties after a 1-1 draw with home nation Ivory Coast. Again Jackson was a second-half sub but he was not involved in the shoot-out."},
+          { "type": "p", "text": "In October 2024, in a qualifier for the next Africa Cup of Nations, he scored his first international goal. It was the fourth goal in a 4-0 win over Malawi. In the next match, which was against the same opposition, a win ensured Senegal would be at the tournament finals in Morocco in December 2025."},
+          { "type": "p", "text": "In June 2025, Jackson played and registered an assist against England in Senegal's 3-1 win in a friendly in Nottingham."}
+        ]
+      }
+    ]
+  },
+  "christopher_nkunku": {
+    "joined": "Christopher Nkunku joined Chelsea from RB Leipzig ahead of the 2023/24 season, signing a six-year contract.",
+    "paragraphs": [
+      "The versatile France international started in midfield before moving further forward and becoming a skilful and prolific forward, equally adept at creating or scoring chances."
+    ],
+    "mainImage": "image/nkunku_main.png",
+    "image": "image/nkunku_info.png",
+    "shirtNum" : "18",
+    "accordion": [
+      {
+        "title": "2023/24",
+        "content": [
+          { "type": "p", "text": "Unfortunately the start to Nkunku’s Chelsea career was delayed by a knee injury sustained in a pre-season game that required surgery. He was able to make his delayed debut in December 2023, coming on in the second half of a Carabao Cup match against Newcastle, and successfully converting a penalty in a shoot-out which decided the tie."},
+          { "type": "p", "text": "He followed that up with a late goal in a Christmas Eve Premier League defeat at Wolves, and then after a month out with a hip injury, returned as a half-time substitute at Anfield and scored a quality goal, albeit a consolation one in a defeat there."},
+          { "type": "img", "src": "image/nkunku_2324_1.png", "title": "Nkunku scores his first Chelsea goal at Molineux", "desc": ""},
+          { "type": "p", "text": "When we played Liverpool again in the Carabao Cup final, Nkunku featured as a substitute but a hamstring injury suffered at Wembley kept him out throughout March and April."},
+          { "type": "p", "text": "He returned to play a part in the final four games of the season – all victories – and he scored the winner in the penultimate game of the season away at Brighton."}
+        ]
+      },
+      {
+        "title": "2024/25",
+        "content": [
+          { "type": "p", "text": "Having scored home and away in our UEFA Conference League play-off tie against Servette, both goals from the penalty spot, Nkunku netted his first Premier League goal of the season in the fourth game in that competition."},
+          { "type": "p", "text": "It was the only goal of the game and a late winner at Bournemouth, scored just seven minutes after he came on."},
+          { "type": "img", "src": "image/nkunku_2425_1.png", "title": "", "desc": ""},
+          { "type": "p", "text": "Against Barrow in the first domestic cup-tie of the season, Nkunku scored his first Chelsea hat-trick - with a volley, a back-heel flick and then a shot after winning the ball off the goalkeeper."},
+          { "type": "img", "src": "image/nkunku_2425_2.png", "title": "Highlights: Chelsea 5-0 Barrow", "desc": "Catch the best bits from Chelsea's 5-0 Carabao Cup victory against Barrow at Stamford Bridge…"},
+          { "type": "p", "text": "He also scored in the Conference League against Gent and with seven goals, was the team's top scorer going into the October international break."},
+          { "type": "p", "text": "A penalty converted against Noah in the Conference League in the November was Chelsea's 500th spot-kick scored in all competitions in our history. With a goal against Heidenheim, he became the first Chelsea player to score in six consecutive European games and his second Premier League goal of the season came in December at Southampton."},
+          { "type": "p", "text": "His first goal of 2025 came in the FA Cup when he made up for a saved penalty against Morecambe by finding their net in open play."},
+          { "type": "p", "text": "Nkunku's next Premier League goal came the next month when he scored the opener in a comfortable home win over Southampton. Two matches later, in March, he played his 50th Chelsea game when we played at home to Leicester."},
+          { "type": "p", "text": "He started both legs of the UEFA Conference League quarter-final against Legia Warsaw but injury meant he missed the semi-final. He remained on the bench in Poland at the final."}
+        ]
+      },
+      {
+        "title": "Pre Chelsea",
+        "content": [
+          { "type": "p", "text": "Nkunku is a graduate of the famed French national football academy at Clairefontaine and started his professional career at Paris Saint-Germain. He made 78 first-team appearances and was involved in three Ligue 1 title wins and two Coupe de France triumphs before departing for RB Leipzig in the summer of 2019. "},
+          { "type": "p", "text": "It is in Germany that Nkunku built his reputation as one of the finest forwards in European football. He scored 35 goals in all competitions during the 2021/22 campaign and was named Bundesliga Player of the Season and German PFA Player of the Season. The DFB-Pokal was also won."},
+          { "type": "p", "text": "The versatile attacker struck a further 23 goals this season to help Leipzig secure a third-place finish in the Bundesliga and retain the DFB-Pokal."}
+        ]
+      },
+      {
+        "title": "International Career",
+        "content": [
+          { "type": "p", "text": "Nkunku made his senior debut for France from the start in a friendly win over Ivory Coast in March 2022. He was called up for that year's winter World Cup, but missed out on the tournament due to injury."},
+          { "type": "p", "text": "However, he returned and earned his ninth and tenth caps for his country shortly before joining Chelsea in the summer of 2023, in a European Championship qualifiers against Gibraltar and Greece."},
+          { "type": "p", "text": "Following an injury hit first season at Stamford Bridge, Nkunku was not selected by France for Euro 2024."},
+          { "type": "p", "text": "He returned to the national side the following October and scored first goal for France during his first game back, a Nations League win over Israel."},
+          { "type": "img", "src": "image/nkunku_inter_1.png", "title": "Nkunku finds the net for the first time on the occasion of his 11th cap", "desc": ""}
+        ]
+      }
+    ]
+  },
+  "tyrique_george": {
+    "joined": "Tyrique George is a tricky and exciting player who joined us as an Under-8 after coming through our development centre programme. He operates predominantly on the left wing but can also play as an attacking midfielder.",
+    "paragraphs": [
+      "Having made his men’s first-team debut early in the 2024/25 season, he moved from the Academy to be a full-time member of the senior squad midway through that campaign."
+    ],
+    "mainImage": "image/george_main.png",
+    "image": "image/george_info.png",
+    "shirtNum" : "32",
+    "accordion": [
+      {
+        "title": "2024/25",
+        "content": [
+          { "type": "p", "text": "George made his debut for the men's first team when he came on during the second half of a UEFA Conference League play-off match away in Switzerland, against Servette. He made further substitute appearances in the same competition versus Gent and in a Carabao Cup match against Barrow. He also played for England Under-19s near the start of the season."},
+          { "type": "img", "src": "image/george_2425_1.png", "title": "Eighteen-year-old Tyrique George during his Stamford Bridge bow", "desc": ""},
+          { "type": "p", "text": "Against Noah in the Conference League George was given his first Chelsea start. The team were 6-0 up in an eventual 8-0 win when he came off with 68 minutes played to applause around the ground. In the same competition, following a short substitute appearance away at Heidenheim, George played the full 90 minutes of a win against Astana in Kazakhstan and was involved in plenty of the Blues' attacking play. Another full game came in the final league-phase match at home to Shamrock Rovers."},
+          { "type": "p", "text": "In December 2024, it was confirmed George was now a full-time member of the men's first-team squad."},
+          { "type": "p", "text": "Against Morecambe in the FA Cup the next month, he registered his first assists with passes for long-range strikes by Tosin Adarabioyo and Joao Felix, before in February he added a Premier League assist. That was when he reached the byline and cut the ball back for Marc Cucurella to score."},
+          { "type": "p", "text": "George's first senior goal came in April 2025 in Poland, when he turned the ball in after a Reece James shot was saved. That opened the scoring in a 3-0 win over Legia Warsaw in the first leg of a UEFA Conference League quarter-final."},
+          { "type": "img", "src": "image/.png", "title": "George opens his Chelsea account", "desc": ""},
+          { "type": "p", "text": "His first Premier League goal was an important one, a late equaliser soon after coming on at Fulham. That was converted by Pedro Neto into a long-awaited away win and a crucial three points in the ultimately success attempt to qualify for the Champions League."},
+          { "type": "p", "text": "At the start of the next month George was named the Chelsea Men’s Academy Player of the Year. He followed that up with his first Premier League start when handed the central striker role at home to Manchester United with Nicolas Jackson suspended."}
+        ]
+      },
+      {
+        "title": "Academy",
+        "content": [
+          { "type": "p", "text": "During his time developing in the Chelsea Academy, George represented England at Under-16 level frequently in the 2021/22 season and was part of the Val de Marne international tournament-winning squad for that age group."},
+          { "type": "p", "text": "The pacy and direct winger was a big part of the Under-18s side in the 2022/23 season, featuring regularly under both Ed Brand and Hassan Sulaiman over the course of that season. He made 28 appearances across all competitions, 18 of them starts."},
+          { "type": "p", "text": "George played internationals at Under-17 level and at the start of 2023/24, he moved up to England Under-18s. As the season progressed at club level, he scored eye-catching goals in the title-winning Under-18s' season and for the Under-21s. Across both age groups he netted 20 times, eight for the U21s."},
+          { "type": "img", "src": "image/george_aca_1.png", "title": "Tyrique George netted the winner for our Under-21s' first victory of 2024 against Man Utd", "desc": ""},
+          { "type": "p", "text": "Towards the end of the season he also made the bench on three occasions for the senior side and in the summer of 2024 he travelled to the United States to be part of the pre-season tour."},
+          { "type": "p", "text": "While involved with the men’s first team squad in 2024/25, for our Under-21s George recorded a hat-trick against Brentford in the Premier League Cup group stage and added a goal in a dominant 6-0 victory over Fulham at Motspur Park."},
+          { "type": "p", "text": "Midway through the season he was confirmed as a full-time member of Enzo Maresca's squad and at the end of it, he won the Men’s Academy Player of the Year."}
+        ]
+      }
+    ]
+  }
 }
