@@ -597,5 +597,349 @@
           ]
         }
       ]
+    },
+    "robert_sanchez": {
+    "joined": "Goalkeeper Robert Sanchez completed a move to Chelsea from Brighton & Hove Albion at the start of August 2023.",
+    "paragraphs": [
+      "The Spanish international joined the Blues on a seven-year contract after impressing with Brighton in the Premier League and building a reputation as a fine shot-stopper and a goalkeeper comfortable at building possession and starting attacks.He made his debut for Chelsea at the beginning of the 2023/24 season."
+    ],
+    "mainImage": "image/sanchez_main.png",
+    "image": "image/sanchez_info.png",
+    "shirtNum" : "1",
+    "accordion": [
+      {
+        "title": "2023/24",
+        "content": [
+          { "type": "p", "text": "With Kepa having moved away on loan and Edouard Mendy sold, Sanchez's Chelsea debut came right at the start of the 2023/24 campaign when he was named in goal against Liverpool. His first Blues clean sheet came in the third game, at home to Luton, and he produced a fantastic stop in each half in a goalless game at Bournemouth."},
+          { "type": "p", "text": "A flying save that kept out a shot by Aston Villa’s Nicolo Zaniolo in the next game was voted Premier League Save of the Month for September."},
+          { "type": "img", "src": "image/sanchez_2324_1.png", "title": "Sanchez: Save of the Month 🧤", "desc": "Watch Robert Sanchez's brilliant reaction stop to deny Aston Villa’s Nicolo Zaniolo..."},
+          { "type": "p", "text": "In December 2023 he saved a Bruno Fernandes penalty in a defeat at Old Trafford but in the next game, at Everton, he suffered a knee injury and his replacement, Djordje Petrovic, remained as first choice for the rest of the season."},
+          { "type": "p", "text": "Sanchez did play in FA Cup wins over Leeds and Leicester but further injury made him unavailable in the latter part of the season. In his first Chelsea campaign he played 21 games, 16 in the league (with 53 saves in that competition), and he kept five clean sheets in all competitions."}
+        ]
+      },
+      {
+        "title": "2024/25`",
+        "content": [
+          { "type": "p", "text": "With Djordje Petrovic moving out on loan and new-signing Filip Jorgensen used in UEFA Conference League games, Sanchez was the goalkeeper chosen for Premier League outings early in the season."},
+          { "type": "p", "text": "In an away trip to Bournemouth in the fourth of those league games, he kept a clean sheet having saved an Evanilson penalty when the game was scoreless, one of several stops made in an impressive performance."},
+          { "type": "img", "src": "image/sanchez_2425_1.png", "title": "", "desc": ""},
+          { "type": "p", "text": "He also received praise for quality saves that prevented Nottingham Forest snatching a late winner in a game at the Bridge in October, a strong response by the goalkeeper to goals conceded in his previous home game, a win against Brighton."},
+          { "type": "p", "text": "One of those saves against Forest, made with his finger tips to deny Jota Silva, was named Premier League Save of the Month and was later nominated for Premier League Save of the Season."},
+          { "type": "img", "src": "image/sanchez_2425_2.png", "title": "Highlights: Chelsea 1-1 Nottingham Forest", "desc": "Highlights of Chelsea's 1-1 Premier League draw against Nottingham Forest at Stamford Bridge..."},
+          { "type": "p", "text": "Sanchez was nominated for the December version of that award for keeping out a volley from Brentford's Christian Norgaard in a narrow win at Stamford Bridge. He also earned praise for his performance and saves when keeping a clean sheet to earn a point in difficult conditions at Everton in the game before Christmas."},
+          { "type": "p", "text": "Following a defeat at Manchester City, Jorgensen replaced Sanchez in goal for four league games but the Spaniard returned to the starting XI in March and kept three clean sheets in his next four games."},
+          { "type": "p", "text": "Sanchez continued to be the first choice for the rest of a Premier League campaign that ended with a top-four finish and personally, 10 clean sheets from 32 games."}
+        ]
+      },
+      {
+        "title": "Pre Chelsea",
+        "content": [
+          { "type": "p", "text": "Sanchez left his homeland of Spain to sign with Brighton at just 15 years old and progressed through the club’s academy. He enjoyed successful loan spells at Forest Green Rovers and Rochdale before establishing himself as the Seagulls’ first-choice goalkeeper during the 2020/21 campaign."},
+          { "type": "p", "text": "Sanchez’s performances during 2021/22 – his first full season as Brighton’s number one – helped the Seagulls keep 11 top-flight clean sheets, a club-record in a single Premier League campaign."},
+          { "type": "p", "text": "In his final season at the Amex Stadium, Sanchez shared goalkeeping duties with Jason Steele but he helped Brighton reach the FA Cup semi-finals; he kept clean sheets in the quarters and the semi itself, although the latter ended in a penalty shoot-out defeat to Manchester United. It proved to be his 91st and final outing for the Seagulls."}
+        ]
+      },
+      {
+        "title": "International Career",
+        "content": [
+          { "type": "p", "text": "Sanchez made his debut for Spain in a 4-0 World Cup qualifying win over Georgia in September 2021, coming on as a sub early in the game."},
+          { "type": "p", "text": "He had been in the squad for Euro 2020, played in the summer of 2021 due to the pandemic, and he was also named in the 2021 Nations League finals squad and 2022 World Cup squad without playing a game."},
+          { "type": "p", "text": "His second Spain cap was won when he played the first half of a friendly win over Jordan in November 2022."},
+          { "type": "p", "text": "After an injury-hit first season at Chelsea, he was not called up for Euro 2024."},
+          { "type": "p", "text": "In November 2024 he made his third appearance for his nation when he came on at half-time in a Nations League match against Switzerland which Spain won with a last-gasp goal."}
+        ]
+      }
+    ]
+    },
+    "filp_jorgensen": {
+      "joined": "Chelsea completed the signing of Danish goalkeeper Filip Jorgensen from Villarreal in July 2024.",
+      "paragraphs": [
+        "Jorgensen arrived at the age of 22, signing a seven-year contract with the Blues."
+      ],
+      "mainImage": "image/jorgensen_main.png",
+      "image": "image/jorgensen_info.png",
+      "shirtNum" : "12",
+      "accordion": [
+        {
+          "title": "2024/25",
+          "content": [
+            { "type": "p", "text": "Jorgensen made his Chelsea debut when he was selected for the second game of the season, at home against Servette in the UEFA Conference League. He was voted player of the match by Chelsea fans and continued to be chosen for European and cup games."},
+            { "type": "img", "src": "image/jorgensen_2425_1.png", "title": "Jorgensen during his debut at home to Servette", "desc": ""},
+            { "type": "p", "text": "Following another Conference League game in which he made several saves, away at Heidenheim, Jorgensen was given his Premier League debut in a 5-1 win at Southampton. That was at the start of December 2024. At the end of the same month he made his second league appearance, this time in a defeat at Ipswich."},
+            { "type": "p", "text": "In February 2025, he was given a run of four Premier League games. While Robert Sanchez played the first leg of a UEFA Conference League tie against Copenhagen at the start of March, Jorgensen returned for the second leg and played the rest of the tournament, including the 4-1 win over Real Betis in the final in Poland."}
+          ]
+        },
+        {
+          "title": "Pre Chelsea",
+          "content": [
+            { "type": "p", "text": "Born in Sweden, Jorgensen joined Villarreal at 15 years old, after time in the academies of Swedish clubs GIF Nike and Malmo, plus Spanish sides Santa Catalina, Penya Arrabal and Mallorca."},
+            { "type": "p", "text": "After three years in the Spanish club’s youth set-up, he was promoted to Villarreal B and made his senior debut against SCR Pena Deportiva in October 2020"},
+            { "type": "p", "text": "Jorgensen soon started training regularly with the first-team squad and established himself in the Villarreal B side. In December 2021, he was handed his debut in a 7–1 win over Atletico Sanluqueno in the Copa del Rey."},
+            { "type": "img", "src": "image/.png", "title": "An 18-year-old Jorgensen playing for Villarreal in a friendly", "desc": ""},
+            { "type": "p", "text": "His La Liga debut followed in January 2023 and, ahead of the 2023/24 campaign, Jorgensen secured his place as Villarreal’s number one goalkeeper. He made 37 appearances across all competitions that season and helped Villarreal to an eighth-place finish in the Spanish top flight."}
+          ]
+        },
+        {
+          "title": "International Career",
+          "content": [
+            { "type": "p", "text": "Jorgensen, who was born in Sweden and has a Swedish mother and a Danish father, started playing youth international football for Sweden before switching to represent Denmark Under-21s."},
+            { "type": "p", "text": "He helped Denmark qualify automatically for the 2025 European Under-21 Championship by topping their group. It was a tight contest with Wales for that top spot, with Jorgensen playing in a win in the final group game against Iceland, the only side to have previously beaten them in the qualification campaign. He was taken off at half-time following a collision."},
+            { "type": "p", "text": "In June 2025, soon after the end of the Premier League season and his appearance in the UEFA Conference League final, Jorgensen made his debut for the senior Denmark side. He started a 2-1 win over Northern Ireland."}
+          ]
+        }
+      ]
+    },
+    "gaga_slonina": {
+        "joined": "American goalkeeper Gabriel Slonina completed a permanent transfer to Chelsea in August 2022.",
+        "paragraphs": [
+          "The 18-year-old signed a six-year contract with the Blues, joining us from MLS side Chicago Fire where he returned on loan to complete their season before moving to west London at the start of 2023. The youngster put in a string of fine performances for our Under-21s under Mark Robinson in the 2022/23 season, showcasing shot-stopping ability and comfortable distribution with his feet. Following loans in Belgium and England's League One, in the summer of 2025 he was part of the Chelsea squad travelling to his home nation for the FIFA Club World Cup."
+        ],
+        "mainImage": "image/slonina_main.png",
+        "image": "image/slonina_info.png",
+        "shirtNum" : "44",
+        "accordion": [
+          {
+            "title": "Pre Chelsea",
+            "content": [
+              { "type": "p", "text": "Considered one of his homeland’s most promising talents, Slonina became Chicago’s youngest signing when he agreed a professional deal with the club in 2019, aged just 14. He also became the youngest goalkeeper ever to start an MLS match, having made his debut for the Fire at the age of 17 years and 81 days in August 2021."},
+              { "type": "p", "text": "That historic introduction to senior football also brought the first of his 16 clean sheets in the MLS, as he helped secure a 0-0 draw against New York City. The teenager became a regular for Chicago Fire, playing all but the last two games of their 2022 league campaign prior to his departure. He made 43 appearances for the club in total."},
+              { "type": "img", "src": "image/slonina_pre_1.png", "title": "Slonina gathers the ball for Chicago Fire", "desc": ""},
+              { "type": "p", "text": "Slonina has also represented the USA at several youth levels and received his first senior international call-up in December 2021, being named on the bench for the USA’s 1-0 friendly win over Bosnia and Herzegovina."}
+            ]
+          },
+          {
+            "title": "On loan",
+            "content": [
+              { "type": "p", "text": "In August 2023, Slonina joined Belgian Pro League side K.A.S. Eupen on a season-long loan and immediately became their first-choice goalkeeper. He kept his first clean sheet in October in a victory over Charleroi."},
+              { "type": "p", "text": "Over the course of 2023/24, Slonina managed to accumulate over 3,000 minutes of experience with five clean sheets in his 34 appearances. However, his side were relegated to the Belgian second division."},
+              { "type": "p", "text": "For 2024/25 he joined League One Barnsley and made a spectacular start there, saving two penalties in a shoot-out win over Wigan in the Carabao Cup and earning the Player of the Match award and the competition's Player of the Round. He followed that up with another Player of the Match award for his performance in his second game, this time in a league win at Lincoln."},
+              { "type": "p", "text": "He had the chance to play at Old Trafford in the Carabao Cup although that ended in heavy defeat. A spell of injury followed from the end of October onwards and at the start of 2025, Slonina returned to Chelsea having made 14 appearances for Barnsley."}
+            ]
+          },
+          {
+            "title": "International Career",
+            "content": [
+              { "type": "p", "text": "In January 2023, Slonina made his debut for the USA senior side in a game against Serbia, becoming the youngest goalkeeper to earn"},
+              { "type": "p", "text": "Later in the year he played for the USA at the FIFA Under-20 World Cup and he was in the senior squad for the CONCACAF Gold Cup but remained an unused substitute."}
+            ]
+          }
+        ]
+    },
+    "tosin_adarabioyo": {
+    "joined": "Centre-back Tosin Adarabioyo joined Chelsea ahead of the 2024/25 season.",
+    "paragraphs": [
+      "Centre-back Tosin Adarabioyo joined Chelsea ahead of the 2024/25 season. A tall player, Tosin brought with him his maturity and defensive qualities, and a wealth of experience of playing in the Premier League."
+    ],
+    "mainImage": "image/tosin_main.png",
+    "image": "image/tosin_info.png",
+    "shirtNum" : "4",
+    "accordion": [
+      {
+        "title": "2024/25",
+        "content": [
+          { "type": "p", "text": "Tosin’s first action for the Blues was as a starter in UEFA Conference League matches against Swiss side Servette. He made his Premier League bow for his new club as a substitute at Bournemouth before starting the next game away at West Ham - both games wins with clean sheets kept."},
+          { "type": "p", "text": "In November of his maiden season, Tosin's first Chelsea goal, a header, opened the floodgates in a Conference League-record 8-0 win at home to Noah."},
+          { "type": "img", "src": "image/tosin_2425_1.png", "title": "Tosin celebrates scoring against Noah", "desc": ""},
+          { "type": "p", "text": "In December and with Wesley Fofana suffering injury during that month, Tosin started five Premier League games."},
+          { "type": "p", "text": "In the FA Cup in early January, Tosin showed off his shooting skills. He opened the scoring and then added another in a 5-0 win over Morecambe - both with strikes from outside the penalty area."},
+          { "type": "img", "src": "image/tosin_2425_2.png", "title": "Highlights: Chelsea 5-0 Morecambe", "desc": "Highlights of Chelsea's 5-0 FA Cup win against Morecambe FC at Stamford Bridge..."},
+          { "type": "p", "text": "He then opened the scoring in a win against Wolves for his first Premier League goal for Chelsea, and he continued to share selection in the side with the other centre-backs in the squad."},
+          { "type": "p", "text": "He started the final two Premier League games of the season as Champions League qualification was secured with wins against Manchester United and Nottingham Forest. He was also selected for all the Conference League knockout stage matches prior to the final when he was on the bench."},
+          { "type": "p", "text": "Tosin had made 37 appearances, 30 of them as a starter, prior to the FIFA Club World Cup."}
+        ]
+      },
+      {
+        "title": "Pre Chelsea",
+        "content": [
+          { "type": "p", "text": "Born in London but raised in Manchester, Tosin began his career with Manchester City at the age of five. He moved through City's youth ranks and regularly captained their Under-18s at 16 years old."},
+          { "type": "p", "text": "His professional debut arrived in February 2016 at Stamford Bridge. Tosin started for a youthful Man City side in the FA Cup and went on to make seven more first-team appearances across the following two campaigns."},
+          { "type": "img", "src": "image/.png", "title": "Tosin taking on Chelsea for Manchester City Under-21s back in October 2015", "desc": ""},
+          { "type": "p", "text": "He had season-long loan spells in the EFL Championship with West Bromwich Albion and Blackburn Rovers before he left Man City permanently to join Fulham in October 2020."},
+          { "type": "p", "text": "Tosin’s first campaign as a Premier League regular yielded 33 appearances and much praise for his adaptation to the top flight. He featured for Fulham on 44 occasions the following season and played an important role in the club securing promotion from the Championship."},
+          { "type": "p", "text": "He went on to make 45 top-flight appearances for Fulham, helping the Cottagers finish 10th and 13th respectively in the two seasons prior to him joining Chelsea."}
+        ]
+      }
+    ]
+    },
+    "benoit_badiashile": {
+    "joined": "Benoit Badiashile completed a permanent transfer to Chelsea from Monaco in January 2023, signing a seven-and-a-half-year contract at Stamford Bridge.",
+    "paragraphs": [
+      "At 6ft 4in, Badiashile is a dominant defender in the air but equally comfortable with the ball at his feet, capable of playing short passes out from the back or switching the play with longer diagonals. His blistering speed is a key attribute and he has experience in both a back four and back three at club level."
+    ],
+    "mainImage": "image/badiashile_main.png",
+    "image": "image/badiashile_info.png",
+    "shirtNum" : "5",
+    "accordion": [
+      {
+        "title": "2022/23",
+        "content": [
+          { "type": "p", "text": "Badiashile enjoyed a positive start to life in England, helping us earn clean sheets in his first three appearances, against Crystal Palace, Liverpool and Fulham. He even nearly scored the winner at Anfield, denied only by a fantastic Alisson save."},
+          { "type": "p", "text": "Badiashile was restricted to three appearances in April and May following the departure of Graham Potter, not helped by a serious hamstring injury sustained in training before our visit to Manchester City. He had however had a first Chelsea goal to celebrate before then, a well-executed volley in a win at Bournemouth."},
+          { "type": "img", "src": "image/badiashile_2223_1.png", "title": "Badiashile enjoys his first Chelsea goal", "desc": ""},
+        ]
+      },
+      {
+        "title": "2023/24",
+        "content": [
+          { "type": "p", "text": "It took until the start of November 2023 for Badiashile to return from the hamstring injury that had ended his previous season but he returned in style, netting the opener with a tidy shot in a Carabao Cup win over Blackburn."},
+          { "type": "img", "src": "image/badiashile_2324_1.png", "title": "Celebration all around after Badiashile scores in his first game of the season", "desc": ""},
+          { "type": "p", "text": "A run of regular matches followed and he registered an assist in a win over Brighton when he did well to keep the ball alive after a corner, allowing Enzo to score."},
+          { "type": "p", "text": "There was an appearance at left-back in a cup game against Villa but a groin injury suffered in the replay kept him out of a run of games, including the Carabao Cup final."},
+          { "type": "p", "text": "Badiashile returned to be a regular in the Premier League run-in, and although he had the misfortune to divert a shot in for a Bournemouth goal on the final day, that game, like the defender’s four previous appearances, was won as the Blues secured sixth place."},
+          { "type": "p", "text": "He finished the season with 22 games to his name and had our fourth-highest total for defensive blocks in the Premier League campaign."}
+        ]
+      },
+      {
+        "title": "2024/25",
+        "content": [
+          { "type": "p", "text": "Badiashile's action in the first half of the season was primarily in the UEFA Conference League, as Chelsea comfortably negotiated the first phase, and the Carabao Cup."},
+          { "type": "p", "text": "He did come into the Premier League side for starts in a win at Leicester in November and victory at Tottenham the following month, before a hamstring injury ruled him out of action."},
+          { "type": "p", "text": "Badiashile made his return when he started in the Round of 16 tie against Copenhagen in the European campaign."},
+          { "type": "img", "src": "image/badiashile_2425_1.png", "title": "Badiashile celebrates with the trophy after the UEFA Conference League final", "desc": ""},
+          { "type": "p", "text": "He continued to be part of the side in that competition right up to the final when he played the first hour of the triumph over Real Betis."}
+        ]
+      },
+      {
+        "title": "Pre Chelsea",
+        "content": [
+          { "type": "p", "text": "Having grown up in the picturesque city of Limoges and signed for his hometown club aged eight, Badiashile spent much of his early career at lower-league side SC Malesherbes. It was from there that he joined Monaco as a 15-year-old with a growing reputation as a composed, left-footed centre-back at ease with the ball at his feet."},
+          { "type": "p", "text": "He made his initial breakthrough with the ‘B’ team in the Championnat National 2, the French fourth tier, and watched at close quarters as Monaco secured a stunning Ligue 1 title and reached the Champions League semi-finals in 2016/17."},
+          { "type": "p", "text": "Splitting his time between representing Monaco’s second team in the league and their Under-19s in the UEFA Youth League, Badiashile caught the eye at the end of 2017/18 and start of 2018/19, with his performances at those levels launching a rapid rise in the second of those campaigns."},
+          { "type": "p", "text": "He was handed his debut by Thierry Henry up against Thiago Silva’s Paris Saint-Germain in November 2018 at the age of 17 and instantly became an important member of their team, starting all but six of Monaco’s remaining 31 matches in all competitions that season."},
+          { "type": "img", "src": "image/badiashile_pre_1.png", "title": "In Champions League action for Monaco against Atletico Madrid", "desc": ""},
+          { "type": "p", "text": "Nowhere was the speed with which he made the step up to first-team football more apparent than in Europe, where he started the group stage captaining the Under-19s in the Youth League before starting the senior side’s last two Champions League group games against Atletico Madrid and Borussia Dortmund."},
+          { "type": "p", "text": "With Ligue 1 and Champions League debuts under his belt, the defender made a total of 25 appearances in his first season of senior football as Monaco fought an unlikely battle for top-flight survival, scoring his first goal with the equaliser in a 1-1 draw at home to Nice."},
+          { "type": "p", "text": "After helping France reach the semi-finals of the European Under-19 Championship, Badiashile embarked on his first full campaign of senior football as part of an improving Monaco side in 2019/20. Although the season was curtailed early due to the Covid-19 pandemic, with the principality side in mid-table, he managed 20 appearances in all competitions."},
+          { "type": "img", "src": "image/badiashile_pre_2.png", "title": "Celebrating his goal against Reims in Ligue 1", "desc": ""},
+          { "type": "p", "text": "He made a flying start to the 2020/21 season when French football resumed, though, scoring in both of Monaco’s opening two Ligue 1 fixtures, getting the equaliser as they came back from two goals down against Reims before firing in the only goal of a win at Metz."},
+          { "type": "p", "text": "He featured in all but three of Monaco’s league games as they rose up the table to finish in third place, just five points behind champions Lille, in addition to four more appearances in their Coupe de France run, including in the 2-0 defeat to Paris Saint-Germain in the final."},
+          { "type": "img", "src": "image/badiashile_pre_3.png", "title": "Facing Paris Saint-Germain in the Coupe de France final", "desc": ""},
+          { "type": "p", "text": "Despite being just 20 years old, Badiashile had unquestionably become a key figure in the Monaco side by the start of last season, playing 34 games despite missing the best part of three months due to a hamstring injury and Covid. He scored his only goal of 2021/22 in a 2-2 draw with Lens on the final day as they secured a second consecutive top-three finish."},
+          { "type": "p", "text": "He continued his impressive form into the 2022/23 season, scoring twice in 16 appearances for Monaco before joining Chelsea in January."}
+        ]
+      },
+      {
+        "title": "International Career",
+        "content": [
+          { "type": "p", "text": "Having represented France throughout the youth ranks, all the way up from their Under-16s, Badiashile made his senior international debut not long before completing his move to Chelsea."},
+          { "type": "img", "src": "image/badiashile_inter_1.png", "title": "Deschamps congratulates Badiashile after his winning France debut", "desc": ""},
+          { "type": "p", "text": "Following his increasingly impressive form for Monaco throughout 2023, he was given his debut from the start by France manager Didier Deschamps in September, playing the full 90 minutes of a 2-0 UEFA Nations League win over Austria in Paris. He added a second cap, also from the start, in Les Bleus final match of that Nations League campaign away in Denmark three days later."}
+        ]
+      }
+    ]
+    },
+    "jorrel_hato": {
+    "joined": "Jorrel Hato joined Chelsea at the start of August 2025 on a contract to 2032.",
+    "paragraphs": [
+      "He is equally as comfortable in the heart of defence as he is at left-back, featuring most often in the latter position in the season before becoming a Blue. Hato is strong in the tackle, comfortable carrying the ball forward and has leadership skills that bely his age. He captained Ajax as a 17-year-old."
+    ],
+    "mainImage": "image/hato_main.png",
+    "image": "image/hato_info.png",
+    "shirtNum" : "21",
+    "accordion": [
+      {
+        "title": "Pre Chelsea",
+        "content": [
+          { "type": "p", "text": "The Dutch international defender began his football career with local club Sparta Rotterdam before moving to Ajax’s youth academy in 2018. He signed his first professional contract in 2022 at just 16 and quickly made his mark in both the UEFA Youth League and for Jong Ajax, the club’s reserve side."},
+          { "type": "p", "text": "That same year, he became the third-youngest player ever to make his debut for Ajax in the Eredivisie, aged 16, in a match against Cambuur. By the end of the season, he was starting in the Dutch Cup final — a testament to his rapid rise."},
+          { "type": "p", "text": "He was still 16 when he became the third-youngest player to debut for Ajax in the Eredivisie in a game against Cambuur in February 2023. He finished the campaign starting in the Dutch Cup final."},
+          { "type": "p", "text": "From the start of the 2023/24 season, Hato was virtually ever-present in the Ajax side."}
+        ]
+      },
+      {
+        "title": "International Career",
+        "content": [
+          { "type": "p", "text": "On the international stage, his progress has been equally impressive. Hato made his senior debut for the Netherlands aged 17, as well as captaining the Dutch side at the UEFA Under-21 European Championship this summer."}
+        ]
+      }
+    ]
+    },
+    "trevoh_chalobah": {
+    "joined": "Trevoh Chalobah signed for Chelsea as an Under-9 and came through the Academy to progress to the men's first team, as his older brother Nathaniel had done.",
+    "paragraphs": [
+      "Having progressed through the youth ranks he made his initial breakthrough into senior football in 2018, with the first of three loan spells, before being brought back to Chelsea as part of Thomas Tuchel's squad for the start of the 2021/22 season, where he made an instant impact with a mixture of composure and passion at the back. Having continued to be a member of the squad under subsequent head coaches, he made a season-long loan move to Crystal Palace at the end of August 2024 but was recalled by Chelsea in January 2025. The following summer he became a full England international."
+    ],
+    "mainImage": "image/chalobah_main.png",
+    "image": "image/chalobah_info.png",
+    "shirtNum" : "23",
+    "accordion": [
+      {
+        "title": "2021/22",
+        "content": [
+          { "type": "p", "text": "Chalobah could not have dreamed of a better start to life in the Chelsea senior set-up after joining Tuchel's squad for pre-season in 2021. After impressing the German, he was retained for the upcoming campaign and celebrated his debut by lifting silverware, as a composed performance belying his years contributed to the Blues beating Villarreal in the UEFA Super Cup on penalties following a 1-1 draw."},
+          { "type": "p", "text": "More was to come, as his first appearance in the Premier League also brought his first goal for Chelsea, when he arrowed a low drive into the bottom corner to complete a 3-0 victory over Crystal Palace at Stamford Bridge. He showed just how much the moment meant to him as he succumbed to the emotions and sunk to his knees in tears as his team-mates rushed to celebrate with him."},
+          { "type": "p", "text": "A further Premier League goal followed against Southampton, before he hit the net in the Champions League for the first time in a 4-0 thrashing of Juventus, but it was the seamless way he integrated and looked at home alongside his more experienced team-mates in Tuchel's back three that really caught the eye."},
+          { "type": "img", "src": "image/chalobah_2122_1.png", "title": "Showing his emotion after scoring on his Premier League debut", "desc": ""},
+          { "type": "p", "text": "His versatility was also shown on occasion, when he provided an additional option in midfield as injury and Covid-19 depleted our ranks in early winter. It was a role he had fulfilled many times during his spells out on loan, although it was on the right of our defence where Tuchel alternated Chalobah with the more experienced Cesar Azpilicueta for large parts of the season."},
+          { "type": "p", "text": "However, the brutal winter schedule seemed to take its toll, as a couple of weeks sidelined with a hamstring injury in January was followed by a period out of the team, meaning he was an unused substitute for both games in Abu Dhabi as we triumphed at the FIFA Club World Cup the following month."},
+          { "type": "img", "src": "image/chalobah_2122_2.png", "title": "Winning the ball from Luis Diaz in the 2022 Carabao Cup final", "desc": ""},
+          { "type": "p", "text": "When we returned from that tournament he soon found arguably his best form yet, though, notably playing through the pain despite a nasty gash from a high challenge which left him needing stitches to help us keep a clean sheet in the Carabao Cup final shoot-out defeat to Liverpool. He was also nominated for Premier League Player of the Month for his contribution to two clean sheets in that competition, in addition to opening the scoring in a win over Norwich City."},
+          { "type": "p", "text": "A dip in form, something Tuchel deemed inevitable for a young player in his first Premier League campaign, meant another absence for a time, but Chalobah returned to the starting line-up for a vital stage of the season. Another clean sheet at Wembley against Liverpool, this time in the FA Cup final, was sandwiched between a win at Leeds United and a draw with Leicester City which effectively secured our third-place finish in the Premier League."}
+        ]
+      },
+      {
+        "title": "2022/23",
+        "content": [
+          { "type": "p", "text": "Chalobah had to wait for his chance to impress when the 2022/23 campaign got underway, playing just once in the first two months of the season."},
+          { "type": "p", "text": "An injury to Wesley Fofana early in the home win over AC Milan handed Chalobah his chance, though, and it was one he seized, playing every minute of league and Champions League action until the World Cup break in mid-November. At the start of that run we accumulated six consecutive clean sheets, with Chalobah impressing in the heart of defence."},
+          { "type": "img", "src": "image/chalobah_2223_1.png", "title": "Chalobah dominating in the San Siro", "desc": ""},
+          { "type": "p", "text": "Chalobah saw less action in the new year, especially in February and March, but he became a regular again under Frank Lampard, starting seven of our last eight league games as well as playing the full 90 minutes of our Champions League quarter-final second leg defeat to Real Madrid."}
+        ]
+      },
+      {
+        "title": "2023/24",
+        "content": [
+          { "type": "p", "text": "A lengthy injury delayed the start of Chalobah's season until February 2024, his return coming as a substitute in a draw away at Manchester City. He was also a late sub in the Carabao Cup final against Liverpool."},
+          { "type": "p", "text": "When back in the starting line-up from March onwards, a healthy set of results was recorded, and he headed home the opener in a London derby win over Tottenham that began the run of five victories which lifted the side up to table to the European qualification positions."},
+          { "type": "img", "src": "image/chalobah_2324_1.png", "title": "Trevoh celebrates breaching the Tottenham defence", "desc": ""},
+          { "type": "p", "text": "Chalobah was defensively strong in the Spurs game too, including a block to deny Pape Sarr a goal. He was named Player of the Match."}
+        ]
+      },
+      {
+        "title": "2024/25",
+        "content": [
+          { "type": "p", "text": "Following his recall from loan at Crystal Palace, Chalobah was named in the starting line-up for the next game - a home win over Wolves. He was voted Player of the Match by users of the Official Chelsea App."},
+          { "type": "img", "src": "image/chalobah_2425_1.png", "title": "Trevoh Chalobah impressed on his return for Chelsea", "desc": ""},
+          { "type": "p", "text": "He was used in FA Cup and UEFA Conference League games as well as Premier League outings and started both legs of the European Round of 16 tie against Copenhagen."},
+          { "type": "p", "text": "Having been used as a substitute in both legs of the semi-final against Djurgarden, Chalobah was handed a starting place in the final and played all 90 minutes of the victory over Real Betis."},
+          { "type": "p", "text": "In the Premier League he had amassed 11 starts and two substitute appearances in the second half of the campaign."},
+          { "type": "p", "text": "At the 2025 FIFA Club World Cup in the USA, against Flamengo, Chalobah made his 100th appearance for Chelsea."}
+        ]
+      },
+      {
+        "title": "Academy",
+        "content": [
+          { "type": "p", "text": "Trevoh played predominantly in defence throughout his schoolboy years, mostly at right-back and centre-back but also occasionally in midfield. He featured on 10 occasions for our youth team while still a schoolboy, making his debut at the tender age of 14, and played for the Under-21s before signing as a scholar."},
+          { "type": "p", "text": "In 2015/16, Chalobah featured in every game en route to another FA Youth Cup final success for our youngsters and was a regular in our Under-19s team that retained their UEFA Youth League title. The following campaign saw him step up as a development squad regular, starting 25 of the 28 games at that age group. He also featured in all eight ties and scored semi-final and final goals as we won the Youth Cup for a fourth year running."},
+          { "type": "img", "src": "image/chalobah_aca_1.png", "title": "Chalobah with Mason Mount, Jacob Maddox and the FA Youth Cup", "desc": ""},
+          { "type": "p", "text": "During 2017/18, he was named among the men's senior team's substitutes on occasions, including for the FA Cup final against Manchester United. His versatility was utilised by development squad manager Joe Edwards, who deployed the technically proficient youngster in a holding midfield role throughout the second half of the campaign, including during our run to the senior Checkatrade Trophy semi-finals."}
+        ]
+      },
+      {
+        "title": "On loan",
+        "content": [
+          { "type": "p", "text": "In the summer of 2018, it was announced that Chalobah would be experiencing his first senior loan in the Championship at Ipswich, where he made 44 appearances and scored twice. His performances in central defence and midfield earned plaudits despite the Tractor Boys ultimately being relegated."},
+          { "type": "p", "text": "In August 2019, it was announced Chalobah would be spending the upcoming campaign back in the Championship with Huddersfield Town. Prior to heading to Yorkshire, the defender signed a new Chelsea contract committing him to the club until at least 2022. A mainstay in the The Terriers' defence, Chalobah played 37 times throughout the campaign, helping Huddersfield Town retain their Championship status."},
+          { "type": "img", "src": "image/chalobah_loan_1.png", "title": "Chalobah went up against Mount in the Championship in 2018/19", "desc": ""},
+          { "type": "p", "text": "2020 saw Chalobah move abroad for the first time agreeing to join newly-promoted Ligue 1 side Lorient. Splitting his playing time between the centre of defence and midfield, Chalobah's good performances caught the eye of many. In total he made 30 outings and scored two goals to help Lorient retain their place in the top flight of French football."},
+          { "type": "p", "text": "Soon after the start of the 2024/25 season, Chalobah made a Premier League loan switch to Crystal Palace. Having recovered from an injury, he made his debut there at the start of October and his third appearance, versus Spurs, was Palace's first league win of the season. It was immediately followed by a Carabao Cup victory at Villa."},
+          { "type": "p", "text": "In the next game, a 2-2 draw at Wolves, he completed 90 minutes and scored the opening goal, finishing well from a tight angle inside the box."},
+          { "type": "img", "src": "image/chalobah_loan_2.png", "title": "Chalobah nets his first goal for Palace", "desc": ""},
+          { "type": "p", "text": "Chalobah featured in a League Cup quarter-final at Arsenal but Palace lost 3-2. He continued to be a regular choice and started 12 of Palace’s 13 Premier League matches up to the end of 2024, only missing their 5-1 home defeat to Arsenal during that run."},
+          { "type": "p", "text": "In a 2-1 win over Southampton, Chalobah was instrumental in Palace’s comeback both defensively and offensively. He scored the equaliser with his head from a corner."},
+          { "type": "p", "text": "He was recalled from loan by Chelsea midway through the January of the season, having made 14 appearances and scored three goals for the Eagles."}
+        ]
+      },
+      {
+        "title": "International Career",
+        "content": [
+          { "type": "p", "text": "Chalobah wore the captain's armband for England Under-16s as the young Lions won the Montaigu Tournament in 2015/16. A regular throughout the England age groups, he captained the Under-17s at the European Championships for that age group in 2016 before winning the Under-19 version of the tournament in 2017."},
+          { "type": "p", "text": "Chalobah received his first call-up to the England Under-21s squad for European Championship qualifiers against Turkey and Kosovo in 2019, playing the duration in both matches."},
+          { "type": "p", "text": "In June 2025, he became a full England international when selected by his former Chelsea coach Thomas Tuchel for a friendly against Senegal at Nottingham Forest's City Ground. It ended in defeat."},
+          { "type": "img", "src": "image/chalobah_inter_1.png", "title": "", "desc": ""}
+        ]
+      }
+    ]
     }
+  
 }

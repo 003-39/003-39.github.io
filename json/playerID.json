@@ -6,11 +6,12 @@
   { "id": 109646, "name": "tosin_adarabioyo", "shirtNum": "4" },
   { "id": 242880, "name": "benoit_badiashile", "shirtNum": "5" },
   { "id": 460028, "name": "levi_colwill", "shirtNum": "6" },
+  { "id": 551210, "name": "jorrel_hato", "shirtNum": "21" },
   { "id": 180736, "name": "trevoh_chalobah", "shirtNum": "23" },
   { "id": 225796, "name": "reece_james", "shirtNum": "24" },
   { "id": 482602, "name": "malo_gusto", "shirtNum": "27" },
   { "id": 444463, "name": "wesley_fofana", "shirtNum": "29" },
-  { "id": 622758, "name": "aaron_anselmio", "shirtNum": "30" },
+  { "id": 622758, "name": "aaron_anselmino", "shirtNum": "30" },
   { "id": 577016, "name": "josh_acheampong", "shirtNum": "34" },
   { "id": 132956, "name": "mamadu_sarr", "shirtNum": "19" },
   { "id": 448047, "name": "enzo_fernandez", "shirtNum": "8" },
@@ -29,5 +30,6 @@
   { "id": 130068, "name": "marc_guiu", "shirtNum": "38" },
   { "id": 463034, "name": "liam_delap", "shirtNum": "9" },
   { "id": 244851, "name": "cole_palmer", "shirtNum": "10"},
-  { "id": 247632, "name": "pedro_neto", "shirtNum": "7"}
+  { "id": 247632, "name": "pedro_neto", "shirtNum": "7"},
+  { "id": 624773, "name": "estevao", "shirtNum": "41"}
 ]
