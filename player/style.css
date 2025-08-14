@@ -128,23 +128,25 @@
 		color: rgba(105,197,255,1);
 	}
 	#aav {
-	display: flex;
-	justify-content: center;        /* 가운데 정렬 */
-	gap: 27px;                      /* 카드 간 간격 */
-	flex-wrap: nowrap;              /* 넘치면 줄바꿈 안 함 (필요 시 auto) */
-	padding: 0;
-	margin: 20px 0 0 0;
-}
+		display: flex;
+		justify-content: center;        /* 가운데 정렬 */
+		gap: 27px;                      /* 카드 간 간격 */
+		flex-wrap: nowrap;              /* 넘치면 줄바꿈 안 함 (필요 시 auto) */
+		padding: 0;
+		margin: 20px 0 0 0;
+	}
 
-/* 새로운 player-row 클래스 (기존 aav와 동일한 스타일) */
-.player-row {
-	display: flex;
-	justify-content: center;        /* 가운데 정렬 */
-	gap: 27px;                      /* 카드 간 간격 */
-	flex-wrap: nowrap;              /* 넘치면 줄바꿈 안 함 (필요 시 auto) */
-	padding: 0;
-	margin: 20px 0 0 0;
-}
+	/* 동적으로 생성되는 aav 행들에 동일한 스타일 적용 */
+	[id^="aav-"] {
+		display: flex;
+		justify-content: center;        /* 가운데 정렬 */
+		gap: 27px;                      /* 카드 간 간격 */
+		flex-wrap: nowrap;              /* 넘치면 줄바꿈 안 함 (필요 시 auto) */
+		padding: 0;
+		margin: 20px 0 0 0;
+	}
+
+
 	#aaw {
 		position: absolute;
 		width: 374px;
@@ -247,6 +249,7 @@
 		height: auto;
 		object-fit: contain;
 		display: block;
+		z-index: 0;
 	}
 	.card {
 		position: relative;

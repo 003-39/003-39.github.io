@@ -12,10 +12,10 @@ async function loadPlayers() {
         // 2. 선수 카드 생성 (3열 그리드 유지)
         const container = document.getElementById('players-container');
         
-        // 3개씩 그룹으로 나누어 그리드 생성
+        // 3개씩 그룹으로 나누어 그리드 생성 (기존 #aav와 동일한 구조)
         for (let i = 0; i < players.length; i += 3) {
             const row = document.createElement('div');
-            row.className = 'player-row'; // 기존 'aav' 클래스와 동일
+            row.id = `aav-${Math.floor(i/3)}`; // 기존 aav와 동일한 ID 패턴
             
             // 현재 행의 3개 선수 처리
             for (let j = 0; j < 3 && (i + j) < players.length; j++) {
@@ -52,8 +52,8 @@ function createPlayerCard(player, playerInfo) {
     const shirtNum = info.shirtNum || '';
     
     card.innerHTML = `
-        <div class="player-image-container">
-            <img class="player-image" src="image/${player.name}.png" 
+        <div class="player-image-container"> 
+            <img class="player-image" src="image/${player.name}.png" />
         </div>
         <svg class="accent-line">
             <rect height="0.49" id="accent-line" rx="0" ry="0" width="312.588" x="0" y="0">
@@ -63,25 +63,23 @@ function createPlayerCard(player, playerInfo) {
             <span>${shirtNum}</span>
         </div>
         <div class="name">
-            <span>${firstName.toUpperCase()} </span><br/>
-            <span style="font-size:51px;">${lastName.toUpperCase()}</span>
+            <span>${firstName.toUpperCase()} </span><br/><span style="font-size:51px;">${lastName.toUpperCase()}</span>
         </div>
         <div class="player-stats">
             <div class="stat">
-                <span class="label">APPEARANCE</span>
-                <span class="value">0</span>
+              <span class="label">APPEARANCE</span>
+              <span class="value">0</span>
             </div>
             <div class="stat">
-                <span class="label">GOALS</span>
-                <span class="value">0</span>
+              <span class="label">GOALS</span>
+              <span class="value">0</span>
             </div>
             <div class="stat">
-                <span class="label">ASSISTS</span>
-                <span class="value">0</span>
+              <span class="label">ASSISTS</span>
+              <span class="value">0</span>
             </div>
-        </div>
-        <img class="flag-icon" src="image/${getNationality(player.name)}.png" 
-             srcset="image/${getNationality(player.name)}.png 1x, image/${getNationality(player.name)}@2x.png 2x"/>
+          </div>
+        <img class="flag-icon" src="image/${getNationality(player.name)}.png" srcset="image/${getNationality(player.name)}.png 1x, image/${getNationality(player.name)}@2x.png 2x"/>
     `;
     
     // 4. 클릭 이벤트 추가 (개별 선수 페이지로 이동)
