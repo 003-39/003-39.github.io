@@ -24,6 +24,8 @@
 		--web-view-id: n_1280__5;
 		--web-scale-on-resize: true;
 		--web-enable-deep-linking: true;
+		/* 페이지 하단 패딩 추가 */
+		padding-bottom: 100px;
 	}
 	.header{
 		position: absolute;
@@ -144,6 +146,11 @@
 		flex-wrap: nowrap;              /* 넘치면 줄바꿈 안 함 (필요 시 auto) */
 		padding: 0;
 		margin: 20px 0 0 0;
+	}
+
+	/* players-container 하단 여백 추가 */
+	#players-container {
+		padding-bottom: 100px;
 	}
 
 

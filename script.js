@@ -146,8 +146,8 @@ function renderSeasonMenu(labels) {
     document.querySelector(".first-name").textContent = firstName;
     
     // player_info.json에서 등번호 가져오기
-    console.log("🔍 등번호 정보:", { infoShirtNum: info.shirtNum, playerShirtNum: player.shirtNum });
-    const shirtNum = info.shirtNum || player.shirtNum || "";
+    console.log("🔍 등번호 정보:", { idshirtNum: idRes.shirtNum, playerShirtNum: player.shirtNum });
+    const shirtNum = idRes.shirtNum || player.shirtNum || "";
     console.log("📝 최종 등번호:", shirtNum);
     document.querySelector(".number").textContent = `${lastName} ${shirtNum}`;
     

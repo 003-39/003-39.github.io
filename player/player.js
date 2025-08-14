@@ -22,6 +22,9 @@ async function loadPlayers() {
                 const player = players[i + j];
                 const card = createPlayerCard(player, playerInfo);
                 row.appendChild(card);
+                
+                // 카드 생성 후 스탯 데이터 로드
+                updateCardStats(card, player.id);
             }
             
             container.appendChild(row);
@@ -47,9 +50,8 @@ function createPlayerCard(player, playerInfo) {
     const firstName = nameParts[0] || '';
     const lastName = nameParts.slice(1).join(' ') || '';
     
-    // player_info.json에서 추가 정보 가져오기
-    const info = playerInfo[player.name] || {};
-    const shirtNum = info.shirtNum || '';
+    // playerID.json에서 셔츠넘버 가져오기
+    const shirtNum = player.shirtNum || '';
     
     card.innerHTML = `
         <div class="player-image-container"> 
@@ -128,7 +130,44 @@ function getNationality(playerName) {
     return nationalityMap[playerName] || 'eng'; // 기본값은 영국
 }
 
-// 6. 페이지 로드 시 실행
+// 6. 선수 스탯 로드 함수
+async function loadPlayerStats(playerId, season = '2024') {
+    try {
+        const response = await fetch(`https://zero03-39-github-io.onrender.com/api/player/${playerId}?season=${season}`);
+        const data = await response.json();
+        
+        if (data.stats) {
+            return {
+                appearances: data.stats.appearances || 0,
+                goals: data.stats.goals || 0,
+                assists: data.stats.goalAssists || 0
+            };
+        }
+        return { appearances: 0, goals: 0, assists: 0 };
+    } catch (error) {
+        console.error(`❌ ${playerId} 선수 스탯 로드 실패:`, error);
+        return { appearances: 0, goals: 0, assists: 0 };
+    }
+}
+
+// 7. 카드에 스탯 데이터 적용
+async function updateCardStats(card, playerId) {
+    const stats = await loadPlayerStats(playerId);
+    
+    // APPEARANCE 업데이트
+    const appearanceEl = card.querySelector('.stat:nth-child(1) .value');
+    if (appearanceEl) appearanceEl.textContent = stats.appearances;
+    
+    // GOALS 업데이트
+    const goalsEl = card.querySelector('.stat:nth-child(2) .value');
+    if (goalsEl) goalsEl.textContent = stats.goals;
+    
+    // ASSISTS 업데이트
+    const assistsEl = card.querySelector('.stat:nth-child(3) .value');
+    if (assistsEl) assistsEl.textContent = stats.assists;
+}
+
+// 8. 페이지 로드 시 실행
 document.addEventListener('DOMContentLoaded', () => {
     console.log('🚀 선수 목록 페이지 로드 시작');
     loadPlayers();
