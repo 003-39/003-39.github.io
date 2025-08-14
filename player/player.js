@@ -86,7 +86,10 @@ function createPlayerCard(player, playerInfo) {
     
     // 4. 클릭 이벤트 추가 (개별 선수 페이지로 이동)
     card.addEventListener('click', () => {
-        window.location.href = `../?player=${player.name}`;
+        // 현재 스크롤 위치 저장
+        saveScrollPosition();
+        // 선수 페이지로 이동 (스크롤을 맨 위로)
+        window.location.href = `../?player=${player.name}#top`;
     });
     
     return card;
@@ -167,8 +170,51 @@ async function updateCardStats(card, playerId) {
     if (assistsEl) assistsEl.textContent = stats.assists;
 }
 
-// 8. 페이지 로드 시 실행
+// 8. 스크롤 위치 저장 및 복원 함수
+function saveScrollPosition() {
+    const scrollY = window.scrollY;
+    sessionStorage.setItem('playerListScrollPosition', scrollY.toString());
+    console.log('💾 스크롤 위치 저장:', scrollY);
+}
+
+function restoreScrollPosition() {
+    const savedPosition = sessionStorage.getItem('playerListScrollPosition');
+    if (savedPosition) {
+        const position = parseInt(savedPosition);
+        window.scrollTo(0, position);
+        console.log('🔄 스크롤 위치 복원:', position);
+        // 복원 후 저장된 위치 삭제
+        sessionStorage.removeItem('playerListScrollPosition');
+    }
+}
+
+// 9. 스케일 조정 함수 (CSS로 처리하므로 비활성화)
+function adjustScale() {
+    // CSS 미디어 쿼리로 body 스케일링 처리됨
+    console.log('📏 CSS 미디어 쿼리로 body 스케일링 처리됨');
+}
+
+// 9. 페이지 로드 시 실행
 document.addEventListener('DOMContentLoaded', () => {
     console.log('🚀 선수 목록 페이지 로드 시작');
+    
+    // 간단한 테스트
+    const container = document.getElementById('players-container');
+    if (container) {
+        console.log('✅ players-container 찾음');
+    } else {
+        console.log('❌ players-container 못찾음');
+    }
+    
+    // 선수 데이터 로드
     loadPlayers();
+    
+    // 스케일 조정
+    adjustScale();
+    window.addEventListener('resize', adjustScale);
+    
+    // 저장된 스크롤 위치 복원 (적절한 지연)
+    setTimeout(() => {
+        restoreScrollPosition();
+    }, 50);
 });
