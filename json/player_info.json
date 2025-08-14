@@ -1398,5 +1398,101 @@
         ]
       }
     ]
+  },
+  "estevao": {
+    "joined": "Estevao joined Chelsea from Palmeiras in the summer of 2025, with the deal to sign the teenage forward having been announced the year before.",
+    "paragraphs": [
+      "Prior to the move, the Brazilian had already built a strong reputation as one of the most exciting young talents in South America due to his skilful dribbling and electric pace."
+    ],
+    "mainImage": "image/estevao_main.png",
+    "image": "image/estevao_info.png",
+    "shirtNum" : "",
+    "accordion": [
+      {
+        "title": "Pre Chelsea",
+        "content": [
+          { "type": "p", "text": "Having made his debut for Palmeiras in 2023 at the age of 16, he caused defences plenty of problems in his next, breakout season in senior football, featuring 31 times in Brazil’s Serie A and contributing 13 goals and nine assists, as well as finding the net in the Copa Libertadores and Copa do Brasil."},
+          { "type": "p", "text": "In 2025 he scored four times in five Copa Libertadores appearances before featuring for Palmeiras at the FIFA Club World Cup in the summer. He played in every game as his side reached the quarter-finals where he netted an outstanding goal in a defeat by Chelsea."}
+        ]
+      },
+      {
+        "title": "International Career",
+        "content": [
+          { "type": "p", "text": "At international level, Estevao played for Brazil Under-17s before being promoted to the senior squad for World Cup qualifiers. His first cap was won in September 2024 when he came on during a home win against Ecuador and three more substitute appearances followed before his first start – with Ecuador again the opposition. That was in June 2025 away from home with the result this time a 0-0 draw. He had five caps to his name by the time of his switch to Chelsea."}
+        ]
+      }
+    ]
+  },
+  "mykhailo_mudryk": {
+    "joined": "Mykhailo Mudryk completed a move from Shakhtar Donetsk to Chelsea in January 2023.",
+    "paragraphs": [
+      "The Ukrainian international turned 22 a couple of weeks before putting pen to paper on his eight-and-a-half year contract with the Blues. A skillful player with plenty of pace, Mudryk quickly built a reputation as one of the most dangerous attacking players in Europe in one-v-one situations during his time with Shakhtar Donetsk. Primarily a wide player, he featured on both wings in Ukraine, but many of his best performances have come when cutting in from the left onto his preferred right foot."
+    ],
+    "mainImage": "image/mudyrk_main.png",
+    "image": "image/mudyrk_info.png",
+    "shirtNum" : "",
+    "accordion": [
+      {
+        "title": "2023/24",
+        "content": [
+          { "type": "p", "text": "Mudryk made his Chelsea debut off the bench in a goalless draw at Anfield, immediately catching the eye with his turn of pace and skill. He wasn't far away from netting a winning goal, too."},
+          { "type": "p", "text": "He made his full debut a fortnight later, against Fulham, although most of his appearances did come off the bench in his first half-season as he built up his match fitness after a couple of months with no action, and adapted to the rigours of Premier League football."},
+          { "type": "img", "src": "image/mudryk_2223_1.png", "title": "Mykhailo Mudryk impressed on his Chelsea debut at Liverpool", "desc": ""},
+          { "type": "p", "text": "Usually deployed on the left flank, Mudryk recorded assists against Leicester and Brighton and went close to his maiden Blues goal on several occasions."}
+        ]
+      },
+      {
+        "title": "2023/24",
+        "content": [
+          { "type": "p", "text": "Mudryk's first Chelsea goal came when he netted the opener in a 2-0 win away at Fulham in October 2023."},
+          { "type": "p", "text": "His second, scored with a strike from out wide at Stamford Bridge that sailed over the head of Arsenal keeper David Raya, was voted Chelsea Goal of the Month for October."},
+          { "type": "img", "src": "image/mudryk_2324_1.png", "title": "Mudryk's stunner wins Goal of the Month!", "desc": "⚽✨ Watch Mykhailo Mudryk's brilliant goal against Arsenal..."},
+          { "type": "p", "text": "Mudryk's cameo off the bench against Newcastle in December, when he netted a very late equaliser and then converted in the subsequent penalty shoot-out, earned him the accolade of Carabao Cup Player of the Round for the quarter-finals. He netted against Crystal Palace over Christmas."},
+          { "type": "p", "text": "The forward had a productive spell in spring 2024 with a goal in the FA Cup against Leeds and another against Newcastle (in the Premier League this time), while also netting in a play-off to send Ukraine to Euro 2024. The goal against the Tynesiders was a brilliant dribble through the heart of their defence."},
+          { "type": "img", "src": "image/mudryk_2324_2.png", "title": "Highlights: Chelsea 3-2 Newcastle", "desc": "Highlights of Chelsea's 3-2 Premier League victory against Newcastle United at Stamford Bridge..."},
+          { "type": "p", "text": "Mudryk's greatest involvement came towards the season's end as the team's form picked up and he scored in a win at Forest, although concussion forced him to miss the final game."},
+          { "type": "p", "text": "He finished with seven goals from 23+18 appearances in the 2023/24 campaign."}
+        ]
+      },
+      {
+        "title": "2024/25",
+        "content": [
+          { "type": "p", "text": "Though largely one of the substitutes for the Premier League matches in the early months of the season, Mudryk started in the UEFA Conference League and provided assists in games against Servette and Genk."},
+          { "type": "img", "src": "image/.png", "title": "Mudryk on the move against Servette", "desc": ""},
+          { "type": "p", "text": "He then scored in three consecutive European appearances, adding a headed goal to two assists away against Panathinkaikos, finding the top corner from long range against Noah, and then repeating the trick to double the lead over Heidenheim."},
+          { "type": "p", "text": "In December 2024, a club statement was issued regarding the player."}
+        ]
+      },
+      {
+        "title": "Pre Chelsea",
+        "content": [
+          { "type": "p", "text": "Having been born in the Ukrainian city of Krasnograd, not far from Kharkiv, the young Mykhailo Mudryk spent his formative football years in the academy at local club Metalist Kharkiv. In 2014, at the age of 13, he switched to the larger outfit of Dnipro Dnipropetrovsk, before being spotted by Shakhtar Donetsk and joining them two years later."},
+          { "type": "p", "text": "At the age of 17, Mudryk was handed a first-team debut in a Ukrainian Cup match, a 3-2 win over local rivals Olimpik Donetsk, his only appearance in a competition Shakhtar would win that season. The next step was a loan move – to Arsenal Kyiv where the teenager had his first taste of league football."},
+          { "type": "p", "text": "In 2019/20, back at Shakhtar, Mudryk predominantly played development football, but did contribute three appearances to a successful Ukraine league championship-winning campaign by the senior side."},
+          { "type": "p", "text": "After a loan to Desna Chernigiv for 2020/21, which added a further 10 league appearances to his growing experience, the time had come to establish himself at his parent club."},
+          { "type": "img", "src": "image/mudryk_pre_1.png", "title": "After a loan to Desna Chernigiv for 2020/21, which added a further 10 league appearances to his growing experience, the time had come to establish himself at his parent club.", "desc": ""},
+          { "type": "p", "text": "That happened in earnest when Roberto De Zerbi took over as Shakhtar manager in May 2021. Mudryk scored his first goal in a 5-0 league win over Mariupol in October 2021 and featured in every Champions League group-stage game that season, including matches against Real Madrid and Inter Milan."},
+          { "type": "p", "text": "He was a regular in the domestic league, although it was a competition that was ultimately terminated due to the Russian invasion of Ukraine. Mudryk was named the Shakhtar Donetsk Player of the Year for 2021, an honour repeated the following year when he was also named Ukraine’s Footballer of the Year for 2022."},
+          { "type": "img", "src": "image/.png", "title": "Mykhailo Mudryk scoring in the Champions League against Celtic", "desc": ""},
+          { "type": "p", "text": "In 2022/23, before his mid-season move to Chelsea, Mudryk opened Shakhtar’s Champions League campaign with a goal and two assists in a 4-1 away win at RB Leipzig. He also found the net home and away in 1-1 draws with Celtic, while he was a regular scorer in Ukraine’s Premier Liga, netting six times in his final eight appearances for the club."},
+          { "type": "p", "text": "In total in his time with Shakhtar, Mudryk scored 12 goals in 44 appearances, including three in the Champions League."}
+        ]
+      },
+      {
+        "title": "International Career",
+        "content": [
+          { "type": "p", "text": "Mudryk was first capped at Under-16 level by his nation while progressing in the Shakhtar Donetsk development system."},
+          { "type": "p", "text": "For Ukraine’s senior side he was handed his international debut as a substitute in a qualification play-off for the Qatar World Cup, in a victory against Scotland."},
+          { "type": "img", "src": "image/mudryk_inter_1.png", "title": "Celebrating a win over Scotland on his Ukraine debut", "desc": ""},
+          { "type": "p", "text": "That was soon followed by another sub appearance when they were eliminated by Wales, before a first start in the UEFA Nations League against the Republic of Ireland. He received eight caps in total during 2022."},
+          { "type": "p", "text": "In October 2023, Mudyrk put in a performance of real quality as Ukraine came from behind to defeat Malta in a crunch Euro 2024 qualifier. In a 3-1 win, he first earned a penalty for his side before netting a goal for himself late on."},
+          { "type": "p", "text": "Ukraine made it through to the qualification stage and in March 2024, it was Mudryk who scored a late winner against Iceland to send his nation to the finals in Germany."},
+          { "type": "p", "text": "He was selected for the squad for the Euro 2024 tournament and having been his side's most creative player in a defeat by Ukraine in the opening group game, he was again prominent as they fought back to secure a 2-1 win over Slovakia in the next."},
+          { "type": "img", "src": "image/mudryk_inter_2.png", "title": "Mudryk on the attack for Ukraine", "desc": ""},
+          { "type": "p", "text": "However a goalless draw against Belgium meant they failed to make the knockout stage."},
+          { "type": "p", "text": "Mudryk's first international goal after the Euros came in a Nations League group win over Georgia in October 2024 - the only goal of the game. A month later he helped Ukraine qualify for the play-offs in that competition."}
+        ]
+      }
+    ]
   }
 }
