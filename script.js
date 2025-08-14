@@ -21,10 +21,13 @@ window.refreshStats = async function(y) {
 
 document.addEventListener("DOMContentLoaded", async () => {
   try {
-    // 초기 스케일링 적용
-    applyInitialScaling();
-    
-    // 1. 쿼리에서 player=pedro_neto 파싱
+    	// 초기 스케일링 적용
+	applyInitialScaling();
+	
+	// 리사이즈 시에도 스케일링 적용
+	window.addEventListener('resize', applyInitialScaling);
+	
+	// 1. 쿼리에서 player=pedro_neto 파싱
     const urlParams = new URLSearchParams(window.location.search);
     const playerName = urlParams.get("player"); // 예: "pedro_neto"
     
@@ -211,11 +214,17 @@ function renderSeasonMenu(labels) {
 		
 		if (viewportWidth < designWidth) {
 			const scale = viewportWidth / designWidth;
+			// html과 body 모두에 스케일 적용
 			document.documentElement.style.transform = `scale(${scale})`;
 			document.documentElement.style.transformOrigin = 'top left';
+			document.body.style.transform = `scale(${scale})`;
+			document.body.style.transformOrigin = 'top left';
+			document.body.style.width = `${designWidth}px`;
 			console.log(`📏 초기 스케일링 적용: ${scale.toFixed(3)}`);
 		} else {
 			document.documentElement.style.transform = 'scale(1)';
+			document.body.style.transform = 'scale(1)';
+			document.body.style.width = '100%';
 			console.log('📏 초기 스케일링: 1.0 (원본 크기)');
 		}
 	}
