@@ -21,6 +21,9 @@ window.refreshStats = async function(y) {
 
 document.addEventListener("DOMContentLoaded", async () => {
   try {
+    // 초기 스케일링 적용
+    applyInitialScaling();
+    
     // 1. 쿼리에서 player=pedro_neto 파싱
     const urlParams = new URLSearchParams(window.location.search);
     const playerName = urlParams.get("player"); // 예: "pedro_neto"
@@ -199,9 +202,27 @@ function renderSeasonMenu(labels) {
       });
     }
 
-    // ---- 시즌 메뉴 생성 및 초기 스탯 로드 ----
-    
-    // 시즌 탐색 함수 정의
+    	// ---- 초기 스케일링 적용 ----
+	
+	// 페이지 로드 시 스케일링 적용
+	function applyInitialScaling() {
+		const viewportWidth = window.innerWidth;
+		const designWidth = 1280;
+		
+		if (viewportWidth < designWidth) {
+			const scale = viewportWidth / designWidth;
+			document.documentElement.style.transform = `scale(${scale})`;
+			document.documentElement.style.transformOrigin = 'top left';
+			console.log(`📏 초기 스케일링 적용: ${scale.toFixed(3)}`);
+		} else {
+			document.documentElement.style.transform = 'scale(1)';
+			console.log('📏 초기 스케일링: 1.0 (원본 크기)');
+		}
+	}
+	
+	// ---- 시즌 메뉴 생성 및 초기 스탯 로드 ----
+	
+	// 시즌 탐색 함수 정의
     async function discoverSeasonsByApi(playerId, {
       startYear = 2024,     // 기본 2024부터
       minYear   = 2010,     // 너무 과거로 안내려가게 가드
