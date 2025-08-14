@@ -207,25 +207,16 @@ function renderSeasonMenu(labels) {
 
     	// ---- 초기 스케일링 적용 ----
 	
-	// 페이지 로드 시 스케일링 적용
+	// 페이지 로드 시 스케일링 적용 (CSS 우선)
 	function applyInitialScaling() {
-		const viewportWidth = window.innerWidth;
-		const designWidth = 1280;
+		// CSS 미디어 쿼리로 스케일링 처리되므로 JavaScript는 비활성화
+		console.log('📏 CSS 미디어 쿼리로 스케일링 처리됨');
 		
-		if (viewportWidth < designWidth) {
-			const scale = viewportWidth / designWidth;
-			// html과 body 모두에 스케일 적용
-			document.documentElement.style.transform = `scale(${scale})`;
-			document.documentElement.style.transformOrigin = 'top left';
-			document.body.style.transform = `scale(${scale})`;
-			document.body.style.transformOrigin = 'top left';
-			document.body.style.width = `${designWidth}px`;
-			console.log(`📏 초기 스케일링 적용: ${scale.toFixed(3)}`);
-		} else {
-			document.documentElement.style.transform = 'scale(1)';
-			document.body.style.transform = 'scale(1)';
-			document.body.style.width = '100%';
-			console.log('📏 초기 스케일링: 1.0 (원본 크기)');
+		// 브라우저 호환성을 위한 기본 설정만 유지
+		const viewportWidth = window.innerWidth;
+		if (viewportWidth < 1280) {
+			document.body.style.width = '1280px';
+			console.log('📱 모바일 화면 감지: body 너비 1280px로 설정');
 		}
 	}
 	

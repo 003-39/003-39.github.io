@@ -1672,16 +1672,20 @@ html, body {
     width: 100%; /* 라인이 유지됨 */
 }
 
-/* 반응형 스케일링 - index.html 메인 페이지 */
+/* 반응형 스케일링 - index.html 메인 페이지 (브라우저 호환성 강화) */
 @media (max-width: 1280px) {
 	html {
 		transform: scale(calc(100vw / 1280));
 		transform-origin: top left;
+		width: 1280px;
+		height: auto;
 	}
 	body {
 		width: 1280px;
 		margin: 0;
 		padding: 0;
+		transform: scale(calc(100vw / 1280));
+		transform-origin: top left;
 	}
 	.template {
 		width: 1280px;
@@ -1692,11 +1696,15 @@ html, body {
 	html {
 		transform: scale(calc(100vw / 1280));
 		transform-origin: top left;
+		width: 1280px;
+		height: auto;
 	}
 	body {
 		width: 1280px;
 		margin: 0;
 		padding: 0;
+		transform: scale(calc(100vw / 1280));
+		transform-origin: top left;
 	}
 	.template {
 		width: 1280px;
