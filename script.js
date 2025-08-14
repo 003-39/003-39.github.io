@@ -126,29 +126,41 @@ function renderSeasonMenu(labels) {
     const statsMap = stats;
 
     // ▶ 이름, 등번호, 이미지
-    // knownName에서 이름 분리 (가장 깔끔한 방법)
+    // playerID.json에서 선수 정보 가져오기
     let firstName = "Unknown";
     let lastName = "Unknown";
+    let shirtNum = "";
     
-    if (player.knownName) {
-      const nameParts = player.knownName.split(' ');
-      if (nameParts.length >= 2) {
-        firstName = nameParts[0];  // 첫 번째 부분 (FirstName)
-        lastName = nameParts[nameParts.length - 1];  // 마지막 부분 (LastName만)
+    // playerID.json에서 선수 정보 찾기
+    try {
+      const playerIDResponse = await fetch('./json/playerID.json');
+      const playerIDData = await playerIDResponse.json();
+      
+      // URL의 player 파라미터로 선수 찾기
+      const playerParam = new URLSearchParams(window.location.search).get('player');
+      const playerInfo = playerIDData.find(p => p.name === playerParam);
+      
+      if (playerInfo) {
+        // 이름 분리 (robert_sanchez → Robert Sanchez)
+        const nameParts = playerInfo.name.split('_');
+        firstName = nameParts[0].charAt(0).toUpperCase() + nameParts[0].slice(1);
+        lastName = nameParts.slice(1).map(part => 
+          part.charAt(0).toUpperCase() + part.slice(1)
+        ).join(' ');
+        
+        // 등번호
+        shirtNum = playerInfo.shirtNum || "";
+        
+        console.log("✅ playerID.json에서 정보 로드:", { firstName, lastName, shirtNum });
       } else {
-        firstName = player.knownName;
+        console.log("⚠️ playerID.json에서 선수 정보를 찾을 수 없음:", playerParam);
       }
-    } else {
-      firstName = player.firstName || player.name?.first || "Unknown";
-      lastName = player.lastName || player.name?.last || "Unknown";
+    } catch (error) {
+      console.error("❌ playerID.json 로드 실패:", error);
     }
     
+    // 화면에 표시
     document.querySelector(".first-name").textContent = firstName;
-    
-    // player_info.json에서 등번호 가져오기
-    console.log("🔍 등번호 정보:", { idshirtNum: idRes.shirtNum, playerShirtNum: player.shirtNum });
-    const shirtNum = idRes.shirtNum || player.shirtNum || "";
-    console.log("📝 최종 등번호:", shirtNum);
     document.querySelector(".number").textContent = `${lastName} ${shirtNum}`;
     
     // main-image는 별도로 설정 (현재는 placeholder 유지)
