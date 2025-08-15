@@ -127,6 +127,47 @@
     
     /* 그리드 영역 지정 */
     grid-area: main;
+    
+    /* 첫 화면 스케일 조정 */
+    min-height: 600px;
+  }
+  
+  /* 1280px 이하에서 전체 페이지 반응형 스케일링 적용 */
+  @media (max-width: 1280px) {
+    .template {
+      transform: scale(calc(100vw / 1280));
+      transform-origin: top center;
+      width: 1280px;
+    }
+    
+    .main {
+      transform: none;
+      width: 100%;
+    }
+  }
+  
+  /* 768px 이하에서 profile 섹션 모바일 레이아웃 */
+  @media (max-width: 768px) {
+    .profile {
+      grid-template-columns: 1fr;
+      gap: 20px;
+      padding: 0 20px;
+    }
+    
+    .info-img {
+      max-width: 300px;
+      margin: 0 auto;
+    }
+    
+    .info-tit {
+      font-size: clamp(24px, 6vw, 28px);
+      line-height: clamp(32px, 7vw, 40px);
+    }
+    
+    .info-text {
+      font-size: clamp(14px, 4vw, 16px);
+      line-height: clamp(24px, 6vw, 35px);
+    }
   }
   .main-img {
 	position: absolute;
@@ -146,16 +187,16 @@
 	object-position: top center;
   }
   .main-title {
-	position: absolute;
+	position: relative;
 	left: 8%;
-	top: 50%;
+	top: 70%;
 	transform: translateY(-50%);
 	z-index: 1;
 	color: white;
 	font-family: 'Graphik Compact Trial', sans-serif;
 }
   .main-title h1 {
-	font-size: clamp(40px, 8vw, 60px);
+	font-size: clamp(50px, 10vw, 60px);
 	font-weight: bold;
 	margin: 0;
 	letter-spacing: 0.8px;
@@ -163,7 +204,7 @@
 }
   
 .main-title .number {
-	font-size: clamp(80px, 12vw, 140px);
+	font-size: clamp(90px, 18vw, 160px);
 	font-weight: bold;
 	display: block;
 	line-height: 1;
@@ -178,17 +219,26 @@
   .profile {
     position: relative;
     width: 100%;
-    height: 461px;
+    height: auto;
+    min-height: 461px;
 	margin: 70px 0 0 0;
     padding: 0;
     overflow: visible;
     
     /* 그리드 영역 지정 */
     grid-area: profile;
-}
+    
+    /* CSS Grid로 반응형 레이아웃 */
+    display: grid;
+    grid-template-columns: 305px 1fr;
+    grid-template-rows: auto;
+    gap: 40px;
+    align-items: start;
+  }
   .infobox {
-	margin-left: 487px; /* 이미지 너비 + 여백 */
-	width: 680px;
+	/* margin-left 제거 - Grid로 처리 */
+	width: 100%;
+	max-width: 680px;
   }
   .info-tit {
 	font-family: 'SF Pro', sans-serif;
@@ -206,20 +256,20 @@
 	line-height: 35px;
   }
   .info-img {
-	position: absolute;
-	width: 305px;
-	height: 458px;
-	left: 67px;
-	top: 0px;
+	position: relative;
+	width: 100%;
+	height: auto;
+	max-height: 458px;
+	/* left, top 제거 - Grid로 처리 */
     object-fit: cover;
   }
   .pro-line {
-    position: absolute;
+    position: relative;
     overflow: visible;
-    width: 892px;
+    width: 100%;
+    max-width: 892px;
     height: 3px;
-    left: 0px;
-    top: 458px;
+    margin-top: 20px;
     fill: rgba(24,61,213,1);
   }
 /* #endregion */

@@ -24,6 +24,11 @@ document.addEventListener("DOMContentLoaded", async () => {
     	// 초기 스케일링 적용
 	applyInitialScaling();
 	
+	// 첫 화면 스케일 조정 강화
+	setTimeout(() => {
+		applyInitialScaling();
+	}, 100);
+	
 	// 리사이즈 시에도 스케일링 적용
 	window.addEventListener('resize', applyInitialScaling);
 	
@@ -221,6 +226,8 @@ function renderSeasonMenu(labels) {
 			document.body.style.width = '1280px';
 			console.log('📱 모바일 화면 감지: body 너비 1280px로 설정');
 		}
+		
+		// CSS에서 스케일링 처리하므로 JavaScript에서는 제거
 		
 		// margin-left 강제 제거
 		document.documentElement.style.marginLeft = '0px';
