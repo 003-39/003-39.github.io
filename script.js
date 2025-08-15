@@ -27,6 +27,9 @@ document.addEventListener("DOMContentLoaded", async () => {
 	// 리사이즈 시에도 스케일링 적용
 	window.addEventListener('resize', applyInitialScaling);
 	
+	// 이미지 리사이징 함수 추가
+	forceImageResize();
+	
 	// 1. 쿼리에서 player=pedro_neto 파싱
     const urlParams = new URLSearchParams(window.location.search);
     const playerName = urlParams.get("player"); // 예: "pedro_neto"
@@ -218,6 +221,11 @@ function renderSeasonMenu(labels) {
 			document.body.style.width = '1280px';
 			console.log('📱 모바일 화면 감지: body 너비 1280px로 설정');
 		}
+		
+		// margin-left 강제 제거
+		document.documentElement.style.marginLeft = '0px';
+		document.body.style.marginLeft = '0px';
+		console.log('🚫 margin-left 강제 제거 완료');
 	}
 	
 	// ---- 시즌 메뉴 생성 및 초기 스탯 로드 ----
@@ -550,4 +558,46 @@ function renderAccordion(sections) {
       }
     });
   });
+}
+
+// 9. 이미지 리사이징 강제 적용 함수
+function forceImageResize() {
+	const mainImg = document.querySelector('.main-img');
+	if (mainImg) {
+		// 이미지 크기 강제 업데이트
+		mainImg.style.width = '100%';
+		mainImg.style.height = '100%';
+		
+		// 초기 크기 설정
+		updateImageSize();
+		
+		// 리사이즈 이벤트 리스너 추가
+		window.addEventListener('resize', updateImageSize);
+		
+		console.log('✅ 이미지 리사이징 함수 설정 완료');
+	}
+}
+
+// 10. 이미지 크기 업데이트 함수
+function updateImageSize() {
+	const mainImg = document.querySelector('.main-img');
+	const container = mainImg?.parentElement;
+	
+	if (mainImg && container) {
+		const containerWidth = container.offsetWidth;
+		const containerHeight = container.offsetHeight;
+		
+		// 이미지 크기를 컨테이너에 맞춤
+		mainImg.style.width = containerWidth + 'px';
+		mainImg.style.height = containerHeight + 'px';
+		
+		// object-fit 속성도 동적으로 조정
+		if (containerWidth < 768) {
+			mainImg.style.objectFit = 'contain';
+		} else {
+			mainImg.style.objectFit = 'cover';
+		}
+		
+		console.log('🔄 이미지 리사이징 적용:', containerWidth + 'x' + containerHeight);
+	}
 }
