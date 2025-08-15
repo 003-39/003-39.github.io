@@ -568,36 +568,11 @@ function forceImageResize() {
 		mainImg.style.width = '100%';
 		mainImg.style.height = '100%';
 		
-		// 초기 크기 설정
-		updateImageSize();
-		
 		// 리사이즈 이벤트 리스너 추가
-		window.addEventListener('resize', updateImageSize);
+		window.addEventListener('resize', () => {
+			forceImageResize();
+		});
 		
 		console.log('✅ 이미지 리사이징 함수 설정 완료');
-	}
-}
-
-// 10. 이미지 크기 업데이트 함수
-function updateImageSize() {
-	const mainImg = document.querySelector('.main-img');
-	const container = mainImg?.parentElement;
-	
-	if (mainImg && container) {
-		const containerWidth = container.offsetWidth;
-		const containerHeight = container.offsetHeight;
-		
-		// 이미지 크기를 컨테이너에 맞춤
-		mainImg.style.width = containerWidth + 'px';
-		mainImg.style.height = containerHeight + 'px';
-		
-		// object-fit 속성도 동적으로 조정
-		if (containerWidth < 768) {
-			mainImg.style.objectFit = 'contain';
-		} else {
-			mainImg.style.objectFit = 'cover';
-		}
-		
-		console.log('🔄 이미지 리사이징 적용:', containerWidth + 'x' + containerHeight);
 	}
 }

@@ -1,58 +1,34 @@
-/* #region html 섹션 */
-.mediaViewInfo {
-	--web-view-name: template;
-	--web-view-id: template;
-	--web-scale-on-resize: true;
-	--web-enable-deep-linking: true;
-}
 :root {
-	--web-view-ids: template;
-}
-* {
+	--design-width: 1280; /* 너가 XD/피그마에서 작업한 기준 너비 */
+  }
+  
+  /* 전체 스크롤 가로 막기 + 기본 리셋 */
+  html, body {
 	margin: 0;
 	padding: 0;
-	box-sizing: border-box;
-	border: none;
-}
-html, body {
-	height: auto;
+	width: 100%;
 	min-height: 100vh;
-	width: 100%;
-	margin: 0;
-	padding: 0;
-	font-size: 16px;
-	line-height: 1.5;
 	overflow-x: hidden;
-}
-.template {
-	width: 100%;
-	max-width: 100vw;
-	height: auto;
-	background-color: rgb(255, 255, 255);
-	overflow: visible;
+  }
+  
+  /* 디자인 컨테이너: 1280 고정 폭을 모바일에서 축소해서 보여줌 */
+  #template {
+	position: relative;
+	width: 1280px;
+	max-width: 1280px;
 	margin: 0;
-	padding: 0;
-	--web-view-name: template;
-	--web-view-id: template;
-	--web-scale-on-resize: true;
-	--web-enable-deep-linking: true;
-	
-	/* CSS Grid 시스템 설정 */
-	display: grid;
-	grid-template-columns: 1fr;
-	grid-template-rows: auto auto auto auto auto;
-	gap: 0;
-	grid-template-areas: 
-		"header"
-		"main"
-		"profile"
-		"accordion"
-		"statistics";
-	
-	/* 마진과 패딩 강제 제거 */
-	box-sizing: border-box;
-}
-
+	transform-origin: top left;
+  }
+  
+  /* 1280 이하 화면에서만 스케일 */
+  @media (max-width: 1280px) {
+	#template {
+	  /* 화면너비 / 디자인너비 만큼 축소 */
+	  transform: scale(calc(100vw / var(--design-width)));
+	}
+  }
+  
+  /* 너가 전에 쓰던 #n_1280__5 규칙은 전부 #template로 바꿔써야 함 */
 /* 모든 요소의 margin-left 강제 제거 */
 * {
 	margin-left: 0 !important;
@@ -144,8 +120,7 @@ html, body {
     position: relative;
     width: 100%;
     max-width: 1280px;
-    height: calc(100vw * 9 / 16);
-    max-height: 720px;
+    aspect-ratio: 16/9;
     overflow: hidden;
     margin: 0 auto;
     padding: 0;
@@ -157,18 +132,18 @@ html, body {
 	position: absolute;
 	width: 100%;
 	height: 100%;
-	object-fit: cover;
-	object-position: top center;
 	top: 0;
 	left: 0;
 	right: 0;
 	margin: 0 auto;
 	z-index: 0;
-	transition: all 0.3s ease;
-	will-change: width, height;
-	transform-origin: center center;
-	background-size: cover;
-	background-position: top center;
+  }
+  
+  .main-img img {
+	width: 100%;
+	height: auto;
+	object-fit: contain;
+	object-position: top center;
   }
   .main-title {
 	position: absolute;
@@ -194,7 +169,7 @@ html, body {
 	line-height: 1;
 }
 
-  .main-line rect {
+.main-line rect {
 	width: 100%;
 	max-width: 1026px;
 	height: 3px;
@@ -1740,198 +1715,10 @@ html, body {
     width: 100%; /* 라인이 유지됨 */
 }
 
-/* 반응형 웹사이트 - 유연한 레이아웃 */
 @media (max-width: 1280px) {
-	.template {
-		width: 100%;
-		max-width: 100vw;
-		margin: 0;
-		padding: 0 20px;
-		
-		/* 태블릿용 그리드 */
-		grid-template-columns: 1fr;
-		grid-template-rows: auto auto auto auto auto;
+	#template {
+	  /* 화면너비 / 디자인너비 만큼 축소 */
+	  transform: scale(calc(100vw / var(--design-width)));
 	}
-	
-	.main {
-		width: 100%;
-		justify-content: center;
-		align-items: center;
-	}
-	
-	.main-img {
-		width: 100%;
-		height: 100%;
-		left: 0;
-		right: 0;
-		margin: 0 auto;
-	}
-	
-	.main-title {
-		left: 5%;
-		top: 50%;
-		transform: translateY(-50%);
-	}
-	
-	.main-title h1 {
-		font-size: clamp(40px, 8vw, 60px);
-	}
-	
-	.main-title .number {
-		font-size: clamp(80px, 12vw, 140px);
-	}
-	
-	/* 태블릿용 네비게이션 */
-	.tapbox-menu {
-		max-width: 100%;
-		padding: 0 20px;
-	}
-	
-	/* 태블릿용 통계 */
-	.statistics {
-		padding: 0 40px;
-	}
-	
-	/* 태블릿용 아코디언 */
-	.ac-wrap {
-		padding: 0 40px;
-	}
-}
-
-/* 1080px 이하용 미디어 쿼리 추가 */
-@media (max-width: 1080px) {
-	.main {
-		justify-content: center;
-		align-items: center;
-		height: calc(100vw * 9 / 16);
-		max-height: 600px;
-	}
-	
-	.main-img {
-		width: 100%;
-		left: 0;
-		right: 0;
-		margin: 0 auto;
-		height: 100%;
-	}
-	
-	.main-title {
-		left: 8%;
-		top: 50%;
-		transform: translateY(-50%);
-	}
-	
-}
-
-/* 720px 이하용 미디어 쿼리 추가 */
-@media (max-width: 720px) {
-	.main {
-		height: calc(100vw * 9 / 16);
-		max-height: 500px;
-	}
-	
-	.main-img {
-		height: 100%;
-	}
-	
-}
-
-@media (max-width: 768px) {
-	.template {
-		width: 100%;
-		max-width: 100vw;
-		padding: 0 ;
-		margin: 0;
-		
-		/* 모바일용 그리드 */
-		grid-template-columns: 1fr;
-		grid-template-rows: auto auto auto auto auto;
-		gap: 0;
-	}
-	
-	.main {
-		justify-content: center;
-		align-items: center;
-		height: calc(100vw * 9 / 16);
-		max-height: 400px;
-	}
-	
-	.main-img {
-		left: 0;
-		right: 0;
-		margin: 0 auto;
-		height: 100%;
-	}
-	
-	.main-title {
-		left: 20px;
-		top: 40%;
-	}
-	
-	.profile {
-		flex-direction: column;
-		margin-top: 40px;
-	}
-	
-	.infobox {
-		margin-left: 0;
-		width: 100%;
-		margin-top: 30px;
-	}
-	
-	.info-img {
-		position: relative;
-		width: 100%;
-		max-width: 300px;
-		height: auto;
-		left: 0;
-		margin: 0 auto;
-		display: block;
-	}
-	
-	.statbox {
-		padding: 0 20px;
-	}
-	
-	.statistics {
-		width: 100%;
-	}
-	
-	/* 네비게이션 메뉴 모바일 최적화 */
-	.tapbox-menu {
-		flex-direction: column;
-		height: auto;
-		position: relative;
-		right: auto;
-	}
-	
-	.tapbox-item {
-		width: 100%;
-		height: 50px;
-		line-height: 50px;
-		font-size: 14px;
-	}
-	
-	/* 통계 섹션 모바일 최적화 */
-	.stat-tit-text {
-		font-size: clamp(40px, 10vw, 80px);
-		width: 100%;
-		white-space: normal;
-	}
-	
-	.league, .seoson {
-		position: relative;
-		left: 0;
-		margin: 10px 0;
-	}
-	
-	/* 아코디언 메뉴 모바일 최적화 */
-	.ac-header {
-		padding: 15px 20px;
-		font-size: clamp(16px, 4vw, 18px);
-	}
-	
-	.ac-content {
-		padding: 20px;
-	}
-}
+  }
+  
