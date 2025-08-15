@@ -183,7 +183,13 @@ function renderSeasonMenu(labels) {
     // info-img에 player_info.json의 이미지 설정
     const infoImg = document.getElementById("info-img");
     if (infoImg) {
-      infoImg.src = info.image || "image/placeholder.png";
+      const imgElement = infoImg.querySelector("img");
+      if (imgElement) {
+        imgElement.src = info.image || "image/placeholder.png";
+        console.log("✅ info-img src 설정 완료:", imgElement.src);
+      } else {
+        console.log("❌ info-img 내부 img 요소를 찾을 수 없습니다");
+      }
     }
 
     const mainImg = document.getElementById("main-image");

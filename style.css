@@ -5,7 +5,7 @@
   /* 전체 스크롤 가로 막기 + 기본 리셋 */
   html, body {
 	margin: 0;
-	padding: 0;
+	padding-bottom: 100px;
 	width: 100%;
 	min-height: 100vh;
 	overflow-x: hidden;
@@ -28,12 +28,6 @@
 	}
   }
   
-  /* 너가 전에 쓰던 #n_1280__5 규칙은 전부 #template로 바꿔써야 함 */
-/* 모든 요소의 margin-left 강제 제거 */
-* {
-	margin-left: 0 !important;
-}
-
 /* 주요 컨테이너들의 margin-left 강제 제거 */
 .template,
 .tapbox,
@@ -42,8 +36,6 @@
 .ac-wrap,
 .statistics {
 	padding: 0 !important;
-	margin-left: 0 !important;
-	left: 0 !important;
 }
 /* #endregion */
 /* #region tap 섹션 */
@@ -146,29 +138,9 @@
     }
   }
   
-  /* 768px 이하에서 profile 섹션 모바일 레이아웃 */
-  @media (max-width: 768px) {
-    .profile {
-      grid-template-columns: 1fr;
-      gap: 20px;
-      padding: 0 20px;
-    }
+
     
-    .info-img {
-      max-width: 300px;
-      margin: 0 auto;
-    }
-    
-    .info-tit {
-      font-size: clamp(24px, 6vw, 28px);
-      line-height: clamp(32px, 7vw, 40px);
-    }
-    
-    .info-text {
-      font-size: clamp(14px, 4vw, 16px);
-      line-height: clamp(24px, 6vw, 35px);
-    }
-  }
+
   .main-img {
 	position: absolute;
 	width: 100%;
@@ -196,7 +168,7 @@
 	font-family: 'Graphik Compact Trial', sans-serif;
 }
   .main-title h1 {
-	font-size: clamp(50px, 10vw, 60px);
+	font-size: 60px;
 	font-weight: bold;
 	margin: 0;
 	letter-spacing: 0.8px;
@@ -204,7 +176,7 @@
 }
   
 .main-title .number {
-	font-size: clamp(90px, 18vw, 160px);
+	font-size: 160px;
 	font-weight: bold;
 	display: block;
 	line-height: 1;
@@ -219,8 +191,7 @@
   .profile {
     position: relative;
     width: 100%;
-    height: auto;
-    min-height: 461px;
+    height: 461px;
 	margin: 70px 0 0 0;
     padding: 0;
     overflow: visible;
@@ -228,17 +199,22 @@
     /* 그리드 영역 지정 */
     grid-area: profile;
     
-    /* CSS Grid로 반응형 레이아웃 */
-    display: grid;
-    grid-template-columns: 305px 1fr;
-    grid-template-rows: auto;
+    /* CSS Grid 영향 제거 */
+    grid-column: auto;
+    grid-row: auto;
+    
+    /* Flexbox로 반응형 레이아웃 */
+    display: flex !important;
+    flex-direction: row ;
+    flex-wrap: nowrap !important;
+    align-items: flex-start !important;
+    justify-content: flex-start !important;
     gap: 40px;
-    align-items: start;
   }
   .infobox {
-	/* margin-left 제거 - Grid로 처리 */
-	width: 100%;
-	max-width: 680px;
+	margin-top: 20px;
+	margin-right: 40px;
+	min-width: 300px;
   }
   .info-tit {
 	font-family: 'SF Pro', sans-serif;
@@ -255,21 +231,39 @@
 	color: rgba(105, 105, 105, 1);
 	line-height: 35px;
   }
-  .info-img {
-	position: relative;
-	width: 100%;
-	height: auto;
-	max-height: 458px;
-	/* left, top 제거 - Grid로 처리 */
-    object-fit: cover;
+  .info-img-container {
+	flex: 0 0 50%;
+	overflow: hidden;
+	height: 100%;
+	min-height: 458px;
   }
+  
+  .info-img {
+	position: absolute;
+	height: auto;
+	bottom: 0;
+	left: 0;
+  }
+  
+  #info-img {
+	width: 50%;
+  }
+  
+  #info-img img {
+	margin-left: 50px;
+	width: 50%;
+	height: auto;
+	object-fit: contain;
+  }
+  
   .pro-line {
-    position: relative;
+    position: absolute;
     overflow: visible;
     width: 100%;
-    max-width: 892px;
+	max-width: 892px;
     height: 3px;
-    margin-top: 20px;
+    left: 0;
+	bottom: 0;
     fill: rgba(24,61,213,1);
   }
 /* #endregion */
@@ -280,15 +274,17 @@
     flex-direction: column; 
     width: 100%;
 	max-width: 1108px;
-    align-items: flex-start;
+    align-items: center;
     flex-wrap: nowrap;
-    left: 0;
-	margin: 67px auto 0;
+	margin: 67px 0 0 0;
     transition: height 0.4s ease; 
 	padding: 0 20px;
     
     /* 그리드 영역 지정 */
     grid-area: accordion;
+    
+    /* Grid 내에서 중앙 정렬 */
+    justify-self: center;
 }
 .ac-panel {
     display: flex;
@@ -1772,3 +1768,111 @@
 	}
   }
   
+  /* 768px 이하에서 profile 섹션 모바일 레이아웃 */
+  @media (max-width: 768px) {
+	.template .profile {  /* 더 구체적인 선택자 */
+		height: 130vh !important;
+		grid-template-columns: 1fr !important;
+		grid-template-rows: auto !important;
+		gap: 20px !important;
+		align-items: start !important;
+		padding: 0 20px;
+	}
+	.template .profile {
+		position: relative;
+		width: 100%;
+		height: 461px;
+		margin: 70px 0 0 0;
+		padding: 0;
+		overflow: visible;
+		
+		/* 그리드 영역 지정 */
+		grid-area: profile;
+		
+		/* CSS Grid 영향 제거 */
+		grid-column: auto;
+		grid-row: auto;
+		
+		/* Flexbox로 반응형 레이아웃 */
+		display: flex !important;
+		flex-direction: row !important;
+		flex-wrap: nowrap !important;
+		align-items: flex-start !important;
+		justify-content: flex-start !important;
+		gap: 40px;
+	}
+	
+	.infobox {
+		flex: 2;  /* 2배 공간 차지 */
+		box-sizing: border-box;
+		padding: 0 80px 0 50px;
+      width: calc(100% - 100px);
+      margin-top: 20px;
+	  margin-right: 0;
+      height: 100%;
+      min-height: 400px;
+      display: flex;
+      flex-direction: column;
+    }
+    
+    .info-img {
+	  position: absolute;
+      bottom: 0;
+    }
+
+	#info-img img {
+		width: 110%;
+		height: auto;
+		object-fit: contain;
+		margin-left: 0;
+	}
+    
+    .info-tit {
+	  padding-top: 50px;
+	  padding-left: 50px;
+      font-size: 60px;
+      line-height: 70px;
+    }
+    
+    .info-text {
+		margin-top: 0;
+		padding-left: 50px;
+		font-size: 40px;
+		line-height: 50px;
+    }
+	.pro-line {
+		bottom: 0;
+		left: 0;
+	}
+	.ac-header {
+		font-size: 50px;
+	}
+	.ac-toggle-box {
+		width: 30px;
+		height: 30px;
+	}
+	.ac-bar-1 {
+		width: 30px;
+		height: 7.5px;
+		top: 37.5%;
+	}
+	.ac-bar-2 {
+		width: 7.5px;
+		height: 30px;
+		left: 37.5%;
+	}
+	.ac-content p {
+		font-size: 30px;
+		margin: 25px 0 0;
+		padding-right: 50px;
+	}
+	.imgbox {
+		margin-left: 0;
+	}
+	.ac-img-title {
+		font-size: 25px;
+	}
+	.ac-img-desc {
+		font-size: 25px;
+	}
+}
