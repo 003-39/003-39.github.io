@@ -17,12 +17,19 @@
 html, body {
 	height: auto;
 	min-height: 100vh;
-  }
+	width: 100%;
+	margin: 0;
+	padding: 0;
+	font-size: 16px;
+	line-height: 1.5;
+}
 .template {
-	width: 1280px;
+	width: 100%;
+	max-width: 1280px;
 	height: auto;
 	background-color: rgb(255, 255, 255);
 	overflow: visible;
+	margin: 0 auto;
 	--web-view-name: template;
 	--web-view-id: template;
 	--web-scale-on-resize: true;
@@ -1672,41 +1679,76 @@ html, body {
     width: 100%; /* 라인이 유지됨 */
 }
 
-/* 반응형 스케일링 - index.html 메인 페이지 (브라우저 호환성 강화) */
+/* 반응형 웹사이트 - 유연한 레이아웃 */
 @media (max-width: 1280px) {
-	html {
-		transform: scale(calc(100vw / 1280));
-		transform-origin: top left;
-		width: 1280px;
-		height: auto;
-	}
-	body {
-		width: 1280px;
-		margin: 0;
-		padding: 0;
-		transform: scale(calc(100vw / 1280));
-		transform-origin: top left;
-	}
 	.template {
-		width: 1280px;
+		width: 100%;
+		max-width: 1280px;
+		margin: 0 auto;
+	}
+	
+	.main {
+		width: 100%;
+	}
+	
+	.main-img {
+		width: 100%;
+		height: auto;
+		max-height: 500px;
+	}
+	
+	.main-title {
+		left: 5%;
+		top: 50%;
+		transform: translateY(-50%);
+	}
+	
+	.main-title h1 {
+		font-size: clamp(40px, 8vw, 60px);
+	}
+	
+	.main-title .number {
+		font-size: clamp(80px, 12vw, 140px);
 	}
 }
 
 @media (max-width: 768px) {
-	html {
-		transform: scale(calc(100vw / 1280));
-		transform-origin: top left;
-		width: 1280px;
-		height: auto;
-	}
-	body {
-		width: 1280px;
-		margin: 0;
-		padding: 0;
-		transform: scale(calc(100vw / 1280));
-		transform-origin: top left;
-	}
 	.template {
-		width: 1280px;
+		width: 100%;
+		padding: 0 20px;
+	}
+	
+	.main-title {
+		left: 20px;
+		top: 40%;
+	}
+	
+	.profile {
+		flex-direction: column;
+		margin-top: 40px;
+	}
+	
+	.infobox {
+		margin-left: 0;
+		width: 100%;
+		margin-top: 30px;
+	}
+	
+	.info-img {
+		position: relative;
+		width: 100%;
+		max-width: 300px;
+		height: auto;
+		left: 0;
+		margin: 0 auto;
+		display: block;
+	}
+	
+	.statbox {
+		padding: 0 20px;
+	}
+	
+	.statistics {
+		width: 100%;
 	}
 }
