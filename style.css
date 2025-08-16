@@ -1804,7 +1804,7 @@
 		grid-template-columns: 1fr 1fr 1fr 2fr;
 		grid-template-rows: 1fr 1fr 1.5fr;
 		grid-template-areas: 
-			"a a h h"
+			"h h h h"
 			"a a b b "
 			"a a b b "
 		;
