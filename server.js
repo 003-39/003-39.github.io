@@ -62,6 +62,101 @@ app.get("/api/player/:id", async (req, res) => {
   }
 });
 
+// ── DB 연결 확인용 ────────────────────────────────────────────────────
+app.get('/db/ping', async (_req, res) => {
+  try {
+    const [rows] = await pool.query('SELECT 1 AS ok');
+    res.json({ ok: rows[0]?.ok === 1 });
+  } catch (e) {
+    console.error('DB /db/ping error:', e);
+    res.status(500).json({ error: 'db_ping_failed' });
+  }
+});
+
+// ── 시즌·대회·플레이어ID로 스탯 조회 ───────────────────────────────
+// 예: GET /db/stats?player_id=225796&season=2022&competition_id=8
+app.get('/db/stats', async (req, res) => {
+  try {
+    const { player_id, season, competition_id } = req.query;
+    if (!player_id || !season || !competition_id) {
+      return res.status(400).json({ error: 'player_id, season, competition_id are required' });
+    }
+    const pid = Number(player_id);
+    const sy = Number(season);
+    const cid = Number(competition_id);
+    if (!Number.isInteger(pid) || !Number.isInteger(sy) || !Number.isInteger(cid)) {
+      return res.status(400).json({ error: 'player_id, season, competition_id must be integers' });
+    }
+
+    const [rows] = await pool.query(
+      `SELECT metric, value
+         FROM playerSeasonStats
+        WHERE player_id = ? AND season_year = ? AND competition_id = ?`,
+      [pid, sy, cid]
+    );
+    res.json({ player_id: pid, season: sy, competition_id: cid, stats: rows });
+  } catch (e) {
+    console.error('DB /db/stats error:', e);
+    res.status(500).json({ error: 'db_query_failed' });
+  }
+});
+
+// ── 슬러그로 스탯 조회 (조인) ───────────────────────────────────────
+// 예: GET /db/stats-by-slug?slug=reece_james&season=2022&competition_id=5
+app.get('/db/stats-by-slug', async (req, res) => {
+  try {
+    const { slug, season, competition_id } = req.query;
+    if (!slug || !season || !competition_id) {
+      return res.status(400).json({ error: 'slug, season, competition_id are required' });
+    }
+    const sy = Number(season);
+    const cid = Number(competition_id);
+    if (!Number.isInteger(sy) || !Number.isInteger(cid)) {
+      return res.status(400).json({ error: 'season, competition_id must be integers' });
+    }
+
+    const [rows] = await pool.query(
+      `SELECT pss.player_id, p.slug, pss.metric, pss.value
+         FROM playerSeasonStats pss
+         JOIN playerID p ON p.id = pss.player_id
+        WHERE p.slug = ? AND pss.season_year = ? AND pss.competition_id = ?`,
+      [slug, sy, cid]
+    );
+    res.json({ slug, season: sy, competition_id: cid, stats: rows });
+  } catch (e) {
+    console.error('DB /db/stats-by-slug error:', e);
+    res.status(500).json({ error: 'db_query_failed' });
+  }
+});
+
+// ── 팀 랭킹 조회 ────────────────────────────────────────────────────
+// 예: GET /db/rankings?season=2024&competition_id=1&category=goals
+app.get('/db/rankings', async (req, res) => {
+  try {
+    const { season, competition_id, category } = req.query;
+    if (!season || !competition_id || !category) {
+      return res.status(400).json({ error: 'season, competition_id, category are required' });
+    }
+    const sy = Number(season);
+    const cid = Number(competition_id);
+    if (!Number.isInteger(sy) || !Number.isInteger(cid)) {
+      return res.status(400).json({ error: 'season, competition_id must be integers' });
+    }
+
+    const [rows] = await pool.query(
+      `SELECT slug, player_id, category, rank_value, rank_percent_overall, player_additional_stat
+         FROM playerTeamRanking
+        WHERE season_year = ? AND competition_id = ? AND category = ?
+        ORDER BY rank_value ASC, slug ASC`,
+      [sy, cid, category]
+    );
+    res.json({ season: sy, competition_id: cid, category, rankings: rows });
+  } catch (e) {
+    console.error('DB /db/rankings error:', e);
+    res.status(500).json({ error: 'db_query_failed' });
+  }
+});
+
 // ── 마지막: 확실히 포트 바인딩 + 바인드 로그 ─────────────────────────
 const HOST = '0.0.0.0';                   // 명시적으로 바인드
 const PORT = process.env.PORT || 3000;
