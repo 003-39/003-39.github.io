@@ -1,0 +1,9 @@
+[
+    {"competitionID": 1, "name": "FA Cup"},
+    {"competitionID": 2, "name": "Carabao Cup"},
+    {"competitionID": 3, "name": "UEFA Champions League"},
+    {"competitionID": 8, "name": "Premier League"},
+    {"competitionID": 1125, "name": "UEFA Conference League"},
+    {"competitionID": 1126, "name": "UEFA Conference League Qualifiers"},
+    {"competitionID": 1277, "name": "FIFA Club World Cup"}
+]
