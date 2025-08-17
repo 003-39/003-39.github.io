@@ -8,9 +8,11 @@
     "dev": "nodemon server.js"
   },
   "dependencies": {
+    "axios": "^1.11.0",
+    "cors": "^2.8.5",
     "express": "^4.18.2",
-    "axios": "^1.6.0",
-    "cors": "^2.8.5"
+    "mysql2": "^3.14.3",
+    "p-limit": "^7.0.0"
   },
   "devDependencies": {
     "nodemon": "^3.0.1"
@@ -18,7 +20,12 @@
   "engines": {
     "node": ">=18.0.0"
   },
-  "keywords": ["chelsea", "football", "api", "player-stats"],
+  "keywords": [
+    "chelsea",
+    "football",
+    "api",
+    "player-stats"
+  ],
   "author": "003-39",
   "license": "MIT"
 }

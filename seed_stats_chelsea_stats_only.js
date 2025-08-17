@@ -201,25 +201,6 @@ async function mapEntryToPlayer(db, entryId) {
   return rows[0].player_id;
 }
 
-async function upsertEAV(db, playerId, seasonYear, competitionId, kv) {
-  const rows = [];
-  for (const [metric, val] of Object.entries(kv)) {
-    if (Number.isFinite(val)) {
-      rows.push([playerId, seasonYear, competitionId, metric, val]);
-    }
-  }
-  if (!rows.length) return 0;
-
-  await dbQuery(
-    db,
-    `INSERT INTO playerSeasonStats (player_id, season_year, competition_id, metric, value)
-     VALUES ?
-     AS new
-     ON DUPLICATE KEY UPDATE value = new.value`,
-    [rows]
-  );
-  return rows.length;
-}
 
 async function processOne(pool, entryId, seasonIdOptional, competitionIdOptional) {
   const playerId = await mapEntryToPlayer(pool, entryId);
@@ -229,6 +210,8 @@ async function processOne(pool, entryId, seasonIdOptional, competitionIdOptional
   if (Number.isFinite(seasonIdOptional)) params.push(`seasonId=${seasonIdOptional}`);
   if (Number.isFinite(competitionIdOptional)) params.push(`competitionId=${competitionIdOptional}`);
   const url = params.length ? `${base}&${params.join('&')}` : base;
+
+  console.log(`[DEBUG] Fetching URL: ${url}`);
 
   const r = await axios.get(url, {
     headers: {
@@ -246,13 +229,18 @@ async function processOne(pool, entryId, seasonIdOptional, competitionIdOptional
   }
 
   const body = r.data || {};
+  console.log(`[DEBUG] Response body keys: ${Object.keys(body).join(', ')}`);
+  
   const { seasonYear, competitionId } = resolveSeasonCompetition(body, seasonIdOptional, competitionIdOptional);
+  console.log(`[DEBUG] Resolved: seasonYear=${seasonYear}, competitionId=${competitionId}`);
 
   // Skip saving when "Men's Team Appearances" is 0 for this season+competition
   const appearancesStat = Array.isArray(body?.appearances?.stats)
     ? body.appearances.stats.find(s => typeof s?.title === 'string' && s.title.trim().toLowerCase() === "men's team appearances")
     : null;
   const appearancesVal = appearancesStat ? parseNumberLike(appearancesStat.value) : null;
+  console.log(`[DEBUG] Appearances check: found=${!!appearancesStat}, value=${appearancesVal}`);
+  
   if (appearancesVal === 0) {
     console.log(`[SKIP] entry=${entryId} -> player=${playerId} season=${seasonYear} comp=${competitionId} appearances=0`);
     return { inserted: 0, seasonYear, competitionId };
@@ -260,10 +248,26 @@ async function processOne(pool, entryId, seasonIdOptional, competitionIdOptional
 
   const flat = flattenStatsOnly(body);
   console.log(`[FLAT] metrics=${Object.keys(flat).length} entry=${entryId} season=${seasonYear} comp=${competitionId}`);
+  
   if (Object.keys(flat).length === 0) {
     console.log(`[WARN] No numeric metrics to insert for entry=${entryId} season=${seasonYear} comp=${competitionId}`);
+    console.log(`[DEBUG] Sample body structure:`, JSON.stringify(body, null, 2).substring(0, 500));
   }
+  
   const inserted = await upsertEAV(pool, playerId, seasonYear, competitionId, flat);
+
+  // 삽입 후 실제 데이터베이스에 저장되었는지 확인
+  const [verifyRows] = await pool.query(
+    'SELECT COUNT(*) as count FROM playerSeasonStats WHERE player_id = ? AND season_year = ? AND competition_id = ?',
+    [playerId, seasonYear, competitionId]
+  );
+  
+  const actualCount = verifyRows[0].count;
+  console.log(`[VERIFY] entry=${entryId} season=${seasonYear} comp=${competitionId} expected=${Object.keys(flat).length} actual=${actualCount}`);
+  
+  if (actualCount === 0 && Object.keys(flat).length > 0) {
+    console.log(`[WARNING] Data insertion may have failed for entry=${entryId} season=${seasonYear} comp=${competitionId}`);
+  }
 
   console.log(`[OK] entry=${entryId} -> player=${playerId} season=${seasonYear} comp=${competitionId} metrics=${inserted}`);
   return { inserted, seasonYear, competitionId };
@@ -310,11 +314,13 @@ async function main() {
     const pool = await mysql.createPool({
       ...DB,
       waitForConnections: true,
-      connectionLimit: 1,
+      connectionLimit: 5,
       queueLimit: 0,
       connectTimeout: 10000,
       enableKeepAlive: true,
       keepAliveInitialDelay: 0,
+      acquireTimeout: 60000,
+      timeout: 60000,
     });
     console.log(`[DB] host=${DB.host} db=${DB.database} user=${DB.user}`);
 
@@ -346,6 +352,61 @@ async function main() {
     }
   } finally {
     await pool.end();
+  }
+}
+
+async function upsertEAV(db, playerId, seasonYear, competitionId, kv) {
+  const rows = [];
+  for (const [metric, val] of Object.entries(kv)) {
+    if (Number.isFinite(val)) {
+      rows.push([playerId, seasonYear, competitionId, metric, val]);
+    }
+  }
+  if (!rows.length) return 0;
+
+  console.log(`[DEBUG] upsertEAV: playerId=${playerId}, seasonYear=${seasonYear}, competitionId=${competitionId}, rows=${rows.length}`);
+
+  // 트랜잭션 시작
+  const connection = await db.getConnection();
+  try {
+    await connection.beginTransaction();
+    
+    // MySQL에서 VALUES ? 구문을 사용할 때는 각 행을 개별적으로 처리해야 함
+    let inserted = 0;
+    let errors = 0;
+    for (const row of rows) {
+      try {
+        const [result] = await connection.query(
+          `INSERT INTO playerSeasonStats (player_id, season_year, competition_id, metric, value)
+           VALUES (?, ?, ?, ?, ?)
+           ON DUPLICATE KEY UPDATE value = VALUES(value)`,
+          row
+        );
+        
+        console.log(`[DEBUG] Row insert result: affectedRows=${result.affectedRows}, insertId=${result.insertId}`);
+        
+        // INSERT 성공 또는 UPDATE 성공 모두 카운트
+        inserted++;
+      } catch (err) {
+        console.error(`[ERROR] Failed to insert row:`, row, err.message);
+        errors++;
+      }
+    }
+    
+    // 트랜잭션 커밋
+    await connection.commit();
+    console.log(`[DEBUG] Transaction committed for competition ${competitionId}`);
+    
+    console.log(`[DEBUG] upsertEAV result: inserted=${inserted}, errors=${errors}`);
+    return inserted;
+    
+  } catch (err) {
+    // 트랜잭션 롤백
+    await connection.rollback();
+    console.error(`[ERROR] Transaction rolled back for competition ${competitionId}:`, err.message);
+    throw err;
+  } finally {
+    connection.release();
   }
 }
 
