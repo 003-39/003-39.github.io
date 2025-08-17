@@ -3,9 +3,24 @@ const axios = require("axios");
 const cors = require("cors");
 
 const app = express();
+// server.js 상단에 추가
+const mysql = require('mysql2/promise');
+
+const pool = mysql.createPool({
+  host: process.env.MYSQLHOST,
+  port: process.env.MYSQLPORT,
+  user: process.env.MYSQLUSER,
+  password: process.env.MYSQLPASSWORD,
+  database: process.env.MYSQLDATABASE,
+  waitForConnections: true,
+  connectionLimit: 10,
+  queueLimit: 0,
+  // Railway 프록시 사용 시 보통 SSL 불필요. 필요하면 아래 주석 해제 후 맞는 옵션 사용
+  // ssl: { rejectUnauthorized: true }
+});
 
 app.use(cors({
-  origin: ['https://003-39.github.io', 'http://localhost:3000', 'http://127.0.0.1:5500'],
+  origin: ['https://003-39.github.io', 'http://localhost:3000', 'http://127.0.0.1:5500', 'https://zero03-39-github-io-1.onrender.com'],
   methods: ['GET', 'POST', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization']
 }));
