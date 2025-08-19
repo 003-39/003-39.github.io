@@ -129,6 +129,142 @@ app.get('/db/stats-by-slug', async (req, res) => {
   }
 });
 
+// ── Helpers: merge *_a/*_b pairs and map to canonical keys ────────────────
+function mergeThousandPairs(rows) {
+  // Combine metrics that were split as {metric_a, metric_b} meaning thousands + remainder
+  const aMap = new Map();
+  const bMap = new Map();
+  const out = {};
+
+  for (const { metric, value } of rows) {
+    // MySQL may return strings; normalize to integer
+    const num = Number(value);
+    if (Number.isNaN(num)) continue;
+
+    if (metric.endsWith('_a')) {
+      const base = metric.slice(0, -2);
+      aMap.set(base, num);
+    } else if (metric.endsWith('_b')) {
+      const base = metric.slice(0, -2);
+      bMap.set(base, num);
+    } else {
+      out[metric] = num;
+    }
+  }
+
+  // Merge pairs: base = a*1000 + b
+  for (const base of new Set([...aMap.keys(), ...bMap.keys()])) {
+    const a = aMap.get(base) || 0;
+    const b = bMap.get(base) || 0;
+    out[base] = a * 1000 + b;
+  }
+  return out;
+}
+
+// Canonical key map for front-end data-name
+const CANON_ALIAS = {
+  // Appearances
+  'appearances_stats_men_s_team_appearances': 'appearances',
+  'appearances_stats_minutes_played': 'timePlayed',
+  'appearances_stats_starts': 'starts',
+  'appearances_stats_subbed_on_off': 'substitute', // not used directly (we expose on/off separately)
+  'appearances_subbed_on': 'substituteOn',
+  'appearances_subbed_off': 'substituteOff',
+
+  // Discipline / Fouls
+  'fouls_yellowcards_yellow_cards': 'yellowCards',
+  'fouls_redcards_red_cards': 'straightRedCards',
+  'fouls_foulscommitted_fouls_committed': 'totalFoulsConceded',
+  'fouls_foulsdrawn_fouls_drawn': 'totalFoulsWon',
+
+  // Touches / Defensive
+  'touches_stats_total_touches': 'touches',
+  'touches_total_touches': 'touches',
+  'touches_stats_clearances': 'totalClearances',
+  'touches_stats_interceptions': 'interceptions',
+  'touches_stats_blocks': 'blocks',
+  'touches_stats_tackles_won_lost_a': 'tacklesWon',
+  'touches_tackles_won_lost_a': 'tacklesWon',
+  'totalClearances': 'totalClearances', // already canonical in some seasons
+
+  // Passing
+  'passes_forwards_forward': 'forwardPasses',
+  'passes_left_left': 'leftsidePasses',
+  'passes_right_right': 'rightsidePasses',
+  'passes_backwards_back': 'backwardPasses',
+  'passsuccess_stats_total_passes': 'totalPasses',
+  'passsuccess_stats_key_passes': 'keyPassesAttemptAssists',
+  'passsuccess_stats_successful_crosses': 'successfulCrossesOpenPlay',
+  'passsuccess_stats_assists': 'goalAssists',
+  'passcompletion_playershortpasses_short_balls': 'pass_complecation',
+  'passcompletion_playerlongpasses_long_balls': 'long_pass_sucsess',
+
+  // Goals / Shots
+  'goals_stats_total_goals': 'goals',
+  'goals_stats_goals_per_match': 'goal_per_match',
+  'goals_stats_minutes_per_goal': 'minutes_per_goal',
+  'shots_playershotsontarget': 'shotsOnTargetRate',
+  'shots_playerwoodworkhit': 'totalShots',
+  'scoredwith_head_head': 'headedGoals',
+  'scoredwith_rightfoot_right_foot': 'rightFootGoals',
+  'scoredwith_leftfoot_left_foot': 'leftFootGoals',
+  'scoredwith_penalties_penalties': 'shotsOnTargetRate',
+  'scoredwith_freekicks_free_kicks': 'totalShots',
+  // Identity fallbacks (already canonical keys from PL for 2025 season)
+  'timePlayed': 'timePlayed',
+  'touches': 'touches',
+  'goalAssists': 'goalAssists',
+  'goals': 'goals',
+  'minutesPlayed': 'timePlayed',
+  'gamesPlayed': 'appearances'
+};
+
+function mapToCanonical(merged) {
+  const out = {};
+  for (const [k, v] of Object.entries(merged)) {
+    const alias = CANON_ALIAS[k] || k; // fallback to original if not mapped
+    out[alias] = v;
+  }
+  return out;
+}
+
+// ── Normalized stats endpoint: merges a/b pairs + maps keys, integers only ──
+// GET /db/stats-normalized?player_id=179268&amp;season=2024&amp;competition_id=8
+app.get('/db/stats-normalized', async (req, res) => {
+  try {
+    const { player_id, season, competition_id } = req.query;
+    if (!player_id || !season || !competition_id) {
+      return res.status(400).json({ error: 'player_id, season, competition_id are required' });
+    }
+    const pid = Number(player_id);
+    const sy = Number(season);
+    const cid = Number(competition_id);
+    if (!Number.isInteger(pid) || !Number.isInteger(sy) || !Number.isInteger(cid)) {
+      return res.status(400).json({ error: 'player_id, season, competition_id must be integers' });
+    }
+
+    const [rows] = await pool.query(
+      `SELECT metric, value
+         FROM playerSeasonStats
+        WHERE player_id = ? AND season_year = ? AND competition_id = ?`,
+      [pid, sy, cid]
+    );
+
+    const merged = mergeThousandPairs(rows);
+    const canonical = mapToCanonical(merged);
+
+    res.json({
+      player_id: pid,
+      season: sy,
+      competition_id: cid,
+      data: canonical
+    });
+  } catch (e) {
+    console.error('DB /db/stats-normalized error:', e);
+    res.status(500).json({ error: 'db_query_failed' });
+  }
+});
+
 // ── 팀 랭킹 조회 ────────────────────────────────────────────────────
 // 예: GET /db/rankings?season=2024&competition_id=1&category=goals
 app.get('/db/rankings', async (req, res) => {
@@ -155,7 +291,7 @@ app.get('/db/rankings', async (req, res) => {
     console.error('DB /db/rankings error:', e);
     res.status(500).json({ error: 'db_query_failed' });
   }
-});''
+});
 
 const METRIC_ALIAS = {
   // --- Appearances ---
