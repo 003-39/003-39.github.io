@@ -73,6 +73,37 @@ app.get('/db/ping', async (_req, res) => {
   }
 });
 
+// ---- DB: seasons list for a player (optionally filtered by competition_id) ----
+app.get('/db/seasons', async (req, res) => {
+  try {
+    const playerId = Number(req.query.player_id);
+    const compId = req.query.competition_id ? Number(req.query.competition_id) : null;
+    if (!Number.isFinite(playerId)) {
+      return res.status(400).json({ error: 'player_id is required' });
+    }
+
+    let sql = `
+      SELECT DISTINCT season_year 
+      FROM playerSeasonStats 
+      WHERE player_id = ?
+    `;
+    const params = [playerId];
+
+    if (Number.isFinite(compId)) {
+      sql += ` AND competition_id = ?`;
+      params.push(compId);
+    }
+    sql += ` ORDER BY season_year DESC`;
+
+    const [rows] = await pool.query(sql, params);
+    const years = rows.map(r => Number(r.season_year)).filter(n => Number.isFinite(n));
+    res.json(years);
+  } catch (err) {
+    console.error('DB /db/seasons error:', err);
+    res.status(500).json({ error: 'internal_error' });
+  }
+});
+
 // ── 시즌·대회·플레이어ID로 스탯 조회 ───────────────────────────────
 // 예: GET /db/stats?player_id=225796&season=2022&competition_id=8
 app.get('/db/stats', async (req, res) => {
