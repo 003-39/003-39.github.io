@@ -352,7 +352,8 @@ function renderSeasonMenu(labels) {
       // 2) Fallback: probe API around LIVE_SEASON only (narrow range)
       return await discoverSeasonsByApi(playerId, {
         startYear: Number(LIVE_SEASON),
-        minYear: Number(LIVE_SEASON) - 1,
+        // 과거 시즌까지도 탐색 (예: 2018시즌까지)
+        minYear: 2018,
         pauseMs: 120,
         requireNonEmptyStats: true
       });
