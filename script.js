@@ -4,7 +4,7 @@ let seasonYear = '2024';
 const DEFAULT_COMPETITION_ID = 8; // 기본 대회: 프리미어리그
 window.competitionId = DEFAULT_COMPETITION_ID;
 
-const API_BASE = 'https://zero03-39-github-io.onrender.com';
+const API_BASE = 'https://zero03-39-github-io-1.onrender.com';
 const DB_BASE = API_BASE; // same origin for DB routes
 const LIVE_SEASON = '2025'; // Only this season hits external PL API
 
@@ -92,7 +92,9 @@ window.refreshStats = async function(y) {
 };
 
 
-    	// 초기 스케일링 적용
+    // DOM이 로드된 후 실행되는 메인 함수
+document.addEventListener('DOMContentLoaded', async function() {
+	// 초기 스케일링 적용
 	applyInitialScaling();
 	
 	// 첫 화면 스케일 조정 강화
@@ -143,8 +145,121 @@ window.refreshStats = async function(y) {
       return;
     }
 
+  // ▶ 이름, 등번호, 이미지
+  // playerID.json에서 선수 정보 가져오기
+  let firstName = "Unknown";
+  let lastName = "Unknown";
+  let shirtNum = "";
+  
+  // playerID.json에서 선수 정보 찾기
+  try {
+    const playerIDResponse = await fetch('./json/playerID.json');
+    const playerIDData = await playerIDResponse.json();
+    
+    // URL의 player 파라미터로 선수 찾기
+    const playerParam = new URLSearchParams(window.location.search).get('player');
+    const playerInfo = playerIDData.find(p => p.name === playerParam);
+    
+    if (playerInfo) {
+      // 이름 분리 (robert_sanchez → Robert Sanchez)
+      const nameParts = playerInfo.name.split('_');
+      firstName = nameParts[0].charAt(0).toUpperCase() + nameParts[0].slice(1);
+      lastName = nameParts.slice(1).map(part => 
+        part.charAt(0).toUpperCase() + part.slice(1)
+      ).join(' ');
+      
+      // 등번호
+      shirtNum = playerIDData.shirtNum || "";
+      
+      console.log("✅ playerID.json에서 정보 로드:", { firstName, lastName, shirtNum });
+    } else {
+      console.log("⚠️ playerID.json에서 선수 정보를 찾을 수 없음:", playerParam);
+    }
+  } catch (error) {
+    console.error("❌ playerID.json 로드 실패:", error);
+  }
+  
+  // 화면에 표시
+  const firstNameEl = document.querySelector(".first-name");
+  const numberEl = document.querySelector(".number");
+  if (firstNameEl) firstNameEl.textContent = firstName;
+  if (numberEl) numberEl.textContent = `${lastName} ${shirtNum}`;
+  
+  // info-img에 player_info.json의 이미지 설정
+  const infoImg = document.getElementById("info-img");
+  if (infoImg) {
+    const imgElement = infoImg.querySelector("img");
+    if (imgElement) {
+      imgElement.src = info.image || "image/placeholder.png";
+      console.log("✅ info-img src 설정 완료:", imgElement.src);
+    } else {
+      console.log("❌ info-img 내부 img 요소를 찾을 수 없습니다");
+    }
+  }
 
+  const mainImg = document.getElementById("main-image");
+  console.log("🔍 main-image 요소:", mainImg);
+  console.log("🔍 mainImage 경로:", info.mainImage);
+  if (mainImg) {
+    mainImg.src = info.mainImage || "image/placeholder.png";
+    console.log("✅ main-image src 설정 완료:", mainImg.src);
+  } else {
+    console.log("❌ main-image 요소를 찾을 수 없습니다");
+  }
 
+  // joined
+  const joinedEl = document.getElementById("player-joined");
+  if (joinedEl) {
+    joinedEl.innerHTML = `<span>${info.joined}</span>`;
+  }
+
+  // description
+  const descEl = document.getElementById("player-description");
+  if (descEl) {
+    descEl.innerHTML = "";
+    if (info.paragraphs && Array.isArray(info.paragraphs)) {
+      info.paragraphs.forEach(p => {
+        const para = document.createElement("p");
+        para.textContent = p;
+        descEl.appendChild(para);
+      });
+    }
+  }
+
+  // 시즌 메뉴 렌더링
+  try {
+    console.log("🚀 시즌 탐색 시작...");
+    console.log("🔍 API 서버:", API_BASE);
+    console.log("🔍 선수 ID:", playerId);
+    
+    const seasonLabels = await discoverSeasons(playerId);
+    const finalLabels = seasonLabels.length ? seasonLabels : ['2024/25'];
+    console.log("📋 발견된 시즌들:", finalLabels);
+    
+    renderSeasonMenu(finalLabels);
+    
+    // 초기 스탯 로드 (한 번만)
+    const initialSeason = window.seasonYear || LIVE_SEASON;
+    refreshStats(initialSeason);
+  } catch (error) {
+    console.error("시즌 메뉴 생성 실패:", error);
+    // 기본값으로 설정
+    renderSeasonMenu(['2024/25']);
+    refreshStats('2024');
+  }
+
+  // 아코디언 데이터 로드
+  try {
+    const accordionRes = await fetch("json/player_info.json");
+    const accordionData = await accordionRes.json();
+    const playerData = accordionData[playerName];
+    if (playerData && playerData.accordion) {
+      renderAccordion(playerData.accordion);
+    }
+  } catch (error) {
+    console.error("아코디언 데이터 로드 실패:", error);
+  }
+}); // DOMContentLoaded 함수 닫기
 
 // ---- 시즌 메뉴 렌더 + 클릭 이벤트 바인딩 ----
 function renderSeasonMenu(labels) {
@@ -188,85 +303,6 @@ function renderSeasonMenu(labels) {
 
 
 
-    // ▶ 이름, 등번호, 이미지
-    // playerID.json에서 선수 정보 가져오기
-    let firstName = "Unknown";
-    let lastName = "Unknown";
-    let shirtNum = "";
-    
-    // playerID.json에서 선수 정보 찾기
-    try {
-      const playerIDResponse = await fetch('./json/playerID.json');
-      const playerIDData = await playerIDResponse.json();
-      
-      // URL의 player 파라미터로 선수 찾기
-      const playerParam = new URLSearchParams(window.location.search).get('player');
-      const playerInfo = playerIDData.find(p => p.name === playerParam);
-      
-      if (playerInfo) {
-        // 이름 분리 (robert_sanchez → Robert Sanchez)
-        const nameParts = playerInfo.name.split('_');
-        firstName = nameParts[0].charAt(0).toUpperCase() + nameParts[0].slice(1);
-        lastName = nameParts.slice(1).map(part => 
-          part.charAt(0).toUpperCase() + part.slice(1)
-        ).join(' ');
-        
-        // 등번호
-        shirtNum = playerInfo.shirtNum || "";
-        
-        console.log("✅ playerID.json에서 정보 로드:", { firstName, lastName, shirtNum });
-      } else {
-        console.log("⚠️ playerID.json에서 선수 정보를 찾을 수 없음:", playerParam);
-      }
-    } catch (error) {
-      console.error("❌ playerID.json 로드 실패:", error);
-    }
-    
-    // 화면에 표시
-    document.querySelector(".first-name").textContent = firstName;
-    document.querySelector(".number").textContent = `${lastName} ${shirtNum}`;
-    
-    // main-image는 별도로 설정 (현재는 placeholder 유지)
-    // document.getElementById("main-image").src = "별도_이미지_경로";
-    
-    // info-img에 player_info.json의 이미지 설정
-    const infoImg = document.getElementById("info-img");
-    if (infoImg) {
-      const imgElement = infoImg.querySelector("img");
-      if (imgElement) {
-        imgElement.src = info.image || "image/placeholder.png";
-        console.log("✅ info-img src 설정 완료:", imgElement.src);
-      } else {
-        console.log("❌ info-img 내부 img 요소를 찾을 수 없습니다");
-      }
-    }
-
-    const mainImg = document.getElementById("main-image");
-    console.log("🔍 main-image 요소:", mainImg);
-    console.log("🔍 mainImage 경로:", info.mainImage);
-    if (mainImg) {
-      mainImg.src = info.mainImage || "image/placeholder.png";
-      console.log("✅ main-image src 설정 완료:", mainImg.src);
-    } else {
-      console.log("❌ main-image 요소를 찾을 수 없습니다");
-    }
-
-    // joined
-    const joinedEl = document.getElementById("player-joined");
-    if (joinedEl) {
-      joinedEl.innerHTML = `<span>${info.joined}</span>`;
-    }
-
-    // description
-    const descEl = document.getElementById("player-description");
-    if (descEl) {
-      descEl.innerHTML = "";
-      info.paragraphs.forEach(p => {
-        const para = document.createElement("p");
-        para.textContent = p;
-        descEl.appendChild(para);
-      });
-    }
 
     	// ---- 초기 스케일링 적용 ----
 	
@@ -434,49 +470,6 @@ function renderSeasonMenu(labels) {
       console.log(`🎯 최종 발견된 시즌들:`, labels);
       return labels;
     }
-
-    try {
-      console.log("🚀 시즌 탐색 시작...");
-      console.log("🔍 API 서버:", API_BASE);
-      console.log("🔍 선수 ID:", playerId);
-      
-      const seasonLabels = await discoverSeasons(playerId);
-      const finalLabels = seasonLabels.length ? seasonLabels : ['2024/25'];
-      console.log("📋 발견된 시즌들:", finalLabels);
-      
-      renderSeasonMenu(finalLabels);
-      
-      // 초기 스탯 로드 (한 번만)
-      const initialSeason = window.seasonYear || LIVE_SEASON;
-      refreshStats(initialSeason);
-    } catch (error) {
-      console.error("시즌 메뉴 생성 실패:", error);
-      // 기본값으로 설정
-      renderSeasonMenu(['2024/25']);
-      refreshStats('2024');
-    }
-
-
-  } catch (error) {
-    console.error("API 요청 중 오류:", error.message);
-  }
-});
-
-document.addEventListener("DOMContentLoaded", function () {
-  // URL에서 player 파라미터 가져오기
-  const urlParams = new URLSearchParams(window.location.search);
-  const playerName = urlParams.get("player");
-  
-  if (!playerName) return;
-  
-  fetch("json/player_info.json")
-  .then(res => res.json())
-  .then(data => {
-    const playerData = data[playerName];
-    if (!playerData) return console.error("❌ 아코디언 데이터 없음");
-    renderAccordion(playerData.accordion);
-  });
-});
 
 
 function renderAccordion(sections) {
