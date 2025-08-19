@@ -1,6 +1,9 @@
 let playerId = null;
 let seasonYear = '2024';
 
+const DEFAULT_COMPETITION_ID = 8; // 기본 대회: 프리미어리그
+window.competitionId = DEFAULT_COMPETITION_ID;
+
 const API_BASE = 'https://zero03-39-github-io.onrender.com';
 const DB_BASE = API_BASE; // same origin for DB routes
 const LIVE_SEASON = '2025'; // Only this season hits external PL API
@@ -9,12 +12,13 @@ window.refreshStats = async function(y) {
   if (!window.playerId || !y) return;
   try {
     let res;
+    const compId = Number(window.competitionId ?? DEFAULT_COMPETITION_ID) || DEFAULT_COMPETITION_ID;
     if (String(y) === LIVE_SEASON) {
       // Live season → Pulselive proxy
-      res = await fetch(`${API_BASE}/api/player/${window.playerId}?season=${y}`);
+      res = await fetch(`${API_BASE}/api/player/${window.playerId}?season=${y}&competition_id=${compId}`);
     } else {
       // Past seasons → MySQL (EAV flattened on server)
-      res = await fetch(`${DB_BASE}/db/stats?player_id=${window.playerId}&season=${y}`);
+      res = await fetch(`${DB_BASE}/db/stats?player_id=${window.playerId}&season=${y}&competition_id=${compId}`);
     }
     if (!res.ok) throw new Error(`HTTP ${res.status}`);
     const payload = await res.json();
@@ -88,8 +92,6 @@ window.refreshStats = async function(y) {
 };
 
 
-document.addEventListener("DOMContentLoaded", async () => {
-  try {
     	// 초기 스케일링 적용
 	applyInitialScaling();
 	
@@ -107,7 +109,11 @@ document.addEventListener("DOMContentLoaded", async () => {
 	// 1. 쿼리에서 player=pedro_neto 파싱
     const urlParams = new URLSearchParams(window.location.search);
     const playerName = urlParams.get("player"); // 예: "pedro_neto"
-    
+    // Parse optional comp param and set window.competitionId
+    const compParam = urlParams.get("comp");
+    if (compParam && /^(\d+)$/.test(compParam)) {
+      window.competitionId = Number(compParam);
+    }
     if (!playerName) {
       console.error("❌ player 쿼리 없음");
       console.log("💡 올바른 URL 예시: ?player=pedro_neto");
