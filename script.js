@@ -17,13 +17,13 @@ window.refreshStats = async function(y) {
       // Live season → Pulselive proxy
       res = await fetch(`${API_BASE}/api/player/${window.playerId}?season=${y}&competition_id=${compId}`);
     } else {
-      // Past seasons → MySQL (EAV flattened on server)
-      res = await fetch(`${DB_BASE}/db/stats?player_id=${window.playerId}&season=${y}&competition_id=${compId}`);
+      // Past seasons → MySQL (normalized stats endpoint)
+      res = await fetch(`${DB_BASE}/db/stats-normalized?player_id=${window.playerId}&season=${y}&competition_id=${compId}`);
     }
     if (!res.ok) throw new Error(`HTTP ${res.status}`);
     const payload = await res.json();
-    // Allow both {stats:{}} or flat {}
-    const stats = payload?.stats || payload || {};
+    // Prefer normalized shape { data: {...} }, fallback to older { stats: {...} } or flat
+    const stats = payload?.data || payload?.stats || payload || {};
 
     // 1) Fill direct mapped fields
     document.querySelectorAll('[data-name]').forEach(el => {
@@ -52,7 +52,7 @@ window.refreshStats = async function(y) {
         const apps  = Number(stats["gamesPlayed"] ?? 0);
         setValue(element, safeDiv(goals, Math.max(apps,1)).toFixed(2));
       } else if (name === "minutes_per_goal") {
-        const mins  = Number(stats["timePlayed"] ?? 0);
+        const mins  = Number(stats["minutesPlayed"] ?? stats["timePlayed"] ?? 0);
         const goals = Number(stats["goals"] ?? 0);
         setValue(element, goals > 0 ? Math.round(mins / goals).toString() : "0");
       } else if (name === "tackles_won_total") {
