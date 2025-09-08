@@ -63,18 +63,10 @@ window.refreshStats = async function(y) {
         const won  = Number(stats["duelsWon"] ?? 0);
         const lost = Number(stats["duelsLost"] ?? 0);
         setValue(element, `${won}/${lost}`);
-      } else if (name === "obox-rate") {
-        const obox  = Number(stats["shotsOnTargetOutsideBox"] ?? 0);
-        const total = Number(stats["totalShots"] ?? 0);
-        setValue(element, Math.round(safeDiv(obox, Math.max(total,1)) * 100) + "%");
       } else if (name === "shotsOnTargetRate") {
         const on   = Number(stats["shotsOnTargetIncGoals"] ?? 0);
         const tot  = Number(stats["totalShots"] ?? 0);
         setValue(element, Math.round(safeDiv(on, Math.max(tot,1)) * 100) + "%");
-      } else if (name === "inbox-rate") {
-        const ibox = Number(stats["shotsOnTargetInBox"] ?? 0);
-        const tot  = Number(stats["totalShots"] ?? 0);
-        setValue(element, Math.round(safeDiv(ibox, Math.max(tot,1)) * 100) + "%");
       } else if (name === "long_pass_sucsess") {
         const suc   = Number(stats["successfulLongPasses"] ?? 0);
         const fail  = Number(stats["unsuccessfulLongPasses"] ?? 0);
