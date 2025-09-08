@@ -307,6 +307,8 @@ const METRIC_ALIAS = {
   // --- Goals / Shots ---
   'goals_stats_total_goals': 'goals',
   'goals_stats_goals_per_match': 'goal_per_match',
+  'goals_goalsinsidebox': 'inbox-rate',
+  'goals_goalsoutsidebox': 'obox-rate',
   'goals_stats_minutes_per_goal': 'minutes_per_goal',
   'shots_playershotsontarget': 'shotsOnTargetRate', // Penalties 자리?
   'shots_playerwoodworkhit': 'totalShots',
