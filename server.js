@@ -286,6 +286,11 @@ app.get('/db/stats-normalized', async (req, res) => {
 
     const merged = mergeThousandPairs(rows);
     const canonical = mapToCanonical(merged);
+    
+    // 디버깅: obox-rate, inbox-rate 관련 데이터 확인
+    console.log('🔍 원본 rows에서 goals 관련 데이터:', rows.filter(r => r.metric.includes('goals')));
+    console.log('🔍 merged에서 goals 관련 데이터:', Object.keys(merged).filter(k => k.includes('goals')));
+    console.log('🔍 canonical에서 goals 관련 데이터:', Object.keys(canonical).filter(k => k.includes('goals') || k.includes('rate')));
 
     res.json({
       player_id: pid,

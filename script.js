@@ -24,6 +24,10 @@ window.refreshStats = async function(y) {
     const payload = await res.json();
     // Prefer normalized shape { data: {...} }, fallback to older { stats: {...} } or flat
     const stats = payload?.data || payload?.stats || payload || {};
+    console.log('📊 받은 stats 데이터:', stats);
+    console.log('📊 goals 관련 모든 키들:', Object.keys(stats).filter(k => k.toLowerCase().includes('goal')));
+    console.log('📊 box 관련 모든 키들:', Object.keys(stats).filter(k => k.toLowerCase().includes('box')));
+    console.log('📊 rate 관련 모든 키들:', Object.keys(stats).filter(k => k.toLowerCase().includes('rate')));
 
     // 1) Fill direct mapped fields
     document.querySelectorAll('[data-name]').forEach(el => {
@@ -76,6 +80,16 @@ window.refreshStats = async function(y) {
         const suc   = Number(stats["successfulShortPasses"] ?? 0) + Number(stats["successfulLongPasses"] ?? 0);
         const total = Number(stats["totalPasses"] ?? 0);
         setValue(element, Math.round(safeDiv(suc, Math.max(total,1)) * 100) + "%");
+      } else if (name === "obox-rate") {
+        // 서버에서 이미 계산된 박스 외부 골 비율에 % 붙이기
+        const value = Number(stats[name] ?? 0);
+        console.log(`🔍 obox-rate 처리: 서버값=${stats[name]}, 숫자변환=${value}`);
+        setValue(element, value + "%");
+      } else if (name === "inbox-rate") {
+        // 서버에서 이미 계산된 박스 내부 골 비율에 % 붙이기
+        const value = Number(stats[name] ?? 0);
+        console.log(`🔍 inbox-rate 처리: 서버값=${stats[name]}, 숫자변환=${value}`);
+        setValue(element, value + "%");
       }
     });
   } catch (e) {
