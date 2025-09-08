@@ -75,21 +75,25 @@ window.refreshStats = async function(y) {
         const suc   = Number(stats["successfulLongPasses"] ?? 0);
         const fail  = Number(stats["unsuccessfulLongPasses"] ?? 0);
         const total = suc + fail;
-        setValue(element, Math.round(safeDiv(suc, Math.max(total,1)) * 100) + "%");
+        const percentage = Math.round(safeDiv(suc, Math.max(total,1)) * 100);
+        console.log(`🔍 long_pass_sucsess 처리: 성공=${suc}, 실패=${fail}, 총=${total}, 비율=${percentage}%`);
+        setValue(element, percentage);
       } else if (name === "pass_complecation") {
         const suc   = Number(stats["successfulShortPasses"] ?? 0) + Number(stats["successfulLongPasses"] ?? 0);
         const total = Number(stats["totalPasses"] ?? 0);
-        setValue(element, Math.round(safeDiv(suc, Math.max(total,1)) * 100) + "%");
+        const percentage = Math.round(safeDiv(suc, Math.max(total,1)) * 100);
+        console.log(`🔍 pass_complecation 처리: 성공=${suc}, 총=${total}, 비율=${percentage}%`);
+        setValue(element, percentage);
       } else if (name === "obox-rate") {
-        // 서버에서 이미 계산된 박스 외부 골 비율에 % 붙이기
+        // 서버에서 이미 계산된 박스 외부 골 비율 (CSS에서 % 자동 추가)
         const value = Number(stats[name] ?? 0);
         console.log(`🔍 obox-rate 처리: 서버값=${stats[name]}, 숫자변환=${value}`);
-        setValue(element, value + "%");
+        setValue(element, value);
       } else if (name === "inbox-rate") {
-        // 서버에서 이미 계산된 박스 내부 골 비율에 % 붙이기
+        // 서버에서 이미 계산된 박스 내부 골 비율 (CSS에서 % 자동 추가)
         const value = Number(stats[name] ?? 0);
         console.log(`🔍 inbox-rate 처리: 서버값=${stats[name]}, 숫자변환=${value}`);
-        setValue(element, value + "%");
+        setValue(element, value);
       }
     });
   } catch (e) {

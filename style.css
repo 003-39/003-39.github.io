@@ -1480,6 +1480,12 @@
 	font-size: 28px;
 	color: rgba(24,61,213,1);
 }
+
+/* percentage 클래스에 자동으로 % 기호 추가 */
+.spot-text.percentage::after,
+.completion-text.percentage::after {
+    content: "%";
+}
 .spot-text-1 {
     flex: 1 0 auto;
 	text-align: center;
