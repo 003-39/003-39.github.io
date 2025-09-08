@@ -370,8 +370,8 @@ const METRIC_ALIAS = {
   'scoredwith_head_head': 'headedGoals',
   'scoredwith_rightfoot_right_foot': 'rightFootGoals',
   'scoredwith_leftfoot_left_foot': 'leftFootGoals',
-  'scoredwith_penalties_penalties': 'shotsOnTargetRate', // Penalties
-  'scoredwith_freekicks_free_kicks': 'totalShots', // Free Kicks
+  'scoredwith_penalties_penalties': 'penalties', // Penalties
+  'scoredwith_freekicks_free_kicks': 'freeKicks', // Free Kicks
 };
 
 // ── 마지막: 확실히 포트 바인딩 + 바인드 로그 ─────────────────────────
