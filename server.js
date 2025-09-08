@@ -160,6 +160,66 @@ app.get('/db/stats-by-slug', async (req, res) => {
   }
 });
 
+// ── 상수 정의 ─────────────────────────────────────────────────────────────
+const METRIC_ALIAS = {
+  // --- Appearances ---
+  'appearances_stats_men_s_team_appearances': 'appearances', // Game Played
+  'appearances_stats_starts': 'starts',
+  'appearances_stats_minutes_played': 'timePlayed', // Minutes Played
+  'appearances_stats_subbed_on_off_a': 'substituteOn', // Subbed On
+  'appearances_stats_subbed_on_off_b': 'substituteOff', // Subbed Off
+
+  // --- Discipline ---
+  'fouls_yellowcards_yellow_cards': 'yellowCards',
+  'fouls_redcards_red_cards': 'straightRedCards',
+
+  // --- Fouls ---
+  'fouls_foulscommitted_fouls_committed': 'totalFoulsConceded',
+  'fouls_foulsdrawn_fouls_drawn': 'totalFoulsWon',
+
+  // --- Touches ---
+  'touches_stats_total_touches': 'touches',
+  'touches_total_touches': 'touches',
+  'touches_stats_clearances': 'totalClearances',
+  'touches_stats_tackles_won_lost_a': 'tacklesWon',
+  'touches_stats_interceptions': 'interceptions',
+  'touches_stats_blocks': 'blocks',
+  'touches_stats_duels_won_lost_a': 'duelsWon',
+
+  // --- Passing ---
+  'passes_forwards_forward': 'forwardPasses',
+  'passes_left_left': 'leftsidePasses',
+  'passes_right_right': 'rightsidePasses',
+  'passes_backwards_back': 'backwardPasses',
+  'passsuccess_stats_total_passes': 'totalPasses',
+  'passsuccess_stats_key_passes': 'keyPassesAttemptAssists', // Big Chances Created
+  'passsuccess_stats_successful_crosses': 'successfulCrossesOpenPlay',
+  'passsuccess_stats_assists': 'goalAssists',
+  'passcompletion_playershortpasses_short_balls': 'pass_complecation', // Pass %
+  'passcompletion_playerlongpasses_long_balls': 'long_pass_sucsess', // Long Balls %
+
+  // --- Goals / Shots ---
+  'goals_stats_total_goals': 'goals',
+  'goals_stats_goals_per_match': 'goal_per_match',
+  'goals_goalsinsidebox': 'inbox-rate',
+  'goals_goalsoutsidebox': 'obox-rate',
+  'goals_stats_minutes_per_goal': 'minutes_per_goal',
+  'shots_playershotsontarget': 'shotsOnTargetRate', // Penalties 자리?
+  'shots_playerwoodworkhit': 'totalShots',
+  'scoredwith_head_head': 'headedGoals',
+  'scoredwith_rightfoot_right_foot': 'rightFootGoals',
+  'scoredwith_leftfoot_left_foot': 'leftFootGoals',
+  'scoredwith_penalties_penalties': 'penalties', // Penalties
+  'scoredwith_freekicks_free_kicks': 'freeKicks', // Free Kicks
+  
+  'timePlayed': 'timePlayed',
+  'touches': 'touches',
+  'goalAssists': 'goalAssists',
+  'goals': 'goals',
+  'minutesPlayed': 'timePlayed',
+  'gamesPlayed': 'appearances'
+};
+
 // ── Helpers: merge *_a/*_b pairs and map to canonical keys ────────────────
 function mergeThousandPairs(rows) {
   // Combine metrics that were split as {metric_a, metric_b} meaning thousands + remainder
@@ -196,7 +256,7 @@ function mergeThousandPairs(rows) {
 function mapToCanonical(merged) {
   const out = {};
   for (const [k, v] of Object.entries(merged)) {
-    const alias = CANON_ALIAS[k] || k; // fallback to original if not mapped
+    const alias = METRIC_ALIAS[k] || k; // fallback to original if not mapped
     out[alias] = v;
   }
   return out;
@@ -266,65 +326,6 @@ app.get('/db/rankings', async (req, res) => {
     res.status(500).json({ error: 'db_query_failed' });
   }
 });
-
-const METRIC_ALIAS = {
-  // --- Appearances ---
-  'appearances_stats_men_s_team_appearances': 'appearances', // Game Played
-  'appearances_stats_starts': 'starts',
-  'appearances_stats_minutes_played': 'timePlayed', // Minutes Played
-  'appearances_stats_subbed_on_off_a': 'substituteOn', // Subbed On
-  'appearances_stats_subbed_on_off_b': 'substituteOff', // Subbed Off
-
-  // --- Discipline ---
-  'fouls_yellowcards_yellow_cards': 'yellowCards',
-  'fouls_redcards_red_cards': 'straightRedCards',
-
-  // --- Fouls ---
-  'fouls_foulscommitted_fouls_committed': 'totalFoulsConceded',
-  'fouls_foulsdrawn_fouls_drawn': 'totalFoulsWon',
-
-  // --- Touches ---
-  'touches_stats_total_touches': 'touches',
-  'touches_total_touches': 'touches',
-  'touches_stats_clearances': 'totalClearances',
-  'touches_stats_tackles_won_lost_a': 'tacklesWon',
-  'touches_stats_interceptions': 'interceptions',
-  'touches_stats_blocks': 'blocks',
-  'touches_stats_duels_won_lost_a': 'duelsWon',
-
-  // --- Passing ---
-  'passes_forwards_forward': 'forwardPasses',
-  'passes_left_left': 'leftsidePasses',
-  'passes_right_right': 'rightsidePasses',
-  'passes_backwards_back': 'backwardPasses',
-  'passsuccess_stats_total_passes': 'totalPasses',
-  'passsuccess_stats_key_passes': 'keyPassesAttemptAssists', // Big Chances Created
-  'passsuccess_stats_successful_crosses': 'successfulCrossesOpenPlay',
-  'passsuccess_stats_assists': 'goalAssists',
-  'passcompletion_playershortpasses_short_balls': 'pass_complecation', // Pass %
-  'passcompletion_playerlongpasses_long_balls': 'long_pass_sucsess', // Long Balls %
-
-  // --- Goals / Shots ---
-  'goals_stats_total_goals': 'goals',
-  'goals_stats_goals_per_match': 'goal_per_match',
-  'goals_goalsinsidebox': 'inbox-rate',
-  'goals_goalsoutsidebox': 'obox-rate',
-  'goals_stats_minutes_per_goal': 'minutes_per_goal',
-  'shots_playershotsontarget': 'shotsOnTargetRate', // Penalties 자리?
-  'shots_playerwoodworkhit': 'totalShots',
-  'scoredwith_head_head': 'headedGoals',
-  'scoredwith_rightfoot_right_foot': 'rightFootGoals',
-  'scoredwith_leftfoot_left_foot': 'leftFootGoals',
-  'scoredwith_penalties_penalties': 'penalties', // Penalties
-  'scoredwith_freekicks_free_kicks': 'freeKicks', // Free Kicks
-  
-  'timePlayed': 'timePlayed',
-  'touches': 'touches',
-  'goalAssists': 'goalAssists',
-  'goals': 'goals',
-  'minutesPlayed': 'timePlayed',
-  'gamesPlayed': 'appearances'
-};
 
 // ── 마지막: 확실히 포트 바인딩 + 바인드 로그 ─────────────────────────
 const HOST = '0.0.0.0';                   // 명시적으로 바인드
