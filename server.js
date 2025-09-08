@@ -192,63 +192,6 @@ function mergeThousandPairs(rows) {
   return out;
 }
 
-// Canonical key map for front-end data-name
-const CANON_ALIAS = {
-  // Appearances
-  'appearances_stats_men_s_team_appearances': 'appearances',
-  'appearances_stats_minutes_played': 'timePlayed',
-  'appearances_stats_starts': 'starts',
-  'appearances_stats_subbed_on_off': 'substitute', // not used directly (we expose on/off separately)
-  'appearances_subbed_on': 'substituteOn',
-  'appearances_subbed_off': 'substituteOff',
-
-  // Discipline / Fouls
-  'fouls_yellowcards_yellow_cards': 'yellowCards',
-  'fouls_redcards_red_cards': 'straightRedCards',
-  'fouls_foulscommitted_fouls_committed': 'totalFoulsConceded',
-  'fouls_foulsdrawn_fouls_drawn': 'totalFoulsWon',
-
-  // Touches / Defensive
-  'touches_stats_total_touches': 'touches',
-  'touches_total_touches': 'touches',
-  'touches_stats_clearances': 'totalClearances',
-  'touches_stats_interceptions': 'interceptions',
-  'touches_stats_blocks': 'blocks',
-  'touches_stats_tackles_won_lost_a': 'tacklesWon',
-  'touches_tackles_won_lost_a': 'tacklesWon',
-  'totalClearances': 'totalClearances', // already canonical in some seasons
-
-  // Passing
-  'passes_forwards_forward': 'forwardPasses',
-  'passes_left_left': 'leftsidePasses',
-  'passes_right_right': 'rightsidePasses',
-  'passes_backwards_back': 'backwardPasses',
-  'passsuccess_stats_total_passes': 'totalPasses',
-  'passsuccess_stats_key_passes': 'keyPassesAttemptAssists',
-  'passsuccess_stats_successful_crosses': 'successfulCrossesOpenPlay',
-  'passsuccess_stats_assists': 'goalAssists',
-  'passcompletion_playershortpasses_short_balls': 'pass_complecation',
-  'passcompletion_playerlongpasses_long_balls': 'long_pass_sucsess',
-
-  // Goals / Shots
-  'goals_stats_total_goals': 'goals',
-  'goals_stats_goals_per_match': 'goal_per_match',
-  'goals_stats_minutes_per_goal': 'minutes_per_goal',
-  'shots_playershotsontarget': 'shotsOnTargetRate',
-  'shots_playerwoodworkhit': 'totalShots',
-  'scoredwith_head_head': 'headedGoals',
-  'scoredwith_rightfoot_right_foot': 'rightFootGoals',
-  'scoredwith_leftfoot_left_foot': 'leftFootGoals',
-  'scoredwith_penalties_penalties': 'shotsOnTargetRate',
-  'scoredwith_freekicks_free_kicks': 'totalShots',
-  // Identity fallbacks (already canonical keys from PL for 2025 season)
-  'timePlayed': 'timePlayed',
-  'touches': 'touches',
-  'goalAssists': 'goalAssists',
-  'goals': 'goals',
-  'minutesPlayed': 'timePlayed',
-  'gamesPlayed': 'appearances'
-};
 
 function mapToCanonical(merged) {
   const out = {};
@@ -372,6 +315,13 @@ const METRIC_ALIAS = {
   'scoredwith_leftfoot_left_foot': 'leftFootGoals',
   'scoredwith_penalties_penalties': 'penalties', // Penalties
   'scoredwith_freekicks_free_kicks': 'freeKicks', // Free Kicks
+  
+  'timePlayed': 'timePlayed',
+  'touches': 'touches',
+  'goalAssists': 'goalAssists',
+  'goals': 'goals',
+  'minutesPlayed': 'timePlayed',
+  'gamesPlayed': 'appearances'
 };
 
 // ── 마지막: 확실히 포트 바인딩 + 바인드 로그 ─────────────────────────
