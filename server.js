@@ -166,8 +166,8 @@ const METRIC_ALIAS = {
   'appearances_stats_men_s_team_appearances': 'appearances', // Game Played
   'appearances_stats_starts': 'starts',
   'appearances_stats_minutes_played': 'timePlayed', // Minutes Played
-  'appearances_stats_subbed_on_off_a': 'substituteOn', // Subbed On
-  'appearances_stats_subbed_on_off_b': 'substituteOff', // Subbed Off
+  'appearances_subbed_on': 'substituteOn', // Subbed On
+  'appearances_subbed_off': 'substituteOff', // Subbed Off
 
   // --- Discipline ---
   'fouls_yellowcards_yellow_cards': 'yellowCards',
